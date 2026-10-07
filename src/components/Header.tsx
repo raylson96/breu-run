@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flame, MessageCircle, Settings, Trophy, Sparkles } from 'lucide-react';
+import { MessageCircle, Settings, Trophy, Sparkles } from 'lucide-react';
 import { NotificationCenter } from './NotificationCenter';
 import type { AppNotification } from '../types/notification';
 
@@ -32,40 +32,24 @@ export const Header: React.FC<HeaderProps> = ({
 }) => {
   return (
     <header className="bg-slate-950 text-white border-b border-slate-800 sticky top-0 z-40 shadow-xl">
-      {/* Top Banner / Notificação de Alerta */}
-      <div className="bg-gradient-to-r from-amber-500 via-orange-600 to-red-600 text-white text-xs font-semibold py-1.5 px-4 text-center flex items-center justify-between">
-        <div className="max-w-7xl mx-auto w-full flex items-center justify-center gap-2">
-          <Flame className="w-3.5 h-3.5 animate-pulse flex-shrink-0" />
-          <span>
-            <strong>Circuito Breu Run:</strong> {openRegistrationsCount} de {totalRaces} provas com inscrições abertas ou confirmadas
-          </span>
-          <button
-            onClick={onOpenAlertModal}
-            className="underline hover:text-amber-100 font-bold ml-1 cursor-pointer hidden sm:inline"
-          >
-            Receber avisos no WhatsApp
-          </button>
-        </div>
-      </div>
-
       {/* Main Full-Width Header Bar */}
-      <div className="w-full px-4 sm:px-6 lg:px-10 py-3.5 flex items-center justify-between">
+      <div className="w-full px-3 sm:px-6 lg:px-10 py-3 flex items-center justify-between">
         {/* Logo & Slogan */}
-        <div className="flex items-center gap-3">
-          <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-orange-600 to-amber-500 flex items-center justify-center shadow-lg shadow-orange-950/40">
-            <Trophy className="w-6 h-6 text-white" />
+        <div className="flex items-center gap-2.5 sm:gap-3">
+          <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-tr from-orange-600 to-amber-500 flex items-center justify-center shadow-lg shadow-orange-950/40 flex-shrink-0">
+            <Trophy className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
           </div>
           <div>
             <div className="flex items-center gap-2">
               <span className="font-black text-xl sm:text-2xl tracking-tight bg-gradient-to-r from-white via-slate-100 to-orange-400 bg-clip-text text-transparent">
                 BREU RUN
               </span>
-              <span className="bg-orange-500/20 text-orange-400 border border-orange-500/30 text-[10px] font-extrabold px-2 py-0.5 rounded uppercase tracking-wider">
-                CALENDÁRIO OFICIAL
+              <span className="bg-orange-500/20 text-orange-400 border border-orange-500/30 text-[10px] font-bold px-2 py-0.5 rounded-full tracking-wide">
+                Calendário Breu Run
               </span>
             </div>
-            <p className="text-slate-400 text-xs hidden md:block">
-              Centralizando Chip Amazônia, Chip Breu Branco, Chip Pará, Chip Cronos e organizadores regionais
+            <p className="text-slate-400 text-xs hidden sm:block">
+              Centralização de chips de corrida • {totalRaces} provas ({openRegistrationsCount} abertas)
             </p>
           </div>
         </div>

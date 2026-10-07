@@ -14,13 +14,15 @@ export const REGIONS_POLOS = [
 
 export const REGIONS_CITIES = [
   'Todas',
-  'Tailândia',
-  'Marabá',
   'Breu Branco',
+  'Tailândia',
+  'Tucuruí',
+  'Marabá',
   'Parauapebas',
+  'Concórdia do Pará',
+  'Nova Ipixuna',
   'Belém',
   'Castanhal',
-  'Tucuruí',
   'Canaã dos Carajás',
   'Paragominas',
   'Barcarena',

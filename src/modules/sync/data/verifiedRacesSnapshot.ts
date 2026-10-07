@@ -167,6 +167,8 @@ export const VERIFIED_CHIP_SNAPSHOT: ExtractedRace[] = [
     "currentBatch": "Inscrições Abertas",
     "price": 54.9,
     "priceFrom": 54.9,
+    "priceWithoutShirt": 54.9,
+    "priceWithShirt": 84.9,
     "isRegistrationOpen": true,
     "organizer": "Chip Amazônia",
     "rawData": {

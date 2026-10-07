@@ -73,6 +73,8 @@ export function App() {
                 registrationUrl: hasForbiddenTerm ? undefined : (r.registrationUrl || match?.registrationUrl),
                 price: typeof r.price === 'number' ? r.price : match?.price,
                 priceFrom: typeof r.priceFrom === 'number' ? r.priceFrom : (match?.priceFrom || match?.price),
+                priceWithoutShirt: r.priceWithoutShirt ?? match?.priceWithoutShirt,
+                priceWithShirt: r.priceWithShirt ?? match?.priceWithShirt,
                 regulationUrl: r.regulationUrl || match?.regulationUrl,
                 currentBatch: r.currentBatch || match?.currentBatch
               };
@@ -324,7 +326,7 @@ export function App() {
   }, [races, filters, favorites]);
 
   return (
-    <div className="min-h-screen bg-slate-100/90 text-slate-900 flex flex-col font-sans">
+    <div className="min-h-screen bg-slate-100/90 text-slate-900 flex flex-col font-sans overflow-x-hidden w-full max-w-full">
       {/* 1. Header (Full Width on Desktop) */}
       <Header
         onOpenAdminModal={() => setIsAdminModalOpen(true)}
@@ -344,7 +346,7 @@ export function App() {
       />
 
       {/* 2. Main Container (Wide Full-Screen Layout on PC, responsive on Mobile) */}
-      <main className="w-full max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-10 py-6 flex-1">
+      <main className="w-full max-w-[1700px] mx-auto px-3 sm:px-6 lg:px-10 py-4 sm:py-6 flex-1 overflow-x-hidden">
         {/* Seção de Múltiplas Provas em Evidência (Suporta 1 a 3+ cards em destaque) */}
         {filters.tab !== 'results' && filters.city === 'Todas' && filters.region === 'Todas as Regiões' && !filters.search && !filters.onlyFavorites && (
           <FeaturedRacesSection
@@ -374,7 +376,7 @@ export function App() {
                 ? `Corridas em ${filters.city}` 
                 : filters.region !== 'Todas as Regiões' 
                 ? `Corridas no Polo ${filters.region}` 
-                : 'Calendário Oficial de Corridas do Pará'}
+                : 'Calendário Breu Run'}
             </h2>
             <span className="bg-orange-100 text-orange-900 border border-orange-200 text-xs font-black px-2.5 py-0.5 rounded-full">
               {filteredRaces.length} {filteredRaces.length === 1 ? 'evento' : 'eventos'}

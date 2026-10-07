@@ -111,6 +111,8 @@ export class LocalStorageRaceRepository implements RaceRepositoryInterface {
       currentBatch: r.currentBatch,
       price: r.price ?? r.priceFrom ?? null,
       priceFrom: r.price ?? r.priceFrom ?? undefined,
+      priceWithoutShirt: r.priceWithoutShirt ?? null,
+      priceWithShirt: r.priceWithShirt ?? null,
       featured: r.featured || false,
       organizer: r.organizer || 'Organização Oficial',
       createdAt: new Date().toISOString(),
@@ -177,6 +179,8 @@ export class LocalStorageRaceRepository implements RaceRepositoryInterface {
       currentBatch: rec.currentBatch || (rec.status === 'OPEN' ? 'Inscrições Abertas' : 'Confirmada no Calendário'),
       price: rec.price ?? rec.priceFrom ?? undefined,
       priceFrom: rec.price ?? rec.priceFrom ?? undefined,
+      priceWithoutShirt: rec.priceWithoutShirt ?? undefined,
+      priceWithShirt: rec.priceWithShirt ?? undefined,
       featured: rec.featured,
       kitItems: ['Camiseta oficial', 'Medalha finisher', 'Número de peito com chip']
     };
@@ -276,6 +280,8 @@ export function getInitialEnrichedRaces(): FrontendRace[] {
       currentBatch: extracted.currentBatch,
       price: extracted.price,
       priceFrom: extracted.priceFrom,
+      priceWithoutShirt: (extracted as any).priceWithoutShirt ?? null,
+      priceWithShirt: (extracted as any).priceWithShirt ?? null,
       featured: idx === 19 || idx === 12 || idx === 5, // Box Eleven, House Runners Tailândia, Corre de Terça como destaques oficiais iniciais
       organizer: extracted.organizer || 'Organização Oficial',
       location: extracted.location || 'Centro',

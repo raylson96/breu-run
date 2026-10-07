@@ -134,7 +134,16 @@ export const RaceRegistrationSummaryModal: React.FC<RaceRegistrationSummaryModal
                 <span className="text-[10px] font-black uppercase tracking-wider text-emerald-800 block">
                   Valor Atual da Inscrição
                 </span>
-                {hasPrice ? (
+                {race.priceWithShirt && race.priceWithoutShirt ? (
+                  <div className="flex flex-col gap-1 mt-1">
+                    <span className="text-xs font-bold text-slate-700">
+                      Kit Padrão (Sem Camisa): <strong className="text-slate-900 font-black">R$ {race.priceWithoutShirt.toFixed(2).replace('.', ',')}</strong>
+                    </span>
+                    <span className="text-xs font-bold text-emerald-900">
+                      Kit Premium (Com Camisa): <strong className="text-emerald-950 font-black">R$ {race.priceWithShirt.toFixed(2).replace('.', ',')}</strong>
+                    </span>
+                  </div>
+                ) : hasPrice ? (
                   <div className="flex items-baseline gap-1.5">
                     <span className="text-2xl sm:text-3xl font-black text-emerald-950 tracking-tight">
                       R$ {displayPrice}

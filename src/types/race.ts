@@ -35,6 +35,8 @@ export interface Race {
   featured?: boolean;
   price?: number;          // Valor numérico em reais
   priceFrom?: number;
+  priceWithoutShirt?: number; // Valor sem camisa (ex: Kit Padrão R$ 54,90)
+  priceWithShirt?: number;    // Valor com camisa (ex: Kit Premium R$ 84,90)
   currentBatch?: string;
   batchDeadline?: string;
   badge?: string;

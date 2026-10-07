@@ -235,7 +235,16 @@ export const RaceCard: React.FC<RaceCardProps> = ({
                 {race.currentBatch}
               </span>
             )}
-            {(typeof race.price === 'number' || typeof race.priceFrom === 'number') ? (
+            {race.priceWithShirt && race.priceWithoutShirt ? (
+              <div className="flex flex-col items-end gap-0.5">
+                <span className="text-[10px] text-slate-500 font-medium">
+                  Sem camisa: <strong className="text-slate-800 font-bold">R$ {race.priceWithoutShirt.toFixed(2).replace('.', ',')}</strong>
+                </span>
+                <span className="text-[10px] font-black text-emerald-800 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">
+                  Com camisa: <strong>R$ {race.priceWithShirt.toFixed(2).replace('.', ',')}</strong>
+                </span>
+              </div>
+            ) : (typeof race.price === 'number' || typeof race.priceFrom === 'number') ? (
               <div className="inline-flex items-center gap-1 bg-emerald-50 text-emerald-800 border border-emerald-200/90 px-2 py-0.5 rounded-lg shadow-2xs">
                 <span className="text-[10px] font-bold text-emerald-600">Inscrição:</span>
                 <span className="text-xs font-black text-emerald-950">

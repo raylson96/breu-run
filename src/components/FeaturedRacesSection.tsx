@@ -127,8 +127,8 @@ export const FeaturedRacesSection: React.FC<FeaturedRacesSectionProps> = ({
         </div>
       </div>
 
-      {/* 2. Grid / Carousel de Provas em Destaque (Full Desktop / Framed Mobile) */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      {/* 2. Grid no Desktop / Carrossel Horizontal Deslizante no Celular (Swipe Lateral) */}
+      <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 overflow-x-auto no-scrollbar snap-x snap-mandatory pb-2 md:pb-0">
         {(displayRaces.length <= 3 
           ? displayRaces 
           : Array.from({ length: 3 }, (_, i) => displayRaces[(currentIndex + i) % displayRaces.length])
@@ -140,7 +140,7 @@ export const FeaturedRacesSection: React.FC<FeaturedRacesSectionProps> = ({
           return (
             <div
               key={race.id}
-              className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-950 via-zinc-900 to-orange-950/90 text-white p-5 sm:p-6 border border-orange-500/40 shadow-xl flex flex-col justify-between group hover:border-orange-400 transition-all duration-300"
+              className="w-[85vw] max-w-[340px] flex-shrink-0 snap-center md:w-auto md:max-w-none relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-950 via-zinc-900 to-orange-950/90 text-white p-5 sm:p-6 border border-orange-500/40 shadow-xl flex flex-col justify-between group hover:border-orange-400 transition-all duration-300"
             >
               {/* Luz ambiente de fundo */}
               <div className="absolute top-0 right-0 w-44 h-44 bg-orange-600/15 rounded-full blur-2xl pointer-events-none" />
@@ -218,9 +218,20 @@ export const FeaturedRacesSection: React.FC<FeaturedRacesSectionProps> = ({
                     <span className="text-[10px] text-slate-400 uppercase tracking-wider block font-medium">
                       {race.currentBatch || 'Inscrições'}
                     </span>
-                    <span className="text-base sm:text-lg font-black text-white">
-                      {hasPrice ? `R$ ${priceValue}` : 'Sob Consulta'}
-                    </span>
+                    {race.priceWithShirt && race.priceWithoutShirt ? (
+                      <div className="flex flex-col mt-0.5">
+                        <span className="text-[11px] text-slate-300 font-bold">
+                          Sem camisa: <strong className="text-white">R$ {race.priceWithoutShirt.toFixed(2).replace('.', ',')}</strong>
+                        </span>
+                        <span className="text-xs sm:text-sm font-black text-amber-300">
+                          Com camisa: R$ {race.priceWithShirt.toFixed(2).replace('.', ',')}
+                        </span>
+                      </div>
+                    ) : (
+                      <span className="text-base sm:text-lg font-black text-white">
+                        {hasPrice ? `R$ ${priceValue}` : 'Sob Consulta'}
+                      </span>
+                    )}
                   </div>
 
                   {race.batchDeadline && (
@@ -272,6 +283,13 @@ export const FeaturedRacesSection: React.FC<FeaturedRacesSectionProps> = ({
           );
         })}
       </div>
+
+      {/* Dica de Swipe no Celular */}
+      {displayRaces.length > 1 && (
+        <div className="flex md:hidden items-center justify-center gap-1.5 pt-1 text-[11px] font-bold text-slate-500">
+          <span>👈 Deslize para o lado para ver mais provas em evidência 👉</span>
+        </div>
+      )}
     </div>
   );
 };

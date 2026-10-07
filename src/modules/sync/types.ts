@@ -32,6 +32,8 @@ export interface ExtractedRace {
   currentBatch?: string | null;
   price: number | null; // Preço numérico da inscrição (ex: 65.00)
   priceFrom?: number | null; // Alias de compatibilidade
+  priceWithoutShirt?: number | null; // Valor sem camisa
+  priceWithShirt?: number | null;    // Valor com camisa
   isRegistrationOpen: boolean; // Confirmação de inscrição ativa
   organizer?: string;
   rawData: Record<string, unknown>;
@@ -59,6 +61,8 @@ export interface RaceRecord {
   currentBatch?: string | null;
   price?: number | null;
   priceFrom?: number | null;
+  priceWithoutShirt?: number | null;
+  priceWithShirt?: number | null;
   isRegistrationOpen?: boolean;
   featured: boolean;
   organizer: string;

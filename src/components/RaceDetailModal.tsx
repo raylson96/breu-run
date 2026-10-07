@@ -151,7 +151,22 @@ export const RaceDetailModal: React.FC<RaceDetailModalProps> = ({
                 <span className="text-[10px] font-extrabold uppercase tracking-wider text-emerald-800 block">
                   Valor da Inscrição
                 </span>
-                {(typeof race.price === 'number' || typeof race.priceFrom === 'number') ? (
+                {race.priceWithShirt && race.priceWithoutShirt ? (
+                  <div className="flex flex-col gap-1 mt-1">
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs font-bold text-slate-700">Kit Padrão (Sem Camisa):</span>
+                      <span className="text-xs sm:text-sm font-black text-slate-900 bg-white px-2 py-0.5 rounded-lg border border-slate-200 shadow-2xs">
+                        R$ {race.priceWithoutShirt.toFixed(2).replace('.', ',')}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs font-bold text-emerald-900">Kit Premium (Com Camisa):</span>
+                      <span className="text-xs sm:text-sm font-black text-emerald-950 bg-emerald-100 px-2 py-0.5 rounded-lg border border-emerald-300 shadow-2xs">
+                        R$ {race.priceWithShirt.toFixed(2).replace('.', ',')}
+                      </span>
+                    </div>
+                  </div>
+                ) : (typeof race.price === 'number' || typeof race.priceFrom === 'number') ? (
                   <span className="text-xl sm:text-2xl font-black text-emerald-950 tracking-tight">
                     R$ {(race.price ?? race.priceFrom)!.toFixed(2).replace('.', ',')}
                   </span>
