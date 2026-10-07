@@ -88,8 +88,10 @@ export const FilterBar: React.FC<FilterBarProps> = ({
   totalFiltered
 }) => {
   const [isMoreCitiesOpen, setIsMoreCitiesOpen] = useState(false);
+  const [isMoreChipsOpen, setIsMoreChipsOpen] = useState(false);
   const [citySearchTerm, setCitySearchTerm] = useState('');
   const popoverRef = useRef<HTMLDivElement>(null);
+  const chipsPopoverRef = useRef<HTMLDivElement>(null);
 
   // Lista dinâmica e unificada de "Outras Cidades" em ordem alfabética estrita
   const otherCitiesSorted = useMemo(() => {
@@ -119,20 +121,23 @@ export const FilterBar: React.FC<FilterBarProps> = ({
     return otherCitiesSorted.filter((c) => c.toLowerCase().includes(term));
   }, [otherCitiesSorted, citySearchTerm]);
 
-  // Fecha o popover ao clicar fora
+  // Fecha os popovers ao clicar fora
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (popoverRef.current && !popoverRef.current.contains(event.target as Node)) {
         setIsMoreCitiesOpen(false);
       }
+      if (chipsPopoverRef.current && !chipsPopoverRef.current.contains(event.target as Node)) {
+        setIsMoreChipsOpen(false);
+      }
     }
-    if (isMoreCitiesOpen) {
+    if (isMoreCitiesOpen || isMoreChipsOpen) {
       document.addEventListener('mousedown', handleClickOutside);
     }
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [isMoreCitiesOpen]);
+  }, [isMoreCitiesOpen, isMoreChipsOpen]);
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     onFilterChange({
@@ -288,9 +293,9 @@ export const FilterBar: React.FC<FilterBarProps> = ({
         </div>
       </div>
 
-      {/* 2. Campo de Busca + Contador + Limpar */}
-      <div className="flex items-center gap-2">
-        <div className="relative flex-1">
+      {/* 2. Campo de Busca + Ordenação + Contador + Limpar */}
+      <div className="flex flex-wrap sm:flex-nowrap items-center gap-2">
+        <div className="relative flex-1 min-w-[180px]">
           <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
           <input
             type="text"
@@ -307,6 +312,37 @@ export const FilterBar: React.FC<FilterBarProps> = ({
               <X className="w-3.5 h-3.5" />
             </button>
           )}
+        </div>
+
+        {/* Seletor de Ordenação: Data do Evento vs Maior Premiação */}
+        <div className="flex items-center gap-1 bg-slate-100 p-0.5 rounded-xl border border-slate-200 flex-shrink-0">
+          <button
+            type="button"
+            onClick={() => onFilterChange({ ...filters, sortBy: 'date_asc' })}
+            className={`flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-bold transition cursor-pointer ${
+              filters.sortBy === 'date_asc'
+                ? 'bg-white text-orange-600 shadow-xs font-black'
+                : 'text-slate-600 hover:text-slate-900'
+            }`}
+            title="Ordenar por data do evento"
+          >
+            <Calendar className="w-3.5 h-3.5 text-orange-500" />
+            <span className="text-[11px] sm:text-xs">Data</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => onFilterChange({ ...filters, sortBy: 'prize_desc' })}
+            className={`flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-bold transition cursor-pointer ${
+              filters.sortBy === 'prize_desc'
+                ? 'bg-white text-orange-600 shadow-xs font-black'
+                : 'text-slate-600 hover:text-slate-900'
+            }`}
+            title="Ordenar por maior premiação em dinheiro"
+          >
+            <Trophy className="w-3.5 h-3.5 text-amber-500" />
+            <span className="text-[11px] sm:text-xs">Maior Premiação</span>
+          </button>
         </div>
 
         <div className="flex items-center gap-1.5 flex-shrink-0">
@@ -327,63 +363,83 @@ export const FilterBar: React.FC<FilterBarProps> = ({
         </div>
       </div>
 
-      {/* 3. BARRA EXCLUSIVA DE CIDADES: 5 Principais + 'Ver Mais' Dropdown */}
+      {/* 3. BARRA EXCLUSIVA DE CIDADES */}
       <div className="flex items-center gap-1.5 overflow-x-visible py-0.5 -mx-1 px-1 relative">
         <span className="text-[11px] font-black text-slate-400 uppercase tracking-wider flex items-center gap-1 flex-shrink-0 pr-1">
           <MapPin className="w-3 h-3 text-rose-500" />
           <span>Cidades:</span>
         </span>
 
-        {/* 5 Cidades Principais Fixas */}
-        {PRIMARY_CITIES.map((city) => {
-          const isSelected = filters.city === city;
-          const count = city === 'Todas' ? '' : ` (${cityCounts[city] || 0})`;
-          
-          return (
-            <button
-              key={city}
-              onClick={() => onFilterChange({ ...filters, city })}
-              className={`px-3 py-1.5 rounded-xl text-xs font-bold transition whitespace-nowrap cursor-pointer flex-shrink-0 ${
-                isSelected
-                  ? 'bg-orange-600 text-white font-black shadow-xs'
-                  : 'bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200/60'
-              }`}
-            >
-              {city}{count}
-            </button>
-          );
-        })}
+        {/* No Mobile: Exibe estritamente "Todas" e "Ver Mais" */}
+        <div className="flex sm:hidden items-center gap-1.5">
+          <button
+            onClick={() => onFilterChange({ ...filters, city: 'Todas' })}
+            className={`px-3 py-1.5 rounded-xl text-xs font-bold transition whitespace-nowrap cursor-pointer flex-shrink-0 ${
+              filters.city === 'Todas'
+                ? 'bg-orange-600 text-white font-black shadow-xs'
+                : 'bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200/60'
+            }`}
+          >
+            Todas
+          </button>
+        </div>
+
+        {/* No Desktop: 5 Cidades Principais Fixas */}
+        <div className="hidden sm:flex items-center gap-1.5">
+          {PRIMARY_CITIES.map((city) => {
+            const isSelected = filters.city === city;
+            const count = city === 'Todas' ? '' : ` (${cityCounts[city] || 0})`;
+            
+            return (
+              <button
+                key={city}
+                onClick={() => onFilterChange({ ...filters, city })}
+                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition whitespace-nowrap cursor-pointer flex-shrink-0 ${
+                  isSelected
+                    ? 'bg-orange-600 text-white font-black shadow-xs'
+                    : 'bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200/60'
+                }`}
+              >
+                {city}{count}
+              </button>
+            );
+          })}
+        </div>
 
         {/* Botão 'Ver Mais' com Dropdown Alfabético */}
         <div className="relative inline-block" ref={popoverRef}>
           <button
             onClick={() => setIsMoreCitiesOpen(!isMoreCitiesOpen)}
             className={`px-3 py-1.5 rounded-xl text-xs font-bold transition whitespace-nowrap cursor-pointer flex items-center gap-1.5 flex-shrink-0 border ${
-              isSelectedCityInMore
+              isSelectedCityInMore || (filters.city !== 'Todas')
                 ? 'bg-orange-600 text-white font-black border-orange-600 shadow-xs'
                 : 'bg-slate-100 hover:bg-slate-200 text-slate-700 border-slate-200/60'
             }`}
             title="Ver todas as outras cidades da região em ordem alfabética"
           >
-            <span>
-              {isSelectedCityInMore ? filters.city : 'Ver Mais'}
+            <span className="max-w-[130px] truncate">
+              {filters.city !== 'Todas' && !PRIMARY_CITIES.includes(filters.city)
+                ? filters.city
+                : filters.city !== 'Todas' 
+                ? filters.city 
+                : 'Ver Mais'}
             </span>
             <ChevronDown className={`w-3.5 h-3.5 transition-transform ${isMoreCitiesOpen ? 'rotate-180' : ''}`} />
           </button>
 
           {/* Popover Elegante com Pesquisa e Lista Alfabética */}
           {isMoreCitiesOpen && (
-            <div className="absolute left-0 sm:left-auto sm:right-0 mt-2 w-72 sm:w-80 bg-white rounded-2xl shadow-2xl border border-slate-200 z-50 overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+            <div className="fixed sm:absolute left-4 right-4 sm:left-auto sm:right-0 mt-2 sm:w-80 bg-white rounded-2xl shadow-2xl border border-slate-200 z-50 overflow-hidden animate-in fade-in zoom-in-95 duration-150">
               <div className="p-3 bg-slate-900 text-white flex items-center justify-between border-b border-slate-800">
                 <div className="flex items-center gap-2">
                   <MapPin className="w-4 h-4 text-orange-400" />
                   <span className="font-bold text-xs uppercase tracking-wider text-slate-200">
-                    Outras Cidades do Pará
+                    Cidades do Pará
                   </span>
                 </div>
                 <button
                   onClick={() => setIsMoreCitiesOpen(false)}
-                  className="text-slate-400 hover:text-white p-1 rounded-lg"
+                  className="text-slate-400 hover:text-white p-1 rounded-lg cursor-pointer"
                 >
                   <X className="w-3.5 h-3.5" />
                 </button>
@@ -446,7 +502,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
         </div>
       </div>
 
-      {/* 4. Chips de Cronometragem & Percursos (Preservados Intactos) */}
+      {/* 4. Chips de Cronometragem & Percursos */}
       <div className="flex items-center gap-3 overflow-x-auto no-scrollbar py-0.5 -mx-1 px-1 text-xs border-t border-slate-100 pt-2">
         {/* Chips de Cronometragem */}
         <div className="flex items-center gap-1.5 flex-shrink-0">
@@ -455,22 +511,87 @@ export const FilterBar: React.FC<FilterBarProps> = ({
             <span>Chips:</span>
           </span>
 
-          {CHIP_COMPANIES.map((chip) => {
-            const isSelected = filters.chipCompany === chip;
-            return (
+          {/* No Mobile: Exibe estritamente "Todos os Chips" e "Ver Mais" */}
+          <div className="flex sm:hidden items-center gap-1.5">
+            <button
+              onClick={() => onFilterChange({ ...filters, chipCompany: 'Todas' })}
+              className={`px-2.5 py-1 rounded-xl text-[11px] font-bold transition whitespace-nowrap cursor-pointer flex-shrink-0 ${
+                filters.chipCompany === 'Todas'
+                  ? 'bg-slate-900 text-orange-400 font-black shadow-xs'
+                  : 'bg-slate-100 hover:bg-slate-200 text-slate-600 border border-slate-200/60'
+              }`}
+            >
+              Todos os Chips
+            </button>
+
+            {/* Popover de Chips no Mobile */}
+            <div className="relative inline-block" ref={chipsPopoverRef}>
               <button
-                key={chip}
-                onClick={() => onFilterChange({ ...filters, chipCompany: chip })}
-                className={`px-2.5 py-1 rounded-xl text-[11px] font-bold transition whitespace-nowrap cursor-pointer flex-shrink-0 ${
-                  isSelected
-                    ? 'bg-slate-900 text-orange-400 font-black shadow-xs'
-                    : 'bg-slate-100 hover:bg-slate-200 text-slate-600 border border-slate-200/60'
+                onClick={() => setIsMoreChipsOpen(!isMoreChipsOpen)}
+                className={`px-2.5 py-1 rounded-xl text-[11px] font-bold transition whitespace-nowrap cursor-pointer flex items-center gap-1 flex-shrink-0 border ${
+                  filters.chipCompany !== 'Todas'
+                    ? 'bg-slate-900 text-orange-400 font-black border-slate-900 shadow-xs'
+                    : 'bg-slate-100 hover:bg-slate-200 text-slate-700 border-slate-200/60'
                 }`}
               >
-                {chip === 'Todas' ? 'Todos os Chips' : chip}
+                <span className="max-w-[120px] truncate">
+                  {filters.chipCompany !== 'Todas' ? filters.chipCompany : 'Ver Mais'}
+                </span>
+                <ChevronDown className={`w-3 h-3 transition-transform ${isMoreChipsOpen ? 'rotate-180' : ''}`} />
               </button>
-            );
-          })}
+
+              {isMoreChipsOpen && (
+                <div className="fixed sm:absolute left-4 right-4 sm:left-auto sm:right-0 mt-2 bg-white rounded-2xl shadow-2xl border border-slate-200 z-50 p-2 space-y-1 animate-in fade-in zoom-in-95 duration-150">
+                  <div className="p-2 border-b border-slate-100 flex items-center justify-between text-xs font-bold text-slate-700">
+                    <span>Cronometragens Oficiais:</span>
+                    <button onClick={() => setIsMoreChipsOpen(false)} className="text-slate-400 hover:text-slate-600 p-1 cursor-pointer">
+                      <X className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+                  {CHIP_COMPANIES.slice(1).map((chip) => {
+                    const isSelected = filters.chipCompany === chip;
+                    return (
+                      <button
+                        key={chip}
+                        onClick={() => {
+                          onFilterChange({ ...filters, chipCompany: chip });
+                          setIsMoreChipsOpen(false);
+                        }}
+                        className={`w-full text-left px-3 py-2 rounded-xl text-xs font-bold transition flex items-center justify-between cursor-pointer ${
+                          isSelected
+                            ? 'bg-slate-900 text-orange-400'
+                            : 'hover:bg-slate-100 text-slate-700'
+                        }`}
+                      >
+                        <span>{chip}</span>
+                        {isSelected && <Check className="w-3.5 h-3.5 text-orange-400" />}
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* No Desktop: Exibe todos os 4 chips + Todos os Chips */}
+          <div className="hidden sm:flex items-center gap-1.5">
+            {CHIP_COMPANIES.map((chip) => {
+              const isSelected = filters.chipCompany === chip;
+              return (
+                <button
+                  key={chip}
+                  onClick={() => onFilterChange({ ...filters, chipCompany: chip })}
+                  className={`px-2.5 py-1 rounded-xl text-[11px] font-bold transition whitespace-nowrap cursor-pointer flex-shrink-0 ${
+                    isSelected
+                      ? 'bg-slate-900 text-orange-400 font-black shadow-xs'
+                      : 'bg-slate-100 hover:bg-slate-200 text-slate-600 border border-slate-200/60'
+                  }`}
+                >
+                  {chip === 'Todas' ? 'Todos os Chips' : chip}
+                </button>
+              );
+            })}
+          </div>
         </div>
 
         <div className="w-[1px] h-4 bg-slate-200 flex-shrink-0" />

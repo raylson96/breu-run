@@ -147,7 +147,7 @@ export function calculateDaysLeft(targetDate: string): number {
 }
 
 /**
- * Detecta tag de virada de lote se aplicável: "Lote vira em X dias"
+ * Detecta tag de virada de lote se aplicável: "Virada de lote em X dias"
  */
 export function getBatchCountdownTag(race: Race): string | null {
   if (race.status === 'finished' || race.status === 'closed') return null;
@@ -155,7 +155,7 @@ export function getBatchCountdownTag(race: Race): string | null {
   if (race.batchDeadline) {
     const days = calculateDaysLeft(race.batchDeadline);
     if (days > 0 && days <= 15) {
-      return `Lote vira em ${days} ${days === 1 ? 'dia' : 'dias'}`;
+      return `Virada de lote em ${days} ${days === 1 ? 'dia' : 'dias'}`;
     }
   }
 
@@ -166,8 +166,32 @@ export function getBatchCountdownTag(race: Race): string | null {
   }
 
   if (daysLeft > 0 && daysLeft <= 10) {
-    return `Lote vira em ${daysLeft} ${daysLeft === 1 ? 'dia' : 'dias'}`;
+    return `Virada de lote em ${daysLeft} ${daysLeft === 1 ? 'dia' : 'dias'}`;
   }
 
   return null;
+}
+
+/**
+ * Extrai o valor monetário de premiação para ordenação por "Maior Premiação"
+ */
+export function extractPrizeValue(race: Race): number {
+  if ((race as any).prizeTotal && typeof (race as any).prizeTotal === 'number') {
+    return (race as any).prizeTotal;
+  }
+  const text = `${race.awardsInfo || ''} ${race.description || ''} ${race.title || ''}`;
+  const matches = text.match(/R\$\s*(\d+(?:[.,]\d+)?(?:\.\d+)?)/gi);
+  if (matches) {
+    let maxVal = 0;
+    matches.forEach((m) => {
+      const numStr = m.replace(/R\$\s*/i, '').replace(/\./g, '').replace(',', '.');
+      const val = parseFloat(numStr);
+      if (val > maxVal && val < 500000) maxVal = val;
+    });
+    if (maxVal > 0) return maxVal;
+  }
+  if (text.toLowerCase().includes('dinheiro') || text.toLowerCase().includes('troféu')) {
+    return 100;
+  }
+  return 0;
 }

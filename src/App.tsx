@@ -16,6 +16,7 @@ import { AthleteProfileModal } from './components/AthleteProfileModal';
 import type { AppNotification } from './types/notification';
 import { getStoredNotifications } from './services/notificationService';
 import { executeAutoSync } from './services/autoSyncService';
+import { extractPrizeValue } from './utils/raceFormatters';
 import { 
   MessageCircle, 
   Sparkles, 
@@ -317,6 +318,13 @@ export function App() {
     }).sort((a, b) => {
       if (filters.tab === 'results') {
         // Provas concluídas: mais recentes primeiro
+        return new Date(b.date).getTime() - new Date(a.date).getTime();
+      }
+      if (filters.sortBy === 'prize_desc') {
+        const prizeA = extractPrizeValue(a);
+        const prizeB = extractPrizeValue(b);
+        if (prizeB !== prizeA) return prizeB - prizeA;
+      } else if (filters.sortBy === 'date_desc') {
         return new Date(b.date).getTime() - new Date(a.date).getTime();
       }
       return new Date(a.date).getTime() - new Date(b.date).getTime();

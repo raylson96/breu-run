@@ -67,6 +67,6 @@ export type FilterState = {
   status: string;
   search: string;
   onlyFavorites: boolean;
-  sortBy: 'date_asc' | 'date_desc' | 'price_asc';
+  sortBy: 'date_asc' | 'date_desc' | 'prize_desc';
   tab: 'upcoming' | 'results'; // 'upcoming': Provas Ativas / Calendário; 'results': Provas Passadas & Resultados
 };

@@ -91,7 +91,7 @@ export const NotificationCenter: React.FC<NotificationCenterProps> = ({
   };
 
   return (
-    <div className="relative" ref={containerRef}>
+    <div className="relative z-[80]" ref={containerRef}>
       {/* Bell Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
@@ -106,9 +106,9 @@ export const NotificationCenter: React.FC<NotificationCenterProps> = ({
         )}
       </button>
 
-      {/* Dropdown Panel */}
+      {/* Dropdown Panel com z-index alto e responsividade perfeita */}
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-80 sm:w-96 bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden z-50 animate-in fade-in zoom-in-95 duration-150">
+        <div className="fixed sm:absolute right-2 sm:right-0 top-14 sm:top-full mt-1.5 w-[calc(100vw-1rem)] sm:w-96 max-w-sm sm:max-w-md bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden z-[100] animate-in fade-in zoom-in-95 duration-150">
           {/* Header */}
           <div className="p-4 bg-slate-950 text-white flex items-center justify-between border-b border-slate-800">
             <div className="flex items-center gap-2">

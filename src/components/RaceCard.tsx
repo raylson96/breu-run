@@ -10,10 +10,9 @@ import {
   Share2
 } from 'lucide-react';
 import { 
-  formatDecimalDistance, 
   getTimingChipBadge, 
   getBatchCountdownTag, 
-  getBasePrice 
+  getRaceCategories
 } from '../utils/raceFormatters';
 import { DynamicRaceBanner } from './DynamicRaceBanner';
 
@@ -42,7 +41,7 @@ export const RaceCard: React.FC<RaceCardProps> = ({
 
   const chipBadge = getTimingChipBadge(race.chipCompany);
   const batchCountdown = getBatchCountdownTag(race);
-  const basePrice = getBasePrice(race);
+  const categories = getRaceCategories(race);
 
   return (
     <div 
@@ -141,33 +140,34 @@ export const RaceCard: React.FC<RaceCardProps> = ({
             <span className="truncate text-slate-500">{race.location}</span>
           </div>
 
-          {/* Percursos Tags com formato decimal exato */}
+          {/* Percursos com Preços Reais por Distância (Fim do preço único) */}
           <div className="flex flex-wrap items-center gap-1.5 mb-3">
-            {race.distances.map((dist, idx) => (
+            {categories.map((cat, idx) => (
               <span
                 key={idx}
-                className="px-2.5 py-0.5 rounded-lg text-xs font-black bg-orange-50 text-orange-700 border border-orange-200/80"
+                className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl text-xs font-black bg-orange-50/80 text-slate-800 border border-orange-200/80"
               >
-                {formatDecimalDistance(dist)}
+                <span className="text-orange-950">{cat.distance}:</span>
+                <span className="text-emerald-700">R$ {cat.price.toFixed(2).replace('.', ',')}</span>
               </span>
             ))}
           </div>
         </div>
 
-        {/* 3. Rodapé do Card: Piso Base Exclusivo ("A partir de R$ XX,XX") + Botão Único */}
+        {/* 3. Rodapé do Card: Lote Vigente e Botão Único */}
         <div className="border-t border-slate-100 pt-3 mt-auto space-y-3">
-          {/* Preço de Piso Base */}
-          <div className="flex items-baseline justify-between">
-            <div className="flex items-baseline gap-1.5">
-              <span className="text-[10px] text-slate-400 uppercase font-semibold">A partir de</span>
-              <span className="text-base sm:text-lg font-black text-emerald-950">
-                R$ {basePrice.toFixed(2).replace('.', ',')}
+          {/* Lote Atual */}
+          <div className="flex items-center justify-between text-xs">
+            <div className="flex items-center gap-1.5">
+              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Lote:</span>
+              <span className="text-xs font-black text-amber-900 bg-amber-50 px-2 py-0.5 rounded-md border border-amber-200/80">
+                {categories[0]?.lot_name || race.currentBatch || '1º Lote'}
               </span>
             </div>
 
-            {race.currentBatch && !batchCountdown && (
-              <span className="text-[10px] font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded-md border border-amber-200/80 truncate max-w-[120px]">
-                {race.currentBatch}
+            {batchCountdown && (
+              <span className="text-[10px] font-black uppercase tracking-wider text-orange-700 bg-orange-50 px-2 py-0.5 rounded-md border border-orange-200/80">
+                {batchCountdown}
               </span>
             )}
           </div>

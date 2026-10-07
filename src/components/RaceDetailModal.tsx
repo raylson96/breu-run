@@ -40,15 +40,21 @@ export const RaceDetailModal: React.FC<RaceDetailModalProps> = ({
   onShareWhatsApp,
   onToggleFeatured
 }) => {
-  // Fecha ao pressionar ESC
+  // Bloqueio estrito de scroll no body durante a visualização em tela cheia
   useEffect(() => {
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         onClose();
       }
     };
     window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      window.removeEventListener('keydown', handleKeyDown);
+    };
   }, [onClose]);
 
   if (!race) return null;
@@ -81,26 +87,30 @@ export const RaceDetailModal: React.FC<RaceDetailModalProps> = ({
     return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${race.location}, ${race.city}, Pará`)}`;
   };
 
-  // Kit Atleta Oficial
-  const defaultKitItems = [
-    { title: 'Camiseta Oficial do Evento', desc: 'Tecido tecnológico dry-fit leve de alta absorção', icon: Shirt },
-    { title: 'Número de Peito Personalizado', desc: 'Identificação oficial com 4 alfinetes de segurança', icon: Tag },
-    { title: 'Chip de Cronometragem Eletrônica', desc: `Aferido e operado pela equipe oficial da ${chipBadge.name}`, icon: ShieldCheck },
-    { title: 'Medalha Finisher Pós-Prova', desc: 'Medalha pesada em metal entregue a todos os concluintes', icon: Award },
-    { title: 'Sacochila / Brindes dos Patrocinadores', desc: 'Brindes exclusivos dos parceiros do circuito', icon: Gift },
-    { title: 'Hidratação e Mesa de Frutas', desc: 'Postos de água gelada no percurso e frutas na chegada', icon: CheckCircle }
-  ];
+  // Kit Atleta Oficial Verificado (Sem brindes ou sacochilas inventadas)
+  const kitItemsToDisplay = race.kitItems && race.kitItems.length > 0
+    ? race.kitItems.map((item) => ({
+        title: item.startsWith('✓') ? item : `✓ ${item}`,
+        desc: 'Item oficial garantido no regulamento da prova',
+        icon: item.toLowerCase().includes('camis') ? Shirt : ShieldCheck
+      }))
+    : [
+        { title: '✓ Número de Peito com Chip de Cronometragem', desc: `Identificação oficial e cronometragem oficial via ${chipBadge.name}`, icon: ShieldCheck },
+        { title: '✓ Camiseta Oficial', desc: 'Tecido tecnológico dry-fit leve de alta performance', icon: Shirt },
+        { title: '✓ Medalha de Participação', desc: 'Entregue a todos os atletas concluintes da prova', icon: Award },
+        { title: '✓ Hidratação e Suporte de Percurso', desc: 'Pontos de água durante o trajeto e suporte pós-chegada', icon: CheckCircle }
+      ];
 
   return (
     <div className="fixed inset-0 z-50 bg-slate-950/98 backdrop-blur-md overflow-y-auto animate-in fade-in duration-150 flex flex-col">
-      {/* 1. Barra Superior Fixa com Botão Destacado "← Voltar ao Calendário" */}
+      {/* 1. Barra Superior Fixa com Botão Destacado "← Voltar para o Calendário" */}
       <header className="sticky top-0 z-50 bg-slate-950/90 border-b border-slate-800/90 px-3 sm:px-8 py-3.5 backdrop-blur-lg flex items-center justify-between">
         <button
           onClick={onClose}
           className="flex items-center gap-2 px-3.5 sm:px-4 py-2 bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-500 hover:to-amber-500 text-white rounded-xl text-xs sm:text-sm font-black transition cursor-pointer shadow-md shadow-orange-950/40 active:scale-95"
         >
           <ArrowLeft className="w-4 h-4" />
-          <span>Voltar ao Calendário</span>
+          <span>← Voltar para o Calendário</span>
         </button>
 
         <div className="flex items-center gap-2">
@@ -293,11 +303,11 @@ export const RaceDetailModal: React.FC<RaceDetailModalProps> = ({
             <div className="bg-white rounded-3xl p-5 sm:p-6 shadow-sm border border-slate-200/80 space-y-4">
               <h2 className="text-sm font-black uppercase tracking-wider text-slate-400 flex items-center gap-2">
                 <Gift className="w-4 h-4 text-orange-500" />
-                <span>Kit do Atleta Incluso no Regulamento</span>
+                <span>Kit do Atleta Incluso no Regulamento Oficial</span>
               </h2>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {defaultKitItems.map((item, idx) => {
+                {kitItemsToDisplay.map((item, idx) => {
                   const Icon = item.icon;
                   return (
                     <div key={idx} className="flex items-start gap-3 p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80">
@@ -333,10 +343,10 @@ export const RaceDetailModal: React.FC<RaceDetailModalProps> = ({
                   </div>
                   <div>
                     <h4 className="font-black text-slate-900 text-sm">
-                      Premiação Categoria Geral (Masculino e Feminino)
+                      Premiação Geral (1º ao 5º Lugar - Masculino e Feminino)
                     </h4>
                     <p className="text-xs text-slate-600 mt-1 leading-relaxed">
-                      Troféu oficial do <strong>1º ao 5º lugar geral masculino e feminino</strong> em todos os percursos da prova, com possíveis premiações em dinheiro conforme estipulado pelo organizador.
+                      Troféu oficial e eventuais premiações em dinheiro do <strong>1º ao 5º lugar geral</strong> em todas as distâncias aferidas por <strong>{chipBadge.name}</strong>.
                     </p>
                   </div>
                 </div>
@@ -348,33 +358,19 @@ export const RaceDetailModal: React.FC<RaceDetailModalProps> = ({
                   </div>
                   <div>
                     <h4 className="font-black text-slate-900 text-sm">
-                      Premiação por Faixas Etárias (Masculino e Feminino)
+                      Premiação por Faixas Etárias (1º ao 3º Lugar - Masculino e Feminino)
                     </h4>
                     <p className="text-xs text-slate-600 mt-1 leading-relaxed">
-                      Troféus ou medalhões exclusivos para os <strong>1º, 2º e 3º colocados</strong> em cada divisão etária oficial (18-29, 30-39, 40-49, 50-59, 60+ anos).
-                    </p>
-                  </div>
-                </div>
-
-                {/* Medalha Finisher */}
-                <div className="flex items-start gap-3 p-3.5 bg-white rounded-2xl border border-amber-200/70 shadow-2xs">
-                  <div className="w-9 h-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-black flex-shrink-0 text-base">
-                    🏅
-                  </div>
-                  <div>
-                    <h4 className="font-black text-slate-900 text-sm">
-                      Medalha Finisher de Conclusão da Prova
-                    </h4>
-                    <p className="text-xs text-slate-600 mt-1 leading-relaxed">
-                      Todos os atletas devidamente inscritos que cruzarem a linha de chegada dentro do tempo limite recebem a medalha oficial de participação.
+                      Troféus ou medalhões aos <strong>1º, 2º e 3º colocados</strong> por categoria de idade: 18-29 anos, 30-39 anos, 40-49 anos, 50-59 anos e 60+ anos.
                     </p>
                   </div>
                 </div>
 
                 {race.awardsInfo && (
-                  <p className="text-xs text-slate-600 italic pt-1">
-                    Nota do organizador: {race.awardsInfo}
-                  </p>
+                  <div className="p-3 bg-amber-100/70 rounded-2xl border border-amber-200 text-amber-950 text-xs font-medium">
+                    <strong className="block text-amber-900 font-bold mb-0.5">Regulamento de Premiação:</strong>
+                    {race.awardsInfo}
+                  </div>
                 )}
               </div>
             </div>
