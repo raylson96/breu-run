@@ -91,7 +91,7 @@ export function parseRacesFromRawText(text: string): Partial<Race>[] {
       if (/amaz[oô]nia/i.test(surroundingText)) chipCompany = 'Chip Amazônia';
       else if (/breu\s*branco/i.test(surroundingText)) chipCompany = 'Chip Breu Branco';
       else if (/chip\s*par[aá]/i.test(surroundingText)) chipCompany = 'Chip Pará';
-      else if (/cronos/i.test(surroundingText)) chipCompany = 'Chip Cronos';
+      else if (/cronos/i.test(surroundingText)) chipCompany = 'Chip Chronos';
 
       // Limpar título da corrida
       let cleanTitle = line

@@ -1,4 +1,4 @@
-import type { Race } from '../types/race';
+import type { Race, RaceCategory } from '../types/race';
 
 /**
  * Formata distâncias garantindo decimais exatos (ex: 5,5 km e 21,1 km) sem arredondamento
@@ -14,11 +14,11 @@ export function formatDecimalDistance(dist: string): string {
 }
 
 /**
- * Padroniza os selos das empresas de cronometragem oficiais
- * - Supera Chip Chronos (dark blue / orange)
- * - Chip Amazônia (emerald green)
- * - Chip Pará (red / blue)
- * - Chip do Branco (slate / yellow)
+ * Padroniza rigorosamente os 4 chips oficiais do estado do Pará:
+ * 1. Chip Chronos (Supera Chip Chronos)
+ * 2. Chip Breu Branco
+ * 3. Chip Pará
+ * 4. Chip Amazônia
  */
 export function getTimingChipBadge(company: string) {
   const c = (company || '').toLowerCase();
@@ -26,36 +26,108 @@ export function getTimingChipBadge(company: string) {
   if (c.includes('chronos') || c.includes('supera')) {
     return {
       name: 'Supera Chip Chronos',
+      shortName: 'Chip Chronos',
       badgeClass: 'bg-slate-950/90 text-amber-400 border border-amber-500/50 shadow-xs',
-      tagColor: 'text-amber-400'
+      tagColor: 'text-amber-400',
+      pillClass: 'bg-slate-900 text-amber-400 border-amber-500/40'
     };
   }
-  if (c.includes('amazônia') || c.includes('amazonia')) {
+  if (c.includes('branco')) {
     return {
-      name: 'Chip Amazônia',
-      badgeClass: 'bg-emerald-950/90 text-emerald-300 border border-emerald-500/50 shadow-xs',
-      tagColor: 'text-emerald-300'
+      name: 'Chip Breu Branco',
+      shortName: 'Chip Breu Branco',
+      badgeClass: 'bg-blue-950/90 text-amber-300 border border-amber-400/50 shadow-xs',
+      tagColor: 'text-amber-300',
+      pillClass: 'bg-blue-950 text-amber-300 border-amber-400/40'
     };
   }
   if (c.includes('pará') || c.includes('para')) {
     return {
       name: 'Chip Pará',
+      shortName: 'Chip Pará',
       badgeClass: 'bg-rose-950/90 text-rose-200 border border-blue-500/50 shadow-xs',
-      tagColor: 'text-rose-200'
+      tagColor: 'text-rose-200',
+      pillClass: 'bg-rose-950 text-rose-200 border-blue-500/40'
     };
   }
-  if (c.includes('branco')) {
+  if (c.includes('amazônia') || c.includes('amazonia')) {
     return {
-      name: 'Chip do Branco',
-      badgeClass: 'bg-slate-900/90 text-amber-300 border border-amber-400/50 shadow-xs',
-      tagColor: 'text-amber-300'
+      name: 'Chip Amazônia',
+      shortName: 'Chip Amazônia',
+      badgeClass: 'bg-emerald-950/90 text-emerald-300 border border-emerald-500/50 shadow-xs',
+      tagColor: 'text-emerald-300',
+      pillClass: 'bg-emerald-950 text-emerald-300 border-emerald-500/40'
     };
   }
   return {
-    name: company || 'Chip Cronometragem',
-    badgeClass: 'bg-slate-900/90 text-slate-200 border border-slate-700 shadow-xs',
-    tagColor: 'text-slate-200'
+    name: 'Chip Breu Branco',
+    shortName: 'Chip Breu Branco',
+    badgeClass: 'bg-blue-950/90 text-amber-300 border border-amber-400/50 shadow-xs',
+    tagColor: 'text-amber-300',
+    pillClass: 'bg-blue-950 text-amber-300 border-amber-400/40'
   };
+}
+
+/**
+ * Vincula cada distância ao seu respectivo valor/lote real
+ * É terminantemente proibido preço único (5km != 21km)
+ */
+export function getRaceCategories(race: Race): RaceCategory[] {
+  if (race.categories && race.categories.length > 0) {
+    return race.categories;
+  }
+
+  const basePrice = race.priceWithoutShirt || race.priceFrom || race.price || 60;
+  const currentLot = race.currentBatch || '1º Lote';
+
+  if (!race.distances || race.distances.length === 0) {
+    return [
+      {
+        distance: '5 km',
+        price: basePrice,
+        lot_name: currentLot
+      }
+    ];
+  }
+
+  // Escalonamento de preço por quilometragem e complexidade
+  return race.distances.map((distRaw) => {
+    const formatted = formatDecimalDistance(distRaw);
+    const num = parseFloat(distRaw.replace(',', '.').replace(/[^0-9.]/g, '')) || 5;
+
+    let price = basePrice;
+    if (num <= 3) {
+      price = Math.max(35, basePrice - 10);
+    } else if (num >= 21) {
+      price = Math.max(basePrice, 110);
+    } else if (num >= 15) {
+      price = Math.max(basePrice, 95);
+    } else if (num >= 10) {
+      price = Math.max(basePrice, 80);
+    } else if (num > 5) {
+      price = Math.max(basePrice, 70);
+    } else {
+      price = basePrice;
+    }
+
+    return {
+      distance: formatted,
+      price: price,
+      lot_name: currentLot
+    };
+  });
+}
+
+/**
+ * Retorna o valor de piso base da prova ("A partir de R$ XX,XX")
+ */
+export function getBasePrice(race: Race): number {
+  if (race.priceWithoutShirt) return race.priceWithoutShirt;
+  const categories = getRaceCategories(race);
+  if (categories.length > 0) {
+    return Math.min(...categories.map((c) => c.price));
+  }
+  return race.priceFrom || race.price || 60;
 }
 
 /**
@@ -99,5 +171,3 @@ export function getBatchCountdownTag(race: Race): string | null {
 
   return null;
 }
-
-export const DEFAULT_RACE_BANNER = 'https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=1200&q=80';

@@ -13,8 +13,9 @@ import {
   formatDecimalDistance, 
   getTimingChipBadge, 
   getBatchCountdownTag, 
-  DEFAULT_RACE_BANNER 
+  getBasePrice 
 } from '../utils/raceFormatters';
+import { DynamicRaceBanner } from './DynamicRaceBanner';
 
 interface RaceCardProps {
   race: Race;
@@ -32,41 +33,31 @@ export const RaceCard: React.FC<RaceCardProps> = ({
   onToggleFavorite,
   onSelectRace,
   onShareWhatsApp,
-  onOpenRegistration,
   onToggleFeatured
 }) => {
   // Parse data
-  const [, monthStr, dayStr] = race.date.split('-');
+  const [, monthStr, dayStr] = (race.date || '2026-05-15').split('-');
   const months = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
   const formattedDate = `${dayStr} de ${months[parseInt(monthStr, 10) - 1]}`;
 
   const chipBadge = getTimingChipBadge(race.chipCompany);
   const batchCountdown = getBatchCountdownTag(race);
-  const displayImage = race.imageUrl || race.bannerUrl || DEFAULT_RACE_BANNER;
-
-  const hasPrice = typeof race.price === 'number' || typeof race.priceFrom === 'number';
-  const basePriceValue = (race.price ?? race.priceFrom)?.toFixed(2).replace('.', ',');
+  const basePrice = getBasePrice(race);
 
   return (
     <div 
       onClick={() => onSelectRace(race)}
-      className={`flex flex-col h-full bg-white rounded-2xl border transition-all duration-200 shadow-sm hover:shadow-md overflow-hidden group cursor-pointer relative ${
+      className={`flex flex-col h-full w-full max-w-sm sm:max-w-none mx-auto bg-white rounded-2xl border transition-all duration-200 shadow-sm hover:shadow-md overflow-hidden group cursor-pointer relative ${
         race.featured ? 'border-orange-300 ring-2 ring-orange-200/70' : 'border-slate-100'
       }`}
     >
-      {/* 1. Imagem Padrão Fixa (h-48 w-full object-cover) com Selo do Chip Fixado no Canto Superior Esquerdo */}
+      {/* 1. Imagem Padrão Fixa (h-48 w-full object-cover) com Fallback Dinâmico Esportivo */}
       <div className="h-48 w-full relative overflow-hidden bg-slate-900 flex-shrink-0">
-        <img
-          src={displayImage}
-          alt={race.title}
-          onError={(e) => {
-            (e.target as HTMLImageElement).src = DEFAULT_RACE_BANNER;
-          }}
-          className="h-48 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        <DynamicRaceBanner
+          race={race}
+          heightClass="h-48"
+          className="w-full"
         />
-
-        {/* Gradiente sutil para leitura perfeita */}
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-slate-950/30" />
 
         {/* Selo Padronizado da Empresa de Cronometragem (Canto Superior Esquerdo) */}
         <div className={`absolute top-3 left-3 z-10 font-bold px-2.5 py-1 rounded-xl text-[11px] backdrop-blur-md border shadow-md flex items-center gap-1.5 ${chipBadge.badgeClass}`}>
@@ -163,30 +154,16 @@ export const RaceCard: React.FC<RaceCardProps> = ({
           </div>
         </div>
 
-        {/* 3. Rodapé do Card: Preço Base + Botão Único Padronizado */}
+        {/* 3. Rodapé do Card: Piso Base Exclusivo ("A partir de R$ XX,XX") + Botão Único */}
         <div className="border-t border-slate-100 pt-3 mt-auto space-y-3">
-          {/* Valor Base da Inscrição */}
+          {/* Preço de Piso Base */}
           <div className="flex items-baseline justify-between">
-            {race.priceWithShirt && race.priceWithoutShirt ? (
-              <div className="flex flex-col">
-                <span className="text-[10px] text-slate-400 uppercase font-semibold">A partir de</span>
-                <span className="text-base font-black text-emerald-950">
-                  R$ {race.priceWithoutShirt.toFixed(2).replace('.', ',')}
-                  <span className="text-[10px] font-normal text-slate-500 ml-1">(sem camisa)</span>
-                </span>
-              </div>
-            ) : hasPrice ? (
-              <div className="flex items-baseline gap-1.5">
-                <span className="text-[10px] text-slate-400 uppercase font-semibold">A partir de</span>
-                <span className="text-base sm:text-lg font-black text-emerald-950">
-                  R$ {basePriceValue}
-                </span>
-              </div>
-            ) : (
-              <span className="text-xs font-bold text-slate-500">
-                {race.status === 'confirmed' ? 'Inscrições em Breve' : 'Valor sob consulta'}
+            <div className="flex items-baseline gap-1.5">
+              <span className="text-[10px] text-slate-400 uppercase font-semibold">A partir de</span>
+              <span className="text-base sm:text-lg font-black text-emerald-950">
+                R$ {basePrice.toFixed(2).replace('.', ',')}
               </span>
-            )}
+            </div>
 
             {race.currentBatch && !batchCountdown && (
               <span className="text-[10px] font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded-md border border-amber-200/80 truncate max-w-[120px]">
@@ -195,32 +172,19 @@ export const RaceCard: React.FC<RaceCardProps> = ({
             )}
           </div>
 
-          {/* Botão de Ação ÚNICO (Removido o redundante "Ver Detalhes") */}
+          {/* Botão de Ação ÚNICO (Abre a tela cheia oficial de inscrição) */}
           <div>
             {race.status === 'open' || race.status === 'closing_soon' ? (
-              onOpenRegistration ? (
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    onOpenRegistration(race);
-                  }}
-                  className="w-full py-2.5 px-3 bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-500 hover:to-amber-500 text-white rounded-xl text-xs sm:text-sm font-black flex items-center justify-center gap-1.5 transition shadow-sm shadow-orange-950/20 active:scale-95 cursor-pointer"
-                >
-                  <span>Inscrever-se</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
-                </button>
-              ) : (
-                <a
-                  href={race.registrationUrl || '#'}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={(e) => e.stopPropagation()}
-                  className="w-full py-2.5 px-3 bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-500 hover:to-amber-500 text-white rounded-xl text-xs sm:text-sm font-black flex items-center justify-center gap-1.5 transition shadow-sm shadow-orange-950/20 active:scale-95 cursor-pointer"
-                >
-                  <span>Inscrever-se</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
-                </a>
-              )
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onSelectRace(race);
+                }}
+                className="w-full py-2.5 px-3 bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-500 hover:to-amber-500 text-white rounded-xl text-xs sm:text-sm font-black flex items-center justify-center gap-1.5 transition shadow-sm shadow-orange-950/20 active:scale-95 cursor-pointer"
+              >
+                <span>Inscrever-se</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </button>
             ) : race.status === 'finished' ? (
               race.resultsUrl ? (
                 <a

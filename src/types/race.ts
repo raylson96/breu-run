@@ -1,11 +1,17 @@
 export type ChipCompany = 
-  | 'Chip Amazônia' 
+  | 'Chip Chronos' 
+  | 'Chip Cronos'
   | 'Chip Breu Branco' 
   | 'Chip Pará' 
-  | 'Chip Cronos'
-  | 'CronoPará' 
+  | 'Chip Amazônia'
   | 'A Definir'
   | 'Outra';
+
+export interface RaceCategory {
+  distance: string;     // Ex: "5 km", "21 km", "3 km Caminhada"
+  price: number;        // Ex: 60.00
+  lot_name?: string;    // Ex: "1º Lote", "Lote Promocional"
+}
 
 export type RaceStatus = 
   | 'open'          // Inscrições abertas com link ativo
@@ -46,6 +52,7 @@ export interface Race {
   elevation?: string;
   imageUrl?: string;
   bannerUrl?: string;
+  categories?: RaceCategory[];
 }
 
 export type ViewMode = 'grid' | 'table' | 'timeline';

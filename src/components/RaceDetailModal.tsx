@@ -19,12 +19,12 @@ import {
   Sparkles
 } from 'lucide-react';
 import { 
-  formatDecimalDistance, 
   getTimingChipBadge, 
   getBatchCountdownTag, 
   calculateDaysLeft, 
-  DEFAULT_RACE_BANNER 
+  getRaceCategories 
 } from '../utils/raceFormatters';
+import { DynamicRaceBanner } from './DynamicRaceBanner';
 
 interface RaceDetailModalProps {
   race: Race | null;
@@ -53,14 +53,14 @@ export const RaceDetailModal: React.FC<RaceDetailModalProps> = ({
 
   if (!race) return null;
 
-  const [year, monthStr, dayStr] = race.date.split('-');
+  const [, monthStr, dayStr] = (race.date || '2026-05-15').split('-');
   const months = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
-  const formattedFullDate = `${dayStr} de ${months[parseInt(monthStr, 10) - 1]} de ${year}`;
+  const formattedFullDate = `${dayStr} de ${months[parseInt(monthStr, 10) - 1]} de ${(race.date || '2026').split('-')[0]}`;
 
   const chipBadge = getTimingChipBadge(race.chipCompany);
   const daysLeft = calculateDaysLeft(race.date);
   const batchCountdown = getBatchCountdownTag(race);
-  const bannerImage = race.bannerUrl || race.imageUrl || DEFAULT_RACE_BANNER;
+  const categories = getRaceCategories(race);
 
   // Google Calendar URL generator
   const getGoogleCalendarUrl = () => {
@@ -69,7 +69,7 @@ export const RaceDetailModal: React.FC<RaceDetailModalProps> = ({
     const endTimeFormatted = race.date.replace(/-/g, '') + 'T' + endHour + race.time.split(':')[1] + '00';
     
     const details = encodeURIComponent(
-      `Corrida: ${race.title}\nDistâncias: ${race.distances.map(formatDecimalDistance).join(', ')}\nLocal: ${race.location}, ${race.city}/PA\nCronometragem: ${race.chipCompany}\nInscrição: ${race.registrationUrl || 'Aguardando abertura no Breu Run'}`
+      `Corrida: ${race.title}\nDistâncias: ${categories.map((c) => `${c.distance} (R$ ${c.price.toFixed(2)})`).join(', ')}\nLocal: ${race.location}, ${race.city}/PA\nCronometragem: ${chipBadge.name}\nInscrição: ${race.registrationUrl || 'Aguardando abertura no Breu Run'}`
     );
     const location = encodeURIComponent(`${race.location}, ${race.city}, Pará, Brasil`);
     const title = encodeURIComponent(`🏃‍♂️ ${race.title}`);
@@ -81,23 +81,20 @@ export const RaceDetailModal: React.FC<RaceDetailModalProps> = ({
     return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${race.location}, ${race.city}, Pará`)}`;
   };
 
-  const hasPrice = typeof race.price === 'number' || typeof race.priceFrom === 'number';
-  const displayPrice = (race.price ?? race.priceFrom)?.toFixed(2).replace('.', ',');
-
-  // Kit Atleta padronizado e enriquecido
+  // Kit Atleta Oficial
   const defaultKitItems = [
-    { title: 'Camiseta Oficial do Evento', desc: 'Tecido tecnológico dry-fit para performance', icon: Shirt },
-    { title: 'Número de Peito Oficial', desc: 'Identificação personalizada com 4 alfinetes', icon: Tag },
-    { title: 'Chip de Cronometragem Eletrônica', desc: 'Descartável e aferido pelos fiscais oficiais', icon: ShieldCheck },
-    { title: 'Medalha Finisher em Metal', desc: 'Entregue a todos os atletas que concluírem a prova', icon: Award },
-    { title: 'Sacochila / Brindes dos Patrocinadores', desc: 'Kit de cortesia dos parceiros do circuito', icon: Gift },
-    { title: 'Hidratação e Frutas', desc: 'Postos de água durante o percurso e mesa de frutas na chegada', icon: CheckCircle }
+    { title: 'Camiseta Oficial do Evento', desc: 'Tecido tecnológico dry-fit leve de alta absorção', icon: Shirt },
+    { title: 'Número de Peito Personalizado', desc: 'Identificação oficial com 4 alfinetes de segurança', icon: Tag },
+    { title: 'Chip de Cronometragem Eletrônica', desc: `Aferido e operado pela equipe oficial da ${chipBadge.name}`, icon: ShieldCheck },
+    { title: 'Medalha Finisher Pós-Prova', desc: 'Medalha pesada em metal entregue a todos os concluintes', icon: Award },
+    { title: 'Sacochila / Brindes dos Patrocinadores', desc: 'Brindes exclusivos dos parceiros do circuito', icon: Gift },
+    { title: 'Hidratação e Mesa de Frutas', desc: 'Postos de água gelada no percurso e frutas na chegada', icon: CheckCircle }
   ];
 
   return (
-    <div className="fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-md overflow-y-auto animate-in fade-in duration-150 flex flex-col">
+    <div className="fixed inset-0 z-50 bg-slate-950/98 backdrop-blur-md overflow-y-auto animate-in fade-in duration-150 flex flex-col">
       {/* 1. Barra Superior Fixa com Botão Destacado "← Voltar ao Calendário" */}
-      <header className="sticky top-0 z-50 bg-slate-950/90 border-b border-slate-800/90 px-4 sm:px-8 py-3.5 backdrop-blur-lg flex items-center justify-between">
+      <header className="sticky top-0 z-50 bg-slate-950/90 border-b border-slate-800/90 px-3 sm:px-8 py-3.5 backdrop-blur-lg flex items-center justify-between">
         <button
           onClick={onClose}
           className="flex items-center gap-2 px-3.5 sm:px-4 py-2 bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-500 hover:to-amber-500 text-white rounded-xl text-xs sm:text-sm font-black transition cursor-pointer shadow-md shadow-orange-950/40 active:scale-95"
@@ -134,20 +131,25 @@ export const RaceDetailModal: React.FC<RaceDetailModalProps> = ({
       </header>
 
       {/* 2. Container Central da Página de Detalhes da Corrida */}
-      <main className="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8 text-slate-800">
-        {/* Banner Panorâmico HD */}
+      <main className="flex-1 max-w-5xl w-full mx-auto px-3 sm:px-6 lg:px-8 py-6 space-y-6 sm:space-y-8 text-slate-800">
+        {/* Banner Panorâmico HD ou Fallback Dinâmico Esportivo */}
         <div className="relative w-full h-56 sm:h-72 md:h-96 rounded-3xl overflow-hidden shadow-2xl bg-slate-900 border border-slate-800">
-          <img
-            src={bannerImage}
-            alt={race.title}
-            onError={(e) => {
-              (e.target as HTMLImageElement).src = DEFAULT_RACE_BANNER;
-            }}
-            className="w-full h-full object-cover object-center"
-          />
-
-          {/* Gradiente Panorâmico */}
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent" />
+          {race.bannerUrl || race.imageUrl ? (
+            <>
+              <img
+                src={race.bannerUrl || race.imageUrl}
+                alt={race.title}
+                className="w-full h-full object-cover object-center"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent" />
+            </>
+          ) : (
+            <DynamicRaceBanner
+              race={race}
+              heightClass="h-full"
+              className="w-full h-full"
+            />
+          )}
 
           {/* Selo do Chip no Canto Superior Esquerdo */}
           <div className={`absolute top-4 left-4 z-10 font-bold px-3 py-1.5 rounded-xl text-xs backdrop-blur-md border shadow-lg flex items-center gap-1.5 ${chipBadge.badgeClass}`}>
@@ -224,52 +226,53 @@ export const RaceDetailModal: React.FC<RaceDetailModalProps> = ({
               </div>
             </div>
 
-            {/* Bloco 2: Tabela de Distâncias e Preços de Lotes */}
+            {/* Bloco 2: TABELA DE PREÇOS POR DISTÂNCIA E LOTES REAIS (5 km != 21 km) */}
             <div className="bg-white rounded-3xl p-5 sm:p-6 shadow-sm border border-slate-200/80 space-y-4">
               <div className="flex items-center justify-between">
-                <h2 className="text-sm font-black uppercase tracking-wider text-slate-400 flex items-center gap-2">
-                  <Tag className="w-4 h-4 text-emerald-600" />
-                  <span>Percursos & Lotes de Inscrição</span>
-                </h2>
+                <div>
+                  <h2 className="text-sm font-black uppercase tracking-wider text-slate-400 flex items-center gap-2">
+                    <Tag className="w-4 h-4 text-emerald-600" />
+                    <span>Preço por Quilometragem & Lotes Oficiais</span>
+                  </h2>
+                  <p className="text-xs text-slate-500 mt-0.5">
+                    Valores específicos para cada distância da prova
+                  </p>
+                </div>
 
                 {batchCountdown && (
-                  <span className="px-2.5 py-0.5 rounded-lg text-xs font-black bg-amber-500 text-slate-950 uppercase tracking-wider">
+                  <span className="px-2.5 py-1 rounded-xl text-xs font-black bg-amber-500 text-slate-950 uppercase tracking-wider">
                     {batchCountdown}
                   </span>
                 )}
               </div>
 
-              {/* Tabela de Preços e Percursos */}
+              {/* Tabela de Preços por Distância */}
               <div className="overflow-x-auto rounded-2xl border border-slate-200">
                 <table className="w-full text-left text-xs sm:text-sm">
                   <thead className="bg-slate-900 text-white font-black text-xs uppercase tracking-wider">
                     <tr>
-                      <th className="p-3.5">Percurso</th>
-                      <th className="p-3.5">Lote Atual</th>
-                      <th className="p-3.5">Kit Padrão</th>
-                      {race.priceWithShirt && <th className="p-3.5">Kit Premium (c/ Camisa)</th>}
+                      <th className="p-3.5">Quilometragem / Percurso</th>
+                      <th className="p-3.5">Lote Vigente</th>
+                      <th className="p-3.5 text-right sm:text-left">Valor da Inscrição</th>
+                      {race.priceWithShirt && <th className="p-3.5 hidden sm:table-cell">Kit Premium c/ Camisa</th>}
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-100 bg-white">
-                    {race.distances.map((dist, idx) => (
-                      <tr key={idx} className="hover:bg-slate-50 transition">
+                    {categories.map((cat, idx) => (
+                      <tr key={idx} className="hover:bg-orange-50/30 transition">
                         <td className="p-3.5 font-black text-slate-900">
-                          <span className="px-2.5 py-1 rounded-lg bg-orange-100 text-orange-800 text-xs font-black">
-                            {formatDecimalDistance(dist)}
+                          <span className="px-3 py-1 rounded-xl bg-orange-100 text-orange-900 text-xs font-black inline-block">
+                            {cat.distance}
                           </span>
                         </td>
                         <td className="p-3.5 text-slate-600 font-semibold">
-                          {race.currentBatch || '1º Lote Oficial'}
+                          {cat.lot_name || race.currentBatch || '1º Lote Oficial'}
                         </td>
-                        <td className="p-3.5 font-black text-emerald-900">
-                          {race.priceWithoutShirt 
-                            ? `R$ ${race.priceWithoutShirt.toFixed(2).replace('.', ',')}`
-                            : hasPrice 
-                            ? `R$ ${displayPrice}` 
-                            : 'Sob Consulta'}
+                        <td className="p-3.5 font-black text-emerald-950 text-base text-right sm:text-left">
+                          R$ {cat.price.toFixed(2).replace('.', ',')}
                         </td>
                         {race.priceWithShirt && (
-                          <td className="p-3.5 font-black text-emerald-950 bg-emerald-50/40">
+                          <td className="p-3.5 font-black text-emerald-950 bg-emerald-50/40 hidden sm:table-cell">
                             R$ {race.priceWithShirt.toFixed(2).replace('.', ',')}
                           </td>
                         )}
@@ -281,16 +284,16 @@ export const RaceDetailModal: React.FC<RaceDetailModalProps> = ({
 
               {race.batchDeadline && (
                 <p className="text-xs text-amber-800 font-medium bg-amber-50 p-2.5 rounded-xl border border-amber-200/60">
-                  ⚠️ Virada de lote prevista para: <strong>{race.batchDeadline}</strong> ou até esgotarem as vagas limitadas.
+                  ⚠️ Virada de lote prevista para: <strong>{race.batchDeadline}</strong> ou até o encerramento das vagas limitadas.
                 </p>
               )}
             </div>
 
-            {/* Bloco 3: Itens do Kit Atleta */}
+            {/* Bloco 3: Itens Oficiais do Kit Atleta */}
             <div className="bg-white rounded-3xl p-5 sm:p-6 shadow-sm border border-slate-200/80 space-y-4">
               <h2 className="text-sm font-black uppercase tracking-wider text-slate-400 flex items-center gap-2">
                 <Gift className="w-4 h-4 text-orange-500" />
-                <span>Kit do Atleta Incluso</span>
+                <span>Kit do Atleta Incluso no Regulamento</span>
               </h2>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -315,46 +318,55 @@ export const RaceDetailModal: React.FC<RaceDetailModalProps> = ({
               </div>
             </div>
 
-            {/* Bloco 4: Premiação Completa & Troféus */}
+            {/* Bloco 4: Premiação Completa e Detalhada */}
             <div className="bg-gradient-to-br from-amber-50/70 via-white to-orange-50/50 rounded-3xl p-5 sm:p-6 shadow-sm border border-amber-200/80 space-y-4">
               <h2 className="text-sm font-black uppercase tracking-wider text-amber-900 flex items-center gap-2">
                 <Trophy className="w-4 h-4 text-amber-600" />
-                <span>Premiação Completa & Categorias</span>
+                <span>Premiação Completa & Categorias Oficiais</span>
               </h2>
 
               <div className="space-y-3 text-xs sm:text-sm text-slate-700">
-                <div className="flex items-start gap-3 p-3 bg-white rounded-2xl border border-amber-200/70 shadow-2xs">
-                  <div className="w-8 h-8 rounded-xl bg-amber-500 text-white flex items-center justify-center font-black flex-shrink-0">
+                {/* Premiação Geral */}
+                <div className="flex items-start gap-3 p-3.5 bg-white rounded-2xl border border-amber-200/70 shadow-2xs">
+                  <div className="w-9 h-9 rounded-xl bg-amber-500 text-white flex items-center justify-center font-black flex-shrink-0 text-base">
                     🏆
                   </div>
                   <div>
-                    <h4 className="font-black text-slate-900">Classificação Geral (Masculino e Feminino)</h4>
-                    <p className="text-xs text-slate-600 mt-0.5">
-                      Troféu especial para os <strong>1º ao 5º colocados</strong> em cada percurso oficial da prova.
+                    <h4 className="font-black text-slate-900 text-sm">
+                      Premiação Categoria Geral (Masculino e Feminino)
+                    </h4>
+                    <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+                      Troféu oficial do <strong>1º ao 5º lugar geral masculino e feminino</strong> em todos os percursos da prova, com possíveis premiações em dinheiro conforme estipulado pelo organizador.
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3 p-3 bg-white rounded-2xl border border-amber-200/70 shadow-2xs">
-                  <div className="w-8 h-8 rounded-xl bg-orange-500 text-white flex items-center justify-center font-black flex-shrink-0">
+                {/* Premiação Faixas Etárias */}
+                <div className="flex items-start gap-3 p-3.5 bg-white rounded-2xl border border-amber-200/70 shadow-2xs">
+                  <div className="w-9 h-9 rounded-xl bg-orange-500 text-white flex items-center justify-center font-black flex-shrink-0 text-base">
                     🥇
                   </div>
                   <div>
-                    <h4 className="font-black text-slate-900">Faixas Etárias (Masculino e Feminino)</h4>
-                    <p className="text-xs text-slate-600 mt-0.5">
-                      Troféus ou medalhões exclusivos para os <strong>1º, 2º e 3º colocados</strong> nas divisões por idade oficiais.
+                    <h4 className="font-black text-slate-900 text-sm">
+                      Premiação por Faixas Etárias (Masculino e Feminino)
+                    </h4>
+                    <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+                      Troféus ou medalhões exclusivos para os <strong>1º, 2º e 3º colocados</strong> em cada divisão etária oficial (18-29, 30-39, 40-49, 50-59, 60+ anos).
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3 p-3 bg-white rounded-2xl border border-amber-200/70 shadow-2xs">
-                  <div className="w-8 h-8 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-black flex-shrink-0">
+                {/* Medalha Finisher */}
+                <div className="flex items-start gap-3 p-3.5 bg-white rounded-2xl border border-amber-200/70 shadow-2xs">
+                  <div className="w-9 h-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-black flex-shrink-0 text-base">
                     🏅
                   </div>
                   <div>
-                    <h4 className="font-black text-slate-900">Medalha Finisher de Participação</h4>
-                    <p className="text-xs text-slate-600 mt-0.5">
-                      Garantida para todos os corredores devidamente inscritos que cruzarem a linha de chegada dentro do tempo limite.
+                    <h4 className="font-black text-slate-900 text-sm">
+                      Medalha Finisher de Conclusão da Prova
+                    </h4>
+                    <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+                      Todos os atletas devidamente inscritos que cruzarem a linha de chegada dentro do tempo limite recebem a medalha oficial de participação.
                     </p>
                   </div>
                 </div>
@@ -368,13 +380,13 @@ export const RaceDetailModal: React.FC<RaceDetailModalProps> = ({
             </div>
           </div>
 
-          {/* Coluna 3: Painel Lateral Sticky de CTA Oficial & Utilitários */}
+          {/* Coluna 3: Painel Lateral Sticky com Botão Final de Inscrição Oficial */}
           <div className="lg:sticky lg:top-20 space-y-4">
             {/* Card Principal de Inscrição */}
             <div className="bg-white rounded-3xl p-5 sm:p-6 shadow-xl border border-slate-200 space-y-4">
               <div>
                 <span className="text-[10px] font-black uppercase tracking-wider text-slate-400 block">
-                  Status das Vagas
+                  Status das Inscrições
                 </span>
                 <div className="text-xl sm:text-2xl font-black text-slate-900 mt-1">
                   {race.status === 'open' 
@@ -387,15 +399,9 @@ export const RaceDetailModal: React.FC<RaceDetailModalProps> = ({
                     ? 'Prova Concluída' 
                     : 'Em Breve'}
                 </div>
-
-                {hasPrice && (
-                  <div className="mt-2 text-xs font-semibold text-slate-500">
-                    Valores a partir de <strong className="text-emerald-700 text-base font-black">R$ {displayPrice}</strong>
-                  </div>
-                )}
               </div>
 
-              {/* CTA EXPLÍCITO DIRECIONADO AO SITE DO CHIP OFICIAL */}
+              {/* BOTÃO FINAL DE INSCRIÇÃO OFICIAL DIRECIONADO AO SITE DO CHIP */}
               <div>
                 {race.status === 'open' || race.status === 'closing_soon' ? (
                   race.registrationUrl ? (
@@ -403,14 +409,14 @@ export const RaceDetailModal: React.FC<RaceDetailModalProps> = ({
                       href={race.registrationUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full py-4 px-4 bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-500 hover:to-amber-500 text-white rounded-2xl text-sm font-black transition shadow-lg shadow-orange-950/30 flex items-center justify-center gap-2 text-center active:scale-95 cursor-pointer"
+                      className="w-full py-4 px-4 bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-500 hover:to-amber-500 text-white rounded-2xl text-xs sm:text-sm font-black transition shadow-lg shadow-orange-950/30 flex items-center justify-center gap-2 text-center active:scale-95 cursor-pointer leading-snug"
                     >
-                      <span>Inscrever-se no site oficial da {race.chipCompany}</span>
+                      <span>Inscrever-se no site oficial da {chipBadge.name}</span>
                       <ExternalLink className="w-4 h-4 flex-shrink-0" />
                     </a>
                   ) : (
                     <button
-                      onClick={() => alert('O link de inscrição será liberado nos próximos dias pelo organizador.')}
+                      onClick={() => alert('O link oficial de inscrição será liberado nos próximos dias pelo organizador.')}
                       className="w-full py-4 px-4 bg-amber-500 hover:bg-amber-600 text-white rounded-2xl text-sm font-black transition text-center shadow-md cursor-pointer"
                     >
                       Aguardando liberação do link oficial 🔔
@@ -424,7 +430,7 @@ export const RaceDetailModal: React.FC<RaceDetailModalProps> = ({
                       rel="noopener noreferrer"
                       className="w-full py-4 px-4 bg-purple-600 hover:bg-purple-500 text-white rounded-2xl text-sm font-black transition shadow-lg shadow-purple-950/20 flex items-center justify-center gap-2 text-center active:scale-95 cursor-pointer"
                     >
-                      <span>Ver Resultados na {race.chipCompany} ↗</span>
+                      <span>Ver Resultados na {chipBadge.name} ↗</span>
                       <ExternalLink className="w-4 h-4 flex-shrink-0" />
                     </a>
                   ) : (
@@ -468,7 +474,7 @@ export const RaceDetailModal: React.FC<RaceDetailModalProps> = ({
                 </button>
               </div>
 
-              {/* Link do Regulamento PDF */}
+              {/* Link do Regulamento PDF Oficial */}
               {(race.regulationUrl || race.rulesUrl) && (
                 <div className="pt-2 border-t border-slate-100">
                   <a
@@ -491,7 +497,7 @@ export const RaceDetailModal: React.FC<RaceDetailModalProps> = ({
                 <span>Dados Oficiais Verificados</span>
               </div>
               <p className="text-slate-400 text-[11px] leading-relaxed">
-                As informações deste evento foram extraídas e sincronizadas diretamente dos sistemas oficiais da empresa de cronometragem <strong>{race.chipCompany}</strong>.
+                As informações deste evento foram extraídas e sincronizadas diretamente dos sistemas oficiais da empresa de cronometragem <strong>{chipBadge.name}</strong>.
               </p>
             </div>
           </div>

@@ -7,23 +7,20 @@ import {
   ExternalLink, 
   Timer, 
   ShieldCheck, 
-  ChevronLeft, 
-  ChevronRight, 
-  Megaphone, 
-  Star,
-  Tag
+  Star
 } from 'lucide-react';
 import { 
   formatDecimalDistance, 
   getTimingChipBadge, 
   calculateDaysLeft, 
-  DEFAULT_RACE_BANNER 
+  getBasePrice 
 } from '../utils/raceFormatters';
+import { DynamicRaceBanner } from './DynamicRaceBanner';
 
 interface FeaturedRacesSectionProps {
   races: Race[];
   onSelectRace: (race: Race) => void;
-  onOpenAdminModal: () => void;
+  onOpenAdminModal?: () => void;
   onOpenRegistration?: (race: Race) => void;
   onToggleFeatured?: (raceId: string) => void;
 }
@@ -31,8 +28,6 @@ interface FeaturedRacesSectionProps {
 export const FeaturedRacesSection: React.FC<FeaturedRacesSectionProps> = ({
   races,
   onSelectRace,
-  onOpenAdminModal,
-  onOpenRegistration,
   onToggleFeatured
 }) => {
   // Provas marcadas como featured ou fallback para as primeiras com inscrições abertas/confirmadas
@@ -43,15 +38,17 @@ export const FeaturedRacesSection: React.FC<FeaturedRacesSectionProps> = ({
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const touchStartXRef = useRef<number | null>(null);
-  const touchEndXRef = useRef<number | null>(null);
+  
+  // Controle de arraste (Touch & Mouse Drag)
+  const dragStartXRef = useRef<number | null>(null);
+  const isDraggingRef = useRef(false);
 
-  // Auto-play suave com pausa ao passar o mouse
+  // Auto-play suave de ~5 segundos, pausado ao interagir
   useEffect(() => {
     if (displayRaces.length <= 1 || isPaused) return;
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % displayRaces.length);
-    }, 7000);
+    }, 5000);
     return () => clearInterval(interval);
   }, [displayRaces.length, isPaused]);
 
@@ -62,9 +59,10 @@ export const FeaturedRacesSection: React.FC<FeaturedRacesSectionProps> = ({
   const currentRace = displayRaces[currentIndex] || displayRaces[0];
   const chipBadge = getTimingChipBadge(currentRace.chipCompany);
   const daysLeft = calculateDaysLeft(currentRace.date);
+  const basePrice = getBasePrice(currentRace);
 
   const formatDate = (dateStr: string) => {
-    const [, month, day] = dateStr.split('-');
+    const [, month, day] = (dateStr || '2026-05-15').split('-');
     const months = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
     return `${day} de ${months[parseInt(month, 10) - 1]}`;
   };
@@ -79,80 +77,95 @@ export const FeaturedRacesSection: React.FC<FeaturedRacesSectionProps> = ({
 
   // Suporte a swipe tátil no mobile
   const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartXRef.current = e.targetTouches[0].clientX;
+    dragStartXRef.current = e.targetTouches[0].clientX;
   };
 
-  const handleTouchMove = (e: React.TouchEvent) => {
-    touchEndXRef.current = e.targetTouches[0].clientX;
-  };
-
-  const handleTouchEnd = () => {
-    if (touchStartXRef.current !== null && touchEndXRef.current !== null) {
-      const diff = touchStartXRef.current - touchEndXRef.current;
-      if (diff > 45) {
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (dragStartXRef.current !== null) {
+      const diff = dragStartXRef.current - e.changedTouches[0].clientX;
+      if (diff > 40) {
         handleNext();
-      } else if (diff < -45) {
+      } else if (diff < -40) {
         handlePrev();
       }
     }
-    touchStartXRef.current = null;
-    touchEndXRef.current = null;
+    dragStartXRef.current = null;
   };
 
-  const hasPrice = typeof currentRace.price === 'number' || typeof currentRace.priceFrom === 'number';
-  const priceValue = (currentRace.price ?? currentRace.priceFrom)?.toFixed(2).replace('.', ',');
-  const bannerImage = currentRace.bannerUrl || currentRace.imageUrl || DEFAULT_RACE_BANNER;
+  // Suporte a arraste com mouse no desktop (drag)
+  const handleMouseDown = (e: React.MouseEvent) => {
+    dragStartXRef.current = e.clientX;
+    isDraggingRef.current = true;
+  };
+
+  const handleMouseUp = (e: React.MouseEvent) => {
+    if (isDraggingRef.current && dragStartXRef.current !== null) {
+      const diff = dragStartXRef.current - e.clientX;
+      if (diff > 50) {
+        handleNext();
+      } else if (diff < -50) {
+        handlePrev();
+      }
+    }
+    dragStartXRef.current = null;
+    isDraggingRef.current = false;
+  };
 
   return (
     <div 
       className="mb-6 w-full select-none"
       onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
+      onMouseLeave={() => {
+        setIsPaused(false);
+        isDraggingRef.current = false;
+      }}
       onTouchStart={handleTouchStart}
-      onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
+      onMouseDown={handleMouseDown}
+      onMouseUp={handleMouseUp}
     >
-      {/* 1. Banner Principal Panorâmico (Desktop Teatro h-64 md:h-80 lg:h-96 / Mobile h-52 sm:h-60) */}
-      <div className="relative w-full h-56 sm:h-72 md:h-80 lg:h-96 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl bg-slate-950 border border-slate-800 group">
-        {/* Imagem de Fundo em Alta Resolução com transição suave */}
-        <img
-          key={currentRace.id}
-          src={bannerImage}
-          alt={currentRace.title}
-          onError={(e) => {
-            (e.target as HTMLImageElement).src = DEFAULT_RACE_BANNER;
-          }}
-          className="absolute inset-0 w-full h-full object-cover object-center transform transition-transform duration-1000 ease-out scale-100 group-hover:scale-105"
-        />
+      {/* 1. Modo Teatro Panorâmico (w-full 100%, altura controlada sem setas invasivas) */}
+      <div className="relative w-full h-56 sm:h-72 md:h-80 lg:h-96 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl bg-slate-950 border border-slate-800 group cursor-grab active:cursor-grabbing">
+        
+        {/* Renderiza imagem real ou Fallback Dinâmico Esportivo caso não exista arte oficial */}
+        {currentRace.bannerUrl || currentRace.imageUrl ? (
+          <>
+            <img
+              key={currentRace.id}
+              src={currentRace.bannerUrl || currentRace.imageUrl}
+              alt={currentRace.title}
+              className="absolute inset-0 w-full h-full object-cover object-center transform transition-transform duration-1000 ease-out scale-100 group-hover:scale-105"
+            />
+            {/* Gradientes Panorâmicos de Alta Legibilidade */}
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/75 to-slate-950/20 md:bg-gradient-to-r md:from-slate-950/95 md:via-slate-950/80 md:to-transparent" />
+            <div className="absolute top-0 right-0 w-96 h-96 bg-orange-600/10 rounded-full blur-3xl pointer-events-none" />
+          </>
+        ) : (
+          <DynamicRaceBanner 
+            race={currentRace} 
+            heightClass="h-full" 
+            className="absolute inset-0 w-full h-full"
+          />
+        )}
 
-        {/* Gradientes Panorâmicos de Alta Legibilidade (Fundo escurecido sem perder a arte) */}
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/75 to-slate-950/20 md:bg-gradient-to-r md:from-slate-950/95 md:via-slate-950/80 md:to-transparent" />
-        <div className="absolute top-0 right-0 w-96 h-96 bg-orange-600/10 rounded-full blur-3xl pointer-events-none" />
-
-        {/* Botão de Anunciar Corrida no Canto Superior Direito */}
+        {/* Botão sutil de Destaque no Canto Superior Direito */}
         <div className="absolute top-3 sm:top-4 right-3 sm:right-4 z-30 flex items-center gap-2">
           {onToggleFeatured && (
             <button
-              onClick={() => onToggleFeatured(currentRace.id)}
+              onClick={(e) => {
+                e.stopPropagation();
+                onToggleFeatured(currentRace.id);
+              }}
               className="p-2 rounded-xl bg-slate-950/70 hover:bg-slate-900 text-amber-400 border border-white/10 backdrop-blur-md transition cursor-pointer"
               title={currentRace.featured ? "Remover do destaque" : "Fixar no destaque"}
             >
               <Star className={`w-3.5 h-3.5 ${currentRace.featured ? 'fill-amber-400 text-amber-400' : 'text-slate-400'}`} />
             </button>
           )}
-
-          <button
-            onClick={onOpenAdminModal}
-            className="px-3 sm:px-3.5 py-1.5 sm:py-2 bg-slate-950/70 hover:bg-slate-900 text-orange-400 hover:text-orange-300 border border-orange-500/30 rounded-xl text-[11px] sm:text-xs font-bold transition backdrop-blur-md flex items-center gap-1.5 shadow-md cursor-pointer"
-            title="Divulgue sua prova para corredores de todo o Pará"
-          >
-            <Megaphone className="w-3.5 h-3.5 text-orange-400" />
-            <span className="hidden sm:inline">Anunciar Prova</span>
-          </button>
         </div>
 
         {/* Conteúdo Principal do Slide Panorâmico */}
-        <div className="relative z-20 h-full flex flex-col justify-between p-4 sm:p-6 md:p-8 max-w-2xl lg:max-w-3xl">
+        <div className="relative z-20 h-full flex flex-col justify-between p-4 sm:p-6 md:p-8 max-w-2xl lg:max-w-3xl pointer-events-auto">
           {/* Top Tags: Selo do Chip Oficial + Em Evidência + Contagem Regressiva */}
           <div className="flex flex-wrap items-center gap-2">
             <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl text-[10px] sm:text-[11px] font-black bg-gradient-to-r from-orange-500 to-amber-500 text-slate-950 uppercase tracking-wider shadow-sm">
@@ -217,103 +230,44 @@ export const FeaturedRacesSection: React.FC<FeaturedRacesSectionProps> = ({
             </div>
           </div>
 
-          {/* Rodapé do Banner: Preço e Botões de Ação */}
+          {/* Rodapé do Banner: Preço e Botão de Ação */}
           <div className="flex items-center justify-between gap-3 pt-2 border-t border-slate-800/80">
-            {/* Informações de Preço */}
+            {/* Informações de Preço Base */}
             <div>
-              {currentRace.priceWithShirt && currentRace.priceWithoutShirt ? (
-                <div className="flex items-baseline gap-2">
-                  <span className="text-xs text-slate-300">
-                    Sem camisa: <strong className="text-white font-bold">R$ {currentRace.priceWithoutShirt.toFixed(2).replace('.', ',')}</strong>
-                  </span>
-                  <span className="text-xs sm:text-sm font-black text-amber-300">
-                    Com camisa: R$ {currentRace.priceWithShirt.toFixed(2).replace('.', ',')}
-                  </span>
-                </div>
-              ) : hasPrice ? (
-                <div className="flex items-baseline gap-1.5">
-                  <span className="text-[10px] sm:text-xs text-slate-400 uppercase font-semibold">A partir de</span>
-                  <span className="text-base sm:text-xl font-black text-white">
-                    R$ {priceValue}
-                  </span>
-                </div>
-              ) : (
-                <span className="text-xs sm:text-sm font-bold text-amber-400 flex items-center gap-1">
-                  <Tag className="w-3 h-3" />
-                  {currentRace.status === 'confirmed' ? 'Inscrições em Breve' : 'Valor sob consulta'}
+              <div className="flex items-baseline gap-1.5">
+                <span className="text-[10px] sm:text-xs text-slate-400 uppercase font-semibold">A partir de</span>
+                <span className="text-base sm:text-xl font-black text-white">
+                  R$ {basePrice.toFixed(2).replace('.', ',')}
                 </span>
-              )}
+              </div>
+              <span className="text-[10px] text-amber-400/90 font-medium block">
+                {currentRace.currentBatch || '1º Lote Oficial'}
+              </span>
             </div>
 
-            {/* Botões de Ação */}
+            {/* Botão de Ação (Abre Visão em Tela Cheia para Inscrição) */}
             <div className="flex items-center gap-2">
               <button
                 onClick={() => onSelectRace(currentRace)}
-                className="px-3.5 sm:px-4 py-2 sm:py-2.5 bg-slate-900/90 hover:bg-slate-800 text-slate-200 text-xs sm:text-sm font-bold rounded-xl border border-slate-700 transition cursor-pointer backdrop-blur-md"
+                className="px-4 sm:px-6 py-2 sm:py-2.5 bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-500 hover:to-amber-500 text-white text-xs sm:text-sm font-black rounded-xl shadow-lg shadow-orange-950/50 transition flex items-center gap-1.5 cursor-pointer active:scale-95 whitespace-nowrap"
               >
-                Ver Detalhes
+                <span>{currentRace.status === 'open' || currentRace.status === 'closing_soon' ? 'Inscrever-se' : 'Ver Detalhes'}</span>
+                <ExternalLink className="w-3.5 h-3.5" />
               </button>
-
-              {currentRace.status === 'open' || currentRace.status === 'closing_soon' ? (
-                onOpenRegistration ? (
-                  <button
-                    onClick={() => onOpenRegistration(currentRace)}
-                    className="px-4 sm:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-500 hover:to-amber-500 text-white text-xs sm:text-sm font-black rounded-xl shadow-lg shadow-orange-950/50 transition flex items-center gap-1.5 cursor-pointer active:scale-95 whitespace-nowrap"
-                  >
-                    <span>Inscrever-se</span>
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </button>
-                ) : (
-                  <a
-                    href={currentRace.registrationUrl || '#'}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-4 sm:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-500 hover:to-amber-500 text-white text-xs sm:text-sm font-black rounded-xl shadow-lg shadow-orange-950/50 transition flex items-center gap-1.5 cursor-pointer active:scale-95 whitespace-nowrap"
-                  >
-                    <span>Inscrever-se</span>
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
-                )
-              ) : (
-                <button
-                  onClick={() => onSelectRace(currentRace)}
-                  className="px-4 sm:px-5 py-2 sm:py-2.5 bg-amber-500 hover:bg-amber-600 text-white text-xs sm:text-sm font-black rounded-xl transition cursor-pointer whitespace-nowrap shadow-md"
-                >
-                  Em Breve 🔔
-                </button>
-              )}
             </div>
           </div>
         </div>
 
-        {/* Setas de Navegação Lateral Suaves (Desktop) */}
+        {/* Paginação por Bullets no Centro Inferior (Navegação Exclusiva com Suporte a Drag) */}
         {displayRaces.length > 1 && (
-          <>
-            <button
-              onClick={handlePrev}
-              className="hidden sm:flex absolute left-3 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-slate-950/60 hover:bg-slate-900 text-white/80 hover:text-white border border-white/10 backdrop-blur-md items-center justify-center cursor-pointer transition shadow-lg hover:scale-105"
-              title="Prova anterior"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-
-            <button
-              onClick={handleNext}
-              className="hidden sm:flex absolute right-3 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-slate-950/60 hover:bg-slate-900 text-white/80 hover:text-white border border-white/10 backdrop-blur-md items-center justify-center cursor-pointer transition shadow-lg hover:scale-105"
-              title="Próxima prova"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </>
-        )}
-
-        {/* Paginação por Bullets no Centro Inferior */}
-        {displayRaces.length > 1 && (
-          <div className="absolute bottom-2.5 sm:bottom-3 left-1/2 -translate-x-1/2 z-30 flex items-center gap-1.5 bg-slate-950/50 px-2.5 py-1 rounded-full backdrop-blur-md border border-white/10">
+          <div className="absolute bottom-2.5 sm:bottom-3 left-1/2 -translate-x-1/2 z-30 flex items-center gap-1.5 bg-slate-950/60 px-3 py-1.5 rounded-full backdrop-blur-md border border-white/10">
             {displayRaces.map((_, idx) => (
               <button
                 key={idx}
-                onClick={() => setCurrentIndex(idx)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setCurrentIndex(idx);
+                }}
                 className={`transition-all duration-300 rounded-full cursor-pointer ${
                   currentIndex === idx
                     ? 'w-6 h-2 bg-orange-500 shadow-sm'

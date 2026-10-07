@@ -2,6 +2,7 @@ import type { RaceRecord, TimingCompany, RaceStatus } from '../types';
 import type { Race as FrontendRace } from '../../../types/race';
 import { VERIFIED_CHIP_SNAPSHOT } from '../data/verifiedRacesSnapshot';
 import { slugify } from '../utils/slugify';
+import { getRaceCategories } from '../../../utils/raceFormatters';
 
 export interface RaceRepositoryInterface {
   findAll(): Promise<RaceRecord[]>;
@@ -182,6 +183,13 @@ export class LocalStorageRaceRepository implements RaceRepositoryInterface {
       priceWithoutShirt: rec.priceWithoutShirt ?? undefined,
       priceWithShirt: rec.priceWithShirt ?? undefined,
       featured: rec.featured,
+      categories: getRaceCategories({
+        distances: rec.distances,
+        priceWithoutShirt: rec.priceWithoutShirt ?? undefined,
+        priceFrom: rec.price ?? rec.priceFrom ?? undefined,
+        price: rec.price ?? rec.priceFrom ?? undefined,
+        currentBatch: rec.currentBatch
+      } as any),
       kitItems: ['Camiseta oficial', 'Medalha finisher', 'Número de peito com chip']
     };
   }

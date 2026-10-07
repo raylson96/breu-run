@@ -13,7 +13,6 @@ import { AdminPanelModal } from './components/AdminPanelModal';
 import { WhatsAppAlertModal } from './components/WhatsAppAlertModal';
 import { MonetizationBanners } from './components/MonetizationBanners';
 import { AthleteProfileModal } from './components/AthleteProfileModal';
-import { RaceRegistrationSummaryModal } from './components/RaceRegistrationSummaryModal';
 import type { AppNotification } from './types/notification';
 import { getStoredNotifications } from './services/notificationService';
 import { executeAutoSync } from './services/autoSyncService';
@@ -95,7 +94,6 @@ export function App() {
   // Athlete Profile State
   const [athleteProfile, setAthleteProfile] = useState<AthleteProfile>(getAthleteProfile);
   const [isAthleteModalOpen, setIsAthleteModalOpen] = useState(false);
-  const [quickFillRace, setQuickFillRace] = useState<Race | null>(null);
 
   // Persistence for favorites in localStorage
   const [favorites, setFavorites] = useState<string[]>(() => {
@@ -210,9 +208,9 @@ export function App() {
     localStorage.removeItem('para_run_races_v4');
   };
 
-  // Open rich event summary & registration assistant
+  // Open rich event summary & registration (full-screen view)
   const handleOpenRegistration = (race: Race) => {
-    setQuickFillRace(race);
+    setSelectedRace(race);
   };
 
   // WhatsApp share handler
@@ -337,12 +335,15 @@ export function App() {
         openRegistrationsCount={openCount}
         notifications={notifications}
         onNotificationsChange={setNotifications}
-        onSelectRaceById={(id) => {
+        onSelectRaceById={(idOrTitle) => {
+          const target = idOrTitle.toLowerCase().trim();
           const r = races.find((x) => 
-            x.id === id || 
-            x.id.includes(id) || 
-            id.includes(x.id) ||
-            x.title.toLowerCase().trim() === id.toLowerCase().trim()
+            x.id === idOrTitle || 
+            x.id.includes(idOrTitle) || 
+            idOrTitle.includes(x.id) ||
+            x.title.toLowerCase().trim() === target ||
+            x.title.toLowerCase().includes(target) ||
+            target.includes(x.title.toLowerCase())
           );
           if (r) {
             setSelectedRace(r);
@@ -479,8 +480,8 @@ export function App() {
               onToggleFeatured={handleToggleFeatured}
             />
           ) : (
-            /* GRADE DE CARDS (4 colunas no PC / 2 no tablet / 1 no mobile) */
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mb-8">
+            /* GRADE DE CARDS (4 colunas no PC / 2 no tablet / 1 no mobile centralizado) */
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mb-8 justify-items-center sm:justify-items-stretch">
               {filteredRaces.map((race) => (
                 <RaceCard
                   key={race.id}
@@ -535,10 +536,10 @@ export function App() {
       </main>
 
       {/* 6. Mobile Bottom Quick Bar */}
-      <div className="sm:hidden sticky bottom-0 z-30 bg-slate-900/95 backdrop-blur-md border-t border-slate-800 px-3 py-2 flex items-center justify-between gap-2 shadow-2xl">
+      <div className="sm:hidden sticky bottom-0 z-30 bg-slate-900/95 backdrop-blur-md border-t border-slate-800 px-4 py-2.5 flex items-center justify-between gap-3 shadow-2xl">
         <button
           onClick={() => setIsAthleteModalOpen(true)}
-          className={`py-2 px-3 rounded-xl text-xs font-bold flex items-center gap-1.5 active:scale-95 border ${
+          className={`py-2 px-3.5 rounded-xl text-xs font-bold flex items-center gap-1.5 active:scale-95 border ${
             hasSavedProfile(athleteProfile)
               ? 'bg-slate-800 text-emerald-400 border-emerald-500/40'
               : 'bg-orange-600 text-white border-transparent'
@@ -551,18 +552,10 @@ export function App() {
 
         <button
           onClick={() => setIsAlertModalOpen(true)}
-          className="flex-1 py-2 px-3 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-md active:scale-95"
+          className="flex-1 py-2 px-4 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-md active:scale-95"
         >
           <MessageCircle className="w-3.5 h-3.5" />
-          <span>WhatsApp VIP</span>
-        </button>
-
-        <button
-          onClick={() => setIsAdminModalOpen(true)}
-          className="py-2 px-3 bg-slate-800 hover:bg-slate-700 text-orange-400 border border-slate-700 rounded-xl text-xs font-bold flex items-center gap-1 active:scale-95"
-        >
-          <Sparkles className="w-3.5 h-3.5" />
-          <span>Admin</span>
+          <span>Grupo VIP WhatsApp</span>
         </button>
       </div>
 
@@ -600,7 +593,16 @@ export function App() {
 
           <div className="border-t border-slate-900 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
             <p>© {new Date().getFullYear()} Breu Run. Todos os direitos reservados aos organizadores e atletas.</p>
-            <p>Cronometragens integradas: Chip Amazônia • Chip Breu Branco • Chip Pará • Chip Cronos</p>
+            <div className="flex flex-wrap items-center gap-3">
+              <p>Cronometragens integradas: Chip Chronos • Chip Breu Branco • Chip Pará • Chip Amazônia</p>
+              <button
+                onClick={() => setIsAdminModalOpen(true)}
+                className="text-[11px] text-slate-600 hover:text-slate-400 underline cursor-pointer"
+                title="Acesso Administrativo Breu Run"
+              >
+                Acesso Administrativo
+              </button>
+            </div>
           </div>
         </div>
       </footer>
@@ -636,13 +638,6 @@ export function App() {
         isOpen={isAthleteModalOpen}
         onClose={() => setIsAthleteModalOpen(false)}
         onProfileUpdated={(updated) => setAthleteProfile(updated)}
-      />
-
-      <RaceRegistrationSummaryModal
-        isOpen={Boolean(quickFillRace)}
-        onClose={() => setQuickFillRace(null)}
-        race={quickFillRace}
-        onShareWhatsApp={handleShareWhatsApp}
       />
     </div>
   );

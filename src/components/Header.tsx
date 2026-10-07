@@ -1,10 +1,10 @@
 import React from 'react';
-import { MessageCircle, Settings, Trophy, Sparkles } from 'lucide-react';
+import { MessageCircle, Trophy, Sparkles } from 'lucide-react';
 import { NotificationCenter } from './NotificationCenter';
 import type { AppNotification } from '../types/notification';
 
 interface HeaderProps {
-  onOpenAdminModal: () => void;
+  onOpenAdminModal?: () => void;
   onOpenAlertModal: () => void;
   onOpenProfileModal: () => void;
   hasAthleteProfile: boolean;
@@ -18,7 +18,6 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({
-  onOpenAdminModal,
   onOpenAlertModal,
   onOpenProfileModal,
   hasAthleteProfile,
@@ -31,32 +30,32 @@ export const Header: React.FC<HeaderProps> = ({
   isSyncing
 }) => {
   return (
-    <header className="bg-slate-950 text-white border-b border-slate-800 sticky top-0 z-40 shadow-xl">
-      {/* Main Full-Width Header Bar */}
-      <div className="w-full px-3 sm:px-6 lg:px-10 py-3 flex items-center justify-between">
-        {/* Logo & Slogan */}
-        <div className="flex items-center gap-2.5 sm:gap-3">
-          <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-tr from-orange-600 to-amber-500 flex items-center justify-center shadow-lg shadow-orange-950/40 flex-shrink-0">
-            <Trophy className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+    <header className="bg-slate-950 text-white border-b border-slate-800/90 sticky top-0 z-40 shadow-xl w-full overflow-x-hidden">
+      {/* Container Responsivo sem Overflow */}
+      <div className="w-full max-w-[1700px] mx-auto px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3 flex items-center justify-between gap-2">
+        {/* Logo & Marca Breu Run */}
+        <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-gradient-to-tr from-orange-600 to-amber-500 flex items-center justify-center shadow-lg shadow-orange-950/40 flex-shrink-0">
+            <Trophy className="w-5 h-5 text-white" />
           </div>
           <div>
-            <div className="flex items-center gap-2">
-              <span className="font-black text-xl sm:text-2xl tracking-tight bg-gradient-to-r from-white via-slate-100 to-orange-400 bg-clip-text text-transparent">
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              <span className="font-black text-lg sm:text-2xl tracking-tight bg-gradient-to-r from-white via-slate-100 to-orange-400 bg-clip-text text-transparent">
                 BREU RUN
               </span>
-              <span className="bg-orange-500/20 text-orange-400 border border-orange-500/30 text-[10px] font-bold px-2 py-0.5 rounded-full tracking-wide">
-                Calendário Breu Run
+              <span className="bg-orange-500/20 text-orange-400 border border-orange-500/30 text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded-full tracking-wide whitespace-nowrap">
+                Circuito Paraense
               </span>
             </div>
-            <p className="text-slate-400 text-xs hidden sm:block">
-              Centralização de chips de corrida • {totalRaces} provas ({openRegistrationsCount} abertas)
+            <p className="text-slate-400 text-[11px] hidden md:block">
+              Central oficial de chips de corrida • {totalRaces} provas ({openRegistrationsCount} abertas)
             </p>
           </div>
         </div>
 
-        {/* Action Buttons (Full Desktop Space) */}
-        <div className="flex items-center gap-2 sm:gap-2.5">
-          {/* Real-Time Notification Bell */}
+        {/* Botões de Ação com Layout Seguro no Mobile */}
+        <div className="flex items-center gap-1.5 sm:gap-2.5 flex-shrink-0">
+          {/* Central de Notificações com Sininho */}
           <NotificationCenter
             notifications={notifications}
             onNotificationsChange={onNotificationsChange}
@@ -65,48 +64,34 @@ export const Header: React.FC<HeaderProps> = ({
             isSyncing={isSyncing}
           />
 
-          {/* Athlete Profile Button */}
+          {/* Botão Perfil do Atleta */}
           <button
             onClick={onOpenProfileModal}
-            className={`flex items-center gap-1.5 text-xs sm:text-sm font-bold px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl transition shadow-sm active:scale-95 cursor-pointer border ${
+            className={`flex items-center gap-1 text-xs sm:text-sm font-bold px-2.5 sm:px-3.5 py-2 sm:py-2.5 rounded-xl transition shadow-sm active:scale-95 cursor-pointer border ${
               hasAthleteProfile
                 ? 'bg-slate-900 hover:bg-slate-800 text-emerald-400 border-emerald-500/40'
                 : 'bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-500 hover:to-amber-500 text-white border-transparent'
             }`}
             title="Meu perfil e dados de corredor"
           >
-            <Sparkles className="w-4 h-4 text-amber-300" />
-            <span className="hidden md:inline">
-              {hasAthleteProfile ? 'Meu Perfil' : 'Cadastrar Perfil'}
-            </span>
-            <span className="md:hidden">
-              {hasAthleteProfile ? 'Perfil' : 'Cadastro'}
+            <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-300 flex-shrink-0" />
+            <span className="hidden sm:inline">
+              {hasAthleteProfile ? 'Meu Perfil' : 'Cadastrar'}
             </span>
             {hasAthleteProfile && (
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse ml-0.5" />
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse ml-0.5 hidden sm:inline" />
             )}
           </button>
 
-          {/* VIP WhatsApp Button */}
+          {/* VIP WhatsApp Button - Compacto no Mobile para não estourar a tela */}
           <button
             onClick={onOpenAlertModal}
-            className="flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-500 text-white text-xs sm:text-sm font-bold px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl transition shadow-md shadow-emerald-950/30 active:scale-95 cursor-pointer"
-            title="Receber avisos no WhatsApp"
+            className="flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-500 text-white text-xs sm:text-sm font-bold px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl transition shadow-md shadow-emerald-950/30 active:scale-95 cursor-pointer flex-shrink-0"
+            title="Receber avisos no WhatsApp VIP"
           >
-            <MessageCircle className="w-4 h-4" />
-            <span className="hidden sm:inline">Grupo VIP WhatsApp</span>
-            <span className="sm:hidden">WhatsApp</span>
-          </button>
-
-          {/* Admin Panel Button (AI Calendar Import + Link Management) */}
-          <button
-            onClick={onOpenAdminModal}
-            className="flex items-center gap-2 bg-gradient-to-r from-slate-900 to-slate-800 hover:from-slate-800 hover:to-slate-750 text-orange-400 border border-slate-700 text-xs sm:text-sm font-bold px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl transition shadow-sm active:scale-95 cursor-pointer"
-            title="Central do Administrador (Upar imagem do calendário, Prompt IA e Gerenciar Links)"
-          >
-            <Settings className="w-4 h-4 text-orange-400" />
-            <span className="hidden md:inline">Painel Admin</span>
-            <span className="md:hidden">Admin</span>
+            <MessageCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
+            <span className="hidden sm:inline">WhatsApp VIP</span>
+            <span className="sm:hidden text-xs">VIP</span>
           </button>
         </div>
       </div>

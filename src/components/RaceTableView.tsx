@@ -12,7 +12,7 @@ import {
   FileText,
   Sparkles
 } from 'lucide-react';
-import { formatDecimalDistance } from '../utils/raceFormatters';
+import { formatDecimalDistance, getBasePrice, getTimingChipBadge } from '../utils/raceFormatters';
 
 interface RaceTableViewProps {
   races: Race[];
@@ -179,9 +179,9 @@ export const RaceTableView: React.FC<RaceTableViewProps> = ({
 
                   {/* Cronometragem */}
                   <td className="p-4 whitespace-nowrap">
-                    <div className="inline-flex items-center gap-1 text-xs font-bold text-slate-700 bg-slate-50 px-2 py-1 rounded-md border border-slate-200">
+                    <div className="inline-flex items-center gap-1 text-xs font-bold text-slate-700 bg-slate-50 px-2.5 py-1 rounded-md border border-slate-200">
                       <ShieldCheck className="w-3.5 h-3.5 text-orange-600" />
-                      <span>{race.chipCompany}</span>
+                      <span>{getTimingChipBadge(race.chipCompany).name}</span>
                     </div>
                   </td>
 
@@ -194,20 +194,10 @@ export const RaceTableView: React.FC<RaceTableViewProps> = ({
                           {race.currentBatch}
                         </div>
                       )}
-                      {race.priceWithShirt && race.priceWithoutShirt ? (
-                        <div className="flex flex-col gap-0.5">
-                          <span className="text-[10px] text-slate-500 font-medium">
-                            Sem camisa: <strong className="text-slate-800">R$ {race.priceWithoutShirt.toFixed(2).replace('.', ',')}</strong>
-                          </span>
-                          <span className="text-[10px] font-black text-emerald-800 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200 w-fit">
-                            Com camisa: R$ {race.priceWithShirt.toFixed(2).replace('.', ',')}
-                          </span>
-                        </div>
-                      ) : (typeof race.price === 'number' || typeof race.priceFrom === 'number') ? (
-                        <div className="inline-flex items-center gap-1 bg-emerald-50 text-emerald-900 border border-emerald-200/90 px-2 py-0.5 rounded-lg text-xs font-black">
-                          <span>R$ {(race.price ?? race.priceFrom)!.toFixed(2).replace('.', ',')}</span>
-                        </div>
-                      ) : null}
+                      <div className="inline-flex items-center gap-1 bg-emerald-50 text-emerald-950 border border-emerald-200/90 px-2 py-0.5 rounded-lg text-xs font-black">
+                        <span className="text-[10px] font-semibold text-slate-500">A partir de</span>
+                        <span>R$ {getBasePrice(race).toFixed(2).replace('.', ',')}</span>
+                      </div>
                       {(race.regulationUrl || race.rulesUrl) && (
                         <a 
                           href={race.regulationUrl || race.rulesUrl}

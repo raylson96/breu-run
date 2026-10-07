@@ -31,7 +31,7 @@ export const CHIP_SITES: ChipSiteInfo[] = [
     badgeColor: 'bg-purple-100 text-purple-800 border-purple-300'
   },
   {
-    name: 'Chip Cronos',
+    name: 'Chip Chronos',
     domain: 'chipcronos.com.br',
     defaultUrl: 'https://chipcronos.com.br',
     description: 'Cronometragem eletrônica em expansão no interior e eventos de rua.',
@@ -53,7 +53,7 @@ export function detectChipFromUrl(urlOrText: string): ChipCompany {
     return 'Chip Pará';
   }
   if (lower.includes('cronos') || lower.includes('chipcronos')) {
-    return 'Chip Cronos';
+    return 'Chip Chronos';
   }
 
   return 'A Definir';

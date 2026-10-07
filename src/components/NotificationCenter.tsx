@@ -68,8 +68,9 @@ export const NotificationCenter: React.FC<NotificationCenterProps> = ({
       const updated = markAsRead(notification.id);
       onNotificationsChange(updated);
     }
-    if (notification.raceId && onSelectRaceById) {
-      onSelectRaceById(notification.raceId);
+    const target = notification.raceId || notification.title;
+    if (target && onSelectRaceById) {
+      onSelectRaceById(target);
       setIsOpen(false);
     }
   };

@@ -48,11 +48,10 @@ export const MONTHS = [
 
 export const CHIP_COMPANIES = [
   'Todas',
-  'Chip Amazônia',
+  'Chip Chronos',
   'Chip Breu Branco',
   'Chip Pará',
-  'Chip Cronos',
-  'A Definir'
+  'Chip Amazônia'
 ];
 
 export const DISTANCE_OPTIONS = [
