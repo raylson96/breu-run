@@ -95,7 +95,7 @@ export const WhatsAppAlertModal: React.FC<WhatsAppAlertModalProps> = ({
                   className="inline-flex items-center justify-center gap-2 w-full py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-black rounded-xl shadow transition"
                 >
                   <MessageCircle className="w-4 h-4" />
-                  <span>Entrar no Grupo Oficial Pará Run</span>
+                  <span>Entrar no Grupo Oficial Breu Run</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </a>
               </div>

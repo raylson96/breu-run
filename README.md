@@ -1,6 +1,6 @@
-# Pará Run 🏃‍♂️ | Calendário Regional de Corridas de Rua
+# Breu Run 🏆 | Calendário Regional de Corridas de Rua
 
-Plataforma desenvolvida para centralizar e profissionalizar o calendário de corridas de rua do estado do Pará, resolvendo o problema de eventos dispersos em prints de WhatsApp, redes sociais e sites isolados de cronometragem (**Chip Amazônia**, **Chip Breu Branco**, **Chip Pará**, etc.).
+Plataforma desenvolvida para centralizar e profissionalizar o calendário de corridas de rua, reunindo eventos das principais empresas de cronometragem (**Chip Amazônia**, **Chip Breu Branco**, **Chip Pará**, **Supera Chip Cronos**, etc.).
 
 ---
 

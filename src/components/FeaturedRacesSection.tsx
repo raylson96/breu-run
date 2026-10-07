@@ -85,7 +85,7 @@ export const FeaturedRacesSection: React.FC<FeaturedRacesSectionProps> = ({
                 Espaço Promocional de Destaque
               </span>
               <span className="text-[11px] text-orange-200/80 font-medium hidden sm:inline">
-                • Vitrine Oficial Pará Run
+                • Vitrine Oficial Breu Run
               </span>
             </div>
             <h2 className="text-lg sm:text-xl font-black text-white tracking-tight">

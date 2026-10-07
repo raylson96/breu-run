@@ -225,7 +225,7 @@ export function App() {
       `⏱️ *Cronometragem:* ${race.chipCompany}\n` +
       `💰 *Status:* ${race.status === 'open' ? 'Inscrições Abertas' : race.status === 'confirmed' ? 'Data Confirmada no Calendário' : 'Em Breve'} ${race.priceFrom ? `(A partir de R$ ${race.priceFrom})` : ''}\n` +
       (race.registrationUrl ? `🔗 *Inscrição Oficial:* ${race.registrationUrl}\n\n` : `ℹ️ *Inscrição:* Em breve no site oficial\n\n`) +
-      `📲 Calendário Oficial *Pará Run* — Todas as corridas do Pará em um só lugar`;
+      `📲 Calendário Oficial *Breu Run* — Todas as corridas do Pará em um só lugar`;
 
     const encoded = encodeURIComponent(message);
     window.open(`https://api.whatsapp.com/send?text=${encoded}`, '_blank');
@@ -563,7 +563,7 @@ export function App() {
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
             <div className="space-y-1">
               <div className="flex items-center gap-2">
-                <span className="font-black text-xl text-white tracking-tight">PARÁ RUN</span>
+                <span className="font-black text-xl text-white tracking-tight">BREU RUN</span>
                 <span className="text-[10px] bg-orange-500/20 text-orange-400 border border-orange-500/30 px-2 py-0.5 rounded-full font-bold">
                   SISTEMA UNIFICADO REGIONAL
                 </span>
@@ -590,7 +590,7 @@ export function App() {
           </div>
 
           <div className="border-t border-slate-900 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
-            <p>© {new Date().getFullYear()} Pará Run. Todos os direitos reservados aos organizadores e atletas.</p>
+            <p>© {new Date().getFullYear()} Breu Run. Todos os direitos reservados aos organizadores e atletas.</p>
             <p>Cronometragens integradas: Chip Amazônia • Chip Breu Branco • Chip Pará • Chip Cronos</p>
           </div>
         </div>

@@ -37,7 +37,7 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="max-w-7xl mx-auto w-full flex items-center justify-center gap-2">
           <Flame className="w-3.5 h-3.5 animate-pulse flex-shrink-0" />
           <span>
-            <strong>Circuito Pará Run:</strong> {openRegistrationsCount} de {totalRaces} provas com inscrições abertas ou confirmadas
+            <strong>Circuito Breu Run:</strong> {openRegistrationsCount} de {totalRaces} provas com inscrições abertas ou confirmadas
           </span>
           <button
             onClick={onOpenAlertModal}
@@ -58,7 +58,7 @@ export const Header: React.FC<HeaderProps> = ({
           <div>
             <div className="flex items-center gap-2">
               <span className="font-black text-xl sm:text-2xl tracking-tight bg-gradient-to-r from-white via-slate-100 to-orange-400 bg-clip-text text-transparent">
-                PARÁ RUN
+                BREU RUN
               </span>
               <span className="bg-orange-500/20 text-orange-400 border border-orange-500/30 text-[10px] font-extrabold px-2 py-0.5 rounded uppercase tracking-wider">
                 CALENDÁRIO OFICIAL
