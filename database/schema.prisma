@@ -1,0 +1,113 @@
+// ==============================================================================
+// Prisma Schema - Pará Run (Plataforma Unificada de Corridas de Rua do Pará)
+// PostgreSQL Database Schema
+// ==============================================================================
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// ------------------------------------------------------------------------------
+// Enums
+// ------------------------------------------------------------------------------
+
+enum TimingCompany {
+  CHIP_AMAZONIA    // Chip Amazônia (Marabá, Carajás, PA-150)
+  CHIP_PARA        // Chip Pará (Belém, Metropolitana, Nordeste do Pará)
+  CHIP_BRANCO      // Chip Breu Branco (Breu Branco, Tailândia, Tucuruí)
+  SUPERA_CHRONOS   // Supera Chip Chronos (Sul e Sudeste do Pará)
+  OUTRO            // Organizador independente / Outras cronometragens
+}
+
+enum RaceStatus {
+  UPCOMING   // Anunciada / Confirmada no calendário preliminar (sem link ainda)
+  OPEN       // Inscrições abertas no site da cronometragem
+  CLOSED     // Inscrições encerradas ou lote esgotado
+  CANCELLED  // Evento adiado ou cancelado pela organização
+}
+
+// ------------------------------------------------------------------------------
+// Model: Races (Eventos de Corrida de Rua)
+// ------------------------------------------------------------------------------
+
+model Race {
+  id              String        @id @default(uuid()) @db.Uuid
+  title           String        @db.VarChar(255)
+  slug            String        @unique @db.VarChar(255)
+  eventDate       DateTime      @map("event_date") @db.Date
+  eventTime       String?       @default("06:00") @map("event_time") @db.VarChar(10)
+  city            String        @db.VarChar(100)
+  state           String        @default("PA") @db.VarChar(2)
+  location        String?       @default("Centro") @db.VarChar(255)
+  timingCompany   TimingCompany @default(CHIP_AMAZONIA) @map("timing_company")
+  registrationUrl String?       @map("registration_url") @db.Text
+  bannerUrl       String?       @map("banner_url") @db.Text
+  rulesUrl        String?       @map("rules_url") @db.Text
+  regulationUrl   String?       @map("regulation_url") @db.Text
+  distances       String[]      @default(["5 km"]) @db.Text
+  status          RaceStatus    @default(UPCOMING)
+  currentBatch    String?       @map("current_batch") @db.VarChar(100)
+  price           Decimal?      @map("price") @db.Decimal(10, 2)
+  priceFrom       Decimal?      @map("price_from") @db.Decimal(10, 2)
+  featured        Boolean       @default(false)
+  organizer       String?       @default("Organização Oficial") @db.VarChar(255)
+  rawData         Json?         @map("raw_data") @db.JsonB
+  createdAt       DateTime      @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt       DateTime      @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  // Índices para performance em buscas e deduplicação ultra-rápida
+  @@index([eventDate, city], name: "idx_races_date_city")
+  @@index([timingCompany, status], name: "idx_races_company_status")
+  @@index([city], name: "idx_races_city")
+  @@index([featured], name: "idx_races_featured")
+  @@map("races")
+}
+
+// ------------------------------------------------------------------------------
+// Model: AthleteProfile (Cofre Seguro do Atleta para Auto-Fill)
+// ------------------------------------------------------------------------------
+
+model AthleteProfile {
+  id               String   @id @default(uuid()) @db.Uuid
+  fullName         String   @map("full_name") @db.VarChar(255)
+  cpf              String   @unique @db.VarChar(14)
+  birthDate        DateTime @map("birth_date") @db.Date
+  gender           String   @db.VarChar(20)
+  shirtSize        String   @map("shirt_size") @db.VarChar(20)
+  phone            String   @db.VarChar(30)
+  email            String   @db.VarChar(255)
+  team             String?  @db.VarChar(150)
+  city             String   @db.VarChar(100)
+  state            String   @default("PA") @db.VarChar(2)
+  bloodType        String?  @map("blood_type") @db.VarChar(10)
+  emergencyContact String?  @map("emergency_contact") @db.VarChar(255)
+  emergencyPhone   String?  @map("emergency_phone") @db.VarChar(30)
+  createdAt        DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt        DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@map("athlete_profiles")
+}
+
+// ------------------------------------------------------------------------------
+// Model: SyncLog (Auditoria e Histórico de Varreduras dos Scrapers)
+// ------------------------------------------------------------------------------
+
+model SyncLog {
+  id            String   @id @default(uuid()) @db.Uuid
+  site          String   @db.VarChar(100)
+  status        String   @db.VarChar(30) // 'SUCCESS' | 'PARTIAL' | 'ERROR'
+  totalFound    Int      @default(0) @map("total_found")
+  insertedCount Int      @default(0) @map("inserted_count")
+  updatedCount  Int      @default(0) @map("updated_count")
+  errors        String?  @db.Text
+  durationMs    Int      @default(0) @map("duration_ms")
+  createdAt     DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@index([createdAt(sort: Desc)], name: "idx_sync_logs_created_at")
+  @@map("sync_logs")
+}

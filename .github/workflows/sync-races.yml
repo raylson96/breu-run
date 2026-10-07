@@ -1,0 +1,53 @@
+name: Sincronização Diária dos Chips de Corrida (Pará Run)
+
+on:
+  schedule:
+    # Executa todos os dias às 05:00 da manhã (Horário de Brasília) = 08:00 UTC
+    - cron: '0 8 * * *'
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'Motivo do disparo manual'
+        required: false
+        default: 'Atualização sob demanda pelo Administrador'
+
+jobs:
+  sync:
+    name: Executar Web Scraping & Deduplicação
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do Repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Instalar Dependências
+        run: npm ci
+
+      - name: Disparar Sincronização via Webhook ou Runner
+        env:
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+          API_URL: ${{ secrets.PARARUN_API_URL }}
+        run: |
+          if [ -n "$API_URL" ]; then
+            echo "Disparando API de Sincronização remota: $API_URL"
+            curl -X POST "$API_URL/api/cron/sync-races" \
+              -H "Authorization: Bearer $CRON_SECRET" \
+              -H "Content-Type: application/json" \
+              --fail --show-error
+          else
+            echo "API_URL não configurada. Executando script de sincronização diretamente no ambiente Node..."
+            npx tsx -e "
+              import { runSyncRacesJob } from './src/modules/sync/orchestrator/syncOrchestrator';
+              import { InMemoryRaceRepository } from './src/modules/sync/repositories/RaceRepository';
+              const repo = new InMemoryRaceRepository();
+              runSyncRacesJob({ repository: repo })
+                .then(res => console.log('Resultado:', JSON.stringify(res, null, 2)))
+                .catch(err => { console.error(err); process.exit(1); });
+            "
+          fi
