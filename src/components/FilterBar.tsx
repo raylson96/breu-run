@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
 import type { FilterState } from '../types/race';
 import { 
   REGIONS_CITIES, 
@@ -17,8 +17,11 @@ import {
   RotateCcw,
   MapPin,
   ShieldCheck,
-  Activity
+  Activity,
+  ChevronDown,
+  Check
 } from 'lucide-react';
+import { formatDecimalDistance } from '../utils/raceFormatters';
 
 interface FilterBarProps {
   filters: FilterState;
@@ -27,12 +30,110 @@ interface FilterBarProps {
   totalFiltered: number;
 }
 
+// 1. As 5 cidades principais fixas na barra rápida
+const PRIMARY_CITIES = [
+  'Todas',
+  'Breu Branco',
+  'Novo Repartimento',
+  'Tailândia',
+  'Tucuruí'
+];
+
+// Base regional ampliada de cidades do Pará para o menu alfabético
+const DEFAULT_OTHER_CITIES = [
+  'Abaetetuba',
+  'Altamira',
+  'Ananindeua',
+  'Barcarena',
+  'Belém',
+  'Bragança',
+  'Cametá',
+  'Canaã dos Carajás',
+  'Capanema',
+  'Castanhal',
+  'Concórdia do Pará',
+  'Curionópolis',
+  'Dom Eliseu',
+  'Eldorado do Carajás',
+  'Goianésia do Pará',
+  'Igarapé-Miri',
+  'Itaituba',
+  'Itupiranga',
+  'Jacundá',
+  'Marabá',
+  'Marituba',
+  'Moju',
+  'Mosqueiro',
+  'Nova Ipixuna',
+  'Ourilândia do Norte',
+  'Pacajá',
+  'Paragominas',
+  'Parauapebas',
+  'Redenção',
+  'Rondon do Pará',
+  'Salinópolis',
+  'Santa Izabel do Pará',
+  'Santarém',
+  'São Félix do Xingu',
+  'São Geraldo do Araguaia',
+  'Tomé-Açu',
+  'Ulianópolis',
+  'Xinguara'
+];
+
 export const FilterBar: React.FC<FilterBarProps> = ({
   filters,
   onFilterChange,
   cityCounts,
   totalFiltered
 }) => {
+  const [isMoreCitiesOpen, setIsMoreCitiesOpen] = useState(false);
+  const [citySearchTerm, setCitySearchTerm] = useState('');
+  const popoverRef = useRef<HTMLDivElement>(null);
+
+  // Lista dinâmica e unificada de "Outras Cidades" em ordem alfabética estrita
+  const otherCitiesSorted = useMemo(() => {
+    const set = new Set<string>();
+
+    // Adiciona cidades da base ampliada que não estejam nas principais
+    DEFAULT_OTHER_CITIES.forEach((c) => {
+      if (!PRIMARY_CITIES.includes(c)) set.add(c);
+    });
+
+    // Adiciona qualquer cidade cadastrada no banco com corridas
+    Object.keys(cityCounts).forEach((c) => {
+      if (c && !PRIMARY_CITIES.includes(c)) set.add(c);
+    });
+
+    REGIONS_CITIES.forEach((c) => {
+      if (c && !PRIMARY_CITIES.includes(c)) set.add(c);
+    });
+
+    return Array.from(set).sort((a, b) => a.localeCompare(b, 'pt-BR'));
+  }, [cityCounts]);
+
+  // Filtra cidades dentro do popover se o usuário digitar
+  const filteredOtherCities = useMemo(() => {
+    if (!citySearchTerm.trim()) return otherCitiesSorted;
+    const term = citySearchTerm.toLowerCase();
+    return otherCitiesSorted.filter((c) => c.toLowerCase().includes(term));
+  }, [otherCitiesSorted, citySearchTerm]);
+
+  // Fecha o popover ao clicar fora
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (popoverRef.current && !popoverRef.current.contains(event.target as Node)) {
+        setIsMoreCitiesOpen(false);
+      }
+    }
+    if (isMoreCitiesOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isMoreCitiesOpen]);
+
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     onFilterChange({
       ...filters,
@@ -46,6 +147,15 @@ export const FilterBar: React.FC<FilterBarProps> = ({
       tab,
       status: tab === 'results' ? 'finished' : (filters.status === 'finished' ? 'all' : filters.status)
     });
+  };
+
+  const handleSelectOtherCity = (city: string) => {
+    onFilterChange({
+      ...filters,
+      city
+    });
+    setIsMoreCitiesOpen(false);
+    setCitySearchTerm('');
   };
 
   const handleResetFilters = () => {
@@ -64,7 +174,8 @@ export const FilterBar: React.FC<FilterBarProps> = ({
     });
   };
 
-  // Verifica se há filtros além do padrão
+  const isSelectedCityInMore = !PRIMARY_CITIES.includes(filters.city);
+
   const hasActiveFilters = 
     filters.city !== 'Todas' ||
     filters.chipCompany !== 'Todas' ||
@@ -73,8 +184,8 @@ export const FilterBar: React.FC<FilterBarProps> = ({
     filters.onlyFavorites;
 
   return (
-    <div className="bg-white rounded-2xl sm:rounded-3xl p-3 sm:p-4 shadow-sm border border-slate-200 mb-6 space-y-3 w-full overflow-hidden">
-      {/* 1. Abas de Navegação & Modo de Exibição (Cards vs Tabela) */}
+    <div className="bg-white rounded-2xl sm:rounded-3xl p-3 sm:p-4 shadow-sm border border-slate-200 mb-6 space-y-3 w-full">
+      {/* 1. Abas Principais & Alternador de Modo PC (Cards vs Tabela) */}
       <div className="flex items-center justify-between gap-2 border-b border-slate-100 pb-2.5 overflow-x-auto no-scrollbar">
         {/* Abas Principais em Scroll Horizontal Suave */}
         <div className="flex items-center gap-1.5 flex-nowrap">
@@ -177,7 +288,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
         </div>
       </div>
 
-      {/* 2. Campo de Busca Compacto + Contador + Botão Limpar */}
+      {/* 2. Campo de Busca + Contador + Limpar */}
       <div className="flex items-center gap-2">
         <div className="relative flex-1">
           <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
@@ -191,7 +302,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
           {filters.search && (
             <button
               onClick={() => onFilterChange({ ...filters, search: '' })}
-              className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-0.5"
+              className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-0.5 cursor-pointer"
             >
               <X className="w-3.5 h-3.5" />
             </button>
@@ -216,14 +327,15 @@ export const FilterBar: React.FC<FilterBarProps> = ({
         </div>
       </div>
 
-      {/* 3. Fileira Direta de CIDADES (Aquele jeito antigo, 1 toque direto na tela) */}
-      <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5 -mx-1 px-1">
+      {/* 3. BARRA EXCLUSIVA DE CIDADES: 5 Principais + 'Ver Mais' Dropdown */}
+      <div className="flex items-center gap-1.5 overflow-x-visible py-0.5 -mx-1 px-1 relative">
         <span className="text-[11px] font-black text-slate-400 uppercase tracking-wider flex items-center gap-1 flex-shrink-0 pr-1">
           <MapPin className="w-3 h-3 text-rose-500" />
           <span>Cidades:</span>
         </span>
 
-        {REGIONS_CITIES.map((city) => {
+        {/* 5 Cidades Principais Fixas */}
+        {PRIMARY_CITIES.map((city) => {
           const isSelected = filters.city === city;
           const count = city === 'Todas' ? '' : ` (${cityCounts[city] || 0})`;
           
@@ -231,7 +343,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
             <button
               key={city}
               onClick={() => onFilterChange({ ...filters, city })}
-              className={`px-2.5 py-1 rounded-xl text-xs font-bold transition whitespace-nowrap cursor-pointer flex-shrink-0 ${
+              className={`px-3 py-1.5 rounded-xl text-xs font-bold transition whitespace-nowrap cursor-pointer flex-shrink-0 ${
                 isSelected
                   ? 'bg-orange-600 text-white font-black shadow-xs'
                   : 'bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200/60'
@@ -241,11 +353,102 @@ export const FilterBar: React.FC<FilterBarProps> = ({
             </button>
           );
         })}
+
+        {/* Botão 'Ver Mais' com Dropdown Alfabético */}
+        <div className="relative inline-block" ref={popoverRef}>
+          <button
+            onClick={() => setIsMoreCitiesOpen(!isMoreCitiesOpen)}
+            className={`px-3 py-1.5 rounded-xl text-xs font-bold transition whitespace-nowrap cursor-pointer flex items-center gap-1.5 flex-shrink-0 border ${
+              isSelectedCityInMore
+                ? 'bg-orange-600 text-white font-black border-orange-600 shadow-xs'
+                : 'bg-slate-100 hover:bg-slate-200 text-slate-700 border-slate-200/60'
+            }`}
+            title="Ver todas as outras cidades da região em ordem alfabética"
+          >
+            <span>
+              {isSelectedCityInMore ? filters.city : 'Ver Mais'}
+            </span>
+            <ChevronDown className={`w-3.5 h-3.5 transition-transform ${isMoreCitiesOpen ? 'rotate-180' : ''}`} />
+          </button>
+
+          {/* Popover Elegante com Pesquisa e Lista Alfabética */}
+          {isMoreCitiesOpen && (
+            <div className="absolute left-0 sm:left-auto sm:right-0 mt-2 w-72 sm:w-80 bg-white rounded-2xl shadow-2xl border border-slate-200 z-50 overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+              <div className="p-3 bg-slate-900 text-white flex items-center justify-between border-b border-slate-800">
+                <div className="flex items-center gap-2">
+                  <MapPin className="w-4 h-4 text-orange-400" />
+                  <span className="font-bold text-xs uppercase tracking-wider text-slate-200">
+                    Outras Cidades do Pará
+                  </span>
+                </div>
+                <button
+                  onClick={() => setIsMoreCitiesOpen(false)}
+                  className="text-slate-400 hover:text-white p-1 rounded-lg"
+                >
+                  <X className="w-3.5 h-3.5" />
+                </button>
+              </div>
+
+              {/* Busca rápida dentro das cidades */}
+              <div className="p-2.5 border-b border-slate-100 bg-slate-50">
+                <div className="relative">
+                  <Search className="w-3.5 h-3.5 text-slate-400 absolute left-2.5 top-1/2 -translate-y-1/2" />
+                  <input
+                    type="text"
+                    value={citySearchTerm}
+                    onChange={(e) => setCitySearchTerm(e.target.value)}
+                    placeholder="Filtrar cidade..."
+                    className="w-full pl-8 pr-2.5 py-1.5 bg-white border border-slate-200 rounded-xl text-xs text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-1 focus:ring-orange-500 font-medium"
+                    autoFocus
+                  />
+                </div>
+              </div>
+
+              {/* Lista em Ordem Alfabética com Scroll */}
+              <div className="max-h-64 overflow-y-auto p-1.5 space-y-0.5">
+                {filteredOtherCities.length === 0 ? (
+                  <div className="p-4 text-center text-xs text-slate-500">
+                    Nenhuma cidade encontrada
+                  </div>
+                ) : (
+                  filteredOtherCities.map((c) => {
+                    const isSelected = filters.city === c;
+                    const count = cityCounts[c] || 0;
+
+                    return (
+                      <button
+                        key={c}
+                        onClick={() => handleSelectOtherCity(c)}
+                        className={`w-full text-left px-3 py-2 rounded-xl text-xs transition flex items-center justify-between cursor-pointer ${
+                          isSelected
+                            ? 'bg-orange-500 text-white font-black'
+                            : 'hover:bg-slate-100 text-slate-700 font-medium'
+                        }`}
+                      >
+                        <span className="truncate">{c}</span>
+                        <div className="flex items-center gap-1.5 flex-shrink-0">
+                          {count > 0 && (
+                            <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full ${
+                              isSelected ? 'bg-orange-700 text-white' : 'bg-slate-200 text-slate-700'
+                            }`}>
+                              {count} {count === 1 ? 'prova' : 'provas'}
+                            </span>
+                          )}
+                          {isSelected && <Check className="w-3.5 h-3.5 text-white" />}
+                        </div>
+                      </button>
+                    );
+                  })
+                )}
+              </div>
+            </div>
+          )}
+        </div>
       </div>
 
-      {/* 4. Fileira Direta de CHIPS & PERCURSOS (Tudo direto, sem abrir menu) */}
+      {/* 4. Chips de Cronometragem & Percursos (Preservados Intactos) */}
       <div className="flex items-center gap-3 overflow-x-auto no-scrollbar py-0.5 -mx-1 px-1 text-xs border-t border-slate-100 pt-2">
-        {/* Grupo Chips */}
+        {/* Chips de Cronometragem */}
         <div className="flex items-center gap-1.5 flex-shrink-0">
           <span className="text-[11px] font-black text-slate-400 uppercase tracking-wider flex items-center gap-1 flex-shrink-0 pr-1">
             <ShieldCheck className="w-3 h-3 text-blue-500" />
@@ -272,7 +475,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
 
         <div className="w-[1px] h-4 bg-slate-200 flex-shrink-0" />
 
-        {/* Grupo Distâncias */}
+        {/* Distâncias */}
         <div className="flex items-center gap-1.5 flex-shrink-0">
           <span className="text-[11px] font-black text-slate-400 uppercase tracking-wider flex items-center gap-1 flex-shrink-0 pr-1">
             <Activity className="w-3 h-3 text-emerald-500" />
@@ -291,7 +494,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
                     : 'bg-slate-100 hover:bg-slate-200 text-slate-600 border border-slate-200/60'
                 }`}
               >
-                {dist}
+                {formatDecimalDistance(dist)}
               </button>
             );
           })}

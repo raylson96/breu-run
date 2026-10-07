@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import type { Race } from '../types/race';
 import { 
-  X, 
+  ArrowLeft,
   Calendar, 
   MapPin, 
   Clock, 
@@ -9,14 +9,22 @@ import {
   CheckCircle, 
   ExternalLink, 
   Share2, 
-  TrendingUp, 
   FileText,
   CalendarPlus,
-  Bell,
-  Award,
+  ShieldCheck,
   Tag,
+  Gift,
+  Award,
+  Shirt,
   Sparkles
 } from 'lucide-react';
+import { 
+  formatDecimalDistance, 
+  getTimingChipBadge, 
+  getBatchCountdownTag, 
+  calculateDaysLeft, 
+  DEFAULT_RACE_BANNER 
+} from '../utils/raceFormatters';
 
 interface RaceDetailModalProps {
   race: Race | null;
@@ -30,25 +38,38 @@ export const RaceDetailModal: React.FC<RaceDetailModalProps> = ({
   race,
   onClose,
   onShareWhatsApp,
-  onOpenRegistration,
   onToggleFeatured
 }) => {
+  // Fecha ao pressionar ESC
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [onClose]);
+
   if (!race) return null;
 
-  const formatDate = (dateStr: string) => {
-    const [year, month, day] = dateStr.split('-');
-    const months = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
-    return `${day} de ${months[parseInt(month, 10) - 1]} de ${year}`;
-  };
+  const [year, monthStr, dayStr] = race.date.split('-');
+  const months = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+  const formattedFullDate = `${dayStr} de ${months[parseInt(monthStr, 10) - 1]} de ${year}`;
+
+  const chipBadge = getTimingChipBadge(race.chipCompany);
+  const daysLeft = calculateDaysLeft(race.date);
+  const batchCountdown = getBatchCountdownTag(race);
+  const bannerImage = race.bannerUrl || race.imageUrl || DEFAULT_RACE_BANNER;
 
   // Google Calendar URL generator
   const getGoogleCalendarUrl = () => {
     const startTimeFormatted = race.date.replace(/-/g, '') + 'T' + race.time.replace(':', '') + '00';
-    const endHour = (parseInt(race.time.split(':')[0]) + 3).toString().padStart(2, '0');
+    const endHour = (parseInt(race.time.split(':')[0], 10) + 3).toString().padStart(2, '0');
     const endTimeFormatted = race.date.replace(/-/g, '') + 'T' + endHour + race.time.split(':')[1] + '00';
     
     const details = encodeURIComponent(
-      `Corrida: ${race.title}\nDistâncias: ${race.distances.join(', ')}\nLocal: ${race.location}, ${race.city}/PA\nCronometragem: ${race.chipCompany}\nInscrição: ${race.registrationUrl || 'Aguardando abertura'}`
+      `Corrida: ${race.title}\nDistâncias: ${race.distances.map(formatDecimalDistance).join(', ')}\nLocal: ${race.location}, ${race.city}/PA\nCronometragem: ${race.chipCompany}\nInscrição: ${race.registrationUrl || 'Aguardando abertura no Breu Run'}`
     );
     const location = encodeURIComponent(`${race.location}, ${race.city}, Pará, Brasil`);
     const title = encodeURIComponent(`🏃‍♂️ ${race.title}`);
@@ -60,329 +81,422 @@ export const RaceDetailModal: React.FC<RaceDetailModalProps> = ({
     return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${race.location}, ${race.city}, Pará`)}`;
   };
 
+  const hasPrice = typeof race.price === 'number' || typeof race.priceFrom === 'number';
+  const displayPrice = (race.price ?? race.priceFrom)?.toFixed(2).replace('.', ',');
+
+  // Kit Atleta padronizado e enriquecido
+  const defaultKitItems = [
+    { title: 'Camiseta Oficial do Evento', desc: 'Tecido tecnológico dry-fit para performance', icon: Shirt },
+    { title: 'Número de Peito Oficial', desc: 'Identificação personalizada com 4 alfinetes', icon: Tag },
+    { title: 'Chip de Cronometragem Eletrônica', desc: 'Descartável e aferido pelos fiscais oficiais', icon: ShieldCheck },
+    { title: 'Medalha Finisher em Metal', desc: 'Entregue a todos os atletas que concluírem a prova', icon: Award },
+    { title: 'Sacochila / Brindes dos Patrocinadores', desc: 'Kit de cortesia dos parceiros do circuito', icon: Gift },
+    { title: 'Hidratação e Frutas', desc: 'Postos de água durante o percurso e mesa de frutas na chegada', icon: CheckCircle }
+  ];
+
   return (
-    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-slate-950/75 backdrop-blur-sm animate-in fade-in duration-200">
-      <div 
-        className="bg-white w-full sm:max-w-xl rounded-t-3xl sm:rounded-3xl max-h-[92vh] flex flex-col overflow-hidden shadow-2xl border border-slate-200"
-        onClick={(e) => e.stopPropagation()}
-      >
-        {/* Header with Close */}
-        <div className="bg-slate-900 text-white p-5 flex items-start justify-between relative">
-          <div className="pr-8">
-            <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-xs font-bold bg-orange-500/20 text-orange-400 border border-orange-500/30 mb-2">
-              <span>{race.city}, PA</span>
-              <span>•</span>
-              <span>{race.chipCompany}</span>
-              {race.region && (
-                <>
-                  <span>•</span>
-                  <span>{race.region}</span>
-                </>
-              )}
-            </div>
-            <h2 className="text-xl sm:text-2xl font-black leading-tight text-white tracking-tight">
-              {race.title}
-            </h2>
-            <p className="text-xs text-slate-400 mt-1">
-              Organizado por: <span className="text-slate-300 font-medium">{race.organizer}</span>
-            </p>
+    <div className="fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-md overflow-y-auto animate-in fade-in duration-150 flex flex-col">
+      {/* 1. Barra Superior Fixa com Botão Destacado "← Voltar ao Calendário" */}
+      <header className="sticky top-0 z-50 bg-slate-950/90 border-b border-slate-800/90 px-4 sm:px-8 py-3.5 backdrop-blur-lg flex items-center justify-between">
+        <button
+          onClick={onClose}
+          className="flex items-center gap-2 px-3.5 sm:px-4 py-2 bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-500 hover:to-amber-500 text-white rounded-xl text-xs sm:text-sm font-black transition cursor-pointer shadow-md shadow-orange-950/40 active:scale-95"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          <span>Voltar ao Calendário</span>
+        </button>
+
+        <div className="flex items-center gap-2">
+          {onToggleFeatured && (
+            <button
+              onClick={() => onToggleFeatured(race.id)}
+              className={`p-2 rounded-xl border transition cursor-pointer text-xs font-bold flex items-center gap-1.5 ${
+                race.featured
+                  ? 'bg-amber-500/20 text-amber-300 border-amber-500/40'
+                  : 'bg-slate-900 hover:bg-slate-800 text-slate-300 border-slate-700'
+              }`}
+              title={race.featured ? "Remover dos destaques" : "Destacar no topo"}
+            >
+              <Sparkles className={`w-3.5 h-3.5 ${race.featured ? 'fill-amber-400 text-amber-400' : 'text-slate-400'}`} />
+              <span className="hidden sm:inline">{race.featured ? 'Em Destaque' : 'Destacar'}</span>
+            </button>
+          )}
+
+          <button
+            onClick={() => onShareWhatsApp(race)}
+            className="p-2 sm:px-3 sm:py-2 rounded-xl bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 border border-emerald-500/40 text-xs font-bold transition flex items-center gap-1.5 cursor-pointer active:scale-95"
+            title="Compartilhar prova no WhatsApp"
+          >
+            <Share2 className="w-3.5 h-3.5" />
+            <span className="hidden sm:inline">WhatsApp</span>
+          </button>
+        </div>
+      </header>
+
+      {/* 2. Container Central da Página de Detalhes da Corrida */}
+      <main className="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8 text-slate-800">
+        {/* Banner Panorâmico HD */}
+        <div className="relative w-full h-56 sm:h-72 md:h-96 rounded-3xl overflow-hidden shadow-2xl bg-slate-900 border border-slate-800">
+          <img
+            src={bannerImage}
+            alt={race.title}
+            onError={(e) => {
+              (e.target as HTMLImageElement).src = DEFAULT_RACE_BANNER;
+            }}
+            className="w-full h-full object-cover object-center"
+          />
+
+          {/* Gradiente Panorâmico */}
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent" />
+
+          {/* Selo do Chip no Canto Superior Esquerdo */}
+          <div className={`absolute top-4 left-4 z-10 font-bold px-3 py-1.5 rounded-xl text-xs backdrop-blur-md border shadow-lg flex items-center gap-1.5 ${chipBadge.badgeClass}`}>
+            <ShieldCheck className="w-4 h-4 flex-shrink-0" />
+            <span>{chipBadge.name}</span>
           </div>
 
-          <div className="flex items-center gap-2 flex-shrink-0">
-            {onToggleFeatured && (
-              <button
-                onClick={() => onToggleFeatured(race.id)}
-                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
-                  race.featured 
-                    ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40' 
-                    : 'bg-slate-800 hover:bg-slate-700 text-slate-300'
-                }`}
-                title={race.featured ? "Remover do destaque do topo" : "Fixar esta prova em destaque no topo"}
-              >
-                <Sparkles className={`w-3.5 h-3.5 ${race.featured ? 'fill-amber-400 text-amber-400' : 'text-slate-400'}`} />
-                <span>{race.featured ? 'Em Destaque no Topo' : 'Destacar no Topo'}</span>
-              </button>
-            )}
+          {/* Contagem no Canto Superior Direito */}
+          {daysLeft > 0 && (
+            <div className="absolute top-4 right-4 z-10 font-black text-xs bg-slate-950/80 text-orange-300 px-3 py-1.5 rounded-xl border border-slate-700/80 backdrop-blur-md shadow-lg">
+              ⚡ Faltam {daysLeft} dias para a largada
+            </div>
+          )}
 
-            <button
-              onClick={onClose}
-              className="w-8 h-8 rounded-full bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center transition cursor-pointer flex-shrink-0"
-            >
-              <X className="w-5 h-5" />
-            </button>
+          {/* Título & Localização sobre o Banner */}
+          <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 z-10 text-white space-y-1.5">
+            <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full text-xs font-bold bg-orange-500/20 text-orange-400 border border-orange-500/30">
+              <span>{race.city}/PA</span>
+              <span>•</span>
+              <span>{race.organizer || 'Organização Oficial'}</span>
+            </div>
+
+            <h1 className="text-xl sm:text-3xl md:text-4xl font-black text-white leading-tight tracking-tight drop-shadow-md">
+              {race.title}
+            </h1>
           </div>
         </div>
 
-        {/* Scrollable Modal Content */}
-        <div className="p-6 overflow-y-auto space-y-5 text-slate-700 text-sm">
-          {/* Quick Date, Time & Location summary card */}
-          <div className="bg-orange-50/70 rounded-2xl p-4 border border-orange-200/80 space-y-3">
-            <div className="flex items-center gap-2.5 text-slate-900 font-black text-sm sm:text-base">
-              <Calendar className="w-4 h-4 text-orange-600 flex-shrink-0" />
-              <span>{formatDate(race.date)}</span>
-              <span className="text-orange-600">•</span>
-              <Clock className="w-4 h-4 text-orange-600 flex-shrink-0" />
-              <span>Largada às {race.time}h</span>
-            </div>
+        {/* Grade Principal com Conteúdo e Painel Lateral de Ação */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 items-start">
+          {/* Coluna 1 & 2: Informações Técnicas da Prova */}
+          <div className="lg:col-span-2 space-y-6">
+            {/* Bloco 1: Data, Horário e Concentração */}
+            <div className="bg-white rounded-3xl p-5 sm:p-6 shadow-sm border border-slate-200/80 space-y-4">
+              <h2 className="text-sm font-black uppercase tracking-wider text-slate-400 flex items-center gap-2">
+                <Calendar className="w-4 h-4 text-orange-500" />
+                <span>Data & Localização Oficial</span>
+              </h2>
 
-            <div className="flex items-start justify-between gap-2 pt-2 border-t border-orange-200/60">
-              <div className="flex items-start gap-2 text-xs sm:text-sm text-slate-700">
-                <MapPin className="w-4 h-4 text-rose-500 flex-shrink-0 mt-0.5" />
-                <span>{race.location} — <strong>{race.city}/PA</strong></span>
-              </div>
-              <a
-                href={getMapsUrl()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs font-bold text-orange-700 hover:underline whitespace-nowrap"
-              >
-                Ver no Maps
-              </a>
-            </div>
-          </div>
-
-          {/* Card de Valor da Inscrição & Lote Atual */}
-          <div className="bg-emerald-50/90 rounded-2xl p-4 border border-emerald-200/90 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-2xs">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-black text-sm flex-shrink-0 shadow-sm">
-                <Tag className="w-5 h-5 text-white" />
-              </div>
-              <div>
-                <span className="text-[10px] font-extrabold uppercase tracking-wider text-emerald-800 block">
-                  Valor da Inscrição
-                </span>
-                {race.priceWithShirt && race.priceWithoutShirt ? (
-                  <div className="flex flex-col gap-1 mt-1">
-                    <div className="flex items-center gap-2">
-                      <span className="text-xs font-bold text-slate-700">Kit Padrão (Sem Camisa):</span>
-                      <span className="text-xs sm:text-sm font-black text-slate-900 bg-white px-2 py-0.5 rounded-lg border border-slate-200 shadow-2xs">
-                        R$ {race.priceWithoutShirt.toFixed(2).replace('.', ',')}
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className="text-xs font-bold text-emerald-900">Kit Premium (Com Camisa):</span>
-                      <span className="text-xs sm:text-sm font-black text-emerald-950 bg-emerald-100 px-2 py-0.5 rounded-lg border border-emerald-300 shadow-2xs">
-                        R$ {race.priceWithShirt.toFixed(2).replace('.', ',')}
-                      </span>
-                    </div>
-                  </div>
-                ) : (typeof race.price === 'number' || typeof race.priceFrom === 'number') ? (
-                  <span className="text-xl sm:text-2xl font-black text-emerald-950 tracking-tight">
-                    R$ {(race.price ?? race.priceFrom)!.toFixed(2).replace('.', ',')}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="p-4 rounded-2xl bg-orange-50/70 border border-orange-200/70 space-y-1">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-orange-800 block">
+                    Data da Corrida
                   </span>
-                ) : (
-                  <span className="text-sm font-bold text-slate-600">
-                    {race.status === 'confirmed' ? 'Lote em breve' : 'Valor sob consulta'}
+                  <div className="text-base sm:text-lg font-black text-slate-900">
+                    {formattedFullDate}
+                  </div>
+                  <div className="text-xs text-orange-900 font-bold flex items-center gap-1">
+                    <Clock className="w-3.5 h-3.5" />
+                    <span>Largada pontual às {race.time}h</span>
+                  </div>
+                </div>
+
+                <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-1">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 block">
+                    Local de Concentração
+                  </span>
+                  <div className="text-sm sm:text-base font-extrabold text-slate-900 leading-snug">
+                    {race.location}
+                  </div>
+                  <div className="text-xs text-slate-600 font-semibold">
+                    {race.city}, Pará
+                  </div>
+                  <a
+                    href={getMapsUrl()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-xs font-bold text-orange-600 hover:text-orange-700 hover:underline pt-1"
+                  >
+                    <MapPin className="w-3.5 h-3.5 text-rose-500" />
+                    <span>Abrir no Google Maps ↗</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Bloco 2: Tabela de Distâncias e Preços de Lotes */}
+            <div className="bg-white rounded-3xl p-5 sm:p-6 shadow-sm border border-slate-200/80 space-y-4">
+              <div className="flex items-center justify-between">
+                <h2 className="text-sm font-black uppercase tracking-wider text-slate-400 flex items-center gap-2">
+                  <Tag className="w-4 h-4 text-emerald-600" />
+                  <span>Percursos & Lotes de Inscrição</span>
+                </h2>
+
+                {batchCountdown && (
+                  <span className="px-2.5 py-0.5 rounded-lg text-xs font-black bg-amber-500 text-slate-950 uppercase tracking-wider">
+                    {batchCountdown}
                   </span>
                 )}
               </div>
-            </div>
 
-            <div className="flex items-center gap-2">
-              {race.currentBatch && (
-                <span className="px-3 py-1.5 bg-white border border-emerald-300 text-emerald-900 text-xs font-black rounded-xl shadow-2xs">
-                  {race.currentBatch}
-                </span>
+              {/* Tabela de Preços e Percursos */}
+              <div className="overflow-x-auto rounded-2xl border border-slate-200">
+                <table className="w-full text-left text-xs sm:text-sm">
+                  <thead className="bg-slate-900 text-white font-black text-xs uppercase tracking-wider">
+                    <tr>
+                      <th className="p-3.5">Percurso</th>
+                      <th className="p-3.5">Lote Atual</th>
+                      <th className="p-3.5">Kit Padrão</th>
+                      {race.priceWithShirt && <th className="p-3.5">Kit Premium (c/ Camisa)</th>}
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-100 bg-white">
+                    {race.distances.map((dist, idx) => (
+                      <tr key={idx} className="hover:bg-slate-50 transition">
+                        <td className="p-3.5 font-black text-slate-900">
+                          <span className="px-2.5 py-1 rounded-lg bg-orange-100 text-orange-800 text-xs font-black">
+                            {formatDecimalDistance(dist)}
+                          </span>
+                        </td>
+                        <td className="p-3.5 text-slate-600 font-semibold">
+                          {race.currentBatch || '1º Lote Oficial'}
+                        </td>
+                        <td className="p-3.5 font-black text-emerald-900">
+                          {race.priceWithoutShirt 
+                            ? `R$ ${race.priceWithoutShirt.toFixed(2).replace('.', ',')}`
+                            : hasPrice 
+                            ? `R$ ${displayPrice}` 
+                            : 'Sob Consulta'}
+                        </td>
+                        {race.priceWithShirt && (
+                          <td className="p-3.5 font-black text-emerald-950 bg-emerald-50/40">
+                            R$ {race.priceWithShirt.toFixed(2).replace('.', ',')}
+                          </td>
+                        )}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
+              {race.batchDeadline && (
+                <p className="text-xs text-amber-800 font-medium bg-amber-50 p-2.5 rounded-xl border border-amber-200/60">
+                  ⚠️ Virada de lote prevista para: <strong>{race.batchDeadline}</strong> ou até esgotarem as vagas limitadas.
+                </p>
               )}
             </div>
-          </div>
 
-          {/* Status Explanation Banner for Athletes */}
-          {race.status === 'confirmed' && (
-            <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 flex items-start gap-3">
-              <div className="w-8 h-8 rounded-xl bg-amber-500 text-white flex items-center justify-center flex-shrink-0 mt-0.5">
-                <Bell className="w-4 h-4" />
-              </div>
-              <div>
-                <h4 className="font-bold text-amber-950 text-xs sm:text-sm">
-                  Data confirmada no calendário oficial
-                </h4>
-                <p className="text-xs text-amber-900/80 mt-0.5 leading-relaxed">
-                  O organizador e a empresa de cronometragem já confirmaram a realização da prova nesta data. As vendas de inscrição ainda não foram abertas no sistema de chip. Salve no seu calendário para não esquecer!
-                </p>
-              </div>
-            </div>
-          )}
+            {/* Bloco 3: Itens do Kit Atleta */}
+            <div className="bg-white rounded-3xl p-5 sm:p-6 shadow-sm border border-slate-200/80 space-y-4">
+              <h2 className="text-sm font-black uppercase tracking-wider text-slate-400 flex items-center gap-2">
+                <Gift className="w-4 h-4 text-orange-500" />
+                <span>Kit do Atleta Incluso</span>
+              </h2>
 
-          {race.status === 'finished' && (
-            <div className="bg-purple-50 border border-purple-200 rounded-2xl p-4 flex items-start gap-3">
-              <div className="w-8 h-8 rounded-xl bg-purple-600 text-white flex items-center justify-center flex-shrink-0 mt-0.5">
-                <Award className="w-4 h-4" />
-              </div>
-              <div>
-                <h4 className="font-bold text-purple-950 text-xs sm:text-sm">
-                  Prova já realizada
-                </h4>
-                <p className="text-xs text-purple-900/80 mt-0.5 leading-relaxed">
-                  Esta corrida já aconteceu. Fique atento às próximas etapas do circuito regional de corridas!
-                </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {defaultKitItems.map((item, idx) => {
+                  const Icon = item.icon;
+                  return (
+                    <div key={idx} className="flex items-start gap-3 p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80">
+                      <div className="w-9 h-9 rounded-xl bg-orange-500/10 text-orange-600 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Icon className="w-4 h-4" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-xs sm:text-sm text-slate-900">
+                          {item.title}
+                        </h4>
+                        <p className="text-[11px] text-slate-500 leading-relaxed mt-0.5">
+                          {item.desc}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
-          )}
 
-          {/* Distâncias */}
-          <div>
-            <h3 className="text-xs font-black uppercase tracking-wider text-slate-500 mb-2">
-              Percursos Disponíveis
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {race.distances.map((dist, idx) => (
-                <span
-                  key={idx}
-                  className="px-3.5 py-1.5 rounded-xl text-xs font-black bg-slate-900 text-orange-400 shadow-sm"
-                >
-                  {dist}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Descrição */}
-          {race.description && (
-            <div>
-              <h3 className="text-xs font-black uppercase tracking-wider text-slate-500 mb-1.5">
-                Sobre o Evento
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                {race.description}
-              </p>
-            </div>
-          )}
-
-          {/* Kit do Atleta */}
-          {race.kitItems && race.kitItems.length > 0 && (
-            <div>
-              <h3 className="text-xs font-black uppercase tracking-wider text-slate-500 mb-2">
-                Kit do Atleta Inclui
-              </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {race.kitItems.map((item, idx) => (
-                  <div key={idx} className="flex items-center gap-2 text-xs text-slate-700 bg-slate-50 p-2.5 rounded-xl border border-slate-100">
-                    <CheckCircle className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
-                    <span>{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Premiação */}
-          {race.awardsInfo && (
-            <div className="bg-amber-50/70 border border-amber-200/80 rounded-2xl p-4">
-              <div className="flex items-center gap-1.5 text-amber-900 font-bold text-xs mb-1">
+            {/* Bloco 4: Premiação Completa & Troféus */}
+            <div className="bg-gradient-to-br from-amber-50/70 via-white to-orange-50/50 rounded-3xl p-5 sm:p-6 shadow-sm border border-amber-200/80 space-y-4">
+              <h2 className="text-sm font-black uppercase tracking-wider text-amber-900 flex items-center gap-2">
                 <Trophy className="w-4 h-4 text-amber-600" />
-                <span>Premiação & Troféus</span>
+                <span>Premiação Completa & Categorias</span>
+              </h2>
+
+              <div className="space-y-3 text-xs sm:text-sm text-slate-700">
+                <div className="flex items-start gap-3 p-3 bg-white rounded-2xl border border-amber-200/70 shadow-2xs">
+                  <div className="w-8 h-8 rounded-xl bg-amber-500 text-white flex items-center justify-center font-black flex-shrink-0">
+                    🏆
+                  </div>
+                  <div>
+                    <h4 className="font-black text-slate-900">Classificação Geral (Masculino e Feminino)</h4>
+                    <p className="text-xs text-slate-600 mt-0.5">
+                      Troféu especial para os <strong>1º ao 5º colocados</strong> em cada percurso oficial da prova.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3 p-3 bg-white rounded-2xl border border-amber-200/70 shadow-2xs">
+                  <div className="w-8 h-8 rounded-xl bg-orange-500 text-white flex items-center justify-center font-black flex-shrink-0">
+                    🥇
+                  </div>
+                  <div>
+                    <h4 className="font-black text-slate-900">Faixas Etárias (Masculino e Feminino)</h4>
+                    <p className="text-xs text-slate-600 mt-0.5">
+                      Troféus ou medalhões exclusivos para os <strong>1º, 2º e 3º colocados</strong> nas divisões por idade oficiais.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3 p-3 bg-white rounded-2xl border border-amber-200/70 shadow-2xs">
+                  <div className="w-8 h-8 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-black flex-shrink-0">
+                    🏅
+                  </div>
+                  <div>
+                    <h4 className="font-black text-slate-900">Medalha Finisher de Participação</h4>
+                    <p className="text-xs text-slate-600 mt-0.5">
+                      Garantida para todos os corredores devidamente inscritos que cruzarem a linha de chegada dentro do tempo limite.
+                    </p>
+                  </div>
+                </div>
+
+                {race.awardsInfo && (
+                  <p className="text-xs text-slate-600 italic pt-1">
+                    Nota do organizador: {race.awardsInfo}
+                  </p>
+                )}
               </div>
-              <p className="text-xs text-amber-950 leading-relaxed">
-                {race.awardsInfo}
+            </div>
+          </div>
+
+          {/* Coluna 3: Painel Lateral Sticky de CTA Oficial & Utilitários */}
+          <div className="lg:sticky lg:top-20 space-y-4">
+            {/* Card Principal de Inscrição */}
+            <div className="bg-white rounded-3xl p-5 sm:p-6 shadow-xl border border-slate-200 space-y-4">
+              <div>
+                <span className="text-[10px] font-black uppercase tracking-wider text-slate-400 block">
+                  Status das Vagas
+                </span>
+                <div className="text-xl sm:text-2xl font-black text-slate-900 mt-1">
+                  {race.status === 'open' 
+                    ? 'Inscrições Abertas' 
+                    : race.status === 'closing_soon' 
+                    ? 'Últimas Vagas!' 
+                    : race.status === 'confirmed' 
+                    ? 'Data Confirmada' 
+                    : race.status === 'finished' 
+                    ? 'Prova Concluída' 
+                    : 'Em Breve'}
+                </div>
+
+                {hasPrice && (
+                  <div className="mt-2 text-xs font-semibold text-slate-500">
+                    Valores a partir de <strong className="text-emerald-700 text-base font-black">R$ {displayPrice}</strong>
+                  </div>
+                )}
+              </div>
+
+              {/* CTA EXPLÍCITO DIRECIONADO AO SITE DO CHIP OFICIAL */}
+              <div>
+                {race.status === 'open' || race.status === 'closing_soon' ? (
+                  race.registrationUrl ? (
+                    <a
+                      href={race.registrationUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full py-4 px-4 bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-500 hover:to-amber-500 text-white rounded-2xl text-sm font-black transition shadow-lg shadow-orange-950/30 flex items-center justify-center gap-2 text-center active:scale-95 cursor-pointer"
+                    >
+                      <span>Inscrever-se no site oficial da {race.chipCompany}</span>
+                      <ExternalLink className="w-4 h-4 flex-shrink-0" />
+                    </a>
+                  ) : (
+                    <button
+                      onClick={() => alert('O link de inscrição será liberado nos próximos dias pelo organizador.')}
+                      className="w-full py-4 px-4 bg-amber-500 hover:bg-amber-600 text-white rounded-2xl text-sm font-black transition text-center shadow-md cursor-pointer"
+                    >
+                      Aguardando liberação do link oficial 🔔
+                    </button>
+                  )
+                ) : race.status === 'finished' ? (
+                  race.resultsUrl ? (
+                    <a
+                      href={race.resultsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full py-4 px-4 bg-purple-600 hover:bg-purple-500 text-white rounded-2xl text-sm font-black transition shadow-lg shadow-purple-950/20 flex items-center justify-center gap-2 text-center active:scale-95 cursor-pointer"
+                    >
+                      <span>Ver Resultados na {race.chipCompany} ↗</span>
+                      <ExternalLink className="w-4 h-4 flex-shrink-0" />
+                    </a>
+                  ) : (
+                    <button
+                      disabled
+                      className="w-full py-4 px-4 bg-slate-100 text-slate-400 rounded-2xl text-sm font-bold cursor-not-allowed"
+                    >
+                      Resultados em Apuração
+                    </button>
+                  )
+                ) : (
+                  <button
+                    onClick={() => {
+                      alert(`Você será avisado no WhatsApp assim que o link oficial de ${race.title} for aberto!`);
+                    }}
+                    className="w-full py-4 px-4 bg-slate-900 hover:bg-slate-800 text-orange-400 rounded-2xl text-sm font-black transition text-center shadow-md cursor-pointer"
+                  >
+                    Avise-me quando abrir o link 🔔
+                  </button>
+                )}
+              </div>
+
+              {/* Utilitários Rápidos: Google Agenda & WhatsApp */}
+              <div className="pt-2 border-t border-slate-100 space-y-2">
+                <a
+                  href={getGoogleCalendarUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-3 px-3.5 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 text-center"
+                >
+                  <CalendarPlus className="w-4 h-4 text-orange-600" />
+                  <span>Adicionar ao Google Agenda</span>
+                </a>
+
+                <button
+                  onClick={() => onShareWhatsApp(race)}
+                  className="w-full py-3 px-3.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200/80 rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 text-center cursor-pointer"
+                >
+                  <Share2 className="w-4 h-4 text-emerald-600" />
+                  <span>Compartilhar no WhatsApp</span>
+                </button>
+              </div>
+
+              {/* Link do Regulamento PDF */}
+              {(race.regulationUrl || race.rulesUrl) && (
+                <div className="pt-2 border-t border-slate-100">
+                  <a
+                    href={race.regulationUrl || race.rulesUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-2.5 px-3 bg-slate-50 hover:bg-orange-50 text-slate-700 hover:text-orange-700 border border-slate-200 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 text-center"
+                  >
+                    <FileText className="w-3.5 h-3.5 text-orange-600" />
+                    <span>Baixar Regulamento Oficial (PDF)</span>
+                  </a>
+                </div>
+              )}
+            </div>
+
+            {/* Selo de Garantia e Verificação do Sistema Breu Run */}
+            <div className="p-4 rounded-2xl bg-slate-900 text-white text-xs space-y-2 border border-slate-800 shadow-md">
+              <div className="flex items-center gap-2 text-orange-400 font-bold">
+                <ShieldCheck className="w-4 h-4" />
+                <span>Dados Oficiais Verificados</span>
+              </div>
+              <p className="text-slate-400 text-[11px] leading-relaxed">
+                As informações deste evento foram extraídas e sincronizadas diretamente dos sistemas oficiais da empresa de cronometragem <strong>{race.chipCompany}</strong>.
               </p>
             </div>
-          )}
-
-          {/* Altimetria */}
-          {race.elevation && (
-            <div className="flex items-center gap-2 text-xs text-slate-600 bg-slate-50 p-3 rounded-xl border border-slate-100">
-              <TrendingUp className="w-4 h-4 text-slate-500" />
-              <span><strong>Perfil do Percurso:</strong> {race.elevation}</span>
-            </div>
-          )}
-
-          {/* Ações secundárias: Salvar na Agenda + Compartilhar WhatsApp */}
-          <div className="grid grid-cols-2 gap-2 pt-2 border-t border-slate-100">
-            <a
-              href={getGoogleCalendarUrl()}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-1.5 py-2.5 px-3 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-bold transition text-center"
-            >
-              <CalendarPlus className="w-4 h-4 text-orange-600" />
-              <span>Salvar no Google Agenda</span>
-            </a>
-
-            <button
-              onClick={() => onShareWhatsApp(race)}
-              className="flex items-center justify-center gap-1.5 py-2.5 px-3 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 rounded-xl text-xs font-bold transition text-center cursor-pointer"
-            >
-              <Share2 className="w-4 h-4 text-emerald-600" />
-              <span>Mandar no WhatsApp</span>
-            </button>
           </div>
         </div>
-
-        {/* Footer CTA */}
-        <div className="p-4 bg-slate-50 border-t border-slate-200 flex items-center gap-3">
-          {(race.regulationUrl || race.rulesUrl) && (
-            <a
-              href={race.regulationUrl || race.rulesUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 text-slate-700 hover:text-orange-600 hover:bg-orange-50 border border-slate-200 rounded-xl text-xs font-bold flex items-center gap-1.5 transition shadow-xs"
-              title="Baixar ou ler Regulamento Oficial em PDF"
-            >
-              <FileText className="w-4 h-4 text-orange-600 flex-shrink-0" />
-              <span>Regulamento Oficial (PDF)</span>
-            </a>
-          )}
-
-          {race.status === 'open' || race.status === 'closing_soon' ? (
-            onOpenRegistration ? (
-              <button
-                onClick={() => onOpenRegistration(race)}
-                className="flex-1 py-3 px-4 bg-orange-600 hover:bg-orange-500 text-white rounded-xl text-sm font-black flex items-center justify-center gap-2 shadow-lg shadow-orange-600/30 transition text-center cursor-pointer active:scale-95"
-              >
-                <span>Ir para Inscrição Oficial</span>
-                <ExternalLink className="w-4 h-4" />
-              </button>
-            ) : (
-              <a
-                href={race.registrationUrl || '#'}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 py-3 px-4 bg-orange-600 hover:bg-orange-500 text-white rounded-xl text-sm font-black flex items-center justify-center gap-2 shadow-lg shadow-orange-600/30 transition text-center"
-              >
-                <span>Ir para Inscrição Oficial</span>
-                <ExternalLink className="w-4 h-4" />
-              </a>
-            )
-          ) : race.status === 'confirmed' ? (
-            <button
-              onClick={() => {
-                alert(`Você será avisado no WhatsApp assim que o link oficial de ${race.title} for aberto!`);
-                onClose();
-              }}
-              className="flex-1 py-3 px-4 bg-amber-500 hover:bg-amber-600 text-white rounded-xl text-sm font-black text-center transition"
-            >
-              Avise-me quando abrir o link de inscrição 🔔
-            </button>
-          ) : race.status === 'finished' ? (
-            race.resultsUrl ? (
-              <a
-                href={race.resultsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 py-3 px-4 bg-purple-600 hover:bg-purple-500 text-white rounded-xl text-sm font-black text-center transition flex items-center justify-center gap-2 shadow-lg shadow-purple-950/20 active:scale-95 cursor-pointer"
-              >
-                <span>Ver Resultados Oficiais ({race.chipCompany}) ↗</span>
-                <ExternalLink className="w-4 h-4" />
-              </a>
-            ) : (
-              <button
-                disabled
-                className="flex-1 py-3 px-4 bg-slate-200 text-slate-500 rounded-xl text-sm font-black text-center cursor-not-allowed"
-              >
-                Prova Realizada
-              </button>
-            )
-          ) : (
-            <button
-              disabled
-              className="flex-1 py-3 px-4 bg-slate-200 text-slate-500 rounded-xl text-sm font-black text-center cursor-not-allowed"
-            >
-              Inscrições Encerradas para esta Prova
-            </button>
-          )}
-        </div>
-      </div>
+      </main>
     </div>
   );
 };

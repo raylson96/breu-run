@@ -12,6 +12,7 @@ import {
   FileText,
   Sparkles
 } from 'lucide-react';
+import { formatDecimalDistance } from '../utils/raceFormatters';
 
 interface RaceTableViewProps {
   races: Race[];
@@ -170,7 +171,7 @@ export const RaceTableView: React.FC<RaceTableViewProps> = ({
                           key={i} 
                           className="px-2 py-0.5 rounded text-[11px] font-bold bg-slate-100 text-slate-800 border border-slate-200"
                         >
-                          {d}
+                          {formatDecimalDistance(d)}
                         </span>
                       ))}
                     </div>

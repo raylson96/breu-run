@@ -338,8 +338,15 @@ export function App() {
         notifications={notifications}
         onNotificationsChange={setNotifications}
         onSelectRaceById={(id) => {
-          const r = races.find((x) => x.id === id);
-          if (r) setSelectedRace(r);
+          const r = races.find((x) => 
+            x.id === id || 
+            x.id.includes(id) || 
+            id.includes(x.id) ||
+            x.title.toLowerCase().trim() === id.toLowerCase().trim()
+          );
+          if (r) {
+            setSelectedRace(r);
+          }
         }}
         onTriggerSync={() => handleManualAutoSync(false)}
         isSyncing={isSyncing}

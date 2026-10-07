@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import type { Race } from '../types/race';
 import { 
   Calendar, 
@@ -10,8 +10,15 @@ import {
   ChevronLeft, 
   ChevronRight, 
   Megaphone, 
-  Star 
+  Star,
+  Tag
 } from 'lucide-react';
+import { 
+  formatDecimalDistance, 
+  getTimingChipBadge, 
+  calculateDaysLeft, 
+  DEFAULT_RACE_BANNER 
+} from '../utils/raceFormatters';
 
 interface FeaturedRacesSectionProps {
   races: Race[];
@@ -28,34 +35,33 @@ export const FeaturedRacesSection: React.FC<FeaturedRacesSectionProps> = ({
   onOpenRegistration,
   onToggleFeatured
 }) => {
-  // 1. Provas marcadas manualmente como featured
+  // Provas marcadas como featured ou fallback para as primeiras com inscrições abertas/confirmadas
   const manuallyFeatured = races.filter((r) => r.featured);
-
-  // 2. Fallback inteligente: se nenhuma estiver marcada, pega as 3 primeiras provas com inscrições abertas ou confirmadas
   const displayRaces = manuallyFeatured.length > 0 
     ? manuallyFeatured 
-    : races.filter((r) => r.status === 'open' || r.status === 'closing_soon' || r.status === 'confirmed').slice(0, 3);
+    : races.filter((r) => r.status === 'open' || r.status === 'closing_soon' || r.status === 'confirmed').slice(0, 5);
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const touchStartXRef = useRef<number | null>(null);
+  const touchEndXRef = useRef<number | null>(null);
 
-  // Auto-play suave para mobile e desktop
+  // Auto-play suave com pausa ao passar o mouse
   useEffect(() => {
-    if (displayRaces.length <= 1) return;
+    if (displayRaces.length <= 1 || isPaused) return;
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % displayRaces.length);
-    }, 8000);
+    }, 7000);
     return () => clearInterval(interval);
-  }, [displayRaces.length]);
+  }, [displayRaces.length, isPaused]);
 
   if (displayRaces.length === 0) {
     return null;
   }
 
-  const calculateDaysLeft = (targetDate: string) => {
-    const diff = new Date(targetDate).getTime() - new Date().getTime();
-    const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
-    return days > 0 ? days : 0;
-  };
+  const currentRace = displayRaces[currentIndex] || displayRaces[0];
+  const chipBadge = getTimingChipBadge(currentRace.chipCompany);
+  const daysLeft = calculateDaysLeft(currentRace.date);
 
   const formatDate = (dateStr: string) => {
     const [, month, day] = dateStr.split('-');
@@ -71,225 +77,254 @@ export const FeaturedRacesSection: React.FC<FeaturedRacesSectionProps> = ({
     setCurrentIndex((prev) => (prev + 1) % displayRaces.length);
   };
 
+  // Suporte a swipe tátil no mobile
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartXRef.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndXRef.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartXRef.current !== null && touchEndXRef.current !== null) {
+      const diff = touchStartXRef.current - touchEndXRef.current;
+      if (diff > 45) {
+        handleNext();
+      } else if (diff < -45) {
+        handlePrev();
+      }
+    }
+    touchStartXRef.current = null;
+    touchEndXRef.current = null;
+  };
+
+  const hasPrice = typeof currentRace.price === 'number' || typeof currentRace.priceFrom === 'number';
+  const priceValue = (currentRace.price ?? currentRace.priceFrom)?.toFixed(2).replace('.', ',');
+  const bannerImage = currentRace.bannerUrl || currentRace.imageUrl || DEFAULT_RACE_BANNER;
+
   return (
-    <div className="mb-8 w-full space-y-4">
-      {/* 1. Top Banner Promocional do Organizador (Centralizado no Topo) */}
-      <div className="bg-gradient-to-r from-orange-950 via-slate-900 to-amber-950 rounded-3xl p-4 sm:p-5 border border-orange-500/40 text-white relative overflow-hidden shadow-xl">
-        <div className="absolute top-0 right-0 w-80 h-80 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
+    <div 
+      className="mb-6 w-full select-none"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
+      {/* 1. Banner Principal Panorâmico (Desktop Teatro h-64 md:h-80 lg:h-96 / Mobile h-52 sm:h-60) */}
+      <div className="relative w-full h-56 sm:h-72 md:h-80 lg:h-96 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl bg-slate-950 border border-slate-800 group">
+        {/* Imagem de Fundo em Alta Resolução com transição suave */}
+        <img
+          key={currentRace.id}
+          src={bannerImage}
+          alt={currentRace.title}
+          onError={(e) => {
+            (e.target as HTMLImageElement).src = DEFAULT_RACE_BANNER;
+          }}
+          className="absolute inset-0 w-full h-full object-cover object-center transform transition-transform duration-1000 ease-out scale-100 group-hover:scale-105"
+        />
 
-        <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <div className="space-y-1">
-            <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-black bg-gradient-to-r from-orange-500 to-amber-500 text-slate-950 uppercase tracking-wider shadow-sm">
-                <Sparkles className="w-3 h-3" />
-                Espaço Promocional de Destaque
-              </span>
-              <span className="text-[11px] text-orange-200/80 font-medium hidden sm:inline">
-                • Vitrine Oficial Breu Run
-              </span>
-            </div>
-            <h2 className="text-lg sm:text-xl font-black text-white tracking-tight">
-              Corridas em Evidência no Circuito Paraense
-            </h2>
-            <p className="text-xs text-slate-300 max-w-2xl leading-relaxed">
-              Provas em lote ativo e maior busca por atletas de Tailândia, Marabá, Breu Branco, Belém e todo o estado.
-            </p>
-          </div>
+        {/* Gradientes Panorâmicos de Alta Legibilidade (Fundo escurecido sem perder a arte) */}
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/75 to-slate-950/20 md:bg-gradient-to-r md:from-slate-950/95 md:via-slate-950/80 md:to-transparent" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-orange-600/10 rounded-full blur-3xl pointer-events-none" />
 
-          <div className="flex items-center gap-2 flex-shrink-0">
+        {/* Botão de Anunciar Corrida no Canto Superior Direito */}
+        <div className="absolute top-3 sm:top-4 right-3 sm:right-4 z-30 flex items-center gap-2">
+          {onToggleFeatured && (
             <button
-              onClick={onOpenAdminModal}
-              className="px-4 py-2.5 bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-500 hover:to-amber-500 text-white text-xs font-black rounded-xl transition shadow-md shadow-orange-950/40 cursor-pointer active:scale-95 flex items-center gap-1.5 whitespace-nowrap"
+              onClick={() => onToggleFeatured(currentRace.id)}
+              className="p-2 rounded-xl bg-slate-950/70 hover:bg-slate-900 text-amber-400 border border-white/10 backdrop-blur-md transition cursor-pointer"
+              title={currentRace.featured ? "Remover do destaque" : "Fixar no destaque"}
             >
-              <Megaphone className="w-3.5 h-3.5" />
-              <span>Anunciar Minha Corrida</span>
+              <Star className={`w-3.5 h-3.5 ${currentRace.featured ? 'fill-amber-400 text-amber-400' : 'text-slate-400'}`} />
             </button>
-            
-            {displayRaces.length > 3 && (
-              <div className="hidden lg:flex items-center gap-1 bg-slate-800/80 p-1 rounded-xl border border-slate-700">
-                <button
-                  onClick={handlePrev}
-                  className="p-1.5 hover:bg-slate-700 rounded-lg text-slate-300 hover:text-white transition cursor-pointer"
-                  title="Anterior"
-                >
-                  <ChevronLeft className="w-4 h-4" />
-                </button>
-                <button
-                  onClick={handleNext}
-                  className="p-1.5 hover:bg-slate-700 rounded-lg text-slate-300 hover:text-white transition cursor-pointer"
-                  title="Próxima"
-                >
-                  <ChevronRight className="w-4 h-4" />
-                </button>
-              </div>
+          )}
+
+          <button
+            onClick={onOpenAdminModal}
+            className="px-3 sm:px-3.5 py-1.5 sm:py-2 bg-slate-950/70 hover:bg-slate-900 text-orange-400 hover:text-orange-300 border border-orange-500/30 rounded-xl text-[11px] sm:text-xs font-bold transition backdrop-blur-md flex items-center gap-1.5 shadow-md cursor-pointer"
+            title="Divulgue sua prova para corredores de todo o Pará"
+          >
+            <Megaphone className="w-3.5 h-3.5 text-orange-400" />
+            <span className="hidden sm:inline">Anunciar Prova</span>
+          </button>
+        </div>
+
+        {/* Conteúdo Principal do Slide Panorâmico */}
+        <div className="relative z-20 h-full flex flex-col justify-between p-4 sm:p-6 md:p-8 max-w-2xl lg:max-w-3xl">
+          {/* Top Tags: Selo do Chip Oficial + Em Evidência + Contagem Regressiva */}
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl text-[10px] sm:text-[11px] font-black bg-gradient-to-r from-orange-500 to-amber-500 text-slate-950 uppercase tracking-wider shadow-sm">
+              <Sparkles className="w-3 h-3" />
+              Em Evidência
+            </span>
+
+            {/* Badge Padronizado do Chip */}
+            <div className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl text-[10px] sm:text-[11px] font-bold backdrop-blur-md border ${chipBadge.badgeClass}`}>
+              <ShieldCheck className="w-3.5 h-3.5 flex-shrink-0" />
+              <span>{chipBadge.name}</span>
+            </div>
+
+            {daysLeft > 0 && (
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl text-[10px] sm:text-[11px] font-bold bg-slate-900/90 text-orange-300 border border-slate-700/80 backdrop-blur-md">
+                <Timer className="w-3 h-3 text-amber-400" />
+                <span>{daysLeft} dias para a prova</span>
+              </span>
             )}
           </div>
-        </div>
-      </div>
 
-      {/* 2. Grid no Desktop / Carrossel Horizontal Deslizante no Celular (Swipe Lateral) */}
-      <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 overflow-x-auto no-scrollbar snap-x snap-mandatory pb-2 md:pb-0">
-        {(displayRaces.length <= 3 
-          ? displayRaces 
-          : Array.from({ length: 3 }, (_, i) => displayRaces[(currentIndex + i) % displayRaces.length])
-        ).map((race) => {
-          const daysLeft = calculateDaysLeft(race.date);
-          const hasPrice = typeof race.price === 'number' || typeof race.priceFrom === 'number';
-          const priceValue = (race.price ?? race.priceFrom)?.toFixed(2).replace('.', ',');
-
-          return (
-            <div
-              key={race.id}
-              className="w-[85vw] max-w-[340px] flex-shrink-0 snap-center md:w-auto md:max-w-none relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-950 via-zinc-900 to-orange-950/90 text-white p-5 sm:p-6 border border-orange-500/40 shadow-xl flex flex-col justify-between group hover:border-orange-400 transition-all duration-300"
+          {/* Centro: Título, Data, Local e Distâncias */}
+          <div className="space-y-1.5 sm:space-y-2 my-auto py-1">
+            <h2 
+              onClick={() => onSelectRace(currentRace)}
+              className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-black text-white leading-tight tracking-tight cursor-pointer hover:text-orange-400 transition line-clamp-2 drop-shadow-md"
             >
-              {/* Luz ambiente de fundo */}
-              <div className="absolute top-0 right-0 w-44 h-44 bg-orange-600/15 rounded-full blur-2xl pointer-events-none" />
+              {currentRace.title}
+            </h2>
 
-              <div>
-                {/* Top Badge & Countdown + Ação de Desafixar */}
-                <div className="flex items-center justify-between gap-2 mb-3 relative z-10">
-                  <div className="flex items-center gap-2">
-                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-black bg-gradient-to-r from-orange-500 to-amber-500 text-slate-950 uppercase tracking-wider shadow-sm">
-                      <Sparkles className="w-3 h-3" />
-                      Em Evidência
-                    </span>
-                    {onToggleFeatured && (
-                      <button
-                        onClick={() => onToggleFeatured(race.id)}
-                        className="p-1 rounded-md text-amber-400/80 hover:text-amber-300 hover:bg-slate-800 transition cursor-pointer"
-                        title={race.featured ? "Remover do topo" : "Fixar no topo"}
-                      >
-                        <Star className={`w-3.5 h-3.5 ${race.featured ? 'fill-amber-400 text-amber-400' : ''}`} />
-                      </button>
-                    )}
-                  </div>
-
-                  {daysLeft > 0 && (
-                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-slate-900/90 text-orange-300 border border-slate-700 shadow-xs">
-                      <Timer className="w-3 h-3 text-amber-400" />
-                      {daysLeft} dias
-                    </span>
-                  )}
-                </div>
-
-                {/* Título da Corrida */}
-                <h3 
-                  onClick={() => onSelectRace(race)}
-                  className="text-lg sm:text-xl font-black text-white leading-tight tracking-tight mb-2 cursor-pointer hover:text-orange-400 transition line-clamp-2"
-                >
-                  {race.title}
-                </h3>
-
-                {/* Data, Horário e Local */}
-                <div className="space-y-1.5 text-xs text-slate-300 mb-4">
-                  <div className="flex items-center gap-1.5 text-orange-400 font-bold">
-                    <Calendar className="w-3.5 h-3.5" />
-                    <span>{formatDate(race.date)} • {race.time}h</span>
-                  </div>
-
-                  <div className="flex items-center gap-1.5 text-slate-200">
-                    <MapPin className="w-3.5 h-3.5 text-rose-400 flex-shrink-0" />
-                    <span className="truncate">{race.location}, <strong className="text-white">{race.city}/PA</strong></span>
-                  </div>
-
-                  <div className="flex items-center gap-1.5 text-emerald-400 font-bold text-[11px]">
-                    <ShieldCheck className="w-3.5 h-3.5" />
-                    <span>{race.chipCompany}</span>
-                  </div>
-                </div>
-
-                {/* Percursos tags */}
-                <div className="flex flex-wrap gap-1.5 mb-4">
-                  {race.distances.map((dist, idx) => (
-                    <span
-                      key={idx}
-                      className="bg-slate-800/90 text-orange-300 text-[11px] font-extrabold px-2.5 py-0.5 rounded-lg border border-slate-700"
-                    >
-                      {dist}
-                    </span>
-                  ))}
-                </div>
+            {/* Data e Local em linha limpa */}
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs sm:text-sm text-slate-300">
+              <div className="flex items-center gap-1.5 text-orange-400 font-bold">
+                <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-orange-400" />
+                <span>{formatDate(currentRace.date)} • {currentRace.time}h</span>
               </div>
 
-              {/* Preço e CTA */}
-              <div className="pt-3 border-t border-slate-800/80 space-y-3">
-                <div className="flex items-baseline justify-between">
-                  <div>
-                    <span className="text-[10px] text-slate-400 uppercase tracking-wider block font-medium">
-                      {race.currentBatch || 'Inscrições'}
-                    </span>
-                    {race.priceWithShirt && race.priceWithoutShirt ? (
-                      <div className="flex flex-col mt-0.5">
-                        <span className="text-[11px] text-slate-300 font-bold">
-                          Sem camisa: <strong className="text-white">R$ {race.priceWithoutShirt.toFixed(2).replace('.', ',')}</strong>
-                        </span>
-                        <span className="text-xs sm:text-sm font-black text-amber-300">
-                          Com camisa: R$ {race.priceWithShirt.toFixed(2).replace('.', ',')}
-                        </span>
-                      </div>
-                    ) : (
-                      <span className="text-base sm:text-lg font-black text-white">
-                        {hasPrice ? `R$ ${priceValue}` : 'Sob Consulta'}
-                      </span>
-                    )}
-                  </div>
+              <span className="text-slate-600 hidden sm:inline">•</span>
 
-                  {race.batchDeadline && (
-                    <span className="text-[10px] text-amber-400 font-bold">
-                      Até {race.batchDeadline}
-                    </span>
-                  )}
-                </div>
-
-                <div className="grid grid-cols-2 gap-2">
-                  <button
-                    onClick={() => onSelectRace(race)}
-                    className="py-2.5 px-3 bg-slate-800/90 hover:bg-slate-750 text-slate-200 text-xs font-bold rounded-xl border border-slate-700 transition text-center cursor-pointer"
-                  >
-                    Regulamento & Kit
-                  </button>
-
-                  {race.status === 'open' || race.status === 'closing_soon' ? (
-                    onOpenRegistration ? (
-                      <button
-                        onClick={() => onOpenRegistration(race)}
-                        className="py-2.5 px-3 bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-500 hover:to-amber-500 text-white text-xs font-black rounded-xl shadow-md transition flex items-center justify-center gap-1.5 text-center cursor-pointer active:scale-95"
-                      >
-                        <span>Inscrever-se</span>
-                        <ExternalLink className="w-3.5 h-3.5" />
-                      </button>
-                    ) : (
-                      <a
-                        href={race.registrationUrl || '#'}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="py-2.5 px-3 bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-500 hover:to-amber-500 text-white text-xs font-black rounded-xl shadow-md transition flex items-center justify-center gap-1.5 text-center cursor-pointer active:scale-95"
-                      >
-                        <span>Inscrever-se</span>
-                        <ExternalLink className="w-3.5 h-3.5" />
-                      </a>
-                    )
-                  ) : (
-                    <button
-                      onClick={() => onSelectRace(race)}
-                      className="py-2.5 px-3 bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold rounded-xl transition text-center cursor-pointer"
-                    >
-                      Inscrições em Breve 🔔
-                    </button>
-                  )}
-                </div>
+              <div className="flex items-center gap-1.5 text-slate-200">
+                <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-rose-400 flex-shrink-0" />
+                <span className="truncate">{currentRace.location}, <strong className="text-white">{currentRace.city}/PA</strong></span>
               </div>
             </div>
-          );
-        })}
-      </div>
 
-      {/* Dica de Swipe no Celular */}
-      {displayRaces.length > 1 && (
-        <div className="flex md:hidden items-center justify-center gap-1.5 pt-1 text-[11px] font-bold text-slate-500">
-          <span>👈 Deslize para o lado para ver mais provas em evidência 👉</span>
+            {/* Percursos Tags com formato decimal exato */}
+            <div className="flex flex-wrap items-center gap-1.5 pt-1">
+              {currentRace.distances.map((dist, idx) => (
+                <span
+                  key={idx}
+                  className="bg-slate-900/90 text-orange-300 text-[10px] sm:text-xs font-black px-2.5 py-0.5 rounded-lg border border-slate-700/90 backdrop-blur-sm"
+                >
+                  {formatDecimalDistance(dist)}
+                </span>
+              ))}
+
+              {currentRace.organizer && (
+                <span className="text-[11px] text-slate-400 hidden md:inline ml-2">
+                  Org: <strong className="text-slate-300">{currentRace.organizer}</strong>
+                </span>
+              )}
+            </div>
+          </div>
+
+          {/* Rodapé do Banner: Preço e Botões de Ação */}
+          <div className="flex items-center justify-between gap-3 pt-2 border-t border-slate-800/80">
+            {/* Informações de Preço */}
+            <div>
+              {currentRace.priceWithShirt && currentRace.priceWithoutShirt ? (
+                <div className="flex items-baseline gap-2">
+                  <span className="text-xs text-slate-300">
+                    Sem camisa: <strong className="text-white font-bold">R$ {currentRace.priceWithoutShirt.toFixed(2).replace('.', ',')}</strong>
+                  </span>
+                  <span className="text-xs sm:text-sm font-black text-amber-300">
+                    Com camisa: R$ {currentRace.priceWithShirt.toFixed(2).replace('.', ',')}
+                  </span>
+                </div>
+              ) : hasPrice ? (
+                <div className="flex items-baseline gap-1.5">
+                  <span className="text-[10px] sm:text-xs text-slate-400 uppercase font-semibold">A partir de</span>
+                  <span className="text-base sm:text-xl font-black text-white">
+                    R$ {priceValue}
+                  </span>
+                </div>
+              ) : (
+                <span className="text-xs sm:text-sm font-bold text-amber-400 flex items-center gap-1">
+                  <Tag className="w-3 h-3" />
+                  {currentRace.status === 'confirmed' ? 'Inscrições em Breve' : 'Valor sob consulta'}
+                </span>
+              )}
+            </div>
+
+            {/* Botões de Ação */}
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => onSelectRace(currentRace)}
+                className="px-3.5 sm:px-4 py-2 sm:py-2.5 bg-slate-900/90 hover:bg-slate-800 text-slate-200 text-xs sm:text-sm font-bold rounded-xl border border-slate-700 transition cursor-pointer backdrop-blur-md"
+              >
+                Ver Detalhes
+              </button>
+
+              {currentRace.status === 'open' || currentRace.status === 'closing_soon' ? (
+                onOpenRegistration ? (
+                  <button
+                    onClick={() => onOpenRegistration(currentRace)}
+                    className="px-4 sm:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-500 hover:to-amber-500 text-white text-xs sm:text-sm font-black rounded-xl shadow-lg shadow-orange-950/50 transition flex items-center gap-1.5 cursor-pointer active:scale-95 whitespace-nowrap"
+                  >
+                    <span>Inscrever-se</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </button>
+                ) : (
+                  <a
+                    href={currentRace.registrationUrl || '#'}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 sm:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-500 hover:to-amber-500 text-white text-xs sm:text-sm font-black rounded-xl shadow-lg shadow-orange-950/50 transition flex items-center gap-1.5 cursor-pointer active:scale-95 whitespace-nowrap"
+                  >
+                    <span>Inscrever-se</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                )
+              ) : (
+                <button
+                  onClick={() => onSelectRace(currentRace)}
+                  className="px-4 sm:px-5 py-2 sm:py-2.5 bg-amber-500 hover:bg-amber-600 text-white text-xs sm:text-sm font-black rounded-xl transition cursor-pointer whitespace-nowrap shadow-md"
+                >
+                  Em Breve 🔔
+                </button>
+              )}
+            </div>
+          </div>
         </div>
-      )}
+
+        {/* Setas de Navegação Lateral Suaves (Desktop) */}
+        {displayRaces.length > 1 && (
+          <>
+            <button
+              onClick={handlePrev}
+              className="hidden sm:flex absolute left-3 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-slate-950/60 hover:bg-slate-900 text-white/80 hover:text-white border border-white/10 backdrop-blur-md items-center justify-center cursor-pointer transition shadow-lg hover:scale-105"
+              title="Prova anterior"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+
+            <button
+              onClick={handleNext}
+              className="hidden sm:flex absolute right-3 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-slate-950/60 hover:bg-slate-900 text-white/80 hover:text-white border border-white/10 backdrop-blur-md items-center justify-center cursor-pointer transition shadow-lg hover:scale-105"
+              title="Próxima prova"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </>
+        )}
+
+        {/* Paginação por Bullets no Centro Inferior */}
+        {displayRaces.length > 1 && (
+          <div className="absolute bottom-2.5 sm:bottom-3 left-1/2 -translate-x-1/2 z-30 flex items-center gap-1.5 bg-slate-950/50 px-2.5 py-1 rounded-full backdrop-blur-md border border-white/10">
+            {displayRaces.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setCurrentIndex(idx)}
+                className={`transition-all duration-300 rounded-full cursor-pointer ${
+                  currentIndex === idx
+                    ? 'w-6 h-2 bg-orange-500 shadow-sm'
+                    : 'w-2 h-2 bg-white/40 hover:bg-white/80'
+                }`}
+                title={`Ir para destaque ${idx + 1}`}
+              />
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 };
