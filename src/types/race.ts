@@ -49,6 +49,7 @@ export interface Race {
   description?: string;
   kitItems?: string[];
   awardsInfo?: string;
+  prizeTotal?: number;
   elevation?: string;
   imageUrl?: string;
   bannerUrl?: string;

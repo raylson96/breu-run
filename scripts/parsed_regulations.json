@@ -1,0 +1,3483 @@
+[
+  {
+    "index": 1,
+    "title": "CORRIDA DE RUA NOVA IPIXUNA RUN 33 ANOS",
+    "company": "CHIP_BRANCO",
+    "chipName": "Chip Breu Branco",
+    "date": "11/10/2026",
+    "time": "06:00",
+    "location": "Nova Ipixuna - PA",
+    "docUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-64-390be061edd144d8c93444237029dbb6.pdf",
+    "pdfTextSnippet": "",
+    "pdfFullLength": 0,
+    "detail": {
+      "qtd_inscritos": 318,
+      "id": 291,
+      "titulo": "CORRIDA DE RUA NOVA IPIXUNA RUN 33 ANOS",
+      "subtitulo": "Evento",
+      "imagem_capa": "https://www.chipbreubranco.com.br/thumb.php?q=100&h=500&arquivo=img-64-ecc7e2fa6b276cb9ccf3104e423d5420.png",
+      "data_evento": "11/10/2026",
+      "hora_evento": "06:00",
+      "local": "Nova Ipixuna - PA",
+      "entrega_kit": "10/10 (sábado), na Trópikos, situada na Avenida Tocantins, na praça da cidade no horário das 15h ás 18h30min.",
+      "partida": "Rod. Pa 150, Ao Lado Do Auto Posto Ipixuna",
+      "mapa_google": "",
+      "pixel": "",
+      "acoes": [
+        {
+          "tipo": "inscricao",
+          "url": "https://www.chipbreubranco.com.br/inscricao-select/2026/corrida-de-rua/corrida-de-rua-nova-ipixuna-run-33-anos",
+          "label": null
+        },
+        {
+          "tipo": "organizador",
+          "label": "ORGANIZADOR"
+        },
+        {
+          "tipo": "lista_inscritos",
+          "status": 0,
+          "url": null,
+          "label": "LISTA DE INSCRITOS"
+        }
+      ],
+      "inscricao_liberada": true,
+      "mostrar_card_detalhes": true,
+      "mensagem_bloqueio": "",
+      "contato_organizador": {
+        "nome": "",
+        "email": "",
+        "telefone": "",
+        "instagram": "",
+        "facebook": ""
+      },
+      "precos_categorias": [
+        {
+          "lote_nome": "1",
+          "lot_limite_inscricao": 99999,
+          "data_inicio": "2000-01-01 00:00:00",
+          "data_fim": "2026-07-30 23:59:00",
+          "precos": [
+            {
+              "valor": "R$ 85,00",
+              "categoria": "Geral",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 42,50",
+              "categoria": "PCD(Pessoa com deficiência)",
+              "modalidade": "5km",
+              "aberto": true
+            }
+          ]
+        },
+        {
+          "lote_nome": "2",
+          "lot_limite_inscricao": 99999,
+          "data_inicio": "2026-08-01 23:59:59",
+          "data_fim": "2026-09-20 23:59:00",
+          "precos": [
+            {
+              "valor": "R$ 95,00",
+              "categoria": "Geral",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 47,50",
+              "categoria": "PCD(Pessoa com deficiência)",
+              "modalidade": "5km",
+              "aberto": true
+            }
+          ]
+        },
+        {
+          "lote_nome": "3",
+          "lot_limite_inscricao": 9999,
+          "data_inicio": "2026-09-21 00:00:00",
+          "data_fim": "2027-11-05 00:00:00",
+          "precos": [
+            {
+              "valor": "R$ 95,00",
+              "categoria": "Geral",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 47,50",
+              "categoria": "PCD(Pessoa com deficiência)",
+              "modalidade": "5km",
+              "aberto": true
+            }
+          ]
+        }
+      ],
+      "documentos": [
+        {
+          "nome": "REGULAMENTO DA CORRIDA NOVA IPIXUNA RUN 2026.pdf",
+          "url": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-64-390be061edd144d8c93444237029dbb6.pdf"
+        }
+      ],
+      "percursos": [
+        {
+          "nome": "5km",
+          "url": "",
+          "quilometragem": ""
+        }
+      ],
+      "fotos": [
+        {
+          "id": 1855,
+          "url": "https://www.chipbreubranco.com.br/thumb.php?q=100&h=500&arquivo=img-64-ecc7e2fa6b276cb9ccf3104e423d5420.png"
+        }
+      ],
+      "secoes_extra": [
+        {
+          "titulo": "CORRIDA DE RUA NOVA IPIXUNA RUN 33 ANOS",
+          "texto": "Data: 11/10/2026\nLocal: na rod. PA 150, ao lado do Auto posto Ipixuna\nHorário: 06:00"
+        },
+        {
+          "titulo": "Distância",
+          "texto": "- 5km"
+        },
+        {
+          "titulo": "Kit",
+          "texto": "- Camiseta\n- Número de peito\n- Chip\n- Carbo Gel\n- Sacola Personalizada"
+        },
+        {
+          "titulo": "Entrega de kits",
+          "texto": "- Camiseta\n- Número de peito\n- Chip\n- Carbo Gel\n- Sacola Personalizada"
+        },
+        {
+          "titulo": "",
+          "texto": "Para ter acesso a todas informações do evento acesse a aba DOCUMENTOS e faça o download do regulamento."
+        }
+      ],
+      "resultados": []
+    }
+  },
+  {
+    "index": 2,
+    "title": "1ª CORRIDA FRANCISCANA 800 ANOS",
+    "company": "CHIP_BRANCO",
+    "chipName": "Chip Breu Branco",
+    "date": "18/10/2026",
+    "time": "06:00",
+    "location": "Tailândia - PA",
+    "docUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-08092026105001-74b4d273507a7e0eba857955bd45b2cf.pdf",
+    "pdfTextSnippet": "",
+    "pdfFullLength": 0,
+    "detail": {
+      "qtd_inscritos": 215,
+      "id": 307,
+      "titulo": "1ª CORRIDA FRANCISCANA 800 ANOS",
+      "subtitulo": "Evento",
+      "imagem_capa": "https://www.chipbreubranco.com.br/painel/upload/img/inscricao/thumb/img-064-08092026075241-98f89e04f315063ad5bb1a9fa484ffe3.jpg",
+      "data_evento": "18/10/2026",
+      "hora_evento": "06:00",
+      "local": "Tailândia - PA",
+      "entrega_kit": "A RETIRADA DO KIT OCORRERA NO DIA 17/10/2026, EM LOCAL E HORARIO, PREVIAMENTE DIVULGADOS PELA ORGANIZACAO.",
+      "partida": "A Definir",
+      "mapa_google": "",
+      "pixel": "",
+      "acoes": [
+        {
+          "tipo": "inscricao",
+          "url": "https://www.chipbreubranco.com.br/inscricao-select/8826/1-corrida-franciscana-800-anos",
+          "label": null
+        },
+        {
+          "tipo": "organizador",
+          "label": "ORGANIZADOR"
+        },
+        {
+          "tipo": "lista_inscritos",
+          "status": 0,
+          "url": null,
+          "label": "LISTA DE INSCRITOS"
+        }
+      ],
+      "inscricao_liberada": true,
+      "mostrar_card_detalhes": true,
+      "mensagem_bloqueio": "",
+      "contato_organizador": {
+        "nome": "",
+        "email": "",
+        "telefone": "",
+        "instagram": "",
+        "facebook": ""
+      },
+      "precos_categorias": [
+        {
+          "lote_nome": "1",
+          "lot_limite_inscricao": 99999,
+          "data_inicio": "2026-01-01 23:59:59",
+          "data_fim": "2027-01-01 23:59:59",
+          "precos": [
+            {
+              "valor": "R$ 80,00",
+              "categoria": "Geral",
+              "modalidade": "6km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 40,00",
+              "categoria": "Geral (60+)",
+              "modalidade": "6km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 40,00",
+              "categoria": "PCD(PESSOA COM DEFICIENCIA)",
+              "modalidade": "6km",
+              "aberto": true
+            }
+          ]
+        }
+      ],
+      "documentos": [
+        {
+          "nome": "doc-064-08092026105001-74b4d273507a7e0eba857955bd45b2cf.pdf",
+          "url": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-08092026105001-74b4d273507a7e0eba857955bd45b2cf.pdf"
+        }
+      ],
+      "percursos": [
+        {
+          "nome": "6km",
+          "url": "",
+          "quilometragem": ""
+        }
+      ],
+      "fotos": [
+        {
+          "id": 2095,
+          "url": "https://www.chipbreubranco.com.br/thumb.php?q=100&h=500&arquivo=img-064-08092026075241-98f89e04f315063ad5bb1a9fa484ffe3.jpg"
+        }
+      ],
+      "secoes_extra": [],
+      "resultados": []
+    }
+  },
+  {
+    "index": 3,
+    "title": "IBC RUN – 1ª ETAPA",
+    "company": "CHIP_BRANCO",
+    "chipName": "Chip Breu Branco",
+    "date": "01/11/2026",
+    "time": "",
+    "location": "Marabá - PA",
+    "docUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-24082026115953-919538026ca3a9e482448f3e0afe8941.pdf",
+    "pdfTextSnippet": "",
+    "pdfFullLength": 0,
+    "detail": {
+      "qtd_inscritos": 314,
+      "id": 282,
+      "titulo": "IBC RUN – 1ª ETAPA",
+      "subtitulo": "Evento",
+      "imagem_capa": "https://www.chipbreubranco.com.br/thumb.php?q=100&h=500&arquivo=img-64-c34cad602a1259d246312c80b8e3f347.jpeg",
+      "data_evento": "01/11/2026",
+      "hora_evento": "",
+      "local": "Marabá - PA",
+      "entrega_kit": "📅 30 DE OUTUBRO (SEXTA-FEIRA) 🕒 DAS 15H AS 21H ---- 📅 31 DE OUTUBRO (SABADO) - 🕑 DAS 14H AS 20H - LOCAL: PARTAGE SHOPPING MARABA",
+      "partida": "Em Frente à Igreja Batista Central",
+      "mapa_google": "",
+      "pixel": "",
+      "acoes": [
+        {
+          "tipo": "inscricao",
+          "url": "https://www.chipbreubranco.com.br/inscricao-select/ibc-run-1-etapa-2026",
+          "label": null
+        },
+        {
+          "tipo": "organizador",
+          "label": "ORGANIZADOR"
+        },
+        {
+          "tipo": "lista_inscritos",
+          "status": 0,
+          "url": null,
+          "label": "LISTA DE INSCRITOS"
+        }
+      ],
+      "inscricao_liberada": true,
+      "mostrar_card_detalhes": true,
+      "mensagem_bloqueio": "",
+      "contato_organizador": {
+        "nome": "",
+        "email": "",
+        "telefone": "",
+        "instagram": "",
+        "facebook": ""
+      },
+      "precos_categorias": [
+        {
+          "lote_nome": "1",
+          "lot_limite_inscricao": 99999,
+          "data_inicio": "2000-01-01 00:00:00",
+          "data_fim": "2026-07-31 23:59:59",
+          "precos": [
+            {
+              "valor": "R$ 75,00",
+              "categoria": "Corrida",
+              "modalidade": "10km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 35,70",
+              "categoria": "Corrida PCD(Pessoa com deficiência)",
+              "modalidade": "10km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 35,70",
+              "categoria": "Corrida 60+",
+              "modalidade": "10km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 75,00",
+              "categoria": "Corrida",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 35,70",
+              "categoria": "Corrida PCD(Pessoa com deficiência)",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 35,70",
+              "categoria": "Corrida 60+",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 75,00",
+              "categoria": "Caminhada",
+              "modalidade": "3km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 35,70",
+              "categoria": "Caminhada PCD(Pessoa com deficiência)",
+              "modalidade": "3km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 35,70",
+              "categoria": "Caminhada 60+",
+              "modalidade": "3km",
+              "aberto": true
+            }
+          ]
+        },
+        {
+          "lote_nome": "2",
+          "lot_limite_inscricao": 99999,
+          "data_inicio": "2026-08-01 00:00:00",
+          "data_fim": "2026-09-19 23:59:00",
+          "precos": [
+            {
+              "valor": "R$ 85,00",
+              "categoria": "Corrida",
+              "modalidade": "10km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 42,50",
+              "categoria": "Corrida PCD(Pessoa com deficiência)",
+              "modalidade": "10km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 42,50",
+              "categoria": "Corrida 60+",
+              "modalidade": "10km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 85,00",
+              "categoria": "Corrida",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 42,50",
+              "categoria": "Corrida PCD(Pessoa com deficiência)",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 42,50",
+              "categoria": "Corrida 60+",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 85,00",
+              "categoria": "Caminhada",
+              "modalidade": "3km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 42,50",
+              "categoria": "Caminhada PCD(Pessoa com deficiência)",
+              "modalidade": "3km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 42,50",
+              "categoria": "Caminhada 60+",
+              "modalidade": "3km",
+              "aberto": true
+            }
+          ]
+        },
+        {
+          "lote_nome": "3",
+          "lot_limite_inscricao": 99999,
+          "data_inicio": "2026-09-20 05:00:00",
+          "data_fim": "2027-01-01 23:59:59",
+          "precos": [
+            {
+              "valor": "R$ 95,00",
+              "categoria": "Corrida",
+              "modalidade": "10km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 47,50",
+              "categoria": "Corrida PCD(Pessoa com deficiência)",
+              "modalidade": "10km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 47,50",
+              "categoria": "Corrida 60+",
+              "modalidade": "10km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 95,00",
+              "categoria": "Corrida",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 47,50",
+              "categoria": "Corrida PCD(Pessoa com deficiência)",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 47,50",
+              "categoria": "Corrida 60+",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 95,00",
+              "categoria": "Caminhada",
+              "modalidade": "3km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 47,50",
+              "categoria": "Caminhada PCD(Pessoa com deficiência)",
+              "modalidade": "3km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 47,50",
+              "categoria": "Caminhada 60+",
+              "modalidade": "3km",
+              "aberto": true
+            }
+          ]
+        }
+      ],
+      "documentos": [
+        {
+          "nome": "doc-064-24082026115953-919538026ca3a9e482448f3e0afe8941.pdf",
+          "url": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-24082026115953-919538026ca3a9e482448f3e0afe8941.pdf"
+        }
+      ],
+      "percursos": [
+        {
+          "nome": "10km",
+          "url": "",
+          "quilometragem": ""
+        },
+        {
+          "nome": "5km",
+          "url": "",
+          "quilometragem": ""
+        },
+        {
+          "nome": "3km",
+          "url": "",
+          "quilometragem": ""
+        }
+      ],
+      "fotos": [
+        {
+          "id": 1736,
+          "url": "https://www.chipbreubranco.com.br/thumb.php?q=100&h=500&arquivo=img-64-c34cad602a1259d246312c80b8e3f347.jpeg"
+        }
+      ],
+      "secoes_extra": [
+        {
+          "titulo": "Distância",
+          "texto": "- Corrida 10km\n- Corrida 5km\n- Caminhada 3km"
+        },
+        {
+          "titulo": "Kit",
+          "texto": "• Camisa oficial do evento\n• Número de peito com chip de cronometragem\n• Sacochila personalizada\n• Brindes de patrocinadores<hr>\nA entrega de kits será realizada em local, data e horário a serem divulgados previamente pela organização."
+        },
+        {
+          "titulo": "",
+          "texto": "Para ter acesso a todas informações do evento acesse a aba DOCUMENTOS e faça o download do regulamento."
+        }
+      ],
+      "resultados": []
+    }
+  },
+  {
+    "index": 4,
+    "title": "CORRIDA RESTÔ CAAMUTÁ",
+    "company": "CHIP_BRANCO",
+    "chipName": "Chip Breu Branco",
+    "date": "01/11/2026",
+    "time": "06:00",
+    "location": "Cametá - PA",
+    "docUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-64-ce6d2b7bafa4cd8127a8bde1ffe7a92d.pdf",
+    "pdfTextSnippet": "",
+    "pdfFullLength": 0,
+    "detail": {
+      "qtd_inscritos": 324,
+      "id": 300,
+      "titulo": "CORRIDA RESTÔ CAAMUTÁ",
+      "subtitulo": "Evento",
+      "imagem_capa": "https://www.chipbreubranco.com.br/thumb.php?q=100&h=500&arquivo=img-64-858dad04284690c8d4f104f53ab85c47.jpeg",
+      "data_evento": "01/11/2026",
+      "hora_evento": "06:00",
+      "local": "Cametá - PA",
+      "entrega_kit": "",
+      "partida": "Av. Inácio Moura Bairro Da Aldeia",
+      "mapa_google": "",
+      "pixel": "",
+      "acoes": [
+        {
+          "tipo": "inscricao",
+          "url": "https://www.chipbreubranco.com.br/inscricao-select/2026/corrida-de-rua/corrida_resto_caamuta",
+          "label": null
+        },
+        {
+          "tipo": "organizador",
+          "label": "ORGANIZADOR"
+        },
+        {
+          "tipo": "lista_inscritos",
+          "status": 0,
+          "url": null,
+          "label": "LISTA DE INSCRITOS"
+        }
+      ],
+      "inscricao_liberada": true,
+      "mostrar_card_detalhes": true,
+      "mensagem_bloqueio": "",
+      "contato_organizador": {
+        "nome": "",
+        "email": "",
+        "telefone": "",
+        "instagram": "",
+        "facebook": ""
+      },
+      "precos_categorias": [
+        {
+          "lote_nome": "1",
+          "lot_limite_inscricao": 999,
+          "data_inicio": "2000-01-01 00:00:00",
+          "data_fim": "2026-07-20 23:59:00",
+          "precos": [
+            {
+              "valor": "R$ 73,90",
+              "categoria": "CORRIDA",
+              "modalidade": "8km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 36,95",
+              "categoria": "PCD(Pessoa com deficiência)",
+              "modalidade": "8km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 36,95",
+              "categoria": "Geral (60+)",
+              "modalidade": "8km",
+              "aberto": false
+            },
+            {
+              "valor": "R$ 36,95",
+              "categoria": "PCD(Pessoa com deficiência)",
+              "modalidade": "4km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 36,95",
+              "categoria": "Geral (60+)",
+              "modalidade": "4km",
+              "aberto": false
+            },
+            {
+              "valor": "R$ 73,90",
+              "categoria": "CORRIDA E CAMINHADA",
+              "modalidade": "4km",
+              "aberto": true
+            }
+          ]
+        },
+        {
+          "lote_nome": "2",
+          "lot_limite_inscricao": 999,
+          "data_inicio": "2026-07-21 07:00:00",
+          "data_fim": "2026-09-04 23:59:00",
+          "precos": [
+            {
+              "valor": "R$ 78,10",
+              "categoria": "CORRIDA",
+              "modalidade": "8km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 39,05",
+              "categoria": "PCD(Pessoa com deficiência)",
+              "modalidade": "8km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 0,00",
+              "categoria": "Geral (60+)",
+              "modalidade": "8km",
+              "aberto": false
+            },
+            {
+              "valor": "R$ 39,05",
+              "categoria": "PCD(Pessoa com deficiência)",
+              "modalidade": "4km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 78,10",
+              "categoria": "Geral (60+)",
+              "modalidade": "4km",
+              "aberto": false
+            },
+            {
+              "valor": "R$ 78,10",
+              "categoria": "CORRIDA E CAMINHADA",
+              "modalidade": "4km",
+              "aberto": true
+            }
+          ]
+        },
+        {
+          "lote_nome": "3",
+          "lot_limite_inscricao": 999,
+          "data_inicio": "2026-09-05 00:00:00",
+          "data_fim": "2026-12-01 23:59:00",
+          "precos": [
+            {
+              "valor": "R$ 0,00",
+              "categoria": "Geral (60+)",
+              "modalidade": "4km",
+              "aberto": false
+            },
+            {
+              "valor": "R$ 89,90",
+              "categoria": "CORRIDA E CAMINHADA",
+              "modalidade": "4km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 89,90",
+              "categoria": "CORRIDA",
+              "modalidade": "8km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 0,00",
+              "categoria": "PCD(Pessoa com deficiência)",
+              "modalidade": "8km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 0,00",
+              "categoria": "Geral (60+)",
+              "modalidade": "8km",
+              "aberto": false
+            },
+            {
+              "valor": "R$ 0,00",
+              "categoria": "PCD(Pessoa com deficiência)",
+              "modalidade": "4km",
+              "aberto": true
+            }
+          ]
+        }
+      ],
+      "documentos": [
+        {
+          "nome": "02- REGULAMENTO CORRIDA RESTÔ CAAMUTÁ (1).pdf",
+          "url": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-64-ce6d2b7bafa4cd8127a8bde1ffe7a92d.pdf"
+        }
+      ],
+      "percursos": [
+        {
+          "nome": "8km",
+          "url": "",
+          "quilometragem": ""
+        },
+        {
+          "nome": "4km",
+          "url": "",
+          "quilometragem": ""
+        }
+      ],
+      "fotos": [
+        {
+          "id": 1948,
+          "url": "https://www.chipbreubranco.com.br/thumb.php?q=100&h=500&arquivo=img-64-858dad04284690c8d4f104f53ab85c47.jpeg"
+        }
+      ],
+      "secoes_extra": [
+        {
+          "titulo": "DISTÂNCIA",
+          "texto": "- 4 KM\n- 8 KM"
+        },
+        {
+          "titulo": "KIT",
+          "texto": "- CAMISETA \n- MEDALHA \n- NÚMERO DE PEITO (CHIP)"
+        },
+        {
+          "titulo": "ENTREGA DOS KITS",
+          "texto": "- A RETIRADA DO KIT DE PARTICIPAÇÃO SERÁ REALIZADA NO SEGUINTE LOCAL E ENDEREÇO: A DEFINIR\n- SÁBADO 31 DE OUTUBRO HORÁRIO A DEFINIR."
+        },
+        {
+          "titulo": "",
+          "texto": "PARA TER ACESSO A TODAS INFORMAÇÕES DO EVENTO ACESSE A ABA DOCUMENTOS E FAÇA O DOWNLOAD DO REGULAMENTO."
+        }
+      ],
+      "resultados": []
+    }
+  },
+  {
+    "index": 5,
+    "title": "1ª MEIA MARATONA HOUSE RUNNERS DE TAILÂNDIA 2026",
+    "company": "CHIP_BRANCO",
+    "chipName": "Chip Breu Branco",
+    "date": "08/11/2026",
+    "time": "05:30",
+    "location": "Tailândia - PA",
+    "docUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-23092026205226-4a33edb840d8caeb24bbcb1b0ce1d8d7.pdf",
+    "pdfTextSnippet": "",
+    "pdfFullLength": 0,
+    "detail": {
+      "qtd_inscritos": 180,
+      "id": 306,
+      "titulo": "1ª MEIA MARATONA HOUSE RUNNERS DE TAILÂNDIA 2026",
+      "subtitulo": "Evento",
+      "imagem_capa": "https://www.chipbreubranco.com.br/painel/upload/img/inscricao/thumb/img-064-04092026161009-6dfa678a0fa26a0b36addfbc8fdc23e1.jpg",
+      "data_evento": "08/11/2026",
+      "hora_evento": "05:30",
+      "local": "Tailândia - PA",
+      "entrega_kit": "A RETIRADA DO KIT OCORRERA NO DIA 07/11/2026, EM LOCAL E HORARIO, PREVIAMENTE DIVULGADOS PELA ORGANIZACAO.",
+      "partida": "PRAÇA NVA DO POVO. AV. JOAO PESSOA",
+      "mapa_google": "",
+      "pixel": "",
+      "acoes": [
+        {
+          "tipo": "inscricao",
+          "url": "https://www.chipbreubranco.com.br/inscricao-select/5136/1-meia-maratona-house-runners-de-tailandia-2026",
+          "label": null
+        },
+        {
+          "tipo": "organizador",
+          "label": "ORGANIZADOR"
+        },
+        {
+          "tipo": "lista_inscritos",
+          "status": 0,
+          "url": null,
+          "label": "LISTA DE INSCRITOS"
+        }
+      ],
+      "inscricao_liberada": true,
+      "mostrar_card_detalhes": true,
+      "mensagem_bloqueio": "",
+      "contato_organizador": {
+        "nome": "",
+        "email": "",
+        "telefone": "",
+        "instagram": "",
+        "facebook": ""
+      },
+      "precos_categorias": [
+        {
+          "lote_nome": "1",
+          "lot_limite_inscricao": 9999,
+          "data_inicio": "2026-01-01 23:59:59",
+          "data_fim": "2026-09-19 23:59:00",
+          "precos": [
+            {
+              "valor": "R$ 89,99",
+              "categoria": "Geral",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 45,00",
+              "categoria": "Geral (60+)",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 45,00",
+              "categoria": "PCD(PESSOA COM DEFICIENCIA)",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 119,99",
+              "categoria": "Geral",
+              "modalidade": "21km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 60,00",
+              "categoria": "Geral (60+)",
+              "modalidade": "21km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 60,00",
+              "categoria": "PCD(PESSOA COM DEFICIENCIA)",
+              "modalidade": "21km",
+              "aberto": true
+            }
+          ]
+        },
+        {
+          "lote_nome": "2",
+          "lot_limite_inscricao": 99999,
+          "data_inicio": "2026-09-20 10:50:00",
+          "data_fim": "2027-01-01 23:59:00",
+          "precos": [
+            {
+              "valor": "R$ 94,99",
+              "categoria": "Geral",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 47,50",
+              "categoria": "Geral (60+)",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 47,50",
+              "categoria": "PCD(PESSOA COM DEFICIENCIA)",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 124,99",
+              "categoria": "Geral",
+              "modalidade": "21km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 72,50",
+              "categoria": "Geral (60+)",
+              "modalidade": "21km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 72,50",
+              "categoria": "PCD(PESSOA COM DEFICIENCIA)",
+              "modalidade": "21km",
+              "aberto": true
+            }
+          ]
+        }
+      ],
+      "documentos": [
+        {
+          "nome": "doc-064-23092026205226-4a33edb840d8caeb24bbcb1b0ce1d8d7.pdf",
+          "url": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-23092026205226-4a33edb840d8caeb24bbcb1b0ce1d8d7.pdf"
+        }
+      ],
+      "percursos": [
+        {
+          "nome": "5km",
+          "url": "",
+          "quilometragem": ""
+        },
+        {
+          "nome": "21km",
+          "url": "",
+          "quilometragem": ""
+        }
+      ],
+      "fotos": [
+        {
+          "id": 2090,
+          "url": "https://www.chipbreubranco.com.br/thumb.php?q=100&h=500&arquivo=img-064-04092026161009-6dfa678a0fa26a0b36addfbc8fdc23e1.jpg"
+        }
+      ],
+      "secoes_extra": [],
+      "resultados": []
+    }
+  },
+  {
+    "index": 6,
+    "title": "1ª CORRIDA PROVENET 20 ANOS",
+    "company": "CHIP_BRANCO",
+    "chipName": "Chip Breu Branco",
+    "date": "08/11/2026",
+    "time": "06:00",
+    "location": "Anapu - PA",
+    "docUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-22092026210701-083a80ced3b509f6844e80792fb9fcbc.jpg",
+    "pdfTextSnippet": "",
+    "pdfFullLength": 0,
+    "detail": {
+      "qtd_inscritos": 51,
+      "id": 313,
+      "titulo": "1ª CORRIDA PROVENET 20 ANOS",
+      "subtitulo": "Evento",
+      "imagem_capa": "https://www.chipbreubranco.com.br/painel/upload/img/inscricao/thumb/img-064-25092026102036-6d17745ad39541ad3f760e9c9b20058b.jpg",
+      "data_evento": "08/11/2026",
+      "hora_evento": "06:00",
+      "local": "Anapu - PA",
+      "entrega_kit": "Na loja da PROVENET, dia 07/11/2026 das 16h às 19hs.",
+      "partida": "Provenet Em Frente A Loja, 05hs Concentração.",
+      "mapa_google": "",
+      "pixel": "",
+      "acoes": [
+        {
+          "tipo": "inscricao",
+          "url": "https://www.chipbreubranco.com.br/inscricao-select/5886/1-corrida-provenet-20-anos",
+          "label": null
+        },
+        {
+          "tipo": "organizador",
+          "label": "ORGANIZADOR"
+        },
+        {
+          "tipo": "lista_inscritos",
+          "status": 0,
+          "url": null,
+          "label": "LISTA DE INSCRITOS"
+        }
+      ],
+      "inscricao_liberada": true,
+      "mostrar_card_detalhes": true,
+      "mensagem_bloqueio": "",
+      "contato_organizador": {
+        "nome": "",
+        "email": "",
+        "telefone": "",
+        "instagram": "",
+        "facebook": ""
+      },
+      "precos_categorias": [
+        {
+          "lote_nome": "1",
+          "lot_limite_inscricao": 99999,
+          "data_inicio": "2000-01-01 00:00:00",
+          "data_fim": "2026-11-06 23:59:00",
+          "precos": [
+            {
+              "valor": "R$ 90,00",
+              "categoria": "Geral",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 45,00",
+              "categoria": "PCD(Pessoa com deficiência)",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 45,00",
+              "categoria": "Geral (60+)",
+              "modalidade": "5km",
+              "aberto": true
+            }
+          ]
+        }
+      ],
+      "documentos": [
+        {
+          "nome": "doc-064-22092026210701-083a80ced3b509f6844e80792fb9fcbc.jpg",
+          "url": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-22092026210701-083a80ced3b509f6844e80792fb9fcbc.jpg"
+        }
+      ],
+      "percursos": [
+        {
+          "nome": "3km",
+          "url": "",
+          "quilometragem": ""
+        },
+        {
+          "nome": "5km",
+          "url": "",
+          "quilometragem": ""
+        }
+      ],
+      "fotos": [
+        {
+          "id": 2182,
+          "url": "https://www.chipbreubranco.com.br/thumb.php?q=100&h=500&arquivo=img-064-25092026102036-6d17745ad39541ad3f760e9c9b20058b.jpg"
+        }
+      ],
+      "secoes_extra": [],
+      "resultados": []
+    }
+  },
+  {
+    "index": 7,
+    "title": "1ª EDIÇÃO DA CORRIDA ONE RUN DESAFIO DOS CAMPEÕES 2026",
+    "company": "CHIP_BRANCO",
+    "chipName": "Chip Breu Branco",
+    "date": "08/11/2026",
+    "time": "06:00",
+    "location": "Redenção - PA",
+    "docUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-01102026133228-25485df232e188a3f3e514ee1c9de020.pdf",
+    "pdfTextSnippet": "",
+    "pdfFullLength": 0,
+    "detail": {
+      "qtd_inscritos": 213,
+      "id": 299,
+      "titulo": "1ª EDIÇÃO DA CORRIDA ONE RUN DESAFIO DOS CAMPEÕES 2026",
+      "subtitulo": "Corrida de Rua",
+      "imagem_capa": "https://www.chipbreubranco.com.br/painel/upload/img/inscricao/thumb/img-064-30092026175940-f3cc098e00f067307a307488cba333c7.jpg",
+      "data_evento": "08/11/2026",
+      "hora_evento": "06:00",
+      "local": "Redenção - PA",
+      "entrega_kit": "",
+      "partida": "Avenida Santa Teresa, Em Frente Ao Inácios Hotel",
+      "mapa_google": "",
+      "pixel": "",
+      "acoes": [
+        {
+          "tipo": "inscricao",
+          "url": "https://www.chipbreubranco.com.br/inscricao-select/2026/corrida-de-rua/1-edio-da-corrida-one-run-desafio-dos-campees-2026",
+          "label": null
+        },
+        {
+          "tipo": "organizador",
+          "label": "ORGANIZADOR"
+        },
+        {
+          "tipo": "lista_inscritos",
+          "status": 0,
+          "url": null,
+          "label": "LISTA DE INSCRITOS"
+        }
+      ],
+      "inscricao_liberada": true,
+      "mostrar_card_detalhes": true,
+      "mensagem_bloqueio": "",
+      "contato_organizador": {
+        "nome": "",
+        "email": "",
+        "telefone": "",
+        "instagram": "",
+        "facebook": ""
+      },
+      "precos_categorias": [
+        {
+          "lote_nome": "1",
+          "lot_limite_inscricao": 9999,
+          "data_inicio": "2000-01-01 00:00:00",
+          "data_fim": "2026-09-09 19:00:00",
+          "precos": [
+            {
+              "valor": "R$ 100,00",
+              "categoria": "Geral",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 50,00",
+              "categoria": "PCD(Pessoa com deficiência)",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 50,00",
+              "categoria": "Geral (60+)",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 0,00",
+              "categoria": "Caminhada",
+              "modalidade": "3km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 0,00",
+              "categoria": "Geral",
+              "modalidade": "2km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 0,00",
+              "categoria": "Geral",
+              "modalidade": "1km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 0,00",
+              "categoria": "Geral",
+              "modalidade": "600m",
+              "aberto": true
+            }
+          ]
+        },
+        {
+          "lote_nome": "2",
+          "lot_limite_inscricao": 500,
+          "data_inicio": "2026-09-10 12:00:00",
+          "data_fim": "2027-01-01 23:59:59",
+          "precos": [
+            {
+              "valor": "R$ 120,00",
+              "categoria": "Geral",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 60,00",
+              "categoria": "PCD(Pessoa com deficiência)",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 60,00",
+              "categoria": "Geral (60+)",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 120,00",
+              "categoria": "Caminhada",
+              "modalidade": "3km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 60,00",
+              "categoria": "Geral",
+              "modalidade": "2km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 60,00",
+              "categoria": "Geral",
+              "modalidade": "1km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 60,00",
+              "categoria": "Geral",
+              "modalidade": "600m",
+              "aberto": true
+            }
+          ]
+        }
+      ],
+      "documentos": [
+        {
+          "nome": "REGULAMENTO ONE RUN 2026.pdf",
+          "url": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-01102026133228-25485df232e188a3f3e514ee1c9de020.pdf"
+        }
+      ],
+      "percursos": [
+        {
+          "nome": "4km",
+          "url": "",
+          "quilometragem": ""
+        },
+        {
+          "nome": "5km",
+          "url": "",
+          "quilometragem": ""
+        },
+        {
+          "nome": "3km",
+          "url": "",
+          "quilometragem": ""
+        },
+        {
+          "nome": "2km",
+          "url": "",
+          "quilometragem": ""
+        },
+        {
+          "nome": "1km",
+          "url": "",
+          "quilometragem": ""
+        },
+        {
+          "nome": "3km",
+          "url": "",
+          "quilometragem": ""
+        },
+        {
+          "nome": "2km",
+          "url": "",
+          "quilometragem": ""
+        },
+        {
+          "nome": "1km",
+          "url": "",
+          "quilometragem": ""
+        },
+        {
+          "nome": "600m",
+          "url": "",
+          "quilometragem": ""
+        }
+      ],
+      "fotos": [
+        {
+          "id": 2190,
+          "url": "https://www.chipbreubranco.com.br/thumb.php?q=100&h=500&arquivo=img-064-30092026175940-f3cc098e00f067307a307488cba333c7.jpg"
+        }
+      ],
+      "secoes_extra": [
+        {
+          "titulo": "1ª EDIÇÃO DA CORRIDA ONE RUN DESAFIO DOS CAMPEÕES 2026",
+          "texto": "Data: 08/11/2026\nHorário: 06:00\nLocal: Avenida Santa Teresa, em frente ao Inácios Hotel"
+        },
+        {
+          "titulo": "Distância",
+          "texto": "- 5km"
+        },
+        {
+          "titulo": "Kit",
+          "texto": "- Camiseta\n- Bolsa personalizada\n- Copo personalizado\n- Posseira personalizada \n- Carbo Gel\n- Medalha\n- Passoquinha<hr>\nAs entregas de kit serão divulgadas próximo a data do evento"
+        },
+        {
+          "titulo": "",
+          "texto": "Para ter acesso a todas informações do evento acesse a aba DOCUMENTOS e faça o download do regulamento."
+        }
+      ],
+      "resultados": []
+    }
+  },
+  {
+    "index": 8,
+    "title": "1° CORRIDA JN RUN",
+    "company": "CHIP_BRANCO",
+    "chipName": "Chip Breu Branco",
+    "date": "15/11/2026",
+    "time": "06:00",
+    "location": "Tomé Açu - PA",
+    "docUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-23092026180845-c4c38a34e7a5cabb2449a3a281c207bd.pdf",
+    "pdfTextSnippet": "",
+    "pdfFullLength": 0,
+    "detail": {
+      "qtd_inscritos": 159,
+      "id": 311,
+      "titulo": "1° CORRIDA JN RUN",
+      "subtitulo": "Evento",
+      "imagem_capa": "https://www.chipbreubranco.com.br/painel/upload/img/inscricao/thumb/img-064-16092026172540-fec85f25319b5039c6ad7b37cbd8702a.jpg",
+      "data_evento": "15/11/2026",
+      "hora_evento": "06:00",
+      "local": "Tomé Açu - PA",
+      "entrega_kit": "TOME - ACU - QUATRO BOCAS - LOJA DI ROMA - NO HORARIO A PARTIR DAS 16:00HS.",
+      "partida": "PÁtio Da Jn Terraplanagem",
+      "mapa_google": "",
+      "pixel": "",
+      "acoes": [
+        {
+          "tipo": "inscricao",
+          "url": "https://www.chipbreubranco.com.br/inscricao-select/7002/1-corrida-jn-run",
+          "label": null
+        },
+        {
+          "tipo": "organizador",
+          "label": "ORGANIZADOR"
+        },
+        {
+          "tipo": "lista_inscritos",
+          "status": 0,
+          "url": null,
+          "label": "LISTA DE INSCRITOS"
+        }
+      ],
+      "inscricao_liberada": true,
+      "mostrar_card_detalhes": true,
+      "mensagem_bloqueio": "",
+      "contato_organizador": {
+        "nome": "",
+        "email": "",
+        "telefone": "",
+        "instagram": "",
+        "facebook": ""
+      },
+      "precos_categorias": [
+        {
+          "lote_nome": "1",
+          "lot_limite_inscricao": 250,
+          "data_inicio": "2000-01-01 00:00:00",
+          "data_fim": "2027-01-01 23:59:59",
+          "precos": [
+            {
+              "valor": "R$ 70,00",
+              "categoria": "Geral",
+              "modalidade": "6km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 35,00",
+              "categoria": "Idoso 60+",
+              "modalidade": "6km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 35,00",
+              "categoria": "PCD(Pessoa com deficiência)",
+              "modalidade": "6km",
+              "aberto": true
+            }
+          ]
+        },
+        {
+          "lote_nome": "2",
+          "lot_limite_inscricao": 9999,
+          "data_inicio": "2026-01-01 00:00:00",
+          "data_fim": "2027-01-01 23:59:59",
+          "precos": [
+            {
+              "valor": "R$ 80,00",
+              "categoria": "Geral",
+              "modalidade": "6km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 40,00",
+              "categoria": "Idoso 60+",
+              "modalidade": "6km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 40,00",
+              "categoria": "PCD(Pessoa com deficiência)",
+              "modalidade": "6km",
+              "aberto": true
+            }
+          ]
+        }
+      ],
+      "documentos": [
+        {
+          "nome": "doc-064-23092026180845-c4c38a34e7a5cabb2449a3a281c207bd.pdf",
+          "url": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-23092026180845-c4c38a34e7a5cabb2449a3a281c207bd.pdf"
+        }
+      ],
+      "percursos": [
+        {
+          "nome": "6km",
+          "url": "",
+          "quilometragem": ""
+        }
+      ],
+      "fotos": [
+        {
+          "id": 2146,
+          "url": "https://www.chipbreubranco.com.br/thumb.php?q=100&h=500&arquivo=img-064-16092026172540-fec85f25319b5039c6ad7b37cbd8702a.jpg"
+        }
+      ],
+      "secoes_extra": [],
+      "resultados": []
+    }
+  },
+  {
+    "index": 9,
+    "title": "CORRIDA DE ANIVERSÁRIO DELÍCIA DO GUARANÁ - 30 ANOS",
+    "company": "CHIP_BRANCO",
+    "chipName": "Chip Breu Branco",
+    "date": "21/11/2026",
+    "time": "19:00",
+    "location": "Marabá - PA",
+    "docUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-64-61ffbf5feae1f0cff945b2ad452f78bf.pdf",
+    "pdfTextSnippet": "",
+    "pdfFullLength": 0,
+    "detail": {
+      "qtd_inscritos": 0,
+      "id": 315,
+      "titulo": "CORRIDA DE ANIVERSÁRIO DELÍCIA DO GUARANÁ - 30 ANOS",
+      "subtitulo": "Evento",
+      "imagem_capa": "https://www.chipbreubranco.com.br/painel/upload/img/inscricao/thumb/img-064-06102026215759-55e3849e1a2e182ee334beacb0e03bc0.png",
+      "data_evento": "21/11/2026",
+      "hora_evento": "19:00",
+      "local": "Marabá - PA",
+      "entrega_kit": "",
+      "partida": "Praça Dos Maçons",
+      "mapa_google": "",
+      "pixel": "",
+      "acoes": [
+        {
+          "tipo": "inscricao",
+          "url": "https://www.chipbreubranco.com.br/inscricao-select/7510/corrida-de-aniversario-delicia-do-guarana-30-anos",
+          "label": null
+        },
+        {
+          "tipo": "organizador",
+          "label": "ORGANIZADOR"
+        },
+        {
+          "tipo": "lista_inscritos",
+          "status": 0,
+          "url": null,
+          "label": "LISTA DE INSCRITOS"
+        }
+      ],
+      "inscricao_liberada": false,
+      "mostrar_card_detalhes": true,
+      "mensagem_bloqueio": "AGUARDE: INSCRIÇÕES EM BREVE.",
+      "contato_organizador": {
+        "nome": "",
+        "email": "",
+        "telefone": "",
+        "instagram": "",
+        "facebook": ""
+      },
+      "precos_categorias": [
+        {
+          "lote_nome": "1",
+          "lot_limite_inscricao": 99999,
+          "data_inicio": "2000-01-01 00:00:00",
+          "data_fim": "2027-01-01 23:59:59",
+          "precos": [
+            {
+              "valor": "R$ 135,00",
+              "categoria": "FAVORITOS",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 67,50",
+              "categoria": "PCD(Pessoa com deficiência)",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 135,00",
+              "categoria": "LGBTQIAPN+",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 67,50",
+              "categoria": "FAVORITOS",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 135,00",
+              "categoria": "GERAL",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 67,50",
+              "categoria": "GERAL",
+              "modalidade": "5km",
+              "aberto": true
+            }
+          ]
+        }
+      ],
+      "documentos": [
+        {
+          "nome": "NOVO REGURLARMENTO - 1º CORRIDA SÓ NÓS RUN.pdf",
+          "url": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-64-61ffbf5feae1f0cff945b2ad452f78bf.pdf"
+        }
+      ],
+      "percursos": [
+        {
+          "nome": "5km",
+          "url": "",
+          "quilometragem": ""
+        }
+      ],
+      "fotos": [
+        {
+          "id": 2235,
+          "url": "https://www.chipbreubranco.com.br/thumb.php?q=100&h=500&arquivo=img-064-06102026215759-55e3849e1a2e182ee334beacb0e03bc0.png"
+        }
+      ],
+      "secoes_extra": [],
+      "resultados": []
+    }
+  },
+  {
+    "index": 10,
+    "title": "CORRIDA CONTRA O RACISMO",
+    "company": "CHIP_BRANCO",
+    "chipName": "Chip Breu Branco",
+    "date": "22/11/2026",
+    "time": "06:00",
+    "location": "Concórdia Do Pará - PA",
+    "docUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-21092026120821-d9a3a622c55fe34bd409a2235f9b675b.pdf",
+    "pdfTextSnippet": "",
+    "pdfFullLength": 0,
+    "detail": {
+      "qtd_inscritos": 61,
+      "id": 312,
+      "titulo": "CORRIDA CONTRA O RACISMO",
+      "subtitulo": "Evento",
+      "imagem_capa": "https://www.chipbreubranco.com.br/painel/upload/img/inscricao/thumb/img-064-21092026072940-c1051312c8fbe1055cfcdce8167f84e8.jpg",
+      "data_evento": "22/11/2026",
+      "hora_evento": "06:00",
+      "local": "Concórdia Do Pará - PA",
+      "entrega_kit": "Concórdia do Pará - Na Escola Guadalupe dia 21/11/2026 (sábado) das 16h às 19h..",
+      "partida": "Em Frente A Escola Guadalupe, Concentração Aparti Das 05:00hs.",
+      "mapa_google": "",
+      "pixel": "",
+      "acoes": [
+        {
+          "tipo": "inscricao",
+          "url": "https://www.chipbreubranco.com.br/inscricao-select/6565/corrida-contra-o-racismo",
+          "label": null
+        },
+        {
+          "tipo": "organizador",
+          "label": "ORGANIZADOR"
+        },
+        {
+          "tipo": "lista_inscritos",
+          "status": 0,
+          "url": null,
+          "label": "LISTA DE INSCRITOS"
+        }
+      ],
+      "inscricao_liberada": true,
+      "mostrar_card_detalhes": true,
+      "mensagem_bloqueio": "",
+      "contato_organizador": {
+        "nome": "",
+        "email": "",
+        "telefone": "",
+        "instagram": "",
+        "facebook": ""
+      },
+      "precos_categorias": [
+        {
+          "lote_nome": "1",
+          "lot_limite_inscricao": 9999,
+          "data_inicio": "2000-01-01 00:00:00",
+          "data_fim": "2027-01-01 23:59:59",
+          "precos": [
+            {
+              "valor": "R$ 80,00",
+              "categoria": "Geral",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 40,00",
+              "categoria": "Idoso 60+",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 40,00",
+              "categoria": "PCD(Pessoa com deficiência) obrigatório apresentar laudo.",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 30,00",
+              "categoria": "Estudante Escola Guadalupe",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 60,00",
+              "categoria": "Sem Camisa",
+              "modalidade": "5km",
+              "aberto": true
+            }
+          ]
+        }
+      ],
+      "documentos": [
+        {
+          "nome": "doc-064-21092026120821-d9a3a622c55fe34bd409a2235f9b675b.pdf",
+          "url": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-21092026120821-d9a3a622c55fe34bd409a2235f9b675b.pdf"
+        }
+      ],
+      "percursos": [
+        {
+          "nome": "5km",
+          "url": "",
+          "quilometragem": ""
+        }
+      ],
+      "fotos": [
+        {
+          "id": 2161,
+          "url": "https://www.chipbreubranco.com.br/thumb.php?q=100&h=500&arquivo=img-064-21092026072940-c1051312c8fbe1055cfcdce8167f84e8.jpg"
+        }
+      ],
+      "secoes_extra": [],
+      "resultados": []
+    }
+  },
+  {
+    "index": 11,
+    "title": "2ª CORRIDA DOS EMPRESÁRIOS",
+    "company": "CHIP_BRANCO",
+    "chipName": "Chip Breu Branco",
+    "date": "22/11/2026",
+    "time": "06:00",
+    "location": "Tailândia - PA",
+    "docUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-15092026145946-b9586664768defad5925bae266fe5464.pdf",
+    "pdfTextSnippet": "",
+    "pdfFullLength": 0,
+    "detail": {
+      "qtd_inscritos": 85,
+      "id": 308,
+      "titulo": "2ª CORRIDA DOS EMPRESÁRIOS",
+      "subtitulo": "Evento",
+      "imagem_capa": "https://www.chipbreubranco.com.br/painel/upload/img/inscricao/thumb/img-064-02102026090759-f25000058f3f4c0a7440f8e34a98a6f9.png",
+      "data_evento": "22/11/2026",
+      "hora_evento": "06:00",
+      "local": "Tailândia - PA",
+      "entrega_kit": "A RETIRADA DO KIT OCORRERA NO DIA 21/11/2026, EM LOCAL E HORARIO, PREVIAMENTE DIVULGADOS PELA ORGANIZACAO.",
+      "partida": "A Definir",
+      "mapa_google": "",
+      "pixel": "",
+      "acoes": [
+        {
+          "tipo": "inscricao",
+          "url": "https://www.chipbreubranco.com.br/inscricao-select/8993/2-corrida-dos-empresarios",
+          "label": null
+        },
+        {
+          "tipo": "organizador",
+          "label": "ORGANIZADOR"
+        },
+        {
+          "tipo": "lista_inscritos",
+          "status": 0,
+          "url": null,
+          "label": "LISTA DE INSCRITOS"
+        }
+      ],
+      "inscricao_liberada": true,
+      "mostrar_card_detalhes": true,
+      "mensagem_bloqueio": "",
+      "contato_organizador": {
+        "nome": "",
+        "email": "",
+        "telefone": "",
+        "instagram": "",
+        "facebook": ""
+      },
+      "precos_categorias": [
+        {
+          "lote_nome": "1",
+          "lot_limite_inscricao": 200,
+          "data_inicio": "2026-01-01 23:59:59",
+          "data_fim": "2027-01-01 23:59:59",
+          "precos": [
+            {
+              "valor": "R$ 79,90",
+              "categoria": "Geral",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 39,95",
+              "categoria": "Geral (60+)",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 39,90",
+              "categoria": "PCD(PESSOA COM DEFICIENCIA)",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 79,90",
+              "categoria": "Empresários",
+              "modalidade": "5km",
+              "aberto": true
+            }
+          ]
+        },
+        {
+          "lote_nome": "2",
+          "lot_limite_inscricao": 9999,
+          "data_inicio": "2026-01-01 23:59:00",
+          "data_fim": "2027-01-01 23:59:59",
+          "precos": [
+            {
+              "valor": "R$ 90,00",
+              "categoria": "Geral",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 45,00",
+              "categoria": "Geral (60+)",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 45,00",
+              "categoria": "PCD(PESSOA COM DEFICIENCIA)",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 90,00",
+              "categoria": "Empresários",
+              "modalidade": "5km",
+              "aberto": true
+            }
+          ]
+        }
+      ],
+      "documentos": [
+        {
+          "nome": "doc-064-15092026145946-b9586664768defad5925bae266fe5464.pdf",
+          "url": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-15092026145946-b9586664768defad5925bae266fe5464.pdf"
+        }
+      ],
+      "percursos": [
+        {
+          "nome": "5km",
+          "url": "",
+          "quilometragem": ""
+        }
+      ],
+      "fotos": [
+        {
+          "id": 2203,
+          "url": "https://www.chipbreubranco.com.br/thumb.php?q=100&h=500&arquivo=img-064-02102026090759-f25000058f3f4c0a7440f8e34a98a6f9.png"
+        }
+      ],
+      "secoes_extra": [],
+      "resultados": []
+    }
+  },
+  {
+    "index": 12,
+    "title": "2ª CORRIDA DE RUA E VI OPEN DA BOX ELEVEN",
+    "company": "CHIP_BRANCO",
+    "chipName": "Chip Breu Branco",
+    "date": "29/11/2026",
+    "time": "06:00",
+    "location": "Tailândia - PA",
+    "docUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-19082026193429-9063366e3ba3efafeddfb78e4e422c62.pdf",
+    "pdfTextSnippet": "",
+    "pdfFullLength": 0,
+    "detail": {
+      "qtd_inscritos": 19,
+      "id": 304,
+      "titulo": "2ª CORRIDA DE RUA E VI OPEN DA BOX ELEVEN",
+      "subtitulo": "Evento",
+      "imagem_capa": "https://www.chipbreubranco.com.br/painel/upload/img/inscricao/thumb/img-064-19082026190252-504d8900dec6fc001704a4fdb33c3c0a.png",
+      "data_evento": "29/11/2026",
+      "hora_evento": "06:00",
+      "local": "Tailândia - PA",
+      "entrega_kit": "A RETIRADA DO KIT OCORRERA NO DIA 27/11/2026 (PARA ATLETAS DO OPEN) E 28/11/2026 (PARA OS CORREDORES) EM LOCAL E HORARIO, PREVIAMENTE DIVULGADOS PELA ORGANIZACAO.",
+      "partida": "A Definir",
+      "mapa_google": "",
+      "pixel": "",
+      "acoes": [
+        {
+          "tipo": "inscricao",
+          "url": "https://www.chipbreubranco.com.br/inscricao-select/3866/2-corrida-de-rua-e-vi-open-da-box-eleven",
+          "label": null
+        },
+        {
+          "tipo": "organizador",
+          "label": "ORGANIZADOR"
+        },
+        {
+          "tipo": "lista_inscritos",
+          "status": 0,
+          "url": null,
+          "label": "LISTA DE INSCRITOS"
+        }
+      ],
+      "inscricao_liberada": true,
+      "mostrar_card_detalhes": true,
+      "mensagem_bloqueio": "",
+      "contato_organizador": {
+        "nome": "",
+        "email": "",
+        "telefone": "",
+        "instagram": "",
+        "facebook": ""
+      },
+      "precos_categorias": [
+        {
+          "lote_nome": "1",
+          "lot_limite_inscricao": 99999,
+          "data_inicio": "2026-01-01 23:59:59",
+          "data_fim": "2026-09-30 23:59:00",
+          "precos": [
+            {
+              "valor": "R$ 59,90",
+              "categoria": "CORRIDA",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 419,80",
+              "categoria": "OPEN (CROSSFIT+CORRIDA) - FEMININO",
+              "modalidade": "DUPLA INICIANTE FEMININO",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 419,80",
+              "categoria": "OPEN (CROSSFIT+CORRIDA) - FEMININO",
+              "modalidade": "DUPLA SCALED FEMININO",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 209,90",
+              "categoria": "OPEN (CROSSFIT+CORRIDA) - FEMININO",
+              "modalidade": "INDIVIDUAL INTERMEDIARIO FEMININO",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 209,90",
+              "categoria": "OPEN (CROSSFIT+CORRIDA) - MASCULINO",
+              "modalidade": "INDIVIDUAL  INICIANTE MASCULINO",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 209,90",
+              "categoria": "OPEN (CROSSFIT+CORRIDA) - MASCULINO",
+              "modalidade": "INDIVIDUAL SCALED MASCULINO",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 209,90",
+              "categoria": "OPEN (CROSSFIT+CORRIDA) - MASCULINO",
+              "modalidade": "INDIVIDUAL INTERMEDIARIO MASCULINO",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 209,90",
+              "categoria": "OPEN (CROSSFIT+CORRIDA) - MASCULINO",
+              "modalidade": "RX MASCULUNO",
+              "aberto": true
+            }
+          ]
+        },
+        {
+          "lote_nome": "2",
+          "lot_limite_inscricao": 99999,
+          "data_inicio": "2026-10-01 00:00:00",
+          "data_fim": "2026-11-30 23:59:00",
+          "precos": [
+            {
+              "valor": "R$ 79,90",
+              "categoria": "CORRIDA",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 459,80",
+              "categoria": "OPEN (CROSSFIT+CORRIDA) - FEMININO",
+              "modalidade": "DUPLA INICIANTE FEMININO",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 459,80",
+              "categoria": "OPEN (CROSSFIT+CORRIDA) - FEMININO",
+              "modalidade": "DUPLA SCALED FEMININO",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 229,90",
+              "categoria": "OPEN (CROSSFIT+CORRIDA) - FEMININO",
+              "modalidade": "INDIVIDUAL INTERMEDIARIO FEMININO",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 229,90",
+              "categoria": "OPEN (CROSSFIT+CORRIDA) - MASCULINO",
+              "modalidade": "INDIVIDUAL  INICIANTE MASCULINO",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 229,90",
+              "categoria": "OPEN (CROSSFIT+CORRIDA) - MASCULINO",
+              "modalidade": "INDIVIDUAL SCALED MASCULINO",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 229,90",
+              "categoria": "OPEN (CROSSFIT+CORRIDA) - MASCULINO",
+              "modalidade": "INDIVIDUAL INTERMEDIARIO MASCULINO",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 229,90",
+              "categoria": "OPEN (CROSSFIT+CORRIDA) - MASCULINO",
+              "modalidade": "RX MASCULUNO",
+              "aberto": true
+            }
+          ]
+        }
+      ],
+      "documentos": [
+        {
+          "nome": "doc-064-19082026193429-9063366e3ba3efafeddfb78e4e422c62.pdf",
+          "url": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-19082026193429-9063366e3ba3efafeddfb78e4e422c62.pdf"
+        }
+      ],
+      "percursos": [
+        {
+          "nome": "3km",
+          "url": "",
+          "quilometragem": ""
+        },
+        {
+          "nome": "5km",
+          "url": "",
+          "quilometragem": ""
+        },
+        {
+          "nome": "7km",
+          "url": "",
+          "quilometragem": ""
+        },
+        {
+          "nome": "DUPLA INICIANTE FEMININO",
+          "url": "",
+          "quilometragem": ""
+        },
+        {
+          "nome": "DUPLA SCALED FEMININO",
+          "url": "",
+          "quilometragem": ""
+        },
+        {
+          "nome": "INDIVIDUAL INTERMEDIARIO FEMININO",
+          "url": "",
+          "quilometragem": ""
+        },
+        {
+          "nome": "INDIVIDUAL  INICIANTE MASCULINO",
+          "url": "",
+          "quilometragem": ""
+        },
+        {
+          "nome": "INDIVIDUAL SCALED MASCULINO",
+          "url": "",
+          "quilometragem": ""
+        },
+        {
+          "nome": "INDIVIDUAL INTERMEDIARIO MASCULINO",
+          "url": "",
+          "quilometragem": ""
+        },
+        {
+          "nome": "RX MASCULUNO",
+          "url": "",
+          "quilometragem": ""
+        }
+      ],
+      "fotos": [
+        {
+          "id": 2056,
+          "url": "https://www.chipbreubranco.com.br/thumb.php?q=100&h=500&arquivo=img-064-19082026190252-504d8900dec6fc001704a4fdb33c3c0a.png"
+        }
+      ],
+      "secoes_extra": [],
+      "resultados": []
+    }
+  },
+  {
+    "index": 13,
+    "title": "1ª CORRIDA CORRENTE DO BEM",
+    "company": "CHIP_BRANCO",
+    "chipName": "Chip Breu Branco",
+    "date": "29/11/2026",
+    "time": "06:00",
+    "location": "PacajÁ - PA",
+    "docUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-14092026115533-dc871d2aea75fc5b3ef9693f42464147.pdf",
+    "pdfTextSnippet": "",
+    "pdfFullLength": 0,
+    "detail": {
+      "qtd_inscritos": 16,
+      "id": 309,
+      "titulo": "1ª CORRIDA CORRENTE DO BEM",
+      "subtitulo": "Evento",
+      "imagem_capa": "https://www.chipbreubranco.com.br/painel/upload/img/inscricao/thumb/img-064-14092026115511-c0f6a0f36e47048f49ee42bb688933bc.jpg",
+      "data_evento": "29/11/2026",
+      "hora_evento": "06:00",
+      "local": "PacajÁ - PA",
+      "entrega_kit": "28/11/2026 DAS 15H AS 18HS, LOCAL A DEFINIR PELA ORGANIZAÇÃO",
+      "partida": "Praça da Bíblia, Av. Belém, Bairro: São Francisco",
+      "mapa_google": "",
+      "pixel": "",
+      "acoes": [
+        {
+          "tipo": "inscricao",
+          "url": "https://www.chipbreubranco.com.br/inscricao-select/7245/1-corrida-corrente-do-bem",
+          "label": null
+        },
+        {
+          "tipo": "organizador",
+          "label": "ORGANIZADOR"
+        },
+        {
+          "tipo": "lista_inscritos",
+          "status": 0,
+          "url": null,
+          "label": "LISTA DE INSCRITOS"
+        }
+      ],
+      "inscricao_liberada": true,
+      "mostrar_card_detalhes": true,
+      "mensagem_bloqueio": "",
+      "contato_organizador": {
+        "nome": "",
+        "email": "",
+        "telefone": "",
+        "instagram": "",
+        "facebook": ""
+      },
+      "precos_categorias": [
+        {
+          "lote_nome": "1",
+          "lot_limite_inscricao": 999,
+          "data_inicio": "2000-01-01 00:00:00",
+          "data_fim": "2026-11-28 23:59:00",
+          "precos": [
+            {
+              "valor": "R$ 100,00",
+              "categoria": "Geral",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 50,00",
+              "categoria": "Idoso 60+",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 50,00",
+              "categoria": "PCD(Pessoa com deficiência)",
+              "modalidade": "5km",
+              "aberto": true
+            }
+          ]
+        }
+      ],
+      "documentos": [
+        {
+          "nome": "doc-064-14092026115533-dc871d2aea75fc5b3ef9693f42464147.pdf",
+          "url": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-14092026115533-dc871d2aea75fc5b3ef9693f42464147.pdf"
+        }
+      ],
+      "percursos": [
+        {
+          "nome": "5km",
+          "url": "",
+          "quilometragem": ""
+        }
+      ],
+      "fotos": [
+        {
+          "id": 2130,
+          "url": "https://www.chipbreubranco.com.br/thumb.php?q=100&h=500&arquivo=img-064-14092026115511-c0f6a0f36e47048f49ee42bb688933bc.jpg"
+        }
+      ],
+      "secoes_extra": [],
+      "resultados": []
+    }
+  },
+  {
+    "index": 14,
+    "title": "1ª CORRIDA DE OBSTÁCULOS DE NOVO REPARTIMENTO",
+    "company": "CHIP_BRANCO",
+    "chipName": "Chip Breu Branco",
+    "date": "06/12/2026",
+    "time": "06:30",
+    "location": "Novo Repartimento - PA",
+    "docUrl": null,
+    "pdfTextSnippet": "",
+    "pdfFullLength": 0,
+    "detail": {
+      "qtd_inscritos": 16,
+      "id": 305,
+      "titulo": "1ª CORRIDA DE OBSTÁCULOS DE NOVO REPARTIMENTO",
+      "subtitulo": "Evento",
+      "imagem_capa": "https://www.chipbreubranco.com.br/painel/upload/img/inscricao/thumb/img-064-30082026150709-64517d8435994992e682b3e4aa0a0661.jpg",
+      "data_evento": "06/12/2026",
+      "hora_evento": "06:30",
+      "local": "Novo Repartimento - PA",
+      "entrega_kit": "Na academia viking, Data 05/06/2026 horário 15h às 18hs.",
+      "partida": "Largada e chegada na academia viking na avenida Brasil no vale do sol.",
+      "mapa_google": "",
+      "pixel": "",
+      "acoes": [
+        {
+          "tipo": "inscricao",
+          "url": "https://www.chipbreubranco.com.br/inscricao-select/3382/1-corrida-de-obstculos-de-novo-repartimento",
+          "label": null
+        },
+        {
+          "tipo": "organizador",
+          "label": "ORGANIZADOR"
+        },
+        {
+          "tipo": "lista_inscritos",
+          "status": 0,
+          "url": null,
+          "label": "LISTA DE INSCRITOS"
+        }
+      ],
+      "inscricao_liberada": true,
+      "mostrar_card_detalhes": true,
+      "mensagem_bloqueio": "",
+      "contato_organizador": {
+        "nome": "",
+        "email": "",
+        "telefone": "",
+        "instagram": "",
+        "facebook": ""
+      },
+      "precos_categorias": [
+        {
+          "lote_nome": "1",
+          "lot_limite_inscricao": 100,
+          "data_inicio": "2000-01-01 00:00:00",
+          "data_fim": "2027-01-01 23:59:59",
+          "precos": [
+            {
+              "valor": "R$ 100,00",
+              "categoria": "Geral",
+              "modalidade": "3km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 50,00",
+              "categoria": "Idoso 60+",
+              "modalidade": "3km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 50,00",
+              "categoria": "PCD(Pessoa com deficiência)",
+              "modalidade": "3km",
+              "aberto": true
+            }
+          ]
+        },
+        {
+          "lote_nome": "2",
+          "lot_limite_inscricao": 200,
+          "data_inicio": "2000-01-01 00:00:00",
+          "data_fim": "2027-01-01 23:59:00",
+          "precos": [
+            {
+              "valor": "R$ 150,00",
+              "categoria": "Geral",
+              "modalidade": "3km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 75,00",
+              "categoria": "Idoso 60+",
+              "modalidade": "3km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 75,00",
+              "categoria": "PCD(Pessoa com deficiência)",
+              "modalidade": "3km",
+              "aberto": true
+            }
+          ]
+        }
+      ],
+      "documentos": [],
+      "percursos": [
+        {
+          "nome": "3km",
+          "url": "",
+          "quilometragem": ""
+        }
+      ],
+      "fotos": [
+        {
+          "id": 2074,
+          "url": "https://www.chipbreubranco.com.br/thumb.php?q=100&h=500&arquivo=img-064-30082026150709-64517d8435994992e682b3e4aa0a0661.jpg"
+        }
+      ],
+      "secoes_extra": [],
+      "resultados": []
+    }
+  },
+  {
+    "index": 15,
+    "title": "CORRIDA DO CÍRIO",
+    "company": "CHIP_BRANCO",
+    "chipName": "Chip Breu Branco",
+    "date": "06/12/2026",
+    "time": "06:00",
+    "location": "Abaetetuba - PA",
+    "docUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-18092026082516-9da86049f5da6ce58009620e47e32324.pdf",
+    "pdfTextSnippet": "",
+    "pdfFullLength": 0,
+    "detail": {
+      "qtd_inscritos": 20,
+      "id": 310,
+      "titulo": "CORRIDA DO CÍRIO",
+      "subtitulo": "Evento",
+      "imagem_capa": "https://www.chipbreubranco.com.br/painel/upload/img/inscricao/thumb/img-064-16092026110536-5847c1b5bad36912f13024fbe20d606e.jpg",
+      "data_evento": "06/12/2026",
+      "hora_evento": "06:00",
+      "local": "Abaetetuba - PA",
+      "entrega_kit": "05/12 (SABADO), NO LOCAL A DEFINIR EM ABAETETUBA-PA",
+      "partida": "PRAÇA DE CONCEIÇÃO",
+      "mapa_google": "",
+      "pixel": "",
+      "acoes": [
+        {
+          "tipo": "inscricao",
+          "url": "https://www.chipbreubranco.com.br/inscricao-select/760/corrida-do-cirio",
+          "label": null
+        },
+        {
+          "tipo": "organizador",
+          "label": "ORGANIZADOR"
+        },
+        {
+          "tipo": "lista_inscritos",
+          "status": 0,
+          "url": null,
+          "label": "LISTA DE INSCRITOS"
+        }
+      ],
+      "inscricao_liberada": true,
+      "mostrar_card_detalhes": true,
+      "mensagem_bloqueio": "",
+      "contato_organizador": {
+        "nome": "",
+        "email": "",
+        "telefone": "",
+        "instagram": "",
+        "facebook": ""
+      },
+      "precos_categorias": [
+        {
+          "lote_nome": "1",
+          "lot_limite_inscricao": 9999,
+          "data_inicio": "2000-01-01 00:00:00",
+          "data_fim": "2027-01-01 23:59:59",
+          "precos": [
+            {
+              "valor": "R$ 100,00",
+              "categoria": "Geral",
+              "modalidade": "6km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 50,00",
+              "categoria": "PCD(Pessoa com deficiência)",
+              "modalidade": "6km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 50,00",
+              "categoria": "Geral (60+)",
+              "modalidade": "6km",
+              "aberto": true
+            }
+          ]
+        }
+      ],
+      "documentos": [
+        {
+          "nome": "doc-064-18092026082516-9da86049f5da6ce58009620e47e32324.pdf",
+          "url": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-18092026082516-9da86049f5da6ce58009620e47e32324.pdf"
+        }
+      ],
+      "percursos": [
+        {
+          "nome": "6km",
+          "url": "",
+          "quilometragem": ""
+        }
+      ],
+      "fotos": [
+        {
+          "id": 2140,
+          "url": "https://www.chipbreubranco.com.br/thumb.php?q=100&h=500&arquivo=img-064-16092026110536-5847c1b5bad36912f13024fbe20d606e.jpg"
+        }
+      ],
+      "secoes_extra": [],
+      "resultados": []
+    }
+  },
+  {
+    "index": 16,
+    "title": "LAV BDAY RUN",
+    "company": "CHIP_BRANCO",
+    "chipName": "Chip Breu Branco",
+    "date": "13/12/2026",
+    "time": "06:00",
+    "location": "Abaetetuba - PA",
+    "docUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-02102026075135-e0688d13958a19e087e123148555e4b4.pdf",
+    "pdfTextSnippet": "",
+    "pdfFullLength": 0,
+    "detail": {
+      "qtd_inscritos": 17,
+      "id": 314,
+      "titulo": "LAV BDAY RUN",
+      "subtitulo": "Evento",
+      "imagem_capa": "https://www.chipbreubranco.com.br/painel/upload/img/inscricao/thumb/img-064-02102026075118-6f2d1422bf08670543e6c0a70664ddbe.png",
+      "data_evento": "13/12/2026",
+      "hora_evento": "06:00",
+      "local": "Abaetetuba - PA",
+      "entrega_kit": "12/12 (SABADO), NO LOCAL A DEFINIR EM ABAETETUBA-PA",
+      "partida": "PORTO DO AÇAÍ PARAENSE",
+      "mapa_google": "",
+      "pixel": "",
+      "acoes": [
+        {
+          "tipo": "inscricao",
+          "url": "https://www.chipbreubranco.com.br/inscricao-select/2950/lav-bday-run",
+          "label": null
+        },
+        {
+          "tipo": "organizador",
+          "label": "ORGANIZADOR"
+        },
+        {
+          "tipo": "lista_inscritos",
+          "status": 0,
+          "url": null,
+          "label": "LISTA DE INSCRITOS"
+        }
+      ],
+      "inscricao_liberada": true,
+      "mostrar_card_detalhes": true,
+      "mensagem_bloqueio": "",
+      "contato_organizador": {
+        "nome": "",
+        "email": "",
+        "telefone": "",
+        "instagram": "",
+        "facebook": ""
+      },
+      "precos_categorias": [
+        {
+          "lote_nome": "1",
+          "lot_limite_inscricao": 9999,
+          "data_inicio": "2000-01-01 00:00:00",
+          "data_fim": "2027-01-01 23:59:59",
+          "precos": [
+            {
+              "valor": "R$ 70,00",
+              "categoria": "Geral",
+              "modalidade": "6km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 35,00",
+              "categoria": "PCD(Pessoa com deficiência)",
+              "modalidade": "6km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 35,00",
+              "categoria": "Geral (60+)",
+              "modalidade": "6km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 70,00",
+              "categoria": "LGBTQIAPN+",
+              "modalidade": "6km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 70,00",
+              "categoria": "Dupla Feminina - FEMININO",
+              "modalidade": "6km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 70,00",
+              "categoria": "Dupla Masculino - MASCULINO",
+              "modalidade": "6km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 70,00",
+              "categoria": "Dupla Mista",
+              "modalidade": "6km",
+              "aberto": true
+            }
+          ]
+        }
+      ],
+      "documentos": [
+        {
+          "nome": "RegulamentoLV.pdf",
+          "url": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-02102026075135-e0688d13958a19e087e123148555e4b4.pdf"
+        }
+      ],
+      "percursos": [
+        {
+          "nome": "6km",
+          "url": "",
+          "quilometragem": ""
+        }
+      ],
+      "fotos": [
+        {
+          "id": 2199,
+          "url": "https://www.chipbreubranco.com.br/thumb.php?q=100&h=500&arquivo=img-064-02102026075118-6f2d1422bf08670543e6c0a70664ddbe.png"
+        }
+      ],
+      "secoes_extra": [],
+      "resultados": []
+    }
+  },
+  {
+    "index": 17,
+    "title": "2ª Corrida Missionária",
+    "company": "CHIP_BRANCO",
+    "chipName": "Chip Breu Branco",
+    "date": "20/12/2026",
+    "time": "06:00",
+    "location": "Marabá - PA",
+    "docUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-30092026205331-7d8ce1d7ed4350e74cd80f0e9ef97ead.pdf",
+    "pdfTextSnippet": "",
+    "pdfFullLength": 0,
+    "detail": {
+      "qtd_inscritos": 19,
+      "id": 293,
+      "titulo": "2ª Corrida Missionária",
+      "subtitulo": "Evento",
+      "imagem_capa": "https://www.chipbreubranco.com.br/thumb.php?q=100&h=500&arquivo=img-64-b0c10480e42af547780b379bd75da8c7.png",
+      "data_evento": "20/12/2026",
+      "hora_evento": "06:00",
+      "local": "Marabá - PA",
+      "entrega_kit": "19 dezembro, 9h às 19h, No anexo administrativo da Igreja Batista Missionária Morada Nova, localizado na rua do murumuru, número 209, Morada Nova",
+      "partida": "Em frente ao Ginásio de Esporte de Morada Nova",
+      "mapa_google": "",
+      "pixel": "",
+      "acoes": [
+        {
+          "tipo": "inscricao",
+          "url": "https://www.chipbreubranco.com.br/inscricao-select/2026/corrida-de-rua/2-corrida-missionaria",
+          "label": null
+        },
+        {
+          "tipo": "organizador",
+          "label": "ORGANIZADOR"
+        },
+        {
+          "tipo": "lista_inscritos",
+          "status": 0,
+          "url": null,
+          "label": "LISTA DE INSCRITOS"
+        }
+      ],
+      "inscricao_liberada": true,
+      "mostrar_card_detalhes": true,
+      "mensagem_bloqueio": "",
+      "contato_organizador": {
+        "nome": "",
+        "email": "",
+        "telefone": "",
+        "instagram": "",
+        "facebook": ""
+      },
+      "precos_categorias": [
+        {
+          "lote_nome": "1",
+          "lot_limite_inscricao": 99999,
+          "data_inicio": "2000-01-01 00:00:00",
+          "data_fim": "2027-01-01 23:59:59",
+          "precos": [
+            {
+              "valor": "R$ 80,00",
+              "categoria": "ADOLESCENTE",
+              "modalidade": "5KM",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 80,00",
+              "categoria": "BATISTA MISSIONÁRIA GERAL",
+              "modalidade": "5KM",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 80,00",
+              "categoria": "GERAL",
+              "modalidade": "5KM",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 40,00",
+              "categoria": "CATEDRAL 60+",
+              "modalidade": "5KM",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 40,00",
+              "categoria": "PCD(Pessoa com deficiência)",
+              "modalidade": "5KM",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 80,00",
+              "categoria": "ADOLESCENTE",
+              "modalidade": "2KM",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 80,00",
+              "categoria": "BATISTA MISSIONÁRIA GERAL",
+              "modalidade": "2KM",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 80,00",
+              "categoria": "GERAL",
+              "modalidade": "2KM",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 40,00",
+              "categoria": "CATEDRAL 60+",
+              "modalidade": "2KM",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 40,00",
+              "categoria": "PCD(Pessoa com deficiência)",
+              "modalidade": "2KM",
+              "aberto": true
+            }
+          ]
+        }
+      ],
+      "documentos": [
+        {
+          "nome": "REGULAMENTO OFICIAL Segunda Corrida Missionária.pdf",
+          "url": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-30092026205331-7d8ce1d7ed4350e74cd80f0e9ef97ead.pdf"
+        }
+      ],
+      "percursos": [
+        {
+          "nome": "5KM",
+          "url": "",
+          "quilometragem": ""
+        },
+        {
+          "nome": "2KM",
+          "url": "",
+          "quilometragem": ""
+        }
+      ],
+      "fotos": [
+        {
+          "id": 1875,
+          "url": "https://www.chipbreubranco.com.br/thumb.php?q=100&h=500&arquivo=img-64-b0c10480e42af547780b379bd75da8c7.png"
+        }
+      ],
+      "secoes_extra": [
+        {
+          "titulo": "2ª Corrida Missionária",
+          "texto": "Data: 20/12/2026\nLocal: Em frente ao Ginásio de Esporte de Morada Nova, Marabá-Pa.\nHorário: 06:00"
+        },
+        {
+          "titulo": "Distância",
+          "texto": "- 5km\n- 2km"
+        },
+        {
+          "titulo": "Kit",
+          "texto": "- Camiseta\n- Chip\n- Número de peito\n- Medalha\n- Barra de sereal\n- Paçoquinha"
+        },
+        {
+          "titulo": "Entrega dos kits",
+          "texto": "A retirada do kit ocorrerá nos dias 19 dezembro, 16h às 19h, No anexo administrativo da Igreja Batista Missionária Morada Nova, localizado na rua do murumuru, número 209, Morada Nova, Marabá-Pa, É obrigatório apresentar documento de identidade e comprovante de inscrição para a retirada do kit. É permitida a retirada de kits por terceiros, mediante apresentação do documento de identidade do atleta inscrito."
+        },
+        {
+          "titulo": "",
+          "texto": "Para ter acesso a todas informações do evento acesse a aba DOCUMENTOS e faça o download do regulamento."
+        }
+      ],
+      "resultados": []
+    }
+  },
+  {
+    "index": 18,
+    "title": "CORRIDA TÁTICO EXTREME RUN",
+    "company": "CHIP_BRANCO",
+    "chipName": "Chip Breu Branco",
+    "date": "20/12/2026",
+    "time": "06:00",
+    "location": "Abaetetuba - PA",
+    "docUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-18092026115622-fea76b7ab660fd8591d5b3c6002add88.pdf",
+    "pdfTextSnippet": "",
+    "pdfFullLength": 0,
+    "detail": {
+      "qtd_inscritos": 37,
+      "id": 296,
+      "titulo": "CORRIDA TÁTICO EXTREME RUN",
+      "subtitulo": "Evento",
+      "imagem_capa": "https://www.chipbreubranco.com.br/thumb.php?q=100&h=500&arquivo=img-64-524bb203199b4731216cb6fb0d91ab85.png",
+      "data_evento": "20/12/2026",
+      "hora_evento": "06:00",
+      "local": "Abaetetuba - PA",
+      "entrega_kit": "",
+      "partida": "Terminal Rodoviário De Abaetetuba",
+      "mapa_google": "",
+      "pixel": "",
+      "acoes": [
+        {
+          "tipo": "inscricao",
+          "url": "https://www.chipbreubranco.com.br/inscricao-select/corrida-ttico-extreme-run-2026",
+          "label": null
+        },
+        {
+          "tipo": "organizador",
+          "label": "ORGANIZADOR"
+        },
+        {
+          "tipo": "lista_inscritos",
+          "status": 0,
+          "url": null,
+          "label": "LISTA DE INSCRITOS"
+        }
+      ],
+      "inscricao_liberada": true,
+      "mostrar_card_detalhes": true,
+      "mensagem_bloqueio": "",
+      "contato_organizador": {
+        "nome": "",
+        "email": "",
+        "telefone": "",
+        "instagram": "",
+        "facebook": ""
+      },
+      "precos_categorias": [
+        {
+          "lote_nome": "1",
+          "lot_limite_inscricao": 99999,
+          "data_inicio": "2000-01-01 00:00:00",
+          "data_fim": "2027-01-01 23:59:59",
+          "precos": [
+            {
+              "valor": "R$ 90,00",
+              "categoria": "Geral",
+              "modalidade": "7km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 45,00",
+              "categoria": "PCD(Pessoa com deficiência)",
+              "modalidade": "7km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 90,00",
+              "categoria": "SEGURANÇA PÚBLICA",
+              "modalidade": "7km",
+              "aberto": true
+            }
+          ]
+        }
+      ],
+      "documentos": [
+        {
+          "nome": "doc-064-18092026115622-fea76b7ab660fd8591d5b3c6002add88.pdf",
+          "url": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-18092026115622-fea76b7ab660fd8591d5b3c6002add88.pdf"
+        }
+      ],
+      "percursos": [
+        {
+          "nome": "7km",
+          "url": "",
+          "quilometragem": ""
+        }
+      ],
+      "fotos": [
+        {
+          "id": 1915,
+          "url": "https://www.chipbreubranco.com.br/thumb.php?q=100&h=500&arquivo=img-64-524bb203199b4731216cb6fb0d91ab85.png"
+        }
+      ],
+      "secoes_extra": [
+        {
+          "titulo": "CORRIDA TÁTICO EXTREME RUN",
+          "texto": "Data: 20/12/2026\nHorário: 06:00\nLocal: terminal rodoviário de Abaetetuba"
+        },
+        {
+          "titulo": "Distância",
+          "texto": "- 7km"
+        },
+        {
+          "titulo": "Kit",
+          "texto": "- Camiseta\n- Número de peito\n- Chip de cronometragem\n- Medalha"
+        },
+        {
+          "titulo": "Entrega dos kits",
+          "texto": "A entrega dos kits será realizada no dia 19/12(sábado), no horário de entregas dos kits será informando com antecedência nos canis de informação oficial no evento (Instagram @taticoextreme)."
+        },
+        {
+          "titulo": "",
+          "texto": "Para ter acesso a todas informações do evento acesse a aba DOCUMENTOS e faça o download do regulamento."
+        }
+      ],
+      "resultados": []
+    }
+  },
+  {
+    "index": 19,
+    "title": "1ª CORRIDA DO AMOR EM PROL DA VIDA",
+    "company": "CHIP_PARA",
+    "chipName": "Chip Pará",
+    "date": "22/11/2026",
+    "time": "06:30",
+    "location": "anapu - PA",
+    "docUrl": "https://www.chippara.com.br/painel/upload/doc/inscricao/doc-107-31082026121512-ffc0978c507577f2e1d0e7c17fd7457b.pdf",
+    "pdfTextSnippet": "",
+    "pdfFullLength": 0,
+    "detail": {
+      "qtd_inscritos": 168,
+      "id": 9,
+      "titulo": "1ª CORRIDA DO AMOR EM PROL DA VIDA",
+      "subtitulo": "Corrida de Rua",
+      "imagem_capa": "https://www.chippara.com.br/painel/upload/img/inscricao/thumb/img-107-31082026093912-53afd7ab97449cdbb682b6b7e335c524.jpg",
+      "data_evento": "22/11/2026",
+      "hora_evento": "06:30",
+      "local": "anapu - PA",
+      "entrega_kit": "LOCAL A DEFINIR, 16H AS 19HS.",
+      "partida": "Praça Central",
+      "mapa_google": "",
+      "pixel": "",
+      "acoes": [
+        {
+          "tipo": "inscricao",
+          "url": "https://www.chippara.com.br/inscricao-select/1682/1-corrida-do-amor-em-prol-da-vida",
+          "label": null
+        },
+        {
+          "tipo": "organizador",
+          "label": "ORGANIZADOR"
+        },
+        {
+          "tipo": "lista_inscritos",
+          "status": 0,
+          "url": null,
+          "label": "LISTA DE INSCRITOS"
+        }
+      ],
+      "inscricao_liberada": true,
+      "mostrar_card_detalhes": true,
+      "mensagem_bloqueio": "",
+      "contato_organizador": {
+        "nome": "",
+        "email": "",
+        "telefone": "(91)992727675",
+        "instagram": "",
+        "facebook": ""
+      },
+      "precos_categorias": [
+        {
+          "lote_nome": "1",
+          "lot_limite_inscricao": 99999,
+          "data_inicio": "2000-01-01 00:00:00",
+          "data_fim": "2027-01-01 23:59:59",
+          "precos": [
+            {
+              "valor": "R$ 85,00",
+              "categoria": "Geral",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 42,50",
+              "categoria": "Geral (60+)",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 42,50",
+              "categoria": "PCD",
+              "modalidade": "5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 85,00",
+              "categoria": "Geral",
+              "modalidade": "3km",
+              "aberto": true
+            }
+          ]
+        }
+      ],
+      "documentos": [
+        {
+          "nome": "REGULAMENTO - PASSOS QUE SALVAM 2.pdf",
+          "url": "https://www.chippara.com.br/painel/upload/doc/inscricao/doc-107-31082026121512-ffc0978c507577f2e1d0e7c17fd7457b.pdf"
+        }
+      ],
+      "percursos": [
+        {
+          "nome": "3km",
+          "url": "",
+          "quilometragem": ""
+        },
+        {
+          "nome": "5km",
+          "url": "",
+          "quilometragem": ""
+        },
+        {
+          "nome": "3km",
+          "url": "",
+          "quilometragem": ""
+        }
+      ],
+      "fotos": [
+        {
+          "id": 1306,
+          "url": "https://www.chippara.com.br/thumb.php?q=100&h=500&arquivo=img-107-31082026093912-53afd7ab97449cdbb682b6b7e335c524.jpg"
+        }
+      ],
+      "secoes_extra": [],
+      "resultados": []
+    }
+  },
+  {
+    "index": 20,
+    "title": "2ª CORRIDA DE ANIVERSÁRIO DE JACUNDÁ 2026 - 65 anos",
+    "company": "CHIP_PARA",
+    "chipName": "Chip Pará",
+    "date": "06/12/2026",
+    "time": "06:00",
+    "location": "Jacundá - PA",
+    "docUrl": "https://www.chippara.com.br/painel/upload/doc/inscricao/doc-107-21092026214907-7f982c526e15dfa8be4c3eaa864c56ee.pdf",
+    "pdfTextSnippet": "",
+    "pdfFullLength": 0,
+    "detail": {
+      "qtd_inscritos": 343,
+      "id": 10,
+      "titulo": "2ª CORRIDA DE ANIVERSÁRIO DE JACUNDÁ 2026 - 65 anos",
+      "subtitulo": "Corrida de Rua",
+      "imagem_capa": "https://www.chippara.com.br/painel/upload/img/inscricao/thumb/img-107-22092026102137-50c2e156c1502fb41bc5d51be51d76a3.jpg",
+      "data_evento": "06/12/2026",
+      "hora_evento": "06:00",
+      "local": "Jacundá - PA",
+      "entrega_kit": "PREFEITURA MUNICIPAL DE JACUNDA-PA, LOCALIZADA NA RUA PINTO SILVA, 186 CENTRO, DATA 05/12/2026 NO HORARIO DAS 14H AS 18:30HS.",
+      "partida": "Praça Inácio Pinto, Em Frente A Prefeitura Municipal De Jacundá,",
+      "mapa_google": "",
+      "pixel": "",
+      "acoes": [
+        {
+          "tipo": "inscricao",
+          "url": "https://www.chippara.com.br/inscricao-select/1259/2-corrida-de-aniversario-de-jacunda-2026-65anos",
+          "label": null
+        },
+        {
+          "tipo": "organizador",
+          "label": "ORGANIZADOR"
+        },
+        {
+          "tipo": "lista_inscritos",
+          "status": 0,
+          "url": null,
+          "label": "LISTA DE INSCRITOS"
+        }
+      ],
+      "inscricao_liberada": true,
+      "mostrar_card_detalhes": true,
+      "mensagem_bloqueio": "",
+      "contato_organizador": {
+        "nome": "",
+        "email": "",
+        "telefone": "",
+        "instagram": "",
+        "facebook": ""
+      },
+      "precos_categorias": [
+        {
+          "lote_nome": "1",
+          "lot_limite_inscricao": 1200,
+          "data_inicio": "2000-01-01 00:00:00",
+          "data_fim": "2026-12-01 23:59:00",
+          "precos": [
+            {
+              "valor": "R$ 65,00",
+              "categoria": "Geral",
+              "modalidade": "5,5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 32,50",
+              "categoria": "PCD(Pessoa com deficiência) obrigatório apresentar o laudo",
+              "modalidade": "5,5km",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 32,50",
+              "categoria": "Idoso 60+",
+              "modalidade": "5,5km",
+              "aberto": true
+            }
+          ]
+        }
+      ],
+      "documentos": [
+        {
+          "nome": "REGULAMENTO_2_CORRIDA_ANIVERSARIO_JACUNDA_2026_IDENTIDADE_VISUAL.pdf",
+          "url": "https://www.chippara.com.br/painel/upload/doc/inscricao/doc-107-21092026214907-7f982c526e15dfa8be4c3eaa864c56ee.pdf"
+        }
+      ],
+      "percursos": [
+        {
+          "nome": "3,5km",
+          "url": "",
+          "quilometragem": ""
+        },
+        {
+          "nome": "caminhada",
+          "url": "",
+          "quilometragem": ""
+        },
+        {
+          "nome": "5,5km",
+          "url": "",
+          "quilometragem": ""
+        }
+      ],
+      "fotos": [
+        {
+          "id": 1331,
+          "url": "https://www.chippara.com.br/thumb.php?q=100&h=500&arquivo=img-107-22092026102137-50c2e156c1502fb41bc5d51be51d76a3.jpg"
+        }
+      ],
+      "secoes_extra": [
+        {
+          "titulo": "Kit Oficial",
+          "texto": "- Camisa oficial da corrida.<div>- Medalha comemorativa dos 65 anos de Jacundá, destinada ao atleta que concluir regularmente a prova.</div><div>- &nbsp;Caixa personalizada em MDF.</div><div>- Número de peito (chip de cronometragem).</div><div>- Squeze</div><div>- Gel de carboidrato.</div><div>&nbsp;- Alfinetes.</div>"
+        }
+      ],
+      "resultados": []
+    }
+  },
+  {
+    "index": 21,
+    "title": "2° CORRIDINHA CACAU SHOW",
+    "company": "SUPERA_CHRONOS",
+    "chipName": "Chip Chronos",
+    "date": "03/10/2026",
+    "time": "17:00",
+    "location": "Cametá - PA",
+    "docUrl": "https://www.superachipcrono.com.br/painel/upload/doc/inscricao/doc-093-22092026215725-51ac44a07a22f44b4ae0895fdcf9e317.jpg",
+    "pdfTextSnippet": "",
+    "pdfFullLength": 0,
+    "detail": {
+      "qtd_inscritos": 74,
+      "id": 266,
+      "titulo": "2° CORRIDINHA CACAU SHOW",
+      "subtitulo": "Corrida de Rua",
+      "imagem_capa": "https://www.superachipcrono.com.br/painel/upload/img/inscricao/thumb/img-093-22092026215650-f1e8a365a56b3c3827ccf9e2ea24c989.png",
+      "data_evento": "03/10/2026",
+      "hora_evento": "17:00",
+      "local": "Cametá - PA",
+      "entrega_kit": "02/10/2026 - LOJA CACAU SHOW NO BAIRRO DE SAO BENEDITO- 17H AS 20H",
+      "partida": "Cametá - Cacau Show São Benedito",
+      "mapa_google": "",
+      "pixel": "",
+      "acoes": [
+        {
+          "tipo": "inscricao",
+          "url": "https://www.superachipcrono.com.br/inscricao-select/8187/2-corridinha-cacau-show",
+          "label": null
+        },
+        {
+          "tipo": "organizador",
+          "label": "ORGANIZADOR"
+        },
+        {
+          "tipo": "lista_inscritos",
+          "status": 0,
+          "url": null,
+          "label": "LISTA DE INSCRITOS"
+        }
+      ],
+      "inscricao_liberada": false,
+      "mostrar_card_detalhes": true,
+      "mensagem_bloqueio": "AGUARDE: INSCRIÇÕES EM BREVE.",
+      "contato_organizador": {
+        "nome": "LOJA CACAU SHOW CAMETÁ",
+        "email": "",
+        "telefone": "",
+        "instagram": "",
+        "facebook": ""
+      },
+      "precos_categorias": [
+        {
+          "lote_nome": "1",
+          "lot_limite_inscricao": 100,
+          "data_inicio": "2026-09-22 08:00:00",
+          "data_fim": "2026-10-02 23:59:59",
+          "precos": [
+            {
+              "valor": "R$ 65,00",
+              "categoria": "KIT ATLETA GERAL",
+              "modalidade": "KIDS",
+              "aberto": true
+            }
+          ]
+        }
+      ],
+      "documentos": [
+        {
+          "nome": "doc-093-22092026215725-51ac44a07a22f44b4ae0895fdcf9e317.jpg",
+          "url": "https://www.superachipcrono.com.br/painel/upload/doc/inscricao/doc-093-22092026215725-51ac44a07a22f44b4ae0895fdcf9e317.jpg"
+        }
+      ],
+      "percursos": [
+        {
+          "nome": "KIDS",
+          "url": "",
+          "quilometragem": ""
+        }
+      ],
+      "fotos": [
+        {
+          "id": 1770,
+          "url": "https://www.superachipcrono.com.br/thumb.php?q=100&h=500&arquivo=img-093-22092026215650-f1e8a365a56b3c3827ccf9e2ea24c989.png"
+        }
+      ],
+      "secoes_extra": [
+        {
+          "titulo": "Detalhes",
+          "texto": "<style> @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@500&family=Quicksand:wght@500&display=swap'); </style>\r\n<style> @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap'); </style>\r\n<style>\r\n    .fonte{\r\n        font-family: 'Fjalla One', sans-serif;\t \r\n        line-height:2.8;\r\n    }\r\n\t.font-alerta-aguardando{\r\n        font-family: 'Fjalla One', sans-serif;\t    \r\n        text-align:center;\r\n        font-size:50px;\r\n        color:#CCC;\r\n        line-height:2;\r\n        margin-top:40px;\r\n\t}\r\n\tbody{\r\n\t\tmargin:0px;\r\n\t\tpadding:0px;\r\n\t}\r\n\t.table-principal{\r\n\t\tfont-family: 'IBM Plex Sans Arabic', sans-serif;\r\n\t\tfont-family: 'Quicksand', sans-serif;\r\n\t\twidth:100%;\r\n\t\tpadding:0px;\r\n\t\tmargin:0px;\r\n\t}\r\n\r\n\t.table-principal > tbody > tr > td{\r\n\t\tline-height: 25px;\r\n\t\tfont-size:13px;\r\n\t}\r\n\r\n\t.span-titulo{\r\n\t\tfont-weight:bold;\r\n\t\tfont-size:110%;\r\n\t}\r\n\t.span-sub-titulo{\r\n\t\tfont-weight:bold;\r\n\t\tfont-size:100%;\r\n\t}\r\n\t.span-sub-sub-titulo{\r\n\t\tfont-weight:bold;\r\n\t\tfont-size:90%;\r\n\t\tcolor:rebeccapurple;\r\n\t}\r\n\t.span-sub-sub-titulo-red{\r\n\t\tfont-weight:bold;\r\n\t\tfont-size:90%;\r\n\t\tcolor:red;\r\n\t}\r\n\t.span-sub-titulo-green{\r\n\t\tfont-weight:bold;\r\n\t\tfont-size:100%;\r\n\t\tcolor:green;\r\n\t}\r\n.table-size-shirt > tbody > tr > td{padding:10px;border:1px solid #CCC}\r\n.table-size-shirt > tbody > tr > th{padding:10px;border:1px solid #CCC}\r\n\r\nfieldset{\r\n    border:1px solid #CCC;\r\n    border-radius:4px;\r\n    PADDING:10PX;\r\n    display: block;\r\n    line-height:2.8;\r\n}\r\nlegend{\r\n width: auto;\r\n     text-transform:uppercase;\r\n}\r\n</style>\r\n\r\n<!--\r\n<div class=\"font-alerta-aguardando\">AGUARDE A ABERTURA DAS INSCRIÇÕES!<br>\r\nEM BREVE TODAS AS INFORMAÇÕES!<div>\r\n-->\r\n\r\n<div class=\"fonte\" style=\"background-color:green;color:#FFF;padding:20px;text-align:left;border-radius:3px\">\r\nPara ter acesso a todas informações do evento acesse a aba DOCUMENTOS e faça o download do regulamento. <br>\r\n</div>\r\n<br>\r\n\r\n\r\n<table class=\"table-principal\">\r\n\r\n\t<tr>\r\n\t\t<td><p></p><p>\r\n</p><fieldset><legend>2° CORRIDINHA CACAU SHOW&nbsp;</legend>\r\nDATA: 03/10/2026<br>\r\nHORÁRIO: 17:00&nbsp;<br>\r\nCIDADE: Cametá - PA <br>\r\n\r\n</fieldset>\r\n<br>\r\n\r\n<fieldset><legend> <span class=\"span-sub-titulo-green\">&nbsp;DISTÂNCIAS&nbsp; &nbsp;&nbsp;</span></legend><fieldset><b>0 a 2 anos - 100m com o responsável</b></fieldset><fieldset><b>3 e 4 anos - 200m</b></fieldset><fieldset><b>5 e 6 anos - 350m</b></fieldset><fieldset><b>7 e 8 anos - 450m</b></fieldset><fieldset><b>9 e 10 anos - 550m</b></fieldset><fieldset><b>11 e 12 anos - duas voltas de 550m</b></fieldset></fieldset>\r\n\r\n<fieldset><legend><span class=\"span-sub-titulo-green\">&nbsp;KIT&nbsp; &nbsp;&nbsp;</span></legend>\r\n- Camisa<br>\r\n- Número de peito<br>\r\n- Medalha de participação<br></fieldset>\r\n<br>\r\n\r\n<fieldset><legend><span class=\"span-sub-titulo-green\">&nbsp;VALOR 1° LOTE&nbsp; &nbsp;</span></legend>\r\n-&nbsp; R$ 65,00&nbsp;<br><br></fieldset>\r\n\r\n\r\n<br>\r\n\r\n<fieldset><legend><span class=\"span-sub-titulo-green\">&nbsp;ENTREGA DE KITS&nbsp; </span></legend>02/10/2026 - Loja Cacau Show no bairro de São Benedito- 17h às 20h</fieldset></td></tr></table><br>"
+        }
+      ],
+      "resultados": []
+    }
+  },
+  {
+    "index": 22,
+    "title": "1° CORRIDA SATLINKPLAY",
+    "company": "SUPERA_CHRONOS",
+    "chipName": "Chip Chronos",
+    "date": "18/10/2026",
+    "time": "06:30",
+    "location": "Tucuruí - PA",
+    "docUrl": "https://www.superachipcrono.com.br/painel/upload/doc/inscricao/doc-093-25092026120843-82e7970bd7ced603cbb5c77ae66eea0f.pdf",
+    "pdfTextSnippet": "",
+    "pdfFullLength": 0,
+    "detail": {
+      "qtd_inscritos": 486,
+      "id": 267,
+      "titulo": "1° CORRIDA SATLINKPLAY",
+      "subtitulo": "Corrida de Rua",
+      "imagem_capa": "https://www.superachipcrono.com.br/painel/upload/img/inscricao/thumb/img-093-25092026140028-9476630396673074b98a68eb20e70245.png",
+      "data_evento": "18/10/2026",
+      "hora_evento": "06:30",
+      "local": "Tucuruí - PA",
+      "entrega_kit": "ENTREGA DE KIT SERÁ NO ESCRITÓRIO DA SATLINKPLAY NO DIA 17 DE OUTUBRO",
+      "partida": "Tucuruí",
+      "mapa_google": "",
+      "pixel": "",
+      "acoes": [
+        {
+          "tipo": "inscricao",
+          "url": "https://www.superachipcrono.com.br/inscricao-select/5800/1-corrida-satlinkplay",
+          "label": null
+        },
+        {
+          "tipo": "organizador",
+          "label": "ORGANIZADOR"
+        },
+        {
+          "tipo": "lista_inscritos",
+          "status": 0,
+          "url": null,
+          "label": "LISTA DE INSCRITOS"
+        }
+      ],
+      "inscricao_liberada": true,
+      "mostrar_card_detalhes": true,
+      "mensagem_bloqueio": "",
+      "contato_organizador": {
+        "nome": "Neto Fernandes",
+        "email": "",
+        "telefone": "",
+        "instagram": "",
+        "facebook": ""
+      },
+      "precos_categorias": [
+        {
+          "lote_nome": "1",
+          "lot_limite_inscricao": 500,
+          "data_inicio": "2026-09-25 08:00:00",
+          "data_fim": "2026-10-16 23:59:59",
+          "precos": [
+            {
+              "valor": "R$ 49,99",
+              "categoria": "GERAL",
+              "modalidade": "5KM",
+              "aberto": true
+            }
+          ]
+        }
+      ],
+      "documentos": [
+        {
+          "nome": "doc-093-25092026120843-82e7970bd7ced603cbb5c77ae66eea0f.pdf",
+          "url": "https://www.superachipcrono.com.br/painel/upload/doc/inscricao/doc-093-25092026120843-82e7970bd7ced603cbb5c77ae66eea0f.pdf"
+        }
+      ],
+      "percursos": [
+        {
+          "nome": "5KM",
+          "url": "",
+          "quilometragem": ""
+        }
+      ],
+      "fotos": [
+        {
+          "id": 1781,
+          "url": "https://www.superachipcrono.com.br/thumb.php?q=100&h=500&arquivo=img-093-25092026140028-9476630396673074b98a68eb20e70245.png"
+        }
+      ],
+      "secoes_extra": [
+        {
+          "titulo": "Premiação",
+          "texto": "<p><b>Premiação somente geral até o 5 colocado (Mas/Fem)</b></p><p>1º - R$ 700,00</p><p>2º- R$ 500,00</p><p>3º- R$ 400,00</p><p>4º- R$ 300,00</p><p>5º- R$ 200,00</p>"
+        }
+      ],
+      "resultados": []
+    }
+  },
+  {
+    "index": 23,
+    "title": "CORRIDA SOLIDÁRIA DROGARIA + BARATO",
+    "company": "SUPERA_CHRONOS",
+    "chipName": "Chip Chronos",
+    "date": "08/11/2026",
+    "time": "06:00",
+    "location": "Oeiras Do Pará - PA",
+    "docUrl": "https://racetime-clientes.s3.sa-east-1.amazonaws.com/uploads/superachipcrono/doc/inscricao/doc-093-02102026134233-7c07c57fdac8c86edca57efcdc5134a1.pdf",
+    "pdfTextSnippet": "",
+    "pdfFullLength": 0,
+    "detail": {
+      "qtd_inscritos": 14,
+      "id": 268,
+      "titulo": "CORRIDA SOLIDÁRIA DROGARIA + BARATO",
+      "subtitulo": "Corrida de Rua",
+      "imagem_capa": "https://www.superachipcrono.com.br/thumb.php?q=100&h=500&arquivo=img-093-02102026132921-fe8cc9477d746cb4c6d1a0d09ea685cd.jpg",
+      "data_evento": "08/11/2026",
+      "hora_evento": "06:00",
+      "local": "Oeiras Do Pará - PA",
+      "entrega_kit": "07/11/2026 - LOCAL A DEFINIR",
+      "partida": "Oeiras Do Pará",
+      "mapa_google": "",
+      "pixel": "",
+      "acoes": [
+        {
+          "tipo": "inscricao",
+          "url": "https://www.superachipcrono.com.br/inscricao-select/5003/corrida-solidria-drogaria-barato",
+          "label": null
+        },
+        {
+          "tipo": "organizador",
+          "label": "ORGANIZADOR"
+        },
+        {
+          "tipo": "lista_inscritos",
+          "status": 0,
+          "url": null,
+          "label": "LISTA DE INSCRITOS"
+        }
+      ],
+      "inscricao_liberada": true,
+      "mostrar_card_detalhes": true,
+      "mensagem_bloqueio": "",
+      "contato_organizador": {
+        "nome": "Esse evento é promovido e organizado pela Drogaria +BARATO",
+        "email": "",
+        "telefone": "",
+        "instagram": "",
+        "facebook": ""
+      },
+      "precos_categorias": [
+        {
+          "lote_nome": "1",
+          "lot_limite_inscricao": 200,
+          "data_inicio": "2026-10-02 12:00:00",
+          "data_fim": "2026-11-06 23:59:59",
+          "precos": [
+            {
+              "valor": "R$ 55,00",
+              "categoria": "KIT SEM CAMISA",
+              "modalidade": "5KM",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 70,00",
+              "categoria": "KIT COM CAMISA",
+              "modalidade": "5KM",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 55,00",
+              "categoria": "KIT SEM CAMISA",
+              "modalidade": "3KM",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 70,00",
+              "categoria": "KIT COM CAMISA",
+              "modalidade": "3KM",
+              "aberto": true
+            }
+          ]
+        }
+      ],
+      "documentos": [
+        {
+          "nome": "REGULAMENTO.pdf",
+          "url": "https://racetime-clientes.s3.sa-east-1.amazonaws.com/uploads/superachipcrono/doc/inscricao/doc-093-02102026134233-7c07c57fdac8c86edca57efcdc5134a1.pdf"
+        }
+      ],
+      "percursos": [
+        {
+          "nome": "5KM",
+          "url": "",
+          "quilometragem": ""
+        },
+        {
+          "nome": "3KM",
+          "url": "",
+          "quilometragem": ""
+        }
+      ],
+      "fotos": [
+        {
+          "id": 1790,
+          "url": "https://www.superachipcrono.com.br/thumb.php?q=100&h=500&arquivo=img-093-02102026132921-fe8cc9477d746cb4c6d1a0d09ea685cd.jpg"
+        }
+      ],
+      "secoes_extra": [],
+      "resultados": []
+    }
+  },
+  {
+    "index": 24,
+    "title": "1° CORRIDINHA GAGUMI KIDS",
+    "company": "SUPERA_CHRONOS",
+    "chipName": "Chip Chronos",
+    "date": "06/12/2026",
+    "time": "17:00",
+    "location": "Cametá - PA",
+    "docUrl": "https://www.superachipcrono.com.br/painel/upload/doc/inscricao/doc-093-21092026184445-271a299f0893b2173e77162c5c768b89.jpg",
+    "pdfTextSnippet": "",
+    "pdfFullLength": 0,
+    "detail": {
+      "qtd_inscritos": 70,
+      "id": 265,
+      "titulo": "1° CORRIDINHA GAGUMI KIDS",
+      "subtitulo": "Corrida de Rua",
+      "imagem_capa": "https://www.superachipcrono.com.br/painel/upload/img/inscricao/thumb/img-093-21092026122159-79525d41efbf16d3363c138f713d2417.jpg",
+      "data_evento": "06/12/2026",
+      "hora_evento": "17:00",
+      "local": "Cametá - PA",
+      "entrega_kit": "03/12/2026 - LOJA GAGUMIKIDS - Av. Cônego Siqueira 2313 - 16h às 20h",
+      "partida": "Cametá - Aldeia Park",
+      "mapa_google": "",
+      "pixel": "",
+      "acoes": [
+        {
+          "tipo": "inscricao",
+          "url": "https://www.superachipcrono.com.br/inscricao-select/1714/1-corridinha-gagumi-kids",
+          "label": null
+        },
+        {
+          "tipo": "organizador",
+          "label": "ORGANIZADOR"
+        },
+        {
+          "tipo": "lista_inscritos",
+          "status": 0,
+          "url": null,
+          "label": "LISTA DE INSCRITOS"
+        }
+      ],
+      "inscricao_liberada": true,
+      "mostrar_card_detalhes": true,
+      "mensagem_bloqueio": "",
+      "contato_organizador": {
+        "nome": "LOJA GAGUMI KIDS",
+        "email": "",
+        "telefone": "",
+        "instagram": "",
+        "facebook": ""
+      },
+      "precos_categorias": [
+        {
+          "lote_nome": "1",
+          "lot_limite_inscricao": 150,
+          "data_inicio": "2026-09-21 08:00:00",
+          "data_fim": "2026-12-05 11:59:59",
+          "precos": [
+            {
+              "valor": "R$ 65,00",
+              "categoria": "KIT ATLETA GERAL",
+              "modalidade": "IDADE",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 32,50",
+              "categoria": "KIT ATLETA PCD CADEIRANTE (Obs: precisa comprovar na hora da retirada do kit)",
+              "modalidade": "IDADE",
+              "aberto": true
+            },
+            {
+              "valor": "R$ 32,50",
+              "categoria": "KIT ATLETA PCD TEA (Obs: precisa comprovar na hora da retirada do kit)",
+              "modalidade": "IDADE",
+              "aberto": true
+            }
+          ]
+        }
+      ],
+      "documentos": [
+        {
+          "nome": "doc-093-21092026184445-271a299f0893b2173e77162c5c768b89.jpg",
+          "url": "https://www.superachipcrono.com.br/painel/upload/doc/inscricao/doc-093-21092026184445-271a299f0893b2173e77162c5c768b89.jpg"
+        }
+      ],
+      "percursos": [
+        {
+          "nome": "IDADE",
+          "url": "",
+          "quilometragem": ""
+        }
+      ],
+      "fotos": [
+        {
+          "id": 1761,
+          "url": "https://www.superachipcrono.com.br/thumb.php?q=100&h=500&arquivo=img-093-21092026122159-79525d41efbf16d3363c138f713d2417.jpg"
+        }
+      ],
+      "secoes_extra": [
+        {
+          "titulo": "Detalhes",
+          "texto": "<style> @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@500&family=Quicksand:wght@500&display=swap'); </style>\r\n<style> @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap'); </style>\r\n<style>\r\n    .fonte{\r\n        font-family: 'Fjalla One', sans-serif;\t \r\n        line-height:2.8;\r\n    }\r\n\t.font-alerta-aguardando{\r\n        font-family: 'Fjalla One', sans-serif;\t    \r\n        text-align:center;\r\n        font-size:50px;\r\n        color:#CCC;\r\n        line-height:2;\r\n        margin-top:40px;\r\n\t}\r\n\tbody{\r\n\t\tmargin:0px;\r\n\t\tpadding:0px;\r\n\t}\r\n\t.table-principal{\r\n\t\tfont-family: 'IBM Plex Sans Arabic', sans-serif;\r\n\t\tfont-family: 'Quicksand', sans-serif;\r\n\t\twidth:100%;\r\n\t\tpadding:0px;\r\n\t\tmargin:0px;\r\n\t}\r\n\r\n\t.table-principal > tbody > tr > td{\r\n\t\tline-height: 25px;\r\n\t\tfont-size:13px;\r\n\t}\r\n\r\n\t.span-titulo{\r\n\t\tfont-weight:bold;\r\n\t\tfont-size:110%;\r\n\t}\r\n\t.span-sub-titulo{\r\n\t\tfont-weight:bold;\r\n\t\tfont-size:100%;\r\n\t}\r\n\t.span-sub-sub-titulo{\r\n\t\tfont-weight:bold;\r\n\t\tfont-size:90%;\r\n\t\tcolor:rebeccapurple;\r\n\t}\r\n\t.span-sub-sub-titulo-red{\r\n\t\tfont-weight:bold;\r\n\t\tfont-size:90%;\r\n\t\tcolor:red;\r\n\t}\r\n\t.span-sub-titulo-green{\r\n\t\tfont-weight:bold;\r\n\t\tfont-size:100%;\r\n\t\tcolor:green;\r\n\t}\r\n.table-size-shirt > tbody > tr > td{padding:10px;border:1px solid #CCC}\r\n.table-size-shirt > tbody > tr > th{padding:10px;border:1px solid #CCC}\r\n\r\nfieldset{\r\n    border:1px solid #CCC;\r\n    border-radius:4px;\r\n    PADDING:10PX;\r\n    display: block;\r\n    line-height:2.8;\r\n}\r\nlegend{\r\n width: auto;\r\n     text-transform:uppercase;\r\n}\r\n</style>\r\n\r\n<!--\r\n<div class=\"font-alerta-aguardando\">AGUARDE A ABERTURA DAS INSCRIÇÕES!<br>\r\nEM BREVE TODAS AS INFORMAÇÕES!<div>\r\n-->\r\n\r\n<div class=\"fonte\" style=\"background-color:green;color:#FFF;padding:20px;text-align:left;border-radius:3px\">\r\nPara ter acesso a todas informações do evento acesse a aba DOCUMENTOS e faça o download do regulamento. <br>\r\n</div>\r\n<br>\r\n\r\n\r\n<table class=\"table-principal\">\r\n\r\n\t<tr>\r\n\t\t<td><p></p><p>\r\n</p><fieldset><legend>1° CORRIDINHA GAGUMI KIDS&nbsp;</legend>\r\nDATA: 06/12/2026<br>\r\nHORÁRIO: 17:00&nbsp;<br>\r\nCIDADE: Cametá - PA <br>\r\n\r\n</fieldset>\r\n<br>\r\n\r\n<fieldset><legend> <span class=\"span-sub-titulo-green\">&nbsp;DISTÂNCIAS&nbsp; &nbsp;&nbsp;</span></legend><strong>Os percursos serão de acordo com a FAIXA ETÁRIA</strong>,<br data-start=\"639\" data-end=\"642\"></fieldset>\r\n\r\n<fieldset><legend><span class=\"span-sub-titulo-green\">&nbsp;KIT&nbsp; &nbsp;&nbsp;</span></legend>\r\n- Camisa<br>\r\n- Número de peito<br>\r\n- Medalha de participação<br></fieldset>\r\n<br>\r\n\r\n<fieldset><legend><span class=\"span-sub-titulo-green\">&nbsp;VALOR 1° LOTE&nbsp; &nbsp;</span></legend>\r\n-&nbsp; R$ 45,00&nbsp;<br><br></fieldset>\r\n\r\n\r\n<br>\r\n\r\n<fieldset><legend><span class=\"span-sub-titulo-green\">&nbsp;ENTREGA DE KITS&nbsp; </span></legend>03/06/2026 - LOJA GAGUMIKIDS - Av. Cônego Siqueira 2313 - 16h às 20h</fieldset></td></tr></table><br>"
+        }
+      ],
+      "resultados": []
+    }
+  },
+  {
+    "index": 25,
+    "title": "2º Corrida Rosa Pink 2026",
+    "company": "CHIP_AMAZONIA",
+    "chipName": "Chip Amazônia",
+    "date": null,
+    "time": "06:00",
+    "docUrl": null,
+    "pdfTextSnippet": "",
+    "pdfFullLength": 0,
+    "detail": null
+  },
+  {
+    "index": 26,
+    "title": "2ª Corrida Sabor Do ParÁ 2026",
+    "company": "CHIP_AMAZONIA",
+    "chipName": "Chip Amazônia",
+    "date": null,
+    "time": "06:00",
+    "docUrl": null,
+    "pdfTextSnippet": "",
+    "pdfFullLength": 0,
+    "detail": null
+  },
+  {
+    "index": 27,
+    "title": "1ª Corrida De Rua Lr Fitness Academia",
+    "company": "CHIP_AMAZONIA",
+    "chipName": "Chip Amazônia",
+    "date": null,
+    "time": "06:00",
+    "docUrl": null,
+    "pdfTextSnippet": "",
+    "pdfFullLength": 0,
+    "detail": null
+  },
+  {
+    "index": 28,
+    "title": "1ª Corrida Do 11° Bpm Capanema 2026",
+    "company": "CHIP_AMAZONIA",
+    "chipName": "Chip Amazônia",
+    "date": null,
+    "time": "06:00",
+    "docUrl": null,
+    "pdfTextSnippet": "",
+    "pdfFullLength": 0,
+    "detail": null
+  },
+  {
+    "index": 29,
+    "title": "Speed Run Barcarena",
+    "company": "CHIP_AMAZONIA",
+    "chipName": "Chip Amazônia",
+    "date": null,
+    "time": "06:00",
+    "docUrl": null,
+    "pdfTextSnippet": "",
+    "pdfFullLength": 0,
+    "detail": null
+  },
+  {
+    "index": 30,
+    "title": "1ª Corrida Do Corre De TerÇa",
+    "company": "CHIP_AMAZONIA",
+    "chipName": "Chip Amazônia",
+    "date": null,
+    "time": "06:00",
+    "docUrl": null,
+    "pdfTextSnippet": "",
+    "pdfFullLength": 0,
+    "detail": null
+  }
+]

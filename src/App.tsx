@@ -30,16 +30,17 @@ import {
 } from 'lucide-react';
 
 export function App() {
-  // Persistence for races list in localStorage (v4 - strictly real verified chip races)
+  // Persistence for races list in localStorage (v5 - strictly real verified chip races)
   const [races, setRaces] = useState<Race[]>(() => {
     const verifiedSnapshot = getInitialEnrichedRaces();
 
-    // Limpa versões anteriores para remover corridas mockadas ou links de resultados antigos
+    // Limpa versões anteriores para atualizar dados oficiais, chips e premiações
     localStorage.removeItem('para_run_races_v1');
     localStorage.removeItem('para_run_races_v2');
     localStorage.removeItem('para_run_races_v3');
+    localStorage.removeItem('para_run_races_v4');
 
-    const saved = localStorage.getItem('para_run_races_v4');
+    const saved = localStorage.getItem('para_run_races_v5');
     if (saved) {
       try {
         const parsed: Race[] = JSON.parse(saved);
@@ -135,9 +136,9 @@ export function App() {
     setIsAdminModalOpen(true);
   };
 
-  // Sync to localStorage (v4)
+  // Sync to localStorage (v5)
   useEffect(() => {
-    localStorage.setItem('para_run_races_v4', JSON.stringify(races));
+    localStorage.setItem('para_run_races_v5', JSON.stringify(races));
   }, [races]);
 
   useEffect(() => {

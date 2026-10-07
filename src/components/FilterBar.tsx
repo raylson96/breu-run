@@ -502,124 +502,119 @@ export const FilterBar: React.FC<FilterBarProps> = ({
         </div>
       </div>
 
-      {/* 4. Chips de Cronometragem & Percursos */}
-      <div className="flex items-center gap-3 overflow-x-auto no-scrollbar py-0.5 -mx-1 px-1 text-xs border-t border-slate-100 pt-2">
-        {/* Chips de Cronometragem */}
-        <div className="flex items-center gap-1.5 flex-shrink-0">
-          <span className="text-[11px] font-black text-slate-400 uppercase tracking-wider flex items-center gap-1 flex-shrink-0 pr-1">
-            <ShieldCheck className="w-3 h-3 text-blue-500" />
-            <span>Chips:</span>
-          </span>
+      {/* 4. Chips de Cronometragem */}
+      <div className="flex items-center gap-1.5 overflow-x-visible py-0.5 -mx-1 px-1 text-xs border-t border-slate-100 pt-2 relative">
+        <span className="text-[11px] font-black text-slate-400 uppercase tracking-wider flex items-center gap-1 flex-shrink-0 pr-1">
+          <ShieldCheck className="w-3 h-3 text-blue-500" />
+          <span>Chips:</span>
+        </span>
 
-          {/* No Mobile: Exibe estritamente "Todos os Chips" e "Ver Mais" */}
-          <div className="flex sm:hidden items-center gap-1.5">
+        {/* No Mobile: Exibe estritamente "Todos os Chips" e "Ver Mais" */}
+        <div className="flex sm:hidden items-center gap-1.5">
+          <button
+            onClick={() => onFilterChange({ ...filters, chipCompany: 'Todas' })}
+            className={`px-3 py-1.5 rounded-xl text-xs font-bold transition whitespace-nowrap cursor-pointer flex-shrink-0 ${
+              filters.chipCompany === 'Todas'
+                ? 'bg-slate-900 text-orange-400 font-black shadow-xs'
+                : 'bg-slate-100 hover:bg-slate-200 text-slate-600 border border-slate-200/60'
+            }`}
+          >
+            Todos os Chips
+          </button>
+
+          {/* Popover de Chips no Mobile */}
+          <div className="relative inline-block" ref={chipsPopoverRef}>
             <button
-              onClick={() => onFilterChange({ ...filters, chipCompany: 'Todas' })}
-              className={`px-2.5 py-1 rounded-xl text-[11px] font-bold transition whitespace-nowrap cursor-pointer flex-shrink-0 ${
-                filters.chipCompany === 'Todas'
-                  ? 'bg-slate-900 text-orange-400 font-black shadow-xs'
-                  : 'bg-slate-100 hover:bg-slate-200 text-slate-600 border border-slate-200/60'
+              onClick={() => setIsMoreChipsOpen(!isMoreChipsOpen)}
+              className={`px-3 py-1.5 rounded-xl text-xs font-bold transition whitespace-nowrap cursor-pointer flex items-center gap-1 flex-shrink-0 border ${
+                filters.chipCompany !== 'Todas'
+                  ? 'bg-slate-900 text-orange-400 font-black border-slate-900 shadow-xs'
+                  : 'bg-slate-100 hover:bg-slate-200 text-slate-700 border-slate-200/60'
               }`}
             >
-              Todos os Chips
+              <span className="max-w-[120px] truncate">
+                {filters.chipCompany !== 'Todas' ? filters.chipCompany : 'Ver Mais'}
+              </span>
+              <ChevronDown className={`w-3.5 h-3.5 transition-transform ${isMoreChipsOpen ? 'rotate-180' : ''}`} />
             </button>
 
-            {/* Popover de Chips no Mobile */}
-            <div className="relative inline-block" ref={chipsPopoverRef}>
-              <button
-                onClick={() => setIsMoreChipsOpen(!isMoreChipsOpen)}
-                className={`px-2.5 py-1 rounded-xl text-[11px] font-bold transition whitespace-nowrap cursor-pointer flex items-center gap-1 flex-shrink-0 border ${
-                  filters.chipCompany !== 'Todas'
-                    ? 'bg-slate-900 text-orange-400 font-black border-slate-900 shadow-xs'
-                    : 'bg-slate-100 hover:bg-slate-200 text-slate-700 border-slate-200/60'
-                }`}
-              >
-                <span className="max-w-[120px] truncate">
-                  {filters.chipCompany !== 'Todas' ? filters.chipCompany : 'Ver Mais'}
-                </span>
-                <ChevronDown className={`w-3 h-3 transition-transform ${isMoreChipsOpen ? 'rotate-180' : ''}`} />
-              </button>
-
-              {isMoreChipsOpen && (
-                <div className="fixed sm:absolute left-4 right-4 sm:left-auto sm:right-0 mt-2 bg-white rounded-2xl shadow-2xl border border-slate-200 z-50 p-2 space-y-1 animate-in fade-in zoom-in-95 duration-150">
-                  <div className="p-2 border-b border-slate-100 flex items-center justify-between text-xs font-bold text-slate-700">
-                    <span>Cronometragens Oficiais:</span>
-                    <button onClick={() => setIsMoreChipsOpen(false)} className="text-slate-400 hover:text-slate-600 p-1 cursor-pointer">
-                      <X className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
-                  {CHIP_COMPANIES.slice(1).map((chip) => {
-                    const isSelected = filters.chipCompany === chip;
-                    return (
-                      <button
-                        key={chip}
-                        onClick={() => {
-                          onFilterChange({ ...filters, chipCompany: chip });
-                          setIsMoreChipsOpen(false);
-                        }}
-                        className={`w-full text-left px-3 py-2 rounded-xl text-xs font-bold transition flex items-center justify-between cursor-pointer ${
-                          isSelected
-                            ? 'bg-slate-900 text-orange-400'
-                            : 'hover:bg-slate-100 text-slate-700'
-                        }`}
-                      >
-                        <span>{chip}</span>
-                        {isSelected && <Check className="w-3.5 h-3.5 text-orange-400" />}
-                      </button>
-                    );
-                  })}
+            {isMoreChipsOpen && (
+              <div className="fixed sm:absolute left-4 right-4 sm:left-auto sm:right-0 mt-2 bg-white rounded-2xl shadow-2xl border border-slate-200 z-50 p-2 space-y-1 animate-in fade-in zoom-in-95 duration-150">
+                <div className="p-2 border-b border-slate-100 flex items-center justify-between text-xs font-bold text-slate-700">
+                  <span>Cronometragens Oficiais:</span>
+                  <button onClick={() => setIsMoreChipsOpen(false)} className="text-slate-400 hover:text-slate-600 p-1 cursor-pointer">
+                    <X className="w-3.5 h-3.5" />
+                  </button>
                 </div>
-              )}
-            </div>
-          </div>
-
-          {/* No Desktop: Exibe todos os 4 chips + Todos os Chips */}
-          <div className="hidden sm:flex items-center gap-1.5">
-            {CHIP_COMPANIES.map((chip) => {
-              const isSelected = filters.chipCompany === chip;
-              return (
-                <button
-                  key={chip}
-                  onClick={() => onFilterChange({ ...filters, chipCompany: chip })}
-                  className={`px-2.5 py-1 rounded-xl text-[11px] font-bold transition whitespace-nowrap cursor-pointer flex-shrink-0 ${
-                    isSelected
-                      ? 'bg-slate-900 text-orange-400 font-black shadow-xs'
-                      : 'bg-slate-100 hover:bg-slate-200 text-slate-600 border border-slate-200/60'
-                  }`}
-                >
-                  {chip === 'Todas' ? 'Todos os Chips' : chip}
-                </button>
-              );
-            })}
+                {CHIP_COMPANIES.slice(1).map((chip) => {
+                  const isSelected = filters.chipCompany === chip;
+                  return (
+                    <button
+                      key={chip}
+                      onClick={() => {
+                        onFilterChange({ ...filters, chipCompany: chip });
+                        setIsMoreChipsOpen(false);
+                      }}
+                      className={`w-full text-left px-3 py-2 rounded-xl text-xs font-bold transition flex items-center justify-between cursor-pointer ${
+                        isSelected
+                          ? 'bg-slate-900 text-orange-400'
+                          : 'hover:bg-slate-100 text-slate-700'
+                      }`}
+                    >
+                      <span>{chip}</span>
+                      {isSelected && <Check className="w-3.5 h-3.5 text-orange-400" />}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
           </div>
         </div>
 
-        <div className="w-[1px] h-4 bg-slate-200 flex-shrink-0" />
-
-        {/* Distâncias */}
-        <div className="flex items-center gap-1.5 flex-shrink-0">
-          <span className="text-[11px] font-black text-slate-400 uppercase tracking-wider flex items-center gap-1 flex-shrink-0 pr-1">
-            <Activity className="w-3 h-3 text-emerald-500" />
-            <span>Distâncias:</span>
-          </span>
-
-          {DISTANCE_OPTIONS.map((dist) => {
-            const isSelected = filters.distance === dist;
+        {/* No Desktop: Exibe todos os 4 chips + Todos os Chips */}
+        <div className="hidden sm:flex items-center gap-1.5">
+          {CHIP_COMPANIES.map((chip) => {
+            const isSelected = filters.chipCompany === chip;
             return (
               <button
-                key={dist}
-                onClick={() => onFilterChange({ ...filters, distance: dist })}
+                key={chip}
+                onClick={() => onFilterChange({ ...filters, chipCompany: chip })}
                 className={`px-2.5 py-1 rounded-xl text-[11px] font-bold transition whitespace-nowrap cursor-pointer flex-shrink-0 ${
                   isSelected
-                    ? 'bg-emerald-600 text-white font-black shadow-xs'
+                    ? 'bg-slate-900 text-orange-400 font-black shadow-xs'
                     : 'bg-slate-100 hover:bg-slate-200 text-slate-600 border border-slate-200/60'
                 }`}
               >
-                {formatDecimalDistance(dist)}
+                {chip === 'Todas' ? 'Todos os Chips' : chip}
               </button>
             );
           })}
         </div>
+      </div>
+
+      {/* 5. Distâncias (Abaixo de Chips no Celular e PC) */}
+      <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5 -mx-1 px-1 text-xs border-t border-slate-100 pt-2">
+        <span className="text-[11px] font-black text-slate-400 uppercase tracking-wider flex items-center gap-1 flex-shrink-0 pr-1">
+          <Activity className="w-3 h-3 text-emerald-500" />
+          <span>Distâncias:</span>
+        </span>
+
+        {DISTANCE_OPTIONS.map((dist) => {
+          const isSelected = filters.distance === dist;
+          return (
+            <button
+              key={dist}
+              onClick={() => onFilterChange({ ...filters, distance: dist })}
+              className={`px-2.5 py-1 rounded-xl text-[11px] font-bold transition whitespace-nowrap cursor-pointer flex-shrink-0 ${
+                isSelected
+                  ? 'bg-emerald-600 text-white font-black shadow-xs'
+                  : 'bg-slate-100 hover:bg-slate-200 text-slate-600 border border-slate-200/60'
+              }`}
+            >
+              {formatDecimalDistance(dist)}
+            </button>
+          );
+        })}
       </div>
     </div>
   );

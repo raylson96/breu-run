@@ -23,7 +23,7 @@ export function formatDecimalDistance(dist: string): string {
 export function getTimingChipBadge(company: string) {
   const c = (company || '').toLowerCase();
 
-  if (c.includes('chronos') || c.includes('supera')) {
+  if (c.includes('chronos') || c.includes('cronos') || c.includes('crono') || c.includes('supera')) {
     return {
       name: 'Supera Chip Chronos',
       shortName: 'Chip Chronos',
@@ -32,7 +32,7 @@ export function getTimingChipBadge(company: string) {
       pillClass: 'bg-slate-900 text-amber-400 border-amber-500/40'
     };
   }
-  if (c.includes('branco')) {
+  if (c.includes('branco') || c.includes('breu')) {
     return {
       name: 'Chip Breu Branco',
       shortName: 'Chip Breu Branco',
@@ -60,11 +60,11 @@ export function getTimingChipBadge(company: string) {
     };
   }
   return {
-    name: 'Chip Breu Branco',
-    shortName: 'Chip Breu Branco',
-    badgeClass: 'bg-blue-950/90 text-amber-300 border border-amber-400/50 shadow-xs',
-    tagColor: 'text-amber-300',
-    pillClass: 'bg-blue-950 text-amber-300 border-amber-400/40'
+    name: 'Supera Chip Chronos',
+    shortName: 'Chip Chronos',
+    badgeClass: 'bg-slate-950/90 text-amber-400 border border-amber-500/50 shadow-xs',
+    tagColor: 'text-amber-400',
+    pillClass: 'bg-slate-900 text-amber-400 border-amber-500/40'
   };
 }
 
@@ -176,8 +176,8 @@ export function getBatchCountdownTag(race: Race): string | null {
  * Extrai o valor monetário de premiação para ordenação por "Maior Premiação"
  */
 export function extractPrizeValue(race: Race): number {
-  if ((race as any).prizeTotal && typeof (race as any).prizeTotal === 'number') {
-    return (race as any).prizeTotal;
+  if (race.prizeTotal && typeof race.prizeTotal === 'number') {
+    return race.prizeTotal;
   }
   const text = `${race.awardsInfo || ''} ${race.description || ''} ${race.title || ''}`;
   const matches = text.match(/R\$\s*(\d+(?:[.,]\d+)?(?:\.\d+)?)/gi);

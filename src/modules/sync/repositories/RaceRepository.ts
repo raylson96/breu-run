@@ -1,7 +1,5 @@
 import type { RaceRecord, TimingCompany, RaceStatus } from '../types';
 import type { Race as FrontendRace } from '../../../types/race';
-import { VERIFIED_CHIP_SNAPSHOT } from '../data/verifiedRacesSnapshot';
-import { slugify } from '../utils/slugify';
 import { getRaceCategories } from '../../../utils/raceFormatters';
 
 export interface RaceRepositoryInterface {
@@ -264,39 +262,11 @@ export class LocalStorageRaceRepository implements RaceRepositoryInterface {
   }
 }
 
+import { FINAL_VERIFIED_RACES_V5 } from '../data/finalVerifiedRacesV5';
+
 /**
- * Converte o snapshot verificado dos portais em lista de corridas com preços reais confirmados para a interface
+ * Retorna as 30 corridas verificadas com dados oficiais, kits e premiações reais
  */
 export function getInitialEnrichedRaces(): FrontendRace[] {
-  const repo = new LocalStorageRaceRepository();
-  return VERIFIED_CHIP_SNAPSHOT.map((extracted, idx) => {
-    const record: RaceRecord = {
-      id: `race-chip-${idx}-${slugify(extracted.title, extracted.eventDate)}`,
-      title: extracted.title,
-      slug: slugify(extracted.title, extracted.eventDate),
-      eventDate: extracted.eventDate,
-      eventTime: extracted.eventTime || '06:00',
-      city: extracted.city,
-      state: extracted.state || 'PA',
-      timingCompany: extracted.timingCompany,
-      registrationUrl: extracted.registrationUrl,
-      bannerUrl: extracted.bannerUrl,
-      regulationUrl: extracted.regulationUrl,
-      rulesUrl: extracted.rulesUrl,
-      distances: extracted.distances,
-      status: extracted.status,
-      currentBatch: extracted.currentBatch,
-      price: extracted.price,
-      priceFrom: extracted.priceFrom,
-      priceWithoutShirt: (extracted as any).priceWithoutShirt ?? null,
-      priceWithShirt: (extracted as any).priceWithShirt ?? null,
-      featured: idx === 19 || idx === 12 || idx === 5, // Box Eleven, House Runners Tailândia, Corre de Terça como destaques oficiais iniciais
-      organizer: extracted.organizer || 'Organização Oficial',
-      location: extracted.location || 'Centro',
-      rawData: extracted.rawData,
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString()
-    };
-    return (repo as any).mapRecordToFrontend(record);
-  });
+  return FINAL_VERIFIED_RACES_V5;
 }

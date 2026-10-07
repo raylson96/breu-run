@@ -4,7 +4,6 @@ import {
   Calendar, 
   MapPin, 
   Sparkles, 
-  ExternalLink, 
   Timer, 
   ShieldCheck, 
   Star
@@ -165,7 +164,10 @@ export const FeaturedRacesSection: React.FC<FeaturedRacesSectionProps> = ({
         </div>
 
         {/* Conteúdo Principal do Slide Panorâmico */}
-        <div className="relative z-20 h-full flex flex-col justify-between p-4 sm:p-6 md:p-8 max-w-2xl lg:max-w-3xl pointer-events-auto">
+        <div 
+          onClick={() => onSelectRace(currentRace)}
+          className="relative z-20 h-full flex flex-col justify-between p-4 sm:p-6 md:p-8 max-w-3xl pointer-events-auto cursor-pointer"
+        >
           {/* Top Tags: Selo do Chip Oficial + Em Evidência + Contagem Regressiva */}
           <div className="flex flex-wrap items-center gap-2">
             <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl text-[10px] sm:text-[11px] font-black bg-gradient-to-r from-orange-500 to-amber-500 text-slate-950 uppercase tracking-wider shadow-sm">
@@ -190,8 +192,7 @@ export const FeaturedRacesSection: React.FC<FeaturedRacesSectionProps> = ({
           {/* Centro: Título, Data, Local e Distâncias */}
           <div className="space-y-1.5 sm:space-y-2 my-auto py-1">
             <h2 
-              onClick={() => onSelectRace(currentRace)}
-              className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-black text-white leading-tight tracking-tight cursor-pointer hover:text-orange-400 transition line-clamp-2 drop-shadow-md"
+              className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-black text-white leading-tight tracking-tight hover:text-orange-400 transition line-clamp-2 drop-shadow-md"
             >
               {currentRace.title}
             </h2>
@@ -230,7 +231,7 @@ export const FeaturedRacesSection: React.FC<FeaturedRacesSectionProps> = ({
             </div>
           </div>
 
-          {/* Rodapé do Banner: Preço e Botão de Ação */}
+          {/* Rodapé do Banner: Preço e Bullets de Navegação (Sem botão de inscrição) */}
           <div className="flex items-center justify-between gap-3 pt-2 border-t border-slate-800/80">
             {/* Informações de Preço Base */}
             <div>
@@ -239,45 +240,34 @@ export const FeaturedRacesSection: React.FC<FeaturedRacesSectionProps> = ({
                 <span className="text-base sm:text-xl font-black text-white">
                   R$ {basePrice.toFixed(2).replace('.', ',')}
                 </span>
+                <span className="text-[10px] text-amber-400/90 font-medium ml-1">
+                  • {currentRace.currentBatch || '1º Lote'}
+                </span>
               </div>
-              <span className="text-[10px] text-amber-400/90 font-medium block">
-                {currentRace.currentBatch || '1º Lote Oficial'}
-              </span>
             </div>
 
-            {/* Botão de Ação (Abre Visão em Tela Cheia para Inscrição) */}
-            <div className="flex items-center gap-2">
-              <button
-                onClick={() => onSelectRace(currentRace)}
-                className="px-4 sm:px-6 py-2 sm:py-2.5 bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-500 hover:to-amber-500 text-white text-xs sm:text-sm font-black rounded-xl shadow-lg shadow-orange-950/50 transition flex items-center gap-1.5 cursor-pointer active:scale-95 whitespace-nowrap"
-              >
-                <span>{currentRace.status === 'open' || currentRace.status === 'closing_soon' ? 'Inscrever-se' : 'Ver Detalhes'}</span>
-                <ExternalLink className="w-3.5 h-3.5" />
-              </button>
-            </div>
+            {/* Paginação por Bullets integrada no rodapé à direita */}
+            {displayRaces.length > 1 && (
+              <div className="flex items-center gap-1.5 bg-slate-950/70 px-2.5 py-1.5 rounded-full border border-white/10 backdrop-blur-md">
+                {displayRaces.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setCurrentIndex(idx);
+                    }}
+                    className={`transition-all duration-300 rounded-full cursor-pointer ${
+                      currentIndex === idx
+                        ? 'w-5 h-2 bg-orange-500 shadow-sm'
+                        : 'w-2 h-2 bg-white/40 hover:bg-white/80'
+                    }`}
+                    title={`Ir para destaque ${idx + 1}`}
+                  />
+                ))}
+              </div>
+            )}
           </div>
         </div>
-
-        {/* Paginação por Bullets no Centro Inferior (Navegação Exclusiva com Suporte a Drag) */}
-        {displayRaces.length > 1 && (
-          <div className="absolute bottom-2.5 sm:bottom-3 left-1/2 -translate-x-1/2 z-30 flex items-center gap-1.5 bg-slate-950/60 px-3 py-1.5 rounded-full backdrop-blur-md border border-white/10">
-            {displayRaces.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setCurrentIndex(idx);
-                }}
-                className={`transition-all duration-300 rounded-full cursor-pointer ${
-                  currentIndex === idx
-                    ? 'w-6 h-2 bg-orange-500 shadow-sm'
-                    : 'w-2 h-2 bg-white/40 hover:bg-white/80'
-                }`}
-                title={`Ir para destaque ${idx + 1}`}
-              />
-            ))}
-          </div>
-        )}
       </div>
     </div>
   );
