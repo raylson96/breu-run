@@ -30,7 +30,7 @@ import {
 } from 'lucide-react';
 
 export function App() {
-  // Persistence for races list in localStorage (v5 - strictly real verified chip races)
+  // Persistence for races list in localStorage (v6 - strictly real verified chip races & exact regulation awards)
   const [races, setRaces] = useState<Race[]>(() => {
     const verifiedSnapshot = getInitialEnrichedRaces();
 
@@ -39,8 +39,9 @@ export function App() {
     localStorage.removeItem('para_run_races_v2');
     localStorage.removeItem('para_run_races_v3');
     localStorage.removeItem('para_run_races_v4');
+    localStorage.removeItem('para_run_races_v5');
 
-    const saved = localStorage.getItem('para_run_races_v5');
+    const saved = localStorage.getItem('para_run_races_v6');
     if (saved) {
       try {
         const parsed: Race[] = JSON.parse(saved);
@@ -77,7 +78,10 @@ export function App() {
                 priceWithoutShirt: r.priceWithoutShirt ?? match?.priceWithoutShirt,
                 priceWithShirt: r.priceWithShirt ?? match?.priceWithShirt,
                 regulationUrl: r.regulationUrl || match?.regulationUrl,
-                currentBatch: r.currentBatch || match?.currentBatch
+                currentBatch: r.currentBatch || match?.currentBatch,
+                awardsInfo: match?.awardsInfo || r.awardsInfo,
+                prizeTotal: match?.prizeTotal ?? r.prizeTotal,
+                awardGroups: match?.awardGroups || r.awardGroups
               };
             });
           }
@@ -136,9 +140,9 @@ export function App() {
     setIsAdminModalOpen(true);
   };
 
-  // Sync to localStorage (v5)
+  // Sync to localStorage (v6)
   useEffect(() => {
-    localStorage.setItem('para_run_races_v5', JSON.stringify(races));
+    localStorage.setItem('para_run_races_v6', JSON.stringify(races));
   }, [races]);
 
   useEffect(() => {

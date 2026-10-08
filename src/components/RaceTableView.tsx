@@ -10,7 +10,8 @@ import {
   AlertCircle,
   CalendarCheck,
   FileText,
-  Sparkles
+  Sparkles,
+  ChevronRight
 } from 'lucide-react';
 import { formatDecimalDistance, getBasePrice, getTimingChipBadge } from '../utils/raceFormatters';
 
@@ -224,7 +225,7 @@ export const RaceTableView: React.FC<RaceTableViewProps> = ({
                             className="px-3.5 py-2 bg-orange-600 hover:bg-orange-500 text-white rounded-xl text-xs font-black shadow-sm flex items-center gap-1.5 transition active:scale-95 cursor-pointer"
                           >
                             <span>Inscrever-se</span>
-                            <ExternalLink className="w-3 h-3" />
+                            <ChevronRight className="w-3.5 h-3.5" />
                           </button>
                         ) : (
                           <a

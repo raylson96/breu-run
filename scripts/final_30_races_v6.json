@@ -1,0 +1,1271 @@
+[
+  {
+    "id": "race-chip-1-corrida-de-rua-nova-ipixuna-run-33-anos",
+    "title": "Corrida de Rua Nova Ipixuna Run 33 Anos",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-10-11",
+    "time": "06:00",
+    "city": "Nova Ipixuna",
+    "state": "PA",
+    "location": "Rod. Pa 150, Ao Lado Do Auto Posto Ipixuna",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "open",
+    "registrationUrl": "https://www.chipbreubranco.com.br/inscricao-select/2026/corrida-de-rua/corrida-de-rua-nova-ipixuna-run-33-anos",
+    "regulationUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-64-390be061edd144d8c93444237029dbb6.pdf",
+    "rulesUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-64-390be061edd144d8c93444237029dbb6.pdf",
+    "bannerUrl": "https://www.chipbreubranco.com.br/thumb.php?q=100&h=500&arquivo=img-64-ecc7e2fa6b276cb9ccf3104e423d5420.png",
+    "imageUrl": "https://www.chipbreubranco.com.br/thumb.php?q=100&h=500&arquivo=img-64-ecc7e2fa6b276cb9ccf3104e423d5420.png",
+    "featured": true,
+    "currentBatch": "3º Lote",
+    "price": 95,
+    "priceFrom": 95,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 95,
+        "lot_name": "3º Lote"
+      }
+    ],
+    "kitItems": [
+      "Camiseta Oficial Nova Ipixuna Run",
+      "Número de Peito com Chip de Cronometragem",
+      "Carbo Gel Energético",
+      "Sacola Personalizada do Evento",
+      "Medalha de Participação"
+    ],
+    "awardsInfo": "Premiação Geral Especial 33 Anos (Masculino e Feminino):\n• 1º Lugar: R$ 1.000,00 + Troféu\n• 2º Lugar: R$ 600,00 + Troféu\n• 3º Lugar: R$ 400,00 + Troféu\nComunidade Local e Faixas Etárias: Troféus do 1º ao 3º lugar para todas as categorias.",
+    "prizeTotal": 2000,
+    "awardGroups": [
+      {
+        "name": "Classificação Geral (Masculino e Feminino)",
+        "items": [
+          {
+            "place": "1º Lugar Geral",
+            "prize": "R$ 1.000,00 + Troféu",
+            "amount": 1000
+          },
+          {
+            "place": "2º Lugar Geral",
+            "prize": "R$ 600,00 + Troféu",
+            "amount": 600
+          },
+          {
+            "place": "3º Lugar Geral",
+            "prize": "R$ 400,00 + Troféu",
+            "amount": 400
+          }
+        ]
+      },
+      {
+        "name": "Comunidade Local (Cidade)",
+        "items": [
+          {
+            "place": "1º ao 3º Lugar",
+            "prize": "Troféu Oficial",
+            "amount": 0
+          }
+        ]
+      },
+      {
+        "name": "Faixas Etárias (18-29, 30-39, 40-49, 50-59, 60+)",
+        "items": [
+          {
+            "place": "1º ao 3º Lugar",
+            "prize": "Troféus Oficiais",
+            "amount": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "race-chip-2-1-corrida-franciscana-800-anos",
+    "title": "1ª Corrida Franciscana 800 Anos",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-10-18",
+    "time": "06:00",
+    "city": "Tailândia",
+    "state": "PA",
+    "location": "A Definir",
+    "distances": [
+      "6 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "open",
+    "registrationUrl": "https://www.chipbreubranco.com.br/inscricao-select/8826/1-corrida-franciscana-800-anos",
+    "regulationUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-08092026105001-74b4d273507a7e0eba857955bd45b2cf.pdf",
+    "rulesUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-08092026105001-74b4d273507a7e0eba857955bd45b2cf.pdf",
+    "bannerUrl": "https://www.chipbreubranco.com.br/painel/upload/img/inscricao/thumb/img-064-08092026075241-98f89e04f315063ad5bb1a9fa484ffe3.jpg",
+    "imageUrl": "https://www.chipbreubranco.com.br/painel/upload/img/inscricao/thumb/img-064-08092026075241-98f89e04f315063ad5bb1a9fa484ffe3.jpg",
+    "featured": false,
+    "currentBatch": "1º Lote",
+    "price": 80,
+    "priceFrom": 80,
+    "categories": [
+      {
+        "distance": "6 km",
+        "price": 80,
+        "lot_name": "1º Lote"
+      }
+    ],
+    "kitItems": [
+      "Camisa Oficial do Evento",
+      "Número de Peito com Chip de Cronometragem",
+      "Medalha Comemorativa Finisher",
+      "Hidratação no Trajeto e Chegada"
+    ],
+    "awardsInfo": "Premiação Geral (Masculino e Feminino): 1º Lugar: R$ 500,00 + Troféu | 2º Lugar: R$ 350,00 + Troféu | 3º Lugar: R$ 250,00 + Troféu | 4º Lugar: R$ 150,00 + Troféu | 5º Lugar: R$ 100,00 + Troféu. Troféu para 1º ao 3º por categoria etária.",
+    "prizeTotal": 500
+  },
+  {
+    "id": "race-chip-3-ibc-run-1-etapa",
+    "title": "IBC Run – 1ª Etapa",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-11-01",
+    "time": "06:00",
+    "city": "Marabá",
+    "state": "PA",
+    "location": "Em Frente à Igreja Batista Central",
+    "distances": [
+      "5 km",
+      "10 km",
+      "3 km Caminhada"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "open",
+    "registrationUrl": "https://www.chipbreubranco.com.br/inscricao-select/ibc-run-1-etapa-2026",
+    "regulationUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-24082026115953-919538026ca3a9e482448f3e0afe8941.pdf",
+    "rulesUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-24082026115953-919538026ca3a9e482448f3e0afe8941.pdf",
+    "bannerUrl": "https://www.chipbreubranco.com.br/thumb.php?q=100&h=500&arquivo=img-64-c34cad602a1259d246312c80b8e3f347.jpeg",
+    "imageUrl": "https://www.chipbreubranco.com.br/thumb.php?q=100&h=500&arquivo=img-64-c34cad602a1259d246312c80b8e3f347.jpeg",
+    "featured": false,
+    "currentBatch": "3º Lote",
+    "price": 75,
+    "priceFrom": 75,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 75,
+        "lot_name": "1º Lote"
+      },
+      {
+        "distance": "10 km",
+        "price": 85,
+        "lot_name": "1º Lote"
+      },
+      {
+        "distance": "3 km Caminhada",
+        "price": 65,
+        "lot_name": "1º Lote"
+      }
+    ],
+    "kitItems": [
+      "Camisa Oficial do Evento",
+      "Número de Peito com Chip de Cronometragem",
+      "Sacochila Personalizada",
+      "Medalha Finisher",
+      "Brindes dos Patrocinadores"
+    ],
+    "awardsInfo": "Premiação Classificação Geral 10 km e 5 km: Troféus e prêmios para os 5 primeiros colocados Masculino e Feminino. 1º Lugar: R$ 400,00 + Troféu | 2º Lugar: R$ 300,00 + Troféu | 3º Lugar: R$ 200,00 + Troféu. Faixas etárias: Troféus do 1º ao 3º.",
+    "prizeTotal": 400
+  },
+  {
+    "id": "race-chip-4-corrida-rest-caamut-",
+    "title": "Corrida Restô Caamutá",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-11-01",
+    "time": "06:00",
+    "city": "Cametá",
+    "state": "PA",
+    "location": "Av. Inácio Moura Bairro Da Aldeia",
+    "distances": [
+      "8 km",
+      "4 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "open",
+    "registrationUrl": "https://www.chipbreubranco.com.br/inscricao-select/2026/corrida-de-rua/corrida_resto_caamuta",
+    "regulationUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-64-ce6d2b7bafa4cd8127a8bde1ffe7a92d.pdf",
+    "rulesUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-64-ce6d2b7bafa4cd8127a8bde1ffe7a92d.pdf",
+    "bannerUrl": "https://www.chipbreubranco.com.br/thumb.php?q=100&h=500&arquivo=img-64-858dad04284690c8d4f104f53ab85c47.jpeg",
+    "imageUrl": "https://www.chipbreubranco.com.br/thumb.php?q=100&h=500&arquivo=img-64-858dad04284690c8d4f104f53ab85c47.jpeg",
+    "featured": false,
+    "currentBatch": "3º Lote",
+    "price": 36.95,
+    "priceFrom": 36.95,
+    "categories": [
+      {
+        "distance": "8 km",
+        "price": 73.9,
+        "lot_name": "1º Lote"
+      },
+      {
+        "distance": "4 km",
+        "price": 36.95,
+        "lot_name": "1º Lote"
+      }
+    ],
+    "kitItems": [
+      "CAMISETA",
+      "MEDALHA",
+      "NÚMERO DE PEITO (CHIP)"
+    ],
+    "awardsInfo": "PREMIAÇÃO 10.1- Todo ATLETA oficialmente inscrito que completar o EVENTO dentro do tempo máximo previsto receberá uma Medalha de Participação. 10.2 - Na data da realização do EVENTO, somente receberão as PREMIAÇÕES EM TROFÉUS a que deles fizerem jus (de forma extraoficial) os 5 PRIMEIROS ATLETAS (MASCULINO E FEMININO), na Categoria geral e, somente no percurso de 8km, por tempo bruto. 10.3 – Na categoria FAIXA ETÁRIA, somente no percurso de 8km, dentro da Modalidade GERAL ADULTO, serão entregues no dia do evento, Troféus de 1º, 2º, 3º, 4° e 5° Lugares, por tempo líquido, respectivamente. 10.4 - Não haverá premiação em troféu para os inscritos na distância 4km. Haverá apenas medalha de participação aos atletas que completarem o percurso conforme regulamento. 10.5 – Na Modalidade PCDs serão entregues apenas medalhadas de participação. 10.5- As premiações não são acumulativas. 10.6- Todos os ATLETAS, que tiverem seus nomes chamados para a premiação, deverão encaminhar-se imediatamente à área de entrega das premiações para receber seu prêmio. 10.7- Para premiações de Troféus, as mesmas serão entregues para o ATLETA somente no dia do EVENTO. Caso o Atleta precise se ausentar, deverá dei",
+    "prizeTotal": 100
+  },
+  {
+    "id": "race-chip-5-1-meia-maratona-house-runners-de-tail-ndia-2026",
+    "title": "1ª Meia Maratona House Runners de Tailândia 2026",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-11-08",
+    "time": "05:30",
+    "city": "Tailândia",
+    "state": "PA",
+    "location": "PRAÇA NVA DO POVO. AV. JOAO PESSOA",
+    "distances": [
+      "5 km",
+      "21 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "open",
+    "registrationUrl": "https://www.chipbreubranco.com.br/inscricao-select/5136/1-meia-maratona-house-runners-de-tailandia-2026",
+    "regulationUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-23092026205226-4a33edb840d8caeb24bbcb1b0ce1d8d7.pdf",
+    "rulesUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-23092026205226-4a33edb840d8caeb24bbcb1b0ce1d8d7.pdf",
+    "bannerUrl": "https://www.chipbreubranco.com.br/painel/upload/img/inscricao/thumb/img-064-04092026161009-6dfa678a0fa26a0b36addfbc8fdc23e1.jpg",
+    "imageUrl": "https://www.chipbreubranco.com.br/painel/upload/img/inscricao/thumb/img-064-04092026161009-6dfa678a0fa26a0b36addfbc8fdc23e1.jpg",
+    "featured": true,
+    "currentBatch": "2º Lote",
+    "price": 45,
+    "priceFrom": 45,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 89.99,
+        "lot_name": "1º Lote"
+      },
+      {
+        "distance": "21 km",
+        "price": 119.99,
+        "lot_name": "1º Lote"
+      }
+    ],
+    "kitItems": [
+      "Número de Peito com Chip de Cronometragem",
+      "Camiseta Oficial do Evento",
+      "Medalha de Participação (Finisher)",
+      "Hidratação e Suporte de Percurso"
+    ],
+    "awardsInfo": "Premiação A partir das 08h30 Inscrições 04/09/2026 a 01/11/2026, ou até esgotarem as vagas Vagas 600 inscrições no total Valor 21,0975 km R$ 149,90 Valor 5 km R$ 99,90 Retirada de kit 06 e 07/11/2026, local a divulgar Encerramento Previsão de 09h30 IMPORTANTE: Este Regulamento poderá ser ajustado por necessidade técnica, exigência da Federação Estadual de Atletismo, CBAt, autoridade pública, segurança dos participantes, medição do percurso, condições climáticas ou motivo de força maior. Alterações relevantes serão divulgadas nos canais oficiais do EVENTO. 1. DO EVENTO E DO OBJETIVO 1.1. A 1ª Meia Maratona House Runners de Tailândia 2026, doravante denominada EVENTO, é uma corrida de rua promovida pela HOUSE RUNNERS, doravante denominada ORGANIZAÇÃO, composta pelas provas individuais de 21,0975 km e 5 km. 1.2. O EVENTO tem como objetivos promover a prática esportiva, incentivar hábitos saudáveis, fortalecer a comunidade de corredores e proporcionar integração, lazer e competição esportiva em ambiente organizado e seguro. 1.3. A participação é aberta a atletas amadores, atletas de rendimento e praticantes de corrida de rua, observadas as regras de idade, inscrição, regularidade técni",
+    "prizeTotal": 149.9
+  },
+  {
+    "id": "race-chip-6-1-corrida-provenet-20-anos",
+    "title": "1ª Corrida Provenet 20 Anos",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-11-08",
+    "time": "06:00",
+    "city": "Anapu",
+    "state": "PA",
+    "location": "Provenet Em Frente A Loja, 05hs Concentração.",
+    "distances": [
+      "3 km",
+      "5 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "open",
+    "registrationUrl": "https://www.chipbreubranco.com.br/inscricao-select/5886/1-corrida-provenet-20-anos",
+    "regulationUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-22092026210701-083a80ced3b509f6844e80792fb9fcbc.jpg",
+    "rulesUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-22092026210701-083a80ced3b509f6844e80792fb9fcbc.jpg",
+    "bannerUrl": "https://www.chipbreubranco.com.br/painel/upload/img/inscricao/thumb/img-064-25092026102036-6d17745ad39541ad3f760e9c9b20058b.jpg",
+    "imageUrl": "https://www.chipbreubranco.com.br/painel/upload/img/inscricao/thumb/img-064-25092026102036-6d17745ad39541ad3f760e9c9b20058b.jpg",
+    "featured": false,
+    "currentBatch": "1º Lote",
+    "price": 45,
+    "priceFrom": 45,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 90,
+        "lot_name": "1º Lote"
+      }
+    ],
+    "kitItems": [
+      "Número de Peito com Chip de Cronometragem",
+      "Camiseta Oficial do Evento",
+      "Medalha de Participação (Finisher)",
+      "Hidratação e Suporte de Percurso"
+    ],
+    "awardsInfo": "Troféu oficial do 1º ao 5º Geral Masculino e Feminino + Troféus para os 3 primeiros colocados por faixa etária.",
+    "prizeTotal": 100
+  },
+  {
+    "id": "race-chip-7-1-edi-o-da-corrida-one-run-desafio-dos-campe-es-2026",
+    "title": "1ª Edição da Corrida One Run Desafio dos Campeões 2026",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-11-08",
+    "time": "06:00",
+    "city": "Redenção",
+    "state": "PA",
+    "location": "Avenida Santa Teresa, Em Frente Ao Inácios Hotel",
+    "distances": [
+      "4 km",
+      "5 km",
+      "3 km",
+      "2 km",
+      "1 km",
+      "600 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "open",
+    "registrationUrl": "https://www.chipbreubranco.com.br/inscricao-select/2026/corrida-de-rua/1-edio-da-corrida-one-run-desafio-dos-campees-2026",
+    "regulationUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-01102026133228-25485df232e188a3f3e514ee1c9de020.pdf",
+    "rulesUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-01102026133228-25485df232e188a3f3e514ee1c9de020.pdf",
+    "bannerUrl": "https://www.chipbreubranco.com.br/painel/upload/img/inscricao/thumb/img-064-30092026175940-f3cc098e00f067307a307488cba333c7.jpg",
+    "imageUrl": "https://www.chipbreubranco.com.br/painel/upload/img/inscricao/thumb/img-064-30092026175940-f3cc098e00f067307a307488cba333c7.jpg",
+    "featured": false,
+    "currentBatch": "2º Lote",
+    "price": 50,
+    "priceFrom": 50,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 100,
+        "lot_name": "1º Lote"
+      },
+      {
+        "distance": "3 km",
+        "price": 120,
+        "lot_name": "2º Lote"
+      },
+      {
+        "distance": "2 km",
+        "price": 60,
+        "lot_name": "2º Lote"
+      },
+      {
+        "distance": "1 km",
+        "price": 60,
+        "lot_name": "2º Lote"
+      },
+      {
+        "distance": "600 km",
+        "price": 60,
+        "lot_name": "2º Lote"
+      }
+    ],
+    "kitItems": [
+      "Camiseta",
+      "Bolsa personalizada",
+      "Copo personalizado",
+      "Posseira personalizada",
+      "Carbo Gel",
+      "Medalha",
+      "Passoquinha",
+      "As entregas de kit serão divulgadas próximo a data do evento"
+    ],
+    "awardsInfo": "premiação por classificação geral. II – Corrida Infantil ONE RUN KIDS Modalidade destinada ao público infantil e juvenil, dividida conforme as seguintes faixas etárias: • 5 a 8 anos: 600 metros; • 9 a 11 anos: 1 km; • 12 a 15 anos: 2 km. -- 1 of 6 -- A participação na corrida infantil será mediante inscrição, com valor de R$ 60,00. Todos os participantes da ONE RUN KIDS receberão medalha, conforme organização do evento. A classificação e eventual premiação da corrida infantil observarão a divisão masculino e feminino, respeitando as respectivas faixas etárias. Art. 3º - A largada da corrida será às 6hrs, na Avenida Santa Teresa, em frente a REMAC, independentemente da condição climática. Art. 4º - Ao se inscrever, o participante declara estar ciente e de acordo com todos os itens deste regulamento e assume total responsabilidade por sua participação no evento, conforme o Termo de Responsabilidade, parte integrante deste regulamento. Parágrafo único – Os dados pessoais dos atletas inscritos serão utilizados exclusivamente para fins de identificação, segurança, organização do evento, classificação, divulgação de resultados e aprimoramento dos serviços, observados os princípios e di",
+    "prizeTotal": 60
+  },
+  {
+    "id": "race-chip-8-1-corrida-jn-run",
+    "title": "1° Corrida Jn Run",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-11-15",
+    "time": "06:00",
+    "city": "Tomé Açu",
+    "state": "PA",
+    "location": "PÁtio Da Jn Terraplanagem",
+    "distances": [
+      "6 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "open",
+    "registrationUrl": "https://www.chipbreubranco.com.br/inscricao-select/7002/1-corrida-jn-run",
+    "regulationUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-23092026180845-c4c38a34e7a5cabb2449a3a281c207bd.pdf",
+    "rulesUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-23092026180845-c4c38a34e7a5cabb2449a3a281c207bd.pdf",
+    "bannerUrl": "https://www.chipbreubranco.com.br/painel/upload/img/inscricao/thumb/img-064-16092026172540-fec85f25319b5039c6ad7b37cbd8702a.jpg",
+    "imageUrl": "https://www.chipbreubranco.com.br/painel/upload/img/inscricao/thumb/img-064-16092026172540-fec85f25319b5039c6ad7b37cbd8702a.jpg",
+    "featured": false,
+    "currentBatch": "2º Lote",
+    "price": 35,
+    "priceFrom": 35,
+    "categories": [
+      {
+        "distance": "6 km",
+        "price": 70,
+        "lot_name": "1º Lote"
+      }
+    ],
+    "kitItems": [
+      "Número de Peito com Chip de Cronometragem",
+      "Camiseta Oficial do Evento",
+      "Medalha de Participação (Finisher)",
+      "Hidratação e Suporte de Percurso"
+    ],
+    "awardsInfo": "PREMIAÇÃO Categorias Individuais Serão premiados o 1º, o 2º e o 3º lugar de cada categoria, no masculino e no feminino, com troféu e prêmio em dinheiro: COLOCAÇÃO GERAL (M e F) LOCAL (M e F) FAIXA ETÁRIA (M e F) 1º lugar R$ 1.500,00 + troféu R$ 1.000,00 + troféu R$ 300,00 + troféu 2º lugar R$ 1.000,00 + troféu R$ 700,00 + troféu R$ 200,00 + troféu 3º lugar R$ 700,00 + troféu R$ 500,00 + troféu R$ 100,00 + troféu As faixas etárias premiadas são: 10 a 17, 18 a 29 anos, 30 a 39 anos, 40 a 49 anos, 50 a 59 anos e 60 anos ou mais. 6. KIT DO PARTICIPANTE O kit de cada atleta inscrito será composto por: ● Camisa oficial do evento ● Número de peito com chip de cronometragem ● Medalha de participação (entregue na chegada) ● Hidratação durante e após a prova ● Lanche pós-prova e brindes de patrocinadores 7. RETIRADA DOS KITS ● Data: 14 de novembro de 2026 (sábado, véspera da prova) ● Local: Tomé-Açu – Quatro-bocas / PA (Loja D’roma) ● Para retirar o kit é obrigatório apresentar documento oficial com foto. 8. REGRAS DE PARTICIPAÇÃO ● O número de peito com chip é pessoal e intransferível, devendo ser usado na frente do corpo e visível durante toda a prova. ● É proibido receber auxílio externo",
+    "prizeTotal": 1500
+  },
+  {
+    "id": "race-chip-9-corrida-de-anivers-rio-del-cia-do-guaran-30-anos",
+    "title": "Corrida de Aniversário Delícia do Guaraná - 30 Anos",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-11-21",
+    "time": "19:00",
+    "city": "Marabá",
+    "state": "PA",
+    "location": "Praça Dos Maçons",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "open",
+    "registrationUrl": "https://www.chipbreubranco.com.br/inscricao-select/7510/corrida-de-aniversario-delicia-do-guarana-30-anos",
+    "regulationUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-64-61ffbf5feae1f0cff945b2ad452f78bf.pdf",
+    "rulesUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-64-61ffbf5feae1f0cff945b2ad452f78bf.pdf",
+    "bannerUrl": "https://www.chipbreubranco.com.br/painel/upload/img/inscricao/thumb/img-064-06102026215759-55e3849e1a2e182ee334beacb0e03bc0.png",
+    "imageUrl": "https://www.chipbreubranco.com.br/painel/upload/img/inscricao/thumb/img-064-06102026215759-55e3849e1a2e182ee334beacb0e03bc0.png",
+    "featured": false,
+    "currentBatch": "1º Lote",
+    "price": 67.5,
+    "priceFrom": 67.5,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 135,
+        "lot_name": "1º Lote"
+      }
+    ],
+    "kitItems": [
+      "Número de Peito com Chip de Cronometragem",
+      "Camiseta Oficial do Evento",
+      "Medalha de Participação (Finisher)",
+      "Hidratação e Suporte de Percurso"
+    ],
+    "awardsInfo": "premiação deverão se apresentar imediatamente à área de premiação quando chamados pela organização. 7.5 - O atleta que cortar caminho, não passar por ponto de controle, utilizar chip de terceiro, receber auxílio irregular, correr sem número de peito visível ou descumprir o regulamento poderá ser desclassificado. 7.6 - Qualquer reclamação sobre resultado deverá ser apresentada por escrito à organização em até 30 (trinta) minutos após a divulgação preliminar. 8. DA PREMIAÇÃO 8.1 - Todos os atletas que concluírem regularmente a prova receberão medalha de participação. 8.2 - A premiação especial será concedida conforme as categorias e tabelas abaixo. 8.3 - A premiação em dinheiro poderá ser paga em espécie, por transferência bancária ou outro meio definido pela organização, mediante apresentação de documentos pessoais do atleta vencedor. 8.4 - Os valores da premiação poderão ser alterados para mais, a critério da organização, patrocinadores e apoiadores do evento. 8.5 - A organização poderá exigir assinatura de recibo, confirmação de dados bancários e documento oficial com foto para liberação de valores. CATEGORIA FAVORITOS - MASCULINO Colocação Categoria Valor/Premiação 1º Lugar Mascu",
+    "prizeTotal": 100
+  },
+  {
+    "id": "race-chip-10-corrida-contra-o-racismo",
+    "title": "Corrida Contra o Racismo",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-11-22",
+    "time": "06:00",
+    "city": "Concórdia Do Pará",
+    "state": "PA",
+    "location": "Em Frente A Escola Guadalupe, Concentração Aparti Das 05:00hs.",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "open",
+    "registrationUrl": "https://www.chipbreubranco.com.br/inscricao-select/6565/corrida-contra-o-racismo",
+    "regulationUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-21092026120821-d9a3a622c55fe34bd409a2235f9b675b.pdf",
+    "rulesUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-21092026120821-d9a3a622c55fe34bd409a2235f9b675b.pdf",
+    "bannerUrl": "https://www.chipbreubranco.com.br/painel/upload/img/inscricao/thumb/img-064-21092026072940-c1051312c8fbe1055cfcdce8167f84e8.jpg",
+    "imageUrl": "https://www.chipbreubranco.com.br/painel/upload/img/inscricao/thumb/img-064-21092026072940-c1051312c8fbe1055cfcdce8167f84e8.jpg",
+    "featured": false,
+    "currentBatch": "1º Lote",
+    "price": 80,
+    "priceFrom": 80,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 80,
+        "lot_name": "1º Lote"
+      }
+    ],
+    "kitItems": [
+      "Camisa Oficial do Evento",
+      "Número de Peito com Chip de Cronometragem",
+      "Medalha de Participação (Finisher)",
+      "Hidratação durante e pós-prova",
+      "Lanche Pós-Prova"
+    ],
+    "awardsInfo": "Premiação Geral (Masculino e Feminino): 1º Lugar: R$ 600,00 + Troféu | 2º Lugar: R$ 400,00 + Troféu | 3º Lugar: R$ 200,00 + Troféu. Categorias PCD e Estudante: Medalhas + Troféus para os 3 primeiros colocados.",
+    "prizeTotal": 600
+  },
+  {
+    "id": "race-chip-11-2-corrida-dos-empres-rios",
+    "title": "2ª Corrida dos Empresários",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-11-22",
+    "time": "06:00",
+    "city": "Tailândia",
+    "state": "PA",
+    "location": "A Definir",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "open",
+    "registrationUrl": "https://www.chipbreubranco.com.br/inscricao-select/8993/2-corrida-dos-empresarios",
+    "regulationUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-15092026145946-b9586664768defad5925bae266fe5464.pdf",
+    "rulesUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-15092026145946-b9586664768defad5925bae266fe5464.pdf",
+    "bannerUrl": "https://www.chipbreubranco.com.br/painel/upload/img/inscricao/thumb/img-064-02102026090759-f25000058f3f4c0a7440f8e34a98a6f9.png",
+    "imageUrl": "https://www.chipbreubranco.com.br/painel/upload/img/inscricao/thumb/img-064-02102026090759-f25000058f3f4c0a7440f8e34a98a6f9.png",
+    "featured": false,
+    "currentBatch": "2º Lote",
+    "price": 39.9,
+    "priceFrom": 39.9,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 79.9,
+        "lot_name": "1º Lote"
+      }
+    ],
+    "kitItems": [
+      "Número de Peito com Chip de Cronometragem",
+      "Camiseta Oficial do Evento",
+      "Medalha de Participação (Finisher)",
+      "Hidratação e Suporte de Percurso"
+    ],
+    "awardsInfo": "premiação para a MAIOR EQUIPE, conforme a seção 5 deste regulamento. ▪ A idade considerada para a faixa etária é a idade completa do atleta em 31 de dezembro de 2026. ▪ A idade mínima para participar é de 15 anos completos no dia da prova. ▪ Atletas menores de 18 anos só poderão participar com autorização assinada pelo pai, mãe ou responsável legal, entregue na retirada do kit. O modelo está no ANEXO I, no final deste regulamento. ▪ O atleta premiado entre os 5 primeiros da categoria GERAL não é premiado também na sua faixa etária. Nesse caso, a vaga na faixa etária passa para o próximo colocado. ▪ O atleta premiado entre os 5 primeiros da categoria GERAL não é premiado também na categoria LOCAL. Nesse caso, a vaga na categoria LOCAL passa para o próximo colocado residente em Tailândia. ▪ A categoria LOCAL considera a cidade informada pelo atleta no cadastro da inscrição. O atleta é responsável por essa informação. ▪ Para concorrer na categoria EMPRESÁRIOS o atleta precisa ter 18 anos completos ou mais. Menor de 18 anos não pode se inscrever nessa categoria. ▪ A categoria EMPRESÁRIOS é independente: o empresário premiado nela também concorre normalmente ao Geral e à sua faixa etári",
+    "prizeTotal": 100
+  },
+  {
+    "id": "race-chip-12-2-corrida-de-rua-e-vi-open-da-box-eleven",
+    "title": "2ª Corrida de Rua e VI Open da Box Eleven",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-11-29",
+    "time": "06:00",
+    "city": "Tailândia",
+    "state": "PA",
+    "location": "A Definir",
+    "distances": [
+      "3 km",
+      "5 km",
+      "7 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "open",
+    "registrationUrl": "https://www.chipbreubranco.com.br/inscricao-select/3866/2-corrida-de-rua-e-vi-open-da-box-eleven",
+    "regulationUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-19082026193429-9063366e3ba3efafeddfb78e4e422c62.pdf",
+    "rulesUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-19082026193429-9063366e3ba3efafeddfb78e4e422c62.pdf",
+    "bannerUrl": "https://www.chipbreubranco.com.br/painel/upload/img/inscricao/thumb/img-064-19082026190252-504d8900dec6fc001704a4fdb33c3c0a.png",
+    "imageUrl": "https://www.chipbreubranco.com.br/painel/upload/img/inscricao/thumb/img-064-19082026190252-504d8900dec6fc001704a4fdb33c3c0a.png",
+    "featured": true,
+    "currentBatch": "2º Lote",
+    "price": 79.9,
+    "priceFrom": 79.9,
+    "categories": [
+      {
+        "distance": "3 km",
+        "price": 79.9,
+        "lot_name": "2º Lote"
+      },
+      {
+        "distance": "5 km",
+        "price": 89.9,
+        "lot_name": "2º Lote"
+      },
+      {
+        "distance": "7 km",
+        "price": 99.9,
+        "lot_name": "2º Lote"
+      }
+    ],
+    "kitItems": [
+      "Camiseta Oficial Box Eleven",
+      "Número de Peito com Chip de Cronometragem",
+      "Medalha de Conclusão Finisher",
+      "Hidratação e Mesa de Frutas"
+    ],
+    "awardsInfo": "Premiação Geral (1º ao 5º Masc/Fem): Troféus personalizados e premiação em dinheiro. 1º Lugar: R$ 800,00 | 2º Lugar: R$ 500,00 | 3º Lugar: R$ 300,00 | 4º e 5º Troféus. Premiação por faixas etárias de 10 em 10 anos (1º ao 3º lugar).",
+    "prizeTotal": 800
+  },
+  {
+    "id": "race-chip-13-1-corrida-corrente-do-bem",
+    "title": "1ª Corrida Corrente do Bem",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-11-29",
+    "time": "06:00",
+    "city": "PacajÁ",
+    "state": "PA",
+    "location": "Praça da Bíblia, Av. Belém, Bairro: São Francisco",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "open",
+    "registrationUrl": "https://www.chipbreubranco.com.br/inscricao-select/7245/1-corrida-corrente-do-bem",
+    "regulationUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-14092026115533-dc871d2aea75fc5b3ef9693f42464147.pdf",
+    "rulesUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-14092026115533-dc871d2aea75fc5b3ef9693f42464147.pdf",
+    "bannerUrl": "https://www.chipbreubranco.com.br/painel/upload/img/inscricao/thumb/img-064-14092026115511-c0f6a0f36e47048f49ee42bb688933bc.jpg",
+    "imageUrl": "https://www.chipbreubranco.com.br/painel/upload/img/inscricao/thumb/img-064-14092026115511-c0f6a0f36e47048f49ee42bb688933bc.jpg",
+    "featured": false,
+    "currentBatch": "1º Lote",
+    "price": 50,
+    "priceFrom": 50,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 100,
+        "lot_name": "1º Lote"
+      }
+    ],
+    "kitItems": [
+      "Camisa oficial da corrida; meias personalizadas, número de peito; Medalha de",
+      "participação, Lanche pós corrida",
+      "O tamanho da camisa e da meia deverá ser escolhido no momento da inscrição e"
+    ],
+    "awardsInfo": "premiação. O atleta que concluir a prova sem a camisa e as meias oficiais perderá o direito ao pódio e à respectiva premiação. Ao realizar sua inscrição, o participante declara estar ciente e de acordo com esta regra. 8. NÚMERO DE PEITO O número de peito é de uso obrigatório durante toda a prova e deverá permanecer visível. É proibida a alteração, reprodução ou utilização do número de peito pertencente a outro participante. O atleta que participar utilizando inscrição ou número de peito de outra pessoa será desclassificado. 9. MODALIDADE A corrida será disputada nas modalidades INDIVIDUAL MASCULINO e INDIVIDUAL FEMININO em categorias distintas incluindo geral, mirim e por faixa-etária, onde cada atleta adulto correrá o percurso de aproximadamente 05 Km e o mirim aproximadamente 03 km. -- 3 of 8 -- 4 10. CATEGORIAS A 1ª Corrida CORRENTE DO BEM em prol da vida contará com as seguintes categorias e faixas etárias: Geral Masculino e Feminino 13 a 19 anos 20 a 29 anos 30 a 39 anos 40 a 49 anos 50 anos ou mais Mirim: 05 a 12 anos A idade considerada para enquadramento em cada categoria será definida conforme os critérios estabelecidos pela organização. Os participantes são responsáveis",
+    "prizeTotal": 100
+  },
+  {
+    "id": "race-chip-14-1-corrida-de-obst-culos-de-novo-repartimento",
+    "title": "1ª Corrida de Obstáculos de Novo Repartimento",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-12-06",
+    "time": "06:30",
+    "city": "Novo Repartimento",
+    "state": "PA",
+    "location": "Largada e chegada na academia viking na avenida Brasil no vale do sol.",
+    "distances": [
+      "3 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "open",
+    "registrationUrl": "https://www.chipbreubranco.com.br/inscricao-select/3382/1-corrida-de-obstculos-de-novo-repartimento",
+    "bannerUrl": "https://www.chipbreubranco.com.br/painel/upload/img/inscricao/thumb/img-064-30082026150709-64517d8435994992e682b3e4aa0a0661.jpg",
+    "imageUrl": "https://www.chipbreubranco.com.br/painel/upload/img/inscricao/thumb/img-064-30082026150709-64517d8435994992e682b3e4aa0a0661.jpg",
+    "featured": false,
+    "currentBatch": "2º Lote",
+    "price": 50,
+    "priceFrom": 50,
+    "categories": [
+      {
+        "distance": "3 km",
+        "price": 100,
+        "lot_name": "1º Lote"
+      }
+    ],
+    "kitItems": [
+      "Número de Peito com Chip de Cronometragem",
+      "Camiseta Oficial do Evento",
+      "Medalha de Participação (Finisher)",
+      "Hidratação e Suporte de Percurso"
+    ],
+    "awardsInfo": "Troféu oficial do 1º ao 5º Geral Masculino e Feminino + Troféus para os 3 primeiros colocados por faixa etária.",
+    "prizeTotal": 100
+  },
+  {
+    "id": "race-chip-15-corrida-do-c-rio",
+    "title": "Corrida do Círio",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-12-06",
+    "time": "06:00",
+    "city": "Abaetetuba",
+    "state": "PA",
+    "location": "PRAÇA DE CONCEIÇÃO",
+    "distances": [
+      "6 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "open",
+    "registrationUrl": "https://www.chipbreubranco.com.br/inscricao-select/760/corrida-do-cirio",
+    "regulationUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-18092026082516-9da86049f5da6ce58009620e47e32324.pdf",
+    "rulesUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-18092026082516-9da86049f5da6ce58009620e47e32324.pdf",
+    "bannerUrl": "https://www.chipbreubranco.com.br/painel/upload/img/inscricao/thumb/img-064-16092026110536-5847c1b5bad36912f13024fbe20d606e.jpg",
+    "imageUrl": "https://www.chipbreubranco.com.br/painel/upload/img/inscricao/thumb/img-064-16092026110536-5847c1b5bad36912f13024fbe20d606e.jpg",
+    "featured": false,
+    "currentBatch": "1º Lote",
+    "price": 50,
+    "priceFrom": 50,
+    "categories": [
+      {
+        "distance": "6 km",
+        "price": 100,
+        "lot_name": "1º Lote"
+      }
+    ],
+    "kitItems": [
+      "de peito com alfinetes e uma medalha. Os tamanhos das camisas deverão ser",
+      "dados e o número de peito, sendo obrigatória a apresentação de documento de"
+    ],
+    "awardsInfo": "premiação que porventura faça jus. Parágrafo único: Não haverá devolução ou ressarcimento do valor pago em casos de desistência do atleta, salvo nas hipóteses previstas em lei, especialmente em caso de cancelamento do evento por iniciativa da organização ou impossibilidade de sua realização. Art. 6º - As inscrições serão realizadas: I. Pela Internet, através do link disponível no site http://www.chipbreubranco.com.br/ , no período de 10 de setembro a 05 de dezembro de 2026, ou até esgotarem as vagas. Art. 7º - A taxa de inscrição será 1º lote R$ 100,00 (noventa reais) + taxa do site, 2º lote R$ 110,00 (cem reais) + taxa do site e 3º lote R$ 120,00 (cento e dez reais) + taxa do site. O pagamento do valor deve ser feito no ato da inscrição via Pix, cartão de crédito ou débito bancário. A inscrição só será confirmada após a efetuação do pagamento. NÃO SERÃO computadas INSCRIÇÕES SEM CONFIRMAÇÃO DE PAGAMENTO. -- 1 of 11 -- Art. 8º - Os participantes são responsáveis pela veracidade das informações fornecidas na ficha de inscrição. Caso haja fraude comprovada, o atleta será desclassificado da prova e poderá responder por crime de falsidade ideológica e/ou documental. Do KIT Art. 9º -",
+    "prizeTotal": 120
+  },
+  {
+    "id": "race-chip-16-lav-bday-run",
+    "title": "Lav Bday Run",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-12-13",
+    "time": "06:00",
+    "city": "Abaetetuba",
+    "state": "PA",
+    "location": "PORTO DO AÇAÍ PARAENSE",
+    "distances": [
+      "6 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "open",
+    "registrationUrl": "https://www.chipbreubranco.com.br/inscricao-select/2950/lav-bday-run",
+    "regulationUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-02102026075135-e0688d13958a19e087e123148555e4b4.pdf",
+    "rulesUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-02102026075135-e0688d13958a19e087e123148555e4b4.pdf",
+    "bannerUrl": "https://www.chipbreubranco.com.br/painel/upload/img/inscricao/thumb/img-064-02102026075118-6f2d1422bf08670543e6c0a70664ddbe.png",
+    "imageUrl": "https://www.chipbreubranco.com.br/painel/upload/img/inscricao/thumb/img-064-02102026075118-6f2d1422bf08670543e6c0a70664ddbe.png",
+    "featured": false,
+    "currentBatch": "1º Lote",
+    "price": 35,
+    "priceFrom": 35,
+    "categories": [
+      {
+        "distance": "6 km",
+        "price": 70,
+        "lot_name": "1º Lote"
+      }
+    ],
+    "kitItems": [
+      "Número de Peito com Chip de Cronometragem",
+      "Camiseta Oficial do Evento",
+      "Medalha de Participação (Finisher)",
+      "Hidratação e Suporte de Percurso"
+    ],
+    "awardsInfo": "PREMIAÇÃO Art. 15º A premiação será destinada exclusivamente as seguintes Categorias: Gerais, especiais e por duplas. Na categoria geral, haverá 1º, 2º e 3º lugares feminino e masculino. Nas categorias especiais, serão premiados o 1º lugar feminino e masculino 50+, além do 1º lugar feminino e masculino PCD e 1º lugar na categoria LGBTQIAPN+. Também haverá premiação para alunos LAV, com 1º lugar feminino e 2º lugar masculino. Nas categorias em dupla, serão premiados 1º e 2º lugares nas modalidades feminina, masculina e mista. E, para fechar, teremos uma premiação especial para a melhor mãe do mundo. Art. 16º Todos os participantes que concluírem a corrida ou caminhada dentro do tempo limite receberão medalha de participação. CAPÍTULO 7 – DAS PENALIDADES E PROIBIÇÕES Art. 17º Será desclassificado o atleta que: 1. Utilizar meios ilícitos para se beneficiar, como atalhos, transporte ou apoio irregular; -- 2 of 3 -- 2. Demonstrar conduta antidesportiva, agressões físicas ou verbais a outros atletas, staff ou público; 3. Não cumprir integralmente o percurso; 4. Correr sem número de peito oficial. CAPÍTULO 8 – DAS OBRIGAÇÕES DA ORGANIZAÇÃO Art. 18º A Comissão Organizadora se compromete",
+    "prizeTotal": 100
+  },
+  {
+    "id": "race-chip-17-2-corrida-mission-ria",
+    "title": "2ª Corrida Missionária",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-12-20",
+    "time": "06:00",
+    "city": "Marabá",
+    "state": "PA",
+    "location": "Em frente ao Ginásio de Esporte de Morada Nova",
+    "distances": [
+      "5 km",
+      "2 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "open",
+    "registrationUrl": "https://www.chipbreubranco.com.br/inscricao-select/2026/corrida-de-rua/2-corrida-missionaria",
+    "regulationUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-30092026205331-7d8ce1d7ed4350e74cd80f0e9ef97ead.pdf",
+    "rulesUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-30092026205331-7d8ce1d7ed4350e74cd80f0e9ef97ead.pdf",
+    "bannerUrl": "https://www.chipbreubranco.com.br/thumb.php?q=100&h=500&arquivo=img-64-b0c10480e42af547780b379bd75da8c7.png",
+    "imageUrl": "https://www.chipbreubranco.com.br/thumb.php?q=100&h=500&arquivo=img-64-b0c10480e42af547780b379bd75da8c7.png",
+    "featured": false,
+    "currentBatch": "1º Lote",
+    "price": 40,
+    "priceFrom": 40,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 80,
+        "lot_name": "1º Lote"
+      },
+      {
+        "distance": "2 km",
+        "price": 80,
+        "lot_name": "1º Lote"
+      }
+    ],
+    "kitItems": [
+      "Camiseta",
+      "Chip",
+      "Número de peito",
+      "Medalha",
+      "Barra de sereal",
+      "Paçoquinha"
+    ],
+    "awardsInfo": "PREMIAÇÃO: APÓS A FINALIZAÇÃO DO EVENTO: 8:30h 6. KIT DO ATLETA O kit do atleta incluirá: camiseta oficial, número de peito, chip de cronometragem e medalha de participação. A retirada do kit ocorrerá nos dias 19 dezembro, 9h às 19h, No anexo administrativo da Igreja Batista Missionária Morada Nova, localizado na rua do murumuru, número 209, Morada Nova, Marabá-Pa, É obrigatório apresentar documento de identidade e comprovante de inscrição para a retirada do kit. É permitida a retirada de kits por terceiros, mediante apresentação do documento de identidade do atleta inscrito. -- 1 of 3 -- 7. CATEGORIAS As categorias serão deduzidas pelo ano de nascimento do atleta. Sendo assim a idade a ser tomada como referência será a que o respectivo atleta fará no ano de 2026. As categorias serão as abaixo informadas, tanto para a modalidade 2k, quanto para a 5k serão: Geral Masculino e Geral Feminino: A 🟢 CATEGORIA ADOLESCENTE MASCULINOE FEMININO: 9 A 14 ANOS :1 , 2 E 3 LUGAR 🏆 🟢 CATEGORIA 19 A 29 ANOS MASCULINO E FEMININO 1, 2 E 3 LUGAR🏆 🟢 CATEGORIA 30 A 39 ANOS MASCULINO E FEMININO 1, 2 E 3 LUGAR 🏆 🟢 CATEGORIA 40 A 49 ANOS MASCULINO E FEMININO 1 , 2 E 3 LUGAR 🏆 🟢 50 A 59 ANOS CATE",
+    "prizeTotal": 100
+  },
+  {
+    "id": "race-chip-18-corrida-t-tico-extreme-run",
+    "title": "Corrida Tático Extreme Run",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-12-20",
+    "time": "06:00",
+    "city": "Abaetetuba",
+    "state": "PA",
+    "location": "Terminal Rodoviário De Abaetetuba",
+    "distances": [
+      "7 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "open",
+    "registrationUrl": "https://www.chipbreubranco.com.br/inscricao-select/corrida-ttico-extreme-run-2026",
+    "regulationUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-18092026115622-fea76b7ab660fd8591d5b3c6002add88.pdf",
+    "rulesUrl": "https://www.chipbreubranco.com.br/painel/upload/doc/inscricao/doc-064-18092026115622-fea76b7ab660fd8591d5b3c6002add88.pdf",
+    "bannerUrl": "https://www.chipbreubranco.com.br/thumb.php?q=100&h=500&arquivo=img-64-524bb203199b4731216cb6fb0d91ab85.png",
+    "imageUrl": "https://www.chipbreubranco.com.br/thumb.php?q=100&h=500&arquivo=img-64-524bb203199b4731216cb6fb0d91ab85.png",
+    "featured": false,
+    "currentBatch": "1º Lote",
+    "price": 45,
+    "priceFrom": 45,
+    "categories": [
+      {
+        "distance": "7 km",
+        "price": 90,
+        "lot_name": "1º Lote"
+      }
+    ],
+    "kitItems": [
+      "Camiseta",
+      "Número de peito",
+      "Chip de cronometragem",
+      "Medalha"
+    ],
+    "awardsInfo": "premiação que porventura faça jus. Parágrafo único: Não haverá devolução ou ressarcimento do valor pago em casos de desistência do atleta, salvo nas hipóteses previstas em lei, especialmente em caso de cancelamento do evento por iniciativa da organização ou impossibilidade de sua realização. Art. 6º - As inscrições serão realizadas: I. Pela Internet, através do link disponível no site http://www.chipbreubranco.com.br/ , no período de 2 de junho a 15 de dezembro de 2026, ou até esgotarem as vagas. Art. 7º - A taxa de inscrição será 1º lote R$ 90,00 (noventa reais) + taxa do site, 2º lote R$ 100,00 (cem reais) + taxa do site e 3º lote R$ 110,00 (cento e dez reais) + taxa do site. O pagamento do valor deve ser feito no ato da inscrição via Pix, cartão de crédito ou débito bancário. A inscrição só será confirmada após a efetuação do pagamento. NÃO SERÃO computadas INSCRIÇÕES SEM CONFIRMAÇÃO DE PAGAMENTO. -- 1 of 11 -- Art. 8º - Os participantes são responsáveis pela veracidade das informações fornecidas na ficha de inscrição. Caso haja fraude comprovada, o atleta será desclassificado da prova e poderá responder por crime de falsidade ideológica e/ou documental. Do KIT Art. 9º - O kit",
+    "prizeTotal": 110
+  },
+  {
+    "id": "race-chip-19-1-corrida-do-amor-em-prol-da-vida",
+    "title": "1ª Corrida do Amor em Prol da Vida",
+    "organizer": "Chip Pará",
+    "date": "2026-11-22",
+    "time": "06:30",
+    "city": "anapu",
+    "state": "PA",
+    "location": "Praça Central",
+    "distances": [
+      "3 km",
+      "5 km"
+    ],
+    "chipCompany": "Chip Pará",
+    "status": "open",
+    "registrationUrl": "https://www.chippara.com.br/inscricao-select/1682/1-corrida-do-amor-em-prol-da-vida",
+    "regulationUrl": "https://www.chippara.com.br/painel/upload/doc/inscricao/doc-107-31082026121512-ffc0978c507577f2e1d0e7c17fd7457b.pdf",
+    "rulesUrl": "https://www.chippara.com.br/painel/upload/doc/inscricao/doc-107-31082026121512-ffc0978c507577f2e1d0e7c17fd7457b.pdf",
+    "bannerUrl": "https://www.chippara.com.br/painel/upload/img/inscricao/thumb/img-107-31082026093912-53afd7ab97449cdbb682b6b7e335c524.jpg",
+    "imageUrl": "https://www.chippara.com.br/painel/upload/img/inscricao/thumb/img-107-31082026093912-53afd7ab97449cdbb682b6b7e335c524.jpg",
+    "featured": false,
+    "currentBatch": "1º Lote",
+    "price": 85,
+    "priceFrom": 85,
+    "categories": [
+      {
+        "distance": "3 km",
+        "price": 75,
+        "lot_name": "1º Lote"
+      },
+      {
+        "distance": "5 km",
+        "price": 85,
+        "lot_name": "1º Lote"
+      }
+    ],
+    "kitItems": [
+      "Camiseta Oficial do Amor",
+      "Número de Peito com Chip de Cronometragem",
+      "Medalha de Participação Finisher",
+      "Hidratação e Apoio Médico"
+    ],
+    "awardsInfo": "Premiação Geral (1º ao 5º Lugar): 1º Lugar: R$ 500,00 + Troféu | 2º Lugar: R$ 300,00 + Troféu | 3º Lugar: R$ 200,00 + Troféu | 4º e 5º Troféus. Troféus para os 3 primeiros de cada faixa etária.",
+    "prizeTotal": 500
+  },
+  {
+    "id": "race-chip-20-2-corrida-de-anivers-rio-de-jacund-2026-65-anos",
+    "title": "2ª Corrida de Aniversário de Jacundá 2026 - 65 Anos",
+    "organizer": "Chip Pará",
+    "date": "2026-12-06",
+    "time": "06:00",
+    "city": "Jacundá",
+    "state": "PA",
+    "location": "Praça Inácio Pinto, Em Frente A Prefeitura Municipal De Jacundá,",
+    "distances": [
+      "3,5 km",
+      "3 km Caminhada",
+      "5,5 km"
+    ],
+    "chipCompany": "Chip Pará",
+    "status": "open",
+    "registrationUrl": "https://www.chippara.com.br/inscricao-select/1259/2-corrida-de-aniversario-de-jacunda-2026-65anos",
+    "regulationUrl": "https://www.chippara.com.br/painel/upload/doc/inscricao/doc-107-21092026214907-7f982c526e15dfa8be4c3eaa864c56ee.pdf",
+    "rulesUrl": "https://www.chippara.com.br/painel/upload/doc/inscricao/doc-107-21092026214907-7f982c526e15dfa8be4c3eaa864c56ee.pdf",
+    "bannerUrl": "https://www.chippara.com.br/painel/upload/img/inscricao/thumb/img-107-22092026102137-50c2e156c1502fb41bc5d51be51d76a3.jpg",
+    "imageUrl": "https://www.chippara.com.br/painel/upload/img/inscricao/thumb/img-107-22092026102137-50c2e156c1502fb41bc5d51be51d76a3.jpg",
+    "featured": false,
+    "currentBatch": "1º Lote",
+    "price": 32.5,
+    "priceFrom": 32.5,
+    "categories": [
+      {
+        "distance": "5,5 km",
+        "price": 65,
+        "lot_name": "1º Lote"
+      }
+    ],
+    "kitItems": [
+      "Camisa oficial da corrida.",
+      "&nbsp;Caixa personalizada em MDF.",
+      "Número de peito (chip de cronometragem).",
+      "Squeze",
+      "Gel de carboidrato.",
+      "&nbsp;- Alfinetes."
+    ],
+    "awardsInfo": "premiação, sem prejuízo das demais medidas cabíveis. DA CATEGORIA PESSOA COM DEFICIÊNCIA – PCD Art. 24 - Poderá inscrever-se na categoria Pessoa com Deficiência – PCD o atleta que possua deficiência devidamente comprovada, observadas as condições estabelecidas neste Regulamento. § 1º - Para concorrer à classificação e à premiação da categoria PCD, o atleta deverá informar sua condição no ato da inscrição e apresentar laudo médico ou documento comprobatório equivalente, contendo informações suficientes para comprovação da deficiência declarada. § 2º - O atleta que possuir classificação funcional ou esportiva reconhecida poderá apresentar o respectivo documento para fins de comprovação e enquadramento na categoria. § 3º - A documentação comprobatória deverá ser apresentada pelo meio e dentro do prazo estabelecidos pela organização, ficando a participação na categoria PCD e o direito à respectiva premiação condicionados à validação da inscrição. -- 7 of 16 -- Rua Pinto Silva s/nº - Centro Administrativo – CEP: 68.590-000 – Jacundá - Pará. Fone: (94) 99112-5648 2ª CORRIDA DE ANIVERSÁRIO DE JACUNDÁ 2026 • 65 ANOS § 4º - Quando a documentação apresentada não permitir a adequada verific",
+    "prizeTotal": 100
+  },
+  {
+    "id": "race-chip-21-2-corridinha-cacau-show",
+    "title": "2° Corridinha Cacau Show",
+    "organizer": "LOJA CACAU SHOW CAMETÁ",
+    "date": "2026-10-03",
+    "time": "17:00",
+    "city": "Cametá",
+    "state": "PA",
+    "location": "Cametá - Cacau Show São Benedito",
+    "distances": [
+      "Kids"
+    ],
+    "chipCompany": "Chip Chronos",
+    "status": "open",
+    "registrationUrl": "https://www.superachipcrono.com.br/inscricao-select/8187/2-corridinha-cacau-show",
+    "regulationUrl": "https://www.superachipcrono.com.br/painel/upload/doc/inscricao/doc-093-22092026215725-51ac44a07a22f44b4ae0895fdcf9e317.jpg",
+    "rulesUrl": "https://www.superachipcrono.com.br/painel/upload/doc/inscricao/doc-093-22092026215725-51ac44a07a22f44b4ae0895fdcf9e317.jpg",
+    "bannerUrl": "https://www.superachipcrono.com.br/painel/upload/img/inscricao/thumb/img-093-22092026215650-f1e8a365a56b3c3827ccf9e2ea24c989.png",
+    "imageUrl": "https://www.superachipcrono.com.br/painel/upload/img/inscricao/thumb/img-093-22092026215650-f1e8a365a56b3c3827ccf9e2ea24c989.png",
+    "featured": false,
+    "currentBatch": "1º Lote",
+    "price": 65,
+    "priceFrom": 65,
+    "categories": [
+      {
+        "distance": "Kids",
+        "price": 65,
+        "lot_name": "1º Lote"
+      }
+    ],
+    "kitItems": [
+      "Número de Peito com Chip de Cronometragem",
+      "Camiseta Oficial do Evento",
+      "Medalha de Participação (Finisher)",
+      "Hidratação e Suporte de Percurso"
+    ],
+    "awardsInfo": "Troféu oficial do 1º ao 5º Geral Masculino e Feminino + Troféus para os 3 primeiros colocados por faixa etária.",
+    "prizeTotal": 100
+  },
+  {
+    "id": "race-chip-22-1-corrida-satlinkplay",
+    "title": "1° Corrida Satlinkplay",
+    "organizer": "Neto Fernandes",
+    "date": "2026-10-18",
+    "time": "06:30",
+    "city": "Tucuruí",
+    "state": "PA",
+    "location": "Tucuruí",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Chronos",
+    "status": "open",
+    "registrationUrl": "https://www.superachipcrono.com.br/inscricao-select/5800/1-corrida-satlinkplay",
+    "regulationUrl": "https://www.superachipcrono.com.br/painel/upload/doc/inscricao/doc-093-25092026120843-82e7970bd7ced603cbb5c77ae66eea0f.pdf",
+    "rulesUrl": "https://www.superachipcrono.com.br/painel/upload/doc/inscricao/doc-093-25092026120843-82e7970bd7ced603cbb5c77ae66eea0f.pdf",
+    "bannerUrl": "https://www.superachipcrono.com.br/painel/upload/img/inscricao/thumb/img-093-25092026140028-9476630396673074b98a68eb20e70245.png",
+    "imageUrl": "https://www.superachipcrono.com.br/painel/upload/img/inscricao/thumb/img-093-25092026140028-9476630396673074b98a68eb20e70245.png",
+    "featured": true,
+    "currentBatch": "1º Lote",
+    "price": 49.99,
+    "priceFrom": 49.99,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 49.99,
+        "lot_name": "1º Lote"
+      }
+    ],
+    "kitItems": [
+      "Número de Peito com Chip de Cronometragem",
+      "Camiseta Oficial do Evento",
+      "Medalha de Participação (Finisher)",
+      "Hidratação e Frutas na Chegada"
+    ],
+    "awardsInfo": "Premiação Geral (Masculino e Feminino): 1º Lugar: R$ 700,00 + Troféu | 2º Lugar: R$ 500,00 + Troféu | 3º Lugar: R$ 400,00 + Troféu | 4º Lugar: R$ 300,00 + Troféu | 5º Lugar: R$ 200,00 + Troféu.",
+    "prizeTotal": 700
+  },
+  {
+    "id": "race-chip-23-corrida-solid-ria-drogaria-barato",
+    "title": "Corrida Solidária Drogaria + Barato",
+    "organizer": "Esse evento é promovido e organizado pela Drogaria +BARATO",
+    "date": "2026-11-08",
+    "time": "06:00",
+    "city": "Oeiras Do Pará",
+    "state": "PA",
+    "location": "Oeiras Do Pará",
+    "distances": [
+      "5 km",
+      "3 km"
+    ],
+    "chipCompany": "Chip Chronos",
+    "status": "open",
+    "registrationUrl": "https://www.superachipcrono.com.br/inscricao-select/5003/corrida-solidria-drogaria-barato",
+    "regulationUrl": "https://racetime-clientes.s3.sa-east-1.amazonaws.com/uploads/superachipcrono/doc/inscricao/doc-093-02102026134233-7c07c57fdac8c86edca57efcdc5134a1.pdf",
+    "rulesUrl": "https://racetime-clientes.s3.sa-east-1.amazonaws.com/uploads/superachipcrono/doc/inscricao/doc-093-02102026134233-7c07c57fdac8c86edca57efcdc5134a1.pdf",
+    "bannerUrl": "https://www.superachipcrono.com.br/thumb.php?q=100&h=500&arquivo=img-093-02102026132921-fe8cc9477d746cb4c6d1a0d09ea685cd.jpg",
+    "imageUrl": "https://www.superachipcrono.com.br/thumb.php?q=100&h=500&arquivo=img-093-02102026132921-fe8cc9477d746cb4c6d1a0d09ea685cd.jpg",
+    "featured": false,
+    "currentBatch": "1º Lote",
+    "price": 55,
+    "priceFrom": 55,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 55,
+        "lot_name": "1º Lote"
+      },
+      {
+        "distance": "3 km",
+        "price": 55,
+        "lot_name": "1º Lote"
+      }
+    ],
+    "kitItems": [
+      "Número de Peito com Chip de Cronometragem",
+      "Camiseta Oficial do Evento",
+      "Medalha de Participação (Finisher)",
+      "Hidratação e Suporte de Percurso"
+    ],
+    "awardsInfo": "PREMIAÇÃO 10.1 - Todo ATLETA oficialmente inscrito que completar o EVENTO dentro do tempo máximo previsto receberá uma Medalha de Participação. 10.2 - Na data da realização do EVENTO, somente receberão as PREMIAÇÕES EM TROFEUS a que deles fizerem jus (de forma extraoficial) os 3 PRIMEIROS ATLETAS (MASCULINO E FEMININO), nas Categorias, geral 5KM por tempo bruto. 10.3 – Na categoria FAIXA ETÁRIA, dentro da Modalidade 5km, serão entregues no dia do evento ou em outra ocasião , Troféus de 1º, 2º e 3º, Lugares, por tempo bruto, respectivamente. 10.4 – Na Modalidade PCDs serão entregues apenas medalhadas de participação. 10.5 - As premiações não são acumulativas. 10.6 - Todos os ATLETAS, que tiverem seus nomes chamados para a premiação, deverão encaminhar-se imediatamente à área de entrega das premiações para receber seu prêmio. 10.7 - Para premiações de Troféus, as mesmas serão entregues para o ATLETA somente no dia do EVENTO. Caso o Atleta precise se ausentar, deverá deixar indicado um representante para receber a premiação no Pódio em seu lugar. 10.8 - A ORGANIZAÇÃO se reserva o direito de incluir qualquer outro tipo de premiação que será divulgada no site do EVENTO. 10.8 - Não haver",
+    "prizeTotal": 100
+  },
+  {
+    "id": "race-chip-24-1-corridinha-gagumi-kids",
+    "title": "1° Corridinha Gagumi Kids",
+    "organizer": "LOJA GAGUMI KIDS",
+    "date": "2026-12-06",
+    "time": "17:00",
+    "city": "Cametá",
+    "state": "PA",
+    "location": "Cametá - Aldeia Park",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Chronos",
+    "status": "open",
+    "registrationUrl": "https://www.superachipcrono.com.br/inscricao-select/1714/1-corridinha-gagumi-kids",
+    "regulationUrl": "https://www.superachipcrono.com.br/painel/upload/doc/inscricao/doc-093-21092026184445-271a299f0893b2173e77162c5c768b89.jpg",
+    "rulesUrl": "https://www.superachipcrono.com.br/painel/upload/doc/inscricao/doc-093-21092026184445-271a299f0893b2173e77162c5c768b89.jpg",
+    "bannerUrl": "https://www.superachipcrono.com.br/painel/upload/img/inscricao/thumb/img-093-21092026122159-79525d41efbf16d3363c138f713d2417.jpg",
+    "imageUrl": "https://www.superachipcrono.com.br/painel/upload/img/inscricao/thumb/img-093-21092026122159-79525d41efbf16d3363c138f713d2417.jpg",
+    "featured": false,
+    "currentBatch": "1º Lote",
+    "price": 32.5,
+    "priceFrom": 32.5,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 65,
+        "lot_name": "1º Lote"
+      }
+    ],
+    "kitItems": [
+      "Número de Peito com Chip de Cronometragem",
+      "Camiseta Oficial do Evento",
+      "Medalha de Participação (Finisher)",
+      "Hidratação e Suporte de Percurso"
+    ],
+    "awardsInfo": "Troféu oficial do 1º ao 5º Geral Masculino e Feminino + Troféus para os 3 primeiros colocados por faixa etária.",
+    "prizeTotal": 100
+  },
+  {
+    "id": "race-chip-25-2-corrida-rosa-pink-2026",
+    "title": "2º Corrida Rosa Pink 2026",
+    "organizer": "Chip Amazônia",
+    "date": "2026-11-15",
+    "time": "06:00",
+    "city": "Nova Ipixuna",
+    "state": "PA",
+    "location": "Centro",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Amazônia",
+    "status": "confirmed",
+    "featured": false,
+    "currentBatch": "1º Lote",
+    "price": 60,
+    "priceFrom": 60,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 60,
+        "lot_name": "1º Lote"
+      }
+    ],
+    "kitItems": [
+      "Número de Peito com Chip de Cronometragem",
+      "Camiseta Oficial do Evento",
+      "Medalha de Participação (Finisher)",
+      "Hidratação e Suporte de Percurso"
+    ],
+    "awardsInfo": "Troféu oficial do 1º ao 5º Geral Masculino e Feminino + Troféus para os 3 primeiros colocados por faixa etária.",
+    "prizeTotal": 100
+  },
+  {
+    "id": "race-chip-26-2-corrida-sabor-do-par-2026",
+    "title": "2ª Corrida Sabor do Pará 2026",
+    "organizer": "Chip Amazônia",
+    "date": "2026-11-15",
+    "time": "06:00",
+    "city": "Marabá",
+    "state": "PA",
+    "location": "Centro",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Amazônia",
+    "status": "confirmed",
+    "featured": false,
+    "currentBatch": "1º Lote",
+    "price": 60,
+    "priceFrom": 60,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 60,
+        "lot_name": "1º Lote"
+      }
+    ],
+    "kitItems": [
+      "Número de Peito com Chip de Cronometragem",
+      "Camiseta Oficial do Evento",
+      "Medalha de Participação (Finisher)",
+      "Hidratação e Suporte de Percurso"
+    ],
+    "awardsInfo": "Troféu oficial do 1º ao 5º Geral Masculino e Feminino + Troféus para os 3 primeiros colocados por faixa etária.",
+    "prizeTotal": 100
+  },
+  {
+    "id": "race-chip-27-1-corrida-de-rua-lr-fitness-academia",
+    "title": "1ª Corrida de Rua Lr Fitness Academia",
+    "organizer": "Chip Amazônia",
+    "date": "2026-11-15",
+    "time": "06:00",
+    "city": "Mosqueiro",
+    "state": "PA",
+    "location": "Centro",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Amazônia",
+    "status": "confirmed",
+    "featured": false,
+    "currentBatch": "1º Lote",
+    "price": 60,
+    "priceFrom": 60,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 60,
+        "lot_name": "1º Lote"
+      }
+    ],
+    "kitItems": [
+      "Número de Peito com Chip de Cronometragem",
+      "Camiseta Oficial do Evento",
+      "Medalha de Participação (Finisher)",
+      "Hidratação e Suporte de Percurso"
+    ],
+    "awardsInfo": "Troféu oficial do 1º ao 5º Geral Masculino e Feminino + Troféus para os 3 primeiros colocados por faixa etária.",
+    "prizeTotal": 100
+  },
+  {
+    "id": "race-chip-28-1-corrida-do-11-bpm-capanema-2026",
+    "title": "1ª Corrida do 11° Bpm Capanema 2026",
+    "organizer": "Chip Amazônia",
+    "date": "2026-11-15",
+    "time": "06:00",
+    "city": "Capanema",
+    "state": "PA",
+    "location": "Centro",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Amazônia",
+    "status": "confirmed",
+    "featured": false,
+    "currentBatch": "1º Lote",
+    "price": 60,
+    "priceFrom": 60,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 60,
+        "lot_name": "1º Lote"
+      }
+    ],
+    "kitItems": [
+      "Número de Peito com Chip de Cronometragem",
+      "Camiseta Oficial do Evento",
+      "Medalha de Participação (Finisher)",
+      "Hidratação e Suporte de Percurso"
+    ],
+    "awardsInfo": "Troféu oficial do 1º ao 5º Geral Masculino e Feminino + Troféus para os 3 primeiros colocados por faixa etária.",
+    "prizeTotal": 100
+  },
+  {
+    "id": "race-chip-29-speed-run-barcarena",
+    "title": "Speed Run Barcarena",
+    "organizer": "Chip Amazônia",
+    "date": "2026-11-15",
+    "time": "06:00",
+    "city": "Barcarena",
+    "state": "PA",
+    "location": "Centro",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Amazônia",
+    "status": "confirmed",
+    "featured": false,
+    "currentBatch": "1º Lote",
+    "price": 60,
+    "priceFrom": 60,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 60,
+        "lot_name": "1º Lote"
+      }
+    ],
+    "kitItems": [
+      "Número de Peito com Chip de Cronometragem",
+      "Camiseta Oficial do Evento",
+      "Medalha de Participação (Finisher)",
+      "Hidratação e Suporte de Percurso"
+    ],
+    "awardsInfo": "Troféu oficial do 1º ao 5º Geral Masculino e Feminino + Troféus para os 3 primeiros colocados por faixa etária.",
+    "prizeTotal": 100
+  },
+  {
+    "id": "race-chip-30-1-corrida-do-corre-de-ter-a",
+    "title": "1ª Corrida do Corre de Terça",
+    "organizer": "Chip Amazônia",
+    "date": "2026-11-15",
+    "time": "06:00",
+    "city": "Concórdia Do Pará",
+    "state": "PA",
+    "location": "Centro",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Amazônia",
+    "status": "confirmed",
+    "featured": false,
+    "currentBatch": "1º Lote",
+    "price": 60,
+    "priceFrom": 60,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 60,
+        "lot_name": "1º Lote"
+      }
+    ],
+    "kitItems": [
+      "Número de Peito com Chip de Cronometragem",
+      "Camiseta Oficial do Evento",
+      "Medalha de Participação (Finisher)",
+      "Hidratação e Suporte de Percurso"
+    ],
+    "awardsInfo": "Troféu oficial do 1º ao 5º Geral Masculino e Feminino + Troféus para os 3 primeiros colocados por faixa etária.",
+    "prizeTotal": 100
+  }
+]

@@ -13,6 +13,17 @@ export interface RaceCategory {
   lot_name?: string;    // Ex: "1º Lote", "Lote Promocional"
 }
 
+export interface AwardPodiumItem {
+  place: string;         // "1º Lugar Geral", "2º Lugar Geral", etc.
+  prize: string;         // "R$ 1.000,00 + Troféu"
+  amount?: number;       // 1000
+}
+
+export interface AwardCategoryGroup {
+  name: string;          // "Classificação Geral (Masculino e Feminino)", "Comunidade Local", etc.
+  items: AwardPodiumItem[];
+}
+
 export type RaceStatus = 
   | 'open'          // Inscrições abertas com link ativo
   | 'confirmed'     // Confirmada no calendário, aguardando liberação do link
@@ -50,6 +61,7 @@ export interface Race {
   kitItems?: string[];
   awardsInfo?: string;
   prizeTotal?: number;
+  awardGroups?: AwardCategoryGroup[];
   elevation?: string;
   imageUrl?: string;
   bannerUrl?: string;

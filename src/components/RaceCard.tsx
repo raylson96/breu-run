@@ -7,7 +7,8 @@ import {
   ShieldCheck, 
   Sparkles,
   Calendar,
-  Share2
+  Share2,
+  ChevronRight
 } from 'lucide-react';
 import { 
   getTimingChipBadge, 
@@ -183,7 +184,7 @@ export const RaceCard: React.FC<RaceCardProps> = ({
                 className="w-full py-2.5 px-3 bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-500 hover:to-amber-500 text-white rounded-xl text-xs sm:text-sm font-black flex items-center justify-center gap-1.5 transition shadow-sm shadow-orange-950/20 active:scale-95 cursor-pointer"
               >
                 <span>Inscrever-se</span>
-                <ExternalLink className="w-3.5 h-3.5" />
+                <ChevronRight className="w-4 h-4" />
               </button>
             ) : race.status === 'finished' ? (
               race.resultsUrl ? (
