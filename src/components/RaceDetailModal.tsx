@@ -241,7 +241,7 @@ export const RaceDetailModal: React.FC<RaceDetailModalProps> = ({
         )}
 
         {/* Informações Principais sobre o Banner */}
-        <div className="absolute bottom-5 sm:bottom-6 left-4 sm:left-8 right-4 sm:right-8 z-10 text-white space-y-2 max-w-5xl">
+        <div className="absolute bottom-5 sm:bottom-6 left-4 sm:left-8 right-4 sm:right-8 z-10 text-white space-y-2">
           <div className="flex flex-wrap items-center gap-2">
             <span className="px-3 py-1 rounded-full text-xs font-bold bg-orange-500/20 text-orange-300 border border-orange-500/30 backdrop-blur-md">
               📍 {race.city}, Pará
@@ -262,8 +262,8 @@ export const RaceDetailModal: React.FC<RaceDetailModalProps> = ({
         </div>
       </div>
 
-      {/* 3. Conteúdo Completo da Prova */}
-      <main className="flex-1 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6 text-slate-900 pb-28 sm:pb-12">
+      {/* 3. Conteúdo Completo da Prova - 100% Tela Cheia Edge-to-Edge */}
+      <main className="flex-1 w-full px-4 sm:px-8 lg:px-12 py-6 space-y-6 text-slate-900 pb-28 sm:pb-12">
         
         {/* Bloco 1: AÇÕES DIRETAS (Inscrição, Regulamento PDF, Agenda, WhatsApp) */}
         <div className="bg-white rounded-3xl p-5 sm:p-7 shadow-sm border border-slate-200/90 space-y-4">
@@ -354,9 +354,98 @@ export const RaceDetailModal: React.FC<RaceDetailModalProps> = ({
           </div>
         </div>
 
-        {/* Bloco 2: PREMIAÇÃO OFICIAL CONFORME O REGULAMENTO DA CORRIDA (COM TODOS OS VALORES EM R$) */}
+        {/* Bloco 2: QUILOMETRAGENS & VALORES REAIS POR LOTE (Percursos Oficiais) */}
+        <div className="bg-white rounded-3xl p-5 sm:p-7 shadow-sm border border-slate-200/90 space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
+            <div>
+              <h2 className="text-sm sm:text-base font-black uppercase tracking-wider text-slate-900 flex items-center gap-2">
+                <Tag className="w-5 h-5 text-emerald-600 flex-shrink-0" />
+                <span>Quilometragens & Valores Oficiais de Inscrição</span>
+              </h2>
+              <p className="text-xs text-slate-500 mt-0.5">
+                Percursos oficiais e lotes vigentes extraídos diretamente do regulamento da prova
+              </p>
+            </div>
+
+            {batchCountdown && (
+              <span className="self-start sm:self-auto px-3 py-1 rounded-xl text-xs font-black bg-amber-500 text-slate-950 uppercase tracking-wider shadow-xs">
+                {batchCountdown}
+              </span>
+            )}
+          </div>
+
+          <div className="overflow-x-auto rounded-2xl border border-slate-200">
+            <table className="w-full text-left text-xs sm:text-sm">
+              <thead className="bg-slate-900 text-white font-black text-xs uppercase tracking-wider">
+                <tr>
+                  <th className="p-4">Percurso / Distância</th>
+                  <th className="p-4">Lote Vigente / Informações</th>
+                  <th className="p-4 text-right sm:text-left">Valor da Inscrição</th>
+                  {race.priceWithShirt && <th className="p-4 hidden sm:table-cell">Kit c/ Camisa</th>}
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100 bg-white">
+                {categories.map((cat, idx) => (
+                  <tr key={idx} className="hover:bg-orange-50/40 transition">
+                    <td className="p-4 font-black text-slate-900">
+                      <span className="px-3 py-1.5 rounded-xl bg-orange-100 text-orange-950 text-xs sm:text-sm font-black inline-block">
+                        {cat.distance}
+                      </span>
+                    </td>
+                    <td className="p-4 text-slate-700 font-semibold">
+                      {cat.lot_name || race.currentBatch || '1º Lote Oficial'}
+                    </td>
+                    <td className="p-4 font-black text-emerald-800 text-base sm:text-lg text-right sm:text-left">
+                      R$ {cat.price.toFixed(2).replace('.', ',')}
+                    </td>
+                    {race.priceWithShirt && (
+                      <td className="p-4 font-black text-emerald-950 bg-emerald-50/40 hidden sm:table-cell">
+                        R$ {race.priceWithShirt.toFixed(2).replace('.', ',')}
+                      </td>
+                    )}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* Bloco 3: KIT DO ATLETA OFICIAL VERIFICADO (Conforme Regulamento) */}
+        <div className="bg-white rounded-3xl p-5 sm:p-7 shadow-sm border border-slate-200/90 space-y-4">
+          <div className="border-b border-slate-100 pb-3">
+            <h2 className="text-sm sm:text-base font-black uppercase tracking-wider text-slate-900 flex items-center gap-2">
+              <Gift className="w-5 h-5 text-orange-500 flex-shrink-0" />
+              <span>Kit do Atleta Oficial (Conforme Regulamento)</span>
+            </h2>
+            <p className="text-xs text-slate-500 mt-0.5">
+              Itens oficiais que compõem o kit do atleta entregue pela organização
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3.5">
+            {kitItemsToDisplay.map((item, idx) => {
+              const Icon = item.icon;
+              return (
+                <div key={idx} className="flex items-start gap-3.5 p-4 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-orange-200 transition">
+                  <div className="w-10 h-10 rounded-xl bg-orange-500/10 text-orange-600 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-xs sm:text-sm text-slate-900">
+                      {item.title}
+                    </h4>
+                    <p className="text-[11px] text-slate-500 leading-relaxed mt-0.5">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Bloco 4: PREMIAÇÃO & PÓDIO OFICIAL (Conforme Regulamento da Prova) */}
         <div className="bg-gradient-to-br from-amber-50/90 via-white to-orange-50/60 rounded-3xl p-5 sm:p-8 shadow-sm border border-amber-200 space-y-6">
-          
           {/* Header da Premiação */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-amber-200/80 pb-4">
             <div>
@@ -382,7 +471,7 @@ export const RaceDetailModal: React.FC<RaceDetailModalProps> = ({
             ) : (
               <div className="inline-flex items-center gap-1.5 bg-amber-100/80 text-amber-900 px-3 py-1.5 rounded-xl text-xs font-bold border border-amber-200">
                 <Trophy className="w-4 h-4 text-amber-600" />
-                <span>Troféus & Medalhas Finisher</span>
+                <span>Troféus Oficiais & Medalhas Finisher</span>
               </div>
             )}
           </div>
@@ -424,7 +513,7 @@ export const RaceDetailModal: React.FC<RaceDetailModalProps> = ({
                       </div>
                     ) : (
                       /* Outras Categorias (Comunidade Local, Faixas Etárias, Equipes): Grid Limpo */
-                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
                         {group.items.map((item, idx) => (
                           <div 
                             key={idx}
@@ -451,7 +540,7 @@ export const RaceDetailModal: React.FC<RaceDetailModalProps> = ({
             /* Fallback com extração do texto */
             <div className="p-4 bg-white rounded-2xl border border-amber-200 text-slate-800 text-xs sm:text-sm space-y-2">
               <p className="font-bold text-amber-950">
-                {race.awardsInfo || 'Premiação oficial com troféus para os primeiros colocados gerais e medalhas de participação para todos os atletas concluintes.'}
+                {race.awardsInfo || 'Troféus para os primeiros colocados e medalhas de participação para todos os atletas concluintes conforme regulamento oficial.'}
               </p>
             </div>
           )}
@@ -468,91 +557,6 @@ export const RaceDetailModal: React.FC<RaceDetailModalProps> = ({
               </p>
             </div>
           )}
-        </div>
-
-        {/* Bloco 3: QUILOMETRAGENS & VALORES REAIS POR LOTE */}
-        <div className="bg-white rounded-3xl p-5 sm:p-7 shadow-sm border border-slate-200/90 space-y-4">
-          <div className="flex items-center justify-between">
-            <div>
-              <h2 className="text-xs sm:text-sm font-black uppercase tracking-wider text-slate-400 flex items-center gap-2">
-                <Tag className="w-4 h-4 text-emerald-600" />
-                <span>Quilometragens & Valores Oficiais de Inscrição</span>
-              </h2>
-              <p className="text-xs text-slate-500 mt-0.5">
-                Valores reais por percurso cadastrados no portal de cronometragem
-              </p>
-            </div>
-
-            {batchCountdown && (
-              <span className="px-3 py-1 rounded-xl text-xs font-black bg-amber-500 text-slate-950 uppercase tracking-wider shadow-xs">
-                {batchCountdown}
-              </span>
-            )}
-          </div>
-
-          <div className="overflow-x-auto rounded-2xl border border-slate-200">
-            <table className="w-full text-left text-xs sm:text-sm">
-              <thead className="bg-slate-900 text-white font-black text-xs uppercase tracking-wider">
-                <tr>
-                  <th className="p-4">Percurso / Distância</th>
-                  <th className="p-4">Lote Vigente</th>
-                  <th className="p-4 text-right sm:text-left">Valor da Inscrição</th>
-                  {race.priceWithShirt && <th className="p-4 hidden sm:table-cell">Kit c/ Camisa</th>}
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100 bg-white">
-                {categories.map((cat, idx) => (
-                  <tr key={idx} className="hover:bg-orange-50/40 transition">
-                    <td className="p-4 font-black text-slate-900">
-                      <span className="px-3 py-1.5 rounded-xl bg-orange-100 text-orange-950 text-xs sm:text-sm font-black inline-block">
-                        {cat.distance}
-                      </span>
-                    </td>
-                    <td className="p-4 text-slate-600 font-semibold">
-                      {cat.lot_name || race.currentBatch || '1º Lote Oficial'}
-                    </td>
-                    <td className="p-4 font-black text-emerald-950 text-base sm:text-lg text-right sm:text-left">
-                      R$ {cat.price.toFixed(2).replace('.', ',')}
-                    </td>
-                    {race.priceWithShirt && (
-                      <td className="p-4 font-black text-emerald-950 bg-emerald-50/40 hidden sm:table-cell">
-                        R$ {race.priceWithShirt.toFixed(2).replace('.', ',')}
-                      </td>
-                    )}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        {/* Bloco 4: KIT DO ATLETA OFICIAL VERIFICADO */}
-        <div className="bg-white rounded-3xl p-5 sm:p-7 shadow-sm border border-slate-200/90 space-y-4">
-          <h2 className="text-xs sm:text-sm font-black uppercase tracking-wider text-slate-400 flex items-center gap-2">
-            <Gift className="w-4 h-4 text-orange-500" />
-            <span>Kit do Atleta (Conforme Regulamento Oficial)</span>
-          </h2>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-            {kitItemsToDisplay.map((item, idx) => {
-              const Icon = item.icon;
-              return (
-                <div key={idx} className="flex items-start gap-3.5 p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
-                  <div className="w-10 h-10 rounded-xl bg-orange-500/10 text-orange-600 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Icon className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-xs sm:text-sm text-slate-900">
-                      {item.title}
-                    </h4>
-                    <p className="text-[11px] text-slate-500 leading-relaxed mt-0.5">
-                      {item.desc}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
         </div>
 
         {/* Bloco 5: DATA, HORÁRIO E LOCAL DE LARGADA */}
@@ -610,6 +614,7 @@ export const RaceDetailModal: React.FC<RaceDetailModalProps> = ({
           </p>
         </div>
       </main>
+
 
       {/* 4. Barra Fixa Inferior no Celular (Mobile Sticky Action Bar) */}
       <div className="sm:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-slate-200 p-3 z-40 flex items-center justify-between shadow-2xl">

@@ -30,7 +30,7 @@ import {
 } from 'lucide-react';
 
 export function App() {
-  // Persistence for races list in localStorage (v6 - strictly real verified chip races & exact regulation awards)
+  // Persistence for races list in localStorage (v7 - strictly real verified chip races & exact regulation awards)
   const [races, setRaces] = useState<Race[]>(() => {
     const verifiedSnapshot = getInitialEnrichedRaces();
 
@@ -40,8 +40,9 @@ export function App() {
     localStorage.removeItem('para_run_races_v3');
     localStorage.removeItem('para_run_races_v4');
     localStorage.removeItem('para_run_races_v5');
+    localStorage.removeItem('para_run_races_v6');
 
-    const saved = localStorage.getItem('para_run_races_v6');
+    const saved = localStorage.getItem('para_run_races_v7');
     if (saved) {
       try {
         const parsed: Race[] = JSON.parse(saved);
@@ -72,13 +73,16 @@ export function App() {
 
               return {
                 ...r,
+                distances: match?.distances || r.distances,
+                categories: match?.categories || r.categories,
+                kitItems: match?.kitItems || r.kitItems,
                 registrationUrl: hasForbiddenTerm ? undefined : (r.registrationUrl || match?.registrationUrl),
                 price: typeof r.price === 'number' ? r.price : match?.price,
                 priceFrom: typeof r.priceFrom === 'number' ? r.priceFrom : (match?.priceFrom || match?.price),
                 priceWithoutShirt: r.priceWithoutShirt ?? match?.priceWithoutShirt,
                 priceWithShirt: r.priceWithShirt ?? match?.priceWithShirt,
                 regulationUrl: r.regulationUrl || match?.regulationUrl,
-                currentBatch: r.currentBatch || match?.currentBatch,
+                currentBatch: match?.currentBatch || r.currentBatch,
                 awardsInfo: match?.awardsInfo || r.awardsInfo,
                 prizeTotal: match?.prizeTotal ?? r.prizeTotal,
                 awardGroups: match?.awardGroups || r.awardGroups
@@ -140,10 +144,11 @@ export function App() {
     setIsAdminModalOpen(true);
   };
 
-  // Sync to localStorage (v6)
+  // Sync to localStorage (v7)
   useEffect(() => {
-    localStorage.setItem('para_run_races_v6', JSON.stringify(races));
+    localStorage.setItem('para_run_races_v7', JSON.stringify(races));
   }, [races]);
+
 
   useEffect(() => {
     localStorage.setItem('para_run_favorites', JSON.stringify(favorites));

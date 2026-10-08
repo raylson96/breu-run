@@ -262,11 +262,12 @@ export class LocalStorageRaceRepository implements RaceRepositoryInterface {
   }
 }
 
-import { FINAL_VERIFIED_RACES_V6 } from '../data/finalVerifiedRacesV6';
+import { FINAL_VERIFIED_RACES_V7 } from '../data/finalVerifiedRacesV7';
 
 /**
  * Retorna as 30 corridas verificadas com dados oficiais, kits e premiações reais
  */
 export function getInitialEnrichedRaces(): FrontendRace[] {
-  return FINAL_VERIFIED_RACES_V6;
+  return FINAL_VERIFIED_RACES_V7;
 }
+
