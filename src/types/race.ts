@@ -56,6 +56,7 @@ export interface Race {
   priceWithShirt?: number;    // Valor com camisa (ex: Kit Premium R$ 84,90)
   currentBatch?: string;
   batchDeadline?: string;
+  batchExpirationDate?: string;
   badge?: string;
   description?: string;
   kitItems?: string[];

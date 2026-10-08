@@ -2522,5 +2522,1380 @@ export const FINAL_VERIFIED_RACES_V7: Race[] = [
         ]
       }
     ]
+  },
+  {
+    "id": "past-race-chip-breu-branco-1-1--corrida-do-curso-de-forma--",
+    "title": "1ª CORRIDA DO CURSO DE FORMAÇÃO DE PRAÇAS",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-09-20",
+    "time": "06:00",
+    "city": "Marabá",
+    "state": "PA",
+    "location": "Marabá",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "finished",
+    "resultsUrl": "https://resultados.racetag.com.br/chipbreubranco/#/1-corrida-do-curso-de-formacao-de-pracas",
+    "imageUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-4f57ff9c9f6e49755fd8df04286c0428.jpeg",
+    "bannerUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-4f57ff9c9f6e49755fd8df04286c0428.jpeg",
+    "featured": false,
+    "currentBatch": "Encerrado",
+    "price": 0,
+    "priceFrom": 0,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 0,
+        "lot_name": "Encerrado"
+      }
+    ],
+    "kitItems": [],
+    "awardsInfo": "Resultados e classificação oficial apurados.",
+    "awardGroups": []
+  },
+  {
+    "id": "past-race-chip-breu-branco-2-i-corrida-da-policia-militar-8",
+    "title": "I CORRIDA DA POLICIA MILITAR 8°PPD ABEL FIGUEIREDO.",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-09-20",
+    "time": "06:00",
+    "city": "Abel Figueiredo",
+    "state": "PA",
+    "location": "Abel Figueiredo",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "finished",
+    "resultsUrl": "https://result.racetag.com.br/chipbreubranco/#/1-corrida-de-rua-8-ppd-abel-figueiredo-policia-militar",
+    "imageUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-9b3d7698f33cc86f6f207cc7c20eb701.jpeg",
+    "bannerUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-9b3d7698f33cc86f6f207cc7c20eb701.jpeg",
+    "featured": false,
+    "currentBatch": "Encerrado",
+    "price": 0,
+    "priceFrom": 0,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 0,
+        "lot_name": "Encerrado"
+      }
+    ],
+    "kitItems": [],
+    "awardsInfo": "Resultados e classificação oficial apurados.",
+    "awardGroups": []
+  },
+  {
+    "id": "past-race-chip-breu-branco-3-corrida-da-gente",
+    "title": "CORRIDA DA GENTE",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-09-13",
+    "time": "06:00",
+    "city": "Tailândia",
+    "state": "PA",
+    "location": "Tailândia",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "finished",
+    "resultsUrl": "https://result.racetag.com.br/chipbreubranco/#/corrida-da-gente",
+    "imageUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-064-01092026182817-b619d51dc9ddf98c19107251eadcbe47.png",
+    "bannerUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-064-01092026182817-b619d51dc9ddf98c19107251eadcbe47.png",
+    "featured": false,
+    "currentBatch": "Encerrado",
+    "price": 0,
+    "priceFrom": 0,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 0,
+        "lot_name": "Encerrado"
+      }
+    ],
+    "kitItems": [],
+    "awardsInfo": "Resultados e classificação oficial apurados.",
+    "awardGroups": []
+  },
+  {
+    "id": "past-race-chip-breu-branco-4-corrida-guerra",
+    "title": "CORRIDA GUERRA",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-09-06",
+    "time": "06:00",
+    "city": "Abaetetuba",
+    "state": "PA",
+    "location": "Abaetetuba",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "finished",
+    "resultsUrl": "https://resultados.racezone.com.br/chipbreubranco/#/corrida-guerra",
+    "imageUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-385ed4ee86499affe5b11330fb30499f.jpeg",
+    "bannerUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-385ed4ee86499affe5b11330fb30499f.jpeg",
+    "featured": false,
+    "currentBatch": "Encerrado",
+    "price": 0,
+    "priceFrom": 0,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 0,
+        "lot_name": "Encerrado"
+      }
+    ],
+    "kitItems": [],
+    "awardsInfo": "Resultados e classificação oficial apurados.",
+    "awardGroups": []
+  },
+  {
+    "id": "past-race-chip-breu-branco-5-1--corrida-de-anivers-rio-goia",
+    "title": "1ª CORRIDA DE ANIVERSÁRIO GOIANÉSIA RUNNERS",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-09-06",
+    "time": "06:00",
+    "city": "Goianésia Do Pará",
+    "state": "PA",
+    "location": "Goianésia Do Pará",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "finished",
+    "resultsUrl": "https://resultados.racezone.com.br/chipbreubranco/#/1-corrida-aniversario-goianesia-runners",
+    "imageUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-064-28082026113158-653943bb5cdfa8b8be2af89327bfb9f1.jpg",
+    "bannerUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-064-28082026113158-653943bb5cdfa8b8be2af89327bfb9f1.jpg",
+    "featured": false,
+    "currentBatch": "Encerrado",
+    "price": 0,
+    "priceFrom": 0,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 0,
+        "lot_name": "Encerrado"
+      }
+    ],
+    "kitItems": [],
+    "awardsInfo": "Resultados e classificação oficial apurados.",
+    "awardGroups": []
+  },
+  {
+    "id": "past-race-chip-breu-branco-6-4--corrida-da-transamaz-nica",
+    "title": "4ª CORRIDA DA TRANSAMAZÔNICA",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-08-30",
+    "time": "06:00",
+    "city": "Novo Repartimento",
+    "state": "PA",
+    "location": "Novo Repartimento",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "finished",
+    "resultsUrl": "https://resultados.racezone.com.br/chipbreubranco/#/4-corrida-da-transamazonica",
+    "imageUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-14cd153d464004415bc5fd3b999a83b8.jpeg",
+    "bannerUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-14cd153d464004415bc5fd3b999a83b8.jpeg",
+    "featured": false,
+    "currentBatch": "Encerrado",
+    "price": 0,
+    "priceFrom": 0,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 0,
+        "lot_name": "Encerrado"
+      }
+    ],
+    "kitItems": [],
+    "awardsInfo": "Resultados e classificação oficial apurados.",
+    "awardGroups": []
+  },
+  {
+    "id": "past-race-chip-breu-branco-7-1--corrida-corpofity",
+    "title": "1ª CORRIDA CORPOFITY",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-08-23",
+    "time": "06:00",
+    "city": "Anapu",
+    "state": "PA",
+    "location": "Anapu",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "finished",
+    "resultsUrl": "https://result.racetag.com.br/chipbreubranco/#/1-corrida-corpo-fity-moda-fitness",
+    "imageUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-eea3b3f1f27d7559066c7552d47c8342.jpeg",
+    "bannerUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-eea3b3f1f27d7559066c7552d47c8342.jpeg",
+    "featured": false,
+    "currentBatch": "Encerrado",
+    "price": 0,
+    "priceFrom": 0,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 0,
+        "lot_name": "Encerrado"
+      }
+    ],
+    "kitItems": [],
+    "awardsInfo": "Resultados e classificação oficial apurados.",
+    "awardGroups": []
+  },
+  {
+    "id": "past-race-chip-breu-branco-8-1--corrida-do-corretor-de-im-v",
+    "title": "1ª CORRIDA DO CORRETOR DE IMÓVEIS DE MARABÁ",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-08-16",
+    "time": "06:00",
+    "city": "Marabá",
+    "state": "PA",
+    "location": "Marabá",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "finished",
+    "resultsUrl": "https://resultados.racezone.com.br/chipbreubranco/#/1-corrida-do-corretor-de-imoveis-de-maraba",
+    "imageUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-01bbe55db3eadf9eeb05717d74d5cadb.jpeg",
+    "bannerUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-01bbe55db3eadf9eeb05717d74d5cadb.jpeg",
+    "featured": false,
+    "currentBatch": "Encerrado",
+    "price": 0,
+    "priceFrom": 0,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 0,
+        "lot_name": "Encerrado"
+      }
+    ],
+    "kitItems": [],
+    "awardsInfo": "Resultados e classificação oficial apurados.",
+    "awardGroups": []
+  },
+  {
+    "id": "past-race-chip-breu-branco-9-2--corrida-dos-pais",
+    "title": "2ª CORRIDA DOS PAIS",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-08-09",
+    "time": "06:00",
+    "city": "Tailandia",
+    "state": "PA",
+    "location": "Tailandia",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "finished",
+    "resultsUrl": "https://resultados.racezone.com.br/chipbreubranco/#/2-corrida-dos-pais",
+    "imageUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-777d06513b3974739f794a86d6c7922e.png",
+    "bannerUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-777d06513b3974739f794a86d6c7922e.png",
+    "featured": false,
+    "currentBatch": "Encerrado",
+    "price": 0,
+    "priceFrom": 0,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 0,
+        "lot_name": "Encerrado"
+      }
+    ],
+    "kitItems": [],
+    "awardsInfo": "Resultados e classificação oficial apurados.",
+    "awardGroups": []
+  },
+  {
+    "id": "past-race-chip-breu-branco-10-corre-dos-magos-1--edi--o",
+    "title": "CORRE DOS MAGOS 1ª EDIÇÃO",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-08-08",
+    "time": "06:00",
+    "city": "Marabá",
+    "state": "PA",
+    "location": "Marabá",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "finished",
+    "imageUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-394ed103851138d72ff8c52b3ef6a888.png",
+    "bannerUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-394ed103851138d72ff8c52b3ef6a888.png",
+    "featured": false,
+    "currentBatch": "Encerrado",
+    "price": 0,
+    "priceFrom": 0,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 0,
+        "lot_name": "Encerrado"
+      }
+    ],
+    "kitItems": [],
+    "awardsInfo": "Resultados e classificação oficial apurados.",
+    "awardGroups": []
+  },
+  {
+    "id": "past-race-chip-breu-branco-11-corrida-de-anivers-rio-do-laur",
+    "title": "CORRIDA DE ANIVERSÁRIO DO LAURO 2026",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-07-26",
+    "time": "06:00",
+    "city": "Tailândia",
+    "state": "PA",
+    "location": "Tailândia",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "finished",
+    "resultsUrl": "https://resultados.racezone.com.br/chipbreubranco/#/corrida-do-lauro",
+    "imageUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-def7b4989717ff307fe34c998ca74b0f.png",
+    "bannerUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-def7b4989717ff307fe34c998ca74b0f.png",
+    "featured": false,
+    "currentBatch": "Encerrado",
+    "price": 0,
+    "priceFrom": 0,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 0,
+        "lot_name": "Encerrado"
+      }
+    ],
+    "kitItems": [],
+    "awardsInfo": "Resultados e classificação oficial apurados.",
+    "awardGroups": []
+  },
+  {
+    "id": "past-race-chip-breu-branco-12-primeira-corrida-desafio-da-po",
+    "title": "PRIMEIRA CORRIDA DESAFIO DA PONTE",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-07-25",
+    "time": "06:00",
+    "city": "Aurora Do Pará",
+    "state": "PA",
+    "location": "Aurora Do Pará",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "finished",
+    "resultsUrl": "https://resultados.racezone.com.br/superachipcrono/#/primeira-corrida-desafio-da-ponte",
+    "imageUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-9769997d8d9cacbf988c2e1563f209b1.png",
+    "bannerUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-9769997d8d9cacbf988c2e1563f209b1.png",
+    "featured": false,
+    "currentBatch": "Encerrado",
+    "price": 0,
+    "priceFrom": 0,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 0,
+        "lot_name": "Encerrado"
+      }
+    ],
+    "kitItems": [],
+    "awardsInfo": "Resultados e classificação oficial apurados.",
+    "awardGroups": []
+  },
+  {
+    "id": "past-race-chip-breu-branco-13-40-anos-grupo-liberal",
+    "title": "40 ANOS GRUPO LIBERAL",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-07-19",
+    "time": "06:00",
+    "city": "Jacundá",
+    "state": "PA",
+    "location": "Jacundá",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "finished",
+    "resultsUrl": "https://resultados.racezone.com.br/chipbreubranco/#/1-corrida-do-grupo-liberal",
+    "imageUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-4ee9da16f9440474355d3483e41a290d.png",
+    "bannerUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-4ee9da16f9440474355d3483e41a290d.png",
+    "featured": false,
+    "currentBatch": "Encerrado",
+    "price": 0,
+    "priceFrom": 0,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 0,
+        "lot_name": "Encerrado"
+      }
+    ],
+    "kitItems": [],
+    "awardsInfo": "Resultados e classificação oficial apurados.",
+    "awardGroups": []
+  },
+  {
+    "id": "past-race-chip-breu-branco-14-corrida-do-al--par-",
+    "title": "CORRIDA DO ALÔ PARÁ",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-07-19",
+    "time": "06:00",
+    "city": "Novo Repartimento",
+    "state": "PA",
+    "location": "Novo Repartimento",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "finished",
+    "resultsUrl": "https://resultados.racezone.com.br/chipbreubranco/#/1-corrida-do-alo-para",
+    "imageUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-a0f712d6afa9158c3a83c8f7e509123a.png",
+    "bannerUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-a0f712d6afa9158c3a83c8f7e509123a.png",
+    "featured": false,
+    "currentBatch": "Encerrado",
+    "price": 0,
+    "priceFrom": 0,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 0,
+        "lot_name": "Encerrado"
+      }
+    ],
+    "kitItems": [],
+    "awardsInfo": "Resultados e classificação oficial apurados.",
+    "awardGroups": []
+  },
+  {
+    "id": "past-race-chip-breu-branco-15-corrida-fast-runners",
+    "title": "CORRIDA FAST RUNNERS",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-07-12",
+    "time": "06:00",
+    "city": "TailÂndia",
+    "state": "PA",
+    "location": "TailÂndia",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "finished",
+    "resultsUrl": "https://resultados.racezone.com.br/chipbreubranco/#/corrida-de-anivesario-fast-runners",
+    "imageUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-038c64c47e8add93002bddc09d2efc99.jpeg",
+    "bannerUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-038c64c47e8add93002bddc09d2efc99.jpeg",
+    "featured": false,
+    "currentBatch": "Encerrado",
+    "price": 0,
+    "priceFrom": 0,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 0,
+        "lot_name": "Encerrado"
+      }
+    ],
+    "kitItems": [],
+    "awardsInfo": "Resultados e classificação oficial apurados.",
+    "awardGroups": []
+  },
+  {
+    "id": "past-race-chip-breu-branco-16-2--corrida-mundialnet",
+    "title": "2ª CORRIDA MUNDIALNET",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-07-05",
+    "time": "06:00",
+    "city": "Breu Branco",
+    "state": "PA",
+    "location": "Breu Branco",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "finished",
+    "resultsUrl": "https://resultados.racezone.com.br/chipbreubranco/#/2-corrida-mundialnet",
+    "imageUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-42fa1f43cf9cb44c7cbba60a30a08d02.png",
+    "bannerUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-42fa1f43cf9cb44c7cbba60a30a08d02.png",
+    "featured": false,
+    "currentBatch": "Encerrado",
+    "price": 0,
+    "priceFrom": 0,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 0,
+        "lot_name": "Encerrado"
+      }
+    ],
+    "kitItems": [],
+    "awardsInfo": "Resultados e classificação oficial apurados.",
+    "awardGroups": []
+  },
+  {
+    "id": "past-race-chip-breu-branco-17-1--corrida-de-rua-48--batalh-o",
+    "title": "1° CORRIDA DE RUA 48° BATALHÃO TOYO",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-07-05",
+    "time": "06:00",
+    "city": "Tomé",
+    "state": "açu",
+    "location": "Tomé",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "finished",
+    "resultsUrl": "https://resultados.racezone.com.br/chipbreubranco/#/1-corrida-de-rua-48-batalhao-toyo",
+    "imageUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-9b5403e91109c50085480d12e18421e3.png",
+    "bannerUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-9b5403e91109c50085480d12e18421e3.png",
+    "featured": false,
+    "currentBatch": "Encerrado",
+    "price": 0,
+    "priceFrom": 0,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 0,
+        "lot_name": "Encerrado"
+      }
+    ],
+    "kitItems": [],
+    "awardsInfo": "Resultados e classificação oficial apurados.",
+    "awardGroups": []
+  },
+  {
+    "id": "past-race-chip-breu-branco-18-corrida-francal-30-anos",
+    "title": "Corrida Francal 30 Anos",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-06-28",
+    "time": "06:00",
+    "city": "Marabá",
+    "state": "PA",
+    "location": "Marabá",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "finished",
+    "resultsUrl": "https://resultados.racezone.com.br/chipbreubranco/#/corrida-30-anos-francal",
+    "imageUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-032d8cb29f6bcbcaaf25db00b35d244b.png",
+    "bannerUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-032d8cb29f6bcbcaaf25db00b35d244b.png",
+    "featured": false,
+    "currentBatch": "Encerrado",
+    "price": 0,
+    "priceFrom": 0,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 0,
+        "lot_name": "Encerrado"
+      }
+    ],
+    "kitItems": [],
+    "awardsInfo": "Resultados e classificação oficial apurados.",
+    "awardGroups": []
+  },
+  {
+    "id": "past-race-chip-breu-branco-19-3--corrida-dos-amigos",
+    "title": "3ª CORRIDA DOS AMIGOS",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-06-14",
+    "time": "06:00",
+    "city": "TailÂndia",
+    "state": "PA",
+    "location": "TailÂndia",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "finished",
+    "resultsUrl": "https://resultados.racezone.com.br/chipbreubranco/#/3-corrida-dos-amigos",
+    "imageUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-e105a5f2a868252f12a8ab9ce0128350.png",
+    "bannerUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-e105a5f2a868252f12a8ab9ce0128350.png",
+    "featured": false,
+    "currentBatch": "Encerrado",
+    "price": 0,
+    "priceFrom": 0,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 0,
+        "lot_name": "Encerrado"
+      }
+    ],
+    "kitItems": [],
+    "awardsInfo": "Resultados e classificação oficial apurados.",
+    "awardGroups": []
+  },
+  {
+    "id": "past-race-chip-breu-branco-20-5--corrida-do-meio-ambiente",
+    "title": "5º CORRIDA DO MEIO AMBIENTE",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-06-07",
+    "time": "06:00",
+    "city": "Novo Repartimento",
+    "state": "PA",
+    "location": "Novo Repartimento",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "finished",
+    "resultsUrl": "https://resultados.racezone.com.br/chipbreubranco/#/5-corrida-do-meio-ambiente",
+    "imageUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-74d4ab9e378fc7b5e27706045bbad2b9.png",
+    "bannerUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-74d4ab9e378fc7b5e27706045bbad2b9.png",
+    "featured": false,
+    "currentBatch": "Encerrado",
+    "price": 0,
+    "priceFrom": 0,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 0,
+        "lot_name": "Encerrado"
+      }
+    ],
+    "kitItems": [],
+    "awardsInfo": "Resultados e classificação oficial apurados.",
+    "awardGroups": []
+  },
+  {
+    "id": "past-race-chip-breu-branco-21-1--edi--o-da-corrida-de-aniver",
+    "title": "1ª EDIÇÃO DA CORRIDA DE ANIVERSÁRIO SÓ NÓS RUN",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-06-07",
+    "time": "06:00",
+    "city": "Marabá",
+    "state": "PA",
+    "location": "Marabá",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "finished",
+    "resultsUrl": "https://resultados.racezone.com.br/chipbreubranco/#/1-corrida-aniversario-da-equipe-so-nos-run--1-ano",
+    "imageUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-f4b6a42c7d5637207cc200b42e381c4e.png",
+    "bannerUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-f4b6a42c7d5637207cc200b42e381c4e.png",
+    "featured": false,
+    "currentBatch": "Encerrado",
+    "price": 0,
+    "priceFrom": 0,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 0,
+        "lot_name": "Encerrado"
+      }
+    ],
+    "kitItems": [],
+    "awardsInfo": "Resultados e classificação oficial apurados.",
+    "awardGroups": []
+  },
+  {
+    "id": "past-race-chip-breu-branco-22-1--corrida-de-anivers-rio-irri",
+    "title": "1ª CORRIDA DE ANIVERSÁRIO IRRIGAPLANT",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-05-31",
+    "time": "06:00",
+    "city": "TailÂndia",
+    "state": "PA",
+    "location": "TailÂndia",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "finished",
+    "resultsUrl": "https://chipbreubranco.com.br/resultados/racetag/#/1-corrida-de-aniversario-irrigaplant",
+    "imageUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-6353a912f38d8365f1347b34e8933022.jpeg",
+    "bannerUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-6353a912f38d8365f1347b34e8933022.jpeg",
+    "featured": false,
+    "currentBatch": "Encerrado",
+    "price": 0,
+    "priceFrom": 0,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 0,
+        "lot_name": "Encerrado"
+      }
+    ],
+    "kitItems": [],
+    "awardsInfo": "Resultados e classificação oficial apurados.",
+    "awardGroups": []
+  },
+  {
+    "id": "past-race-chip-breu-branco-23-corrida-anivers-rio-da-academi",
+    "title": "CORRIDA ANIVERSÁRIO DA ACADEMIA BLACK FIT",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-05-31",
+    "time": "06:00",
+    "city": "Marabá",
+    "state": "PA",
+    "location": "Marabá",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "finished",
+    "resultsUrl": "https://resultados.racezone.com.br/chipbreubranco/#/corrida-aniversario-da-academia-black-fit",
+    "imageUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-0ac2e2b14549eaa142320315a7bcd534.jpeg",
+    "bannerUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-0ac2e2b14549eaa142320315a7bcd534.jpeg",
+    "featured": false,
+    "currentBatch": "Encerrado",
+    "price": 0,
+    "priceFrom": 0,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 0,
+        "lot_name": "Encerrado"
+      }
+    ],
+    "kitItems": [],
+    "awardsInfo": "Resultados e classificação oficial apurados.",
+    "awardGroups": []
+  },
+  {
+    "id": "past-race-chip-breu-branco-24-corrida-if-imperial-night-run-",
+    "title": "CORRIDA IF IMPERIAL NIGHT RUN @imperial.fitacademia",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-05-30",
+    "time": "06:00",
+    "city": "Cametá,",
+    "state": "PA",
+    "location": "Cametá,",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "finished",
+    "resultsUrl": "https://chipamazonia.com.br/resultados/#/1-corrida-if-imperial-night-run",
+    "imageUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-cc16236fb85cde1e2ece004ad0a57a6d.jpeg",
+    "bannerUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-cc16236fb85cde1e2ece004ad0a57a6d.jpeg",
+    "featured": false,
+    "currentBatch": "Encerrado",
+    "price": 0,
+    "priceFrom": 0,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 0,
+        "lot_name": "Encerrado"
+      }
+    ],
+    "kitItems": [],
+    "awardsInfo": "Resultados e classificação oficial apurados.",
+    "awardGroups": []
+  },
+  {
+    "id": "past-race-chip-breu-branco-25-11--corrida-do-c-rio-divino-es",
+    "title": "11ª CORRIDA DO CÍRIO DIVINO ESPÍRITO SANTO",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-05-23",
+    "time": "06:00",
+    "city": "Moju",
+    "state": "PA",
+    "location": "Moju",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "finished",
+    "resultsUrl": "https://chipbreubranco.com.br/resultados/racetag/#/xi-corrida-do-espirito-santo",
+    "imageUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-f32454d27b8b331c3fe1279bd0dfcb1d.jpeg",
+    "bannerUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-f32454d27b8b331c3fe1279bd0dfcb1d.jpeg",
+    "featured": false,
+    "currentBatch": "Encerrado",
+    "price": 0,
+    "priceFrom": 0,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 0,
+        "lot_name": "Encerrado"
+      }
+    ],
+    "kitItems": [],
+    "awardsInfo": "Resultados e classificação oficial apurados.",
+    "awardGroups": []
+  },
+  {
+    "id": "past-race-chip-breu-branco-26-17--corrida-de-rua-atletismo-e",
+    "title": "17º CORRIDA DE RUA ATLETISMO EM COMEMORAÇÃO AO 38º ANIVERSARIO DE PACAJÁ.",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-05-17",
+    "time": "06:00",
+    "city": "PacajÁ",
+    "state": "PA",
+    "location": "PacajÁ",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "finished",
+    "resultsUrl": "https://chipbreubranco.com.br/resultados/racetag/#/17-corrida-de-rua-atletismo-em-comemorao-ao-38-aniversario-de-pacaj",
+    "imageUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-f960d0841d98f01a20579838195bbf78.png",
+    "bannerUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-f960d0841d98f01a20579838195bbf78.png",
+    "featured": false,
+    "currentBatch": "Encerrado",
+    "price": 0,
+    "priceFrom": 0,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 0,
+        "lot_name": "Encerrado"
+      }
+    ],
+    "kitItems": [],
+    "awardsInfo": "Resultados e classificação oficial apurados.",
+    "awardGroups": []
+  },
+  {
+    "id": "past-race-chip-breu-branco-27-corrida-bonja-run-38-anos",
+    "title": "CORRIDA BONJA RUN 38 ANOS",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-05-03",
+    "time": "06:00",
+    "city": "Bom Jesus Do Tocantins",
+    "state": "PA",
+    "location": "Bom Jesus Do Tocantins",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "finished",
+    "resultsUrl": "https://chipbreubranco.com.br/resultados/racetag/#/bonja-run-38-anos",
+    "imageUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-929a737ef0fcf557a4ccc5d6cb18ed2b.jpeg",
+    "bannerUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-929a737ef0fcf557a4ccc5d6cb18ed2b.jpeg",
+    "featured": false,
+    "currentBatch": "Encerrado",
+    "price": 0,
+    "priceFrom": 0,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 0,
+        "lot_name": "Encerrado"
+      }
+    ],
+    "kitItems": [],
+    "awardsInfo": "Resultados e classificação oficial apurados.",
+    "awardGroups": []
+  },
+  {
+    "id": "past-race-chip-breu-branco-28-1--corrida-do-trabalhador-2026",
+    "title": "1° CORRIDA DO TRABALHADOR 2026",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-05-01",
+    "time": "06:00",
+    "city": "Tomé Açu",
+    "state": "PA",
+    "location": "Tomé Açu",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "finished",
+    "resultsUrl": "https://chipbreubranco.com.br/resultados/racetag/#/corrida-do-trabalhador",
+    "imageUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-13fc2df23987bfb130beab0968a84bf5.png",
+    "bannerUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-13fc2df23987bfb130beab0968a84bf5.png",
+    "featured": false,
+    "currentBatch": "Encerrado",
+    "price": 0,
+    "priceFrom": 0,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 0,
+        "lot_name": "Encerrado"
+      }
+    ],
+    "kitItems": [],
+    "awardsInfo": "Resultados e classificação oficial apurados.",
+    "awardGroups": []
+  },
+  {
+    "id": "past-race-chip-breu-branco-29-bora-correr-com-itonir-tavares",
+    "title": "BORA CORRER COM ITONIR TAVARES",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-04-26",
+    "time": "06:00",
+    "city": "Jacundá",
+    "state": "PA",
+    "location": "Jacundá",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "finished",
+    "resultsUrl": "https://chipbreubranco.com.br/resultados/racetag/#/bora-correr-com-itonir-tavares",
+    "imageUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-4d4f8a335d84faa3d05c4828d5170826.png",
+    "bannerUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-4d4f8a335d84faa3d05c4828d5170826.png",
+    "featured": false,
+    "currentBatch": "Encerrado",
+    "price": 0,
+    "priceFrom": 0,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 0,
+        "lot_name": "Encerrado"
+      }
+    ],
+    "kitItems": [],
+    "awardsInfo": "Resultados e classificação oficial apurados.",
+    "awardGroups": []
+  },
+  {
+    "id": "past-race-chip-breu-branco-30-corrida-de-gratid-o",
+    "title": "CORRIDA DE GRATIDÃO",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-04-19",
+    "time": "06:00",
+    "city": "Tailandia",
+    "state": "PA",
+    "location": "Tailandia",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "finished",
+    "resultsUrl": "https://chipbreubranco.com.br/resultados/racetag/#/corrida-de-gratidao",
+    "imageUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-0bf6bf2ac6a7f44ca68bca2ca75462fe.png",
+    "bannerUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-0bf6bf2ac6a7f44ca68bca2ca75462fe.png",
+    "featured": false,
+    "currentBatch": "Encerrado",
+    "price": 0,
+    "priceFrom": 0,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 0,
+        "lot_name": "Encerrado"
+      }
+    ],
+    "kitItems": [],
+    "awardsInfo": "Resultados e classificação oficial apurados.",
+    "awardGroups": []
+  },
+  {
+    "id": "past-race-chip-breu-branco-31-1--desafio-borra-corre-itupira",
+    "title": "1ª DESAFIO BORRA CORRE ITUPIRANGA",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-03-29",
+    "time": "06:00",
+    "city": "Vicinal Rio Preto",
+    "state": "PA",
+    "location": "Vicinal Rio Preto",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "finished",
+    "resultsUrl": "https://chipbreubranco.com.br/resultados/racetag/#/1-desafio-bora-correr-itupiranga-pa",
+    "imageUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-634c4bc00a0206755947597d3236c564.png",
+    "bannerUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-634c4bc00a0206755947597d3236c564.png",
+    "featured": false,
+    "currentBatch": "Encerrado",
+    "price": 0,
+    "priceFrom": 0,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 0,
+        "lot_name": "Encerrado"
+      }
+    ],
+    "kitItems": [],
+    "awardsInfo": "Resultados e classificação oficial apurados.",
+    "awardGroups": []
+  },
+  {
+    "id": "past-race-chip-breu-branco-32-1--anivers-rio-da-galera-do-co",
+    "title": "1º aniversário da Galera do Corre",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-03-22",
+    "time": "06:00",
+    "city": "TailÂndia",
+    "state": "PA",
+    "location": "TailÂndia",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "finished",
+    "resultsUrl": "https://chipbreubranco.com.br/resultados/racetag/#/1-aniversrio-da-galera-do-corre",
+    "imageUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-18b3b2959a221cecd37f1887765a421e.png",
+    "bannerUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-18b3b2959a221cecd37f1887765a421e.png",
+    "featured": false,
+    "currentBatch": "Encerrado",
+    "price": 0,
+    "priceFrom": 0,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 0,
+        "lot_name": "Encerrado"
+      }
+    ],
+    "kitItems": [],
+    "awardsInfo": "Resultados e classificação oficial apurados.",
+    "awardGroups": []
+  },
+  {
+    "id": "past-race-chip-breu-branco-33-corrida-supernorte",
+    "title": "CORRIDA SUPERNORTE",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-03-15",
+    "time": "06:00",
+    "city": "Tucuruí",
+    "state": "SC",
+    "location": "Tucuruí",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "finished",
+    "resultsUrl": "https://chipbreubranco.com.br/resultados/racetag/#/1-corrida-supernorte",
+    "imageUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-c6dfb6ad5f13e4690d124a8e521fd7cb.png",
+    "bannerUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-c6dfb6ad5f13e4690d124a8e521fd7cb.png",
+    "featured": false,
+    "currentBatch": "Encerrado",
+    "price": 0,
+    "priceFrom": 0,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 0,
+        "lot_name": "Encerrado"
+      }
+    ],
+    "kitItems": [],
+    "awardsInfo": "Resultados e classificação oficial apurados.",
+    "awardGroups": []
+  },
+  {
+    "id": "past-race-chip-breu-branco-34-2--corrida-da-mulher",
+    "title": "2ª Corrida da Mulher",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-03-08",
+    "time": "06:00",
+    "city": "Tailandia",
+    "state": "PA",
+    "location": "Tailandia",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "finished",
+    "resultsUrl": "https://chipbreubranco.com.br/resultados/racetag/#/2-corrida-da-mulher",
+    "imageUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-eefefa7f37edc5bd47a0ce8e789f13d1.jpeg",
+    "bannerUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-eefefa7f37edc5bd47a0ce8e789f13d1.jpeg",
+    "featured": false,
+    "currentBatch": "Encerrado",
+    "price": 0,
+    "priceFrom": 0,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 0,
+        "lot_name": "Encerrado"
+      }
+    ],
+    "kitItems": [],
+    "awardsInfo": "Resultados e classificação oficial apurados.",
+    "awardGroups": []
+  },
+  {
+    "id": "past-race-chip-breu-branco-35-corrida-do-piti-",
+    "title": "CORRIDA DO PITIÚ",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-03-01",
+    "time": "06:00",
+    "city": "Cametá",
+    "state": "PA",
+    "location": "Cametá",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "finished",
+    "resultsUrl": "https://chipbreubranco.com.br/resultados/racetag/#/corrida-do-pitiu",
+    "imageUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-3ce731bc458f9b7bc97e3afe1472123f.jpg",
+    "bannerUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-3ce731bc458f9b7bc97e3afe1472123f.jpg",
+    "featured": false,
+    "currentBatch": "Encerrado",
+    "price": 0,
+    "priceFrom": 0,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 0,
+        "lot_name": "Encerrado"
+      }
+    ],
+    "kitItems": [],
+    "awardsInfo": "Resultados e classificação oficial apurados.",
+    "awardGroups": []
+  },
+  {
+    "id": "past-race-chip-breu-branco-36-corre-pra-camet-",
+    "title": "CORRE PRA CAMETÁ",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-02-13",
+    "time": "06:00",
+    "city": "Cametá",
+    "state": "PA",
+    "location": "Cametá",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "finished",
+    "resultsUrl": "https://chipbreubranco.com.br/resultados/racetag/#/corre-pra-cameta",
+    "imageUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-0ae45ec51641b71d3dca3d65a8e638f4.jpeg",
+    "bannerUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-0ae45ec51641b71d3dca3d65a8e638f4.jpeg",
+    "featured": false,
+    "currentBatch": "Encerrado",
+    "price": 0,
+    "priceFrom": 0,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 0,
+        "lot_name": "Encerrado"
+      }
+    ],
+    "kitItems": [],
+    "awardsInfo": "Resultados e classificação oficial apurados.",
+    "awardGroups": []
+  },
+  {
+    "id": "past-race-chip-breu-branco-37-night-run-marab--2026",
+    "title": "NIGHT RUN MARABÁ 2026",
+    "organizer": "Chip Breu Branco",
+    "date": "2026-01-31",
+    "time": "06:00",
+    "city": "Marabá",
+    "state": "PA",
+    "location": "Marabá",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Breu Branco",
+    "status": "finished",
+    "resultsUrl": "https://chipbreubranco.com.br/resultados/racetag/#/night-run-maraba-2026",
+    "imageUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-9d704474dd9adcdb76792bc9678f423e.jpg",
+    "bannerUrl": "https://www.chipbreubranco.com.br/thumb.php?h=500&q=90&arquivo=img-64-9d704474dd9adcdb76792bc9678f423e.jpg",
+    "featured": false,
+    "currentBatch": "Encerrado",
+    "price": 0,
+    "priceFrom": 0,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 0,
+        "lot_name": "Encerrado"
+      }
+    ],
+    "kitItems": [],
+    "awardsInfo": "Resultados e classificação oficial apurados.",
+    "awardGroups": []
+  },
+  {
+    "id": "past-race-chip-par--1-1--corrida-uniasselvi-jacund--",
+    "title": "1ª Corrida Uniasselvi Jacundá – Educação em Movimento",
+    "organizer": "Chip Pará",
+    "date": "2026-09-13",
+    "time": "06:00",
+    "city": "Jacundá",
+    "state": "PA",
+    "location": "Jacundá",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Pará",
+    "status": "finished",
+    "resultsUrl": "https://result.racetag.com.br/chippara/#/1-corrida-uniasselvi-jacunda",
+    "imageUrl": "https://www.chippara.com.br/thumb.php?h=500&q=90&arquivo=img-107-10092026223209-0bdf205a31466587dbf149c7edc0fee0.jpg",
+    "bannerUrl": "https://www.chippara.com.br/thumb.php?h=500&q=90&arquivo=img-107-10092026223209-0bdf205a31466587dbf149c7edc0fee0.jpg",
+    "featured": false,
+    "currentBatch": "Encerrado",
+    "price": 0,
+    "priceFrom": 0,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 0,
+        "lot_name": "Encerrado"
+      }
+    ],
+    "kitItems": [],
+    "awardsInfo": "Resultados e classificação oficial apurados.",
+    "awardGroups": []
+  },
+  {
+    "id": "past-race-chip-par--2-corrida-da-independ-ncia-2026",
+    "title": "CORRIDA DA INDEPENDÊNCIA 2026",
+    "organizer": "Chip Pará",
+    "date": "2026-08-30",
+    "time": "06:00",
+    "city": "Tomé Açu",
+    "state": "PA",
+    "location": "Tomé Açu",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Pará",
+    "status": "finished",
+    "resultsUrl": "https://result.racetag.com.br/chippara/#/2-corrida-da-independencia-2026",
+    "imageUrl": "https://www.chippara.com.br/thumb.php?h=500&q=90&arquivo=img-107-5dabf3a0f194967e0baf7e461b105ed2.jpeg",
+    "bannerUrl": "https://www.chippara.com.br/thumb.php?h=500&q=90&arquivo=img-107-5dabf3a0f194967e0baf7e461b105ed2.jpeg",
+    "featured": false,
+    "currentBatch": "Encerrado",
+    "price": 0,
+    "priceFrom": 0,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 0,
+        "lot_name": "Encerrado"
+      }
+    ],
+    "kitItems": [],
+    "awardsInfo": "Resultados e classificação oficial apurados.",
+    "awardGroups": []
+  },
+  {
+    "id": "past-race-chip-par--3-2--corrida-do-spa",
+    "title": "2° CORRIDA DO SPA",
+    "organizer": "Chip Pará",
+    "date": "2026-08-16",
+    "time": "06:00",
+    "city": "Moju",
+    "state": "PA",
+    "location": "Moju",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Pará",
+    "status": "finished",
+    "resultsUrl": "https://resultados.racezone.com.br/chippara/#/2-corrida-do-spa",
+    "imageUrl": "https://www.chippara.com.br/thumb.php?h=500&q=90&arquivo=img-107-e541715d50a595b31aaece16ba184a9a.png",
+    "bannerUrl": "https://www.chippara.com.br/thumb.php?h=500&q=90&arquivo=img-107-e541715d50a595b31aaece16ba184a9a.png",
+    "featured": false,
+    "currentBatch": "Encerrado",
+    "price": 0,
+    "priceFrom": 0,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 0,
+        "lot_name": "Encerrado"
+      }
+    ],
+    "kitItems": [],
+    "awardsInfo": "Resultados e classificação oficial apurados.",
+    "awardGroups": []
+  },
+  {
+    "id": "past-race-chip-par--4-1--corrida-do-super-giro-alime",
+    "title": "1° CORRIDA DO SUPER GIRO ALIMENTOS",
+    "organizer": "Chip Pará",
+    "date": "2026-08-09",
+    "time": "06:00",
+    "city": "Novo Repartimento",
+    "state": "PA",
+    "location": "Novo Repartimento",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Pará",
+    "status": "finished",
+    "resultsUrl": "https://resultados.racezone.com.br/chippara/#/1-corrida-do-super-giro-alimentos",
+    "imageUrl": "https://www.chippara.com.br/thumb.php?h=500&q=90&arquivo=img-107-437faf02987717d6e22d4df31d5e8ca8.jpeg",
+    "bannerUrl": "https://www.chippara.com.br/thumb.php?h=500&q=90&arquivo=img-107-437faf02987717d6e22d4df31d5e8ca8.jpeg",
+    "featured": false,
+    "currentBatch": "Encerrado",
+    "price": 0,
+    "priceFrom": 0,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 0,
+        "lot_name": "Encerrado"
+      }
+    ],
+    "kitItems": [],
+    "awardsInfo": "Resultados e classificação oficial apurados.",
+    "awardGroups": []
+  },
+  {
+    "id": "past-race-chip-par--5-primeira-corrida-da-aava",
+    "title": "PRIMEIRA CORRIDA DA AAVA",
+    "organizer": "Chip Pará",
+    "date": "2026-07-26",
+    "time": "06:00",
+    "city": "Tomé",
+    "state": "açu",
+    "location": "Tomé",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Pará",
+    "status": "finished",
+    "resultsUrl": "https://result.racetag.com.br/chippara/#/1-corrida-da-aava",
+    "imageUrl": "https://www.chippara.com.br/thumb.php?h=500&q=90&arquivo=img-107-02dcd283db91738286228fbfadd4f730.jpeg",
+    "bannerUrl": "https://www.chippara.com.br/thumb.php?h=500&q=90&arquivo=img-107-02dcd283db91738286228fbfadd4f730.jpeg",
+    "featured": false,
+    "currentBatch": "Encerrado",
+    "price": 0,
+    "priceFrom": 0,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 0,
+        "lot_name": "Encerrado"
+      }
+    ],
+    "kitItems": [],
+    "awardsInfo": "Resultados e classificação oficial apurados.",
+    "awardGroups": []
+  },
+  {
+    "id": "past-race-chip-par--6-3--corrida-ver-o-floresta-40-",
+    "title": "3ª CORRIDA VERÃO FLORESTA 40º",
+    "organizer": "Chip Pará",
+    "date": "2026-07-19",
+    "time": "06:00",
+    "city": "Tucuruí",
+    "state": "PA",
+    "location": "Tucuruí",
+    "distances": [
+      "5 km"
+    ],
+    "chipCompany": "Chip Pará",
+    "status": "finished",
+    "resultsUrl": "https://resultados.racezone.com.br/chippara/#/3-corrida-verao-floresta-40",
+    "imageUrl": "https://www.chippara.com.br/thumb.php?h=500&q=90&arquivo=img-107-ed87c11ab53c2644b622d53872c483a9.jpeg",
+    "bannerUrl": "https://www.chippara.com.br/thumb.php?h=500&q=90&arquivo=img-107-ed87c11ab53c2644b622d53872c483a9.jpeg",
+    "featured": false,
+    "currentBatch": "Encerrado",
+    "price": 0,
+    "priceFrom": 0,
+    "categories": [
+      {
+        "distance": "5 km",
+        "price": 0,
+        "lot_name": "Encerrado"
+      }
+    ],
+    "kitItems": [],
+    "awardsInfo": "Resultados e classificação oficial apurados.",
+    "awardGroups": []
   }
 ];

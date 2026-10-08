@@ -6,6 +6,7 @@ import { getInitialEnrichedRaces } from './modules/sync/repositories/RaceReposit
 import { Header } from './components/Header';
 import { FeaturedRacesSection } from './components/FeaturedRacesSection';
 import { FilterBar } from './components/FilterBar';
+import { ResultsView } from './components/ResultsView';
 import { RaceCard } from './components/RaceCard';
 import { RaceTableView } from './components/RaceTableView';
 import { RaceDetailModal } from './components/RaceDetailModal';
@@ -41,8 +42,9 @@ export function App() {
     localStorage.removeItem('para_run_races_v4');
     localStorage.removeItem('para_run_races_v5');
     localStorage.removeItem('para_run_races_v6');
+    localStorage.removeItem('para_run_races_v7');
 
-    const saved = localStorage.getItem('para_run_races_v7');
+    const saved = localStorage.getItem('para_run_races_v8');
     if (saved) {
       try {
         const parsed: Race[] = JSON.parse(saved);
@@ -144,9 +146,9 @@ export function App() {
     setIsAdminModalOpen(true);
   };
 
-  // Sync to localStorage (v7)
+  // Sync to localStorage (v8)
   useEffect(() => {
-    localStorage.setItem('para_run_races_v7', JSON.stringify(races));
+    localStorage.setItem('para_run_races_v8', JSON.stringify(races));
   }, [races]);
 
 
@@ -384,169 +386,176 @@ export function App() {
           />
         )}
 
-        {/* 3. Filtros e Busca Rápida com Seletor de Modo PC / Cards */}
-        <FilterBar
-          filters={filters}
-          onFilterChange={setFilters}
-          cityCounts={cityCounts}
-          totalFiltered={filteredRaces.length}
-        />
-
-        {/* Header da Listagem com Contadores e Acesso Rápido */}
-        <div className="flex items-center justify-between mb-4 px-1">
-          <div className="flex items-center gap-3">
-            <h2 className="text-lg sm:text-xl font-black text-slate-900 tracking-tight">
-              {filters.tab === 'results'
-                ? 'Resultados Oficiais & Provas Concluídas'
-                : filters.city !== 'Todas' 
-                ? `Corridas em ${filters.city}` 
-                : filters.region !== 'Todas as Regiões' 
-                ? `Corridas no Polo ${filters.region}` 
-                : 'Calendário Breu Run'}
-            </h2>
-            <span className="bg-orange-100 text-orange-900 border border-orange-200 text-xs font-black px-2.5 py-0.5 rounded-full">
-              {filteredRaces.length} {filteredRaces.length === 1 ? 'evento' : 'eventos'}
-            </span>
-          </div>
-
-          <div className="flex items-center gap-2">
-            {filters.onlyFavorites && (
-              <span className="text-xs font-bold text-rose-600 flex items-center gap-1 bg-rose-50 px-2.5 py-1 rounded-xl border border-rose-200">
-                <Heart className="w-3.5 h-3.5 fill-rose-600" /> Minhas Salvas
-              </span>
-            )}
-            
-            <button
-              onClick={() => setIsAdminModalOpen(true)}
-              className="hidden lg:flex items-center gap-1.5 px-3.5 py-1.5 bg-slate-900 hover:bg-slate-800 text-orange-400 rounded-xl text-xs font-bold transition shadow-sm cursor-pointer"
-            >
-              <Sparkles className="w-3.5 h-3.5 text-orange-400" />
-              <span>Importar Calendário por Imagem / IA</span>
-            </button>
-          </div>
-        </div>
-
-        {/* 4. Lista de Corridas (Alternância Grade Ampla PC vs Tabela Executiva vs Base Limpa Inicial) */}
-        {races.length === 0 ? (
-          /* BASE LIMPA ZERADA (Pronta para upload real do usuário) */
-          <div className="bg-gradient-to-br from-white via-slate-50 to-orange-50/30 rounded-3xl p-8 sm:p-12 text-center border-2 border-dashed border-orange-200 shadow-sm my-6 space-y-6">
-            <div className="max-w-2xl mx-auto space-y-3">
-              <div className="w-16 h-16 bg-gradient-to-tr from-orange-600 to-amber-500 text-white rounded-3xl flex items-center justify-center mx-auto shadow-lg shadow-orange-950/20">
-                <Upload className="w-8 h-8" />
-              </div>
-              <h3 className="font-black text-2xl text-slate-900 tracking-tight">
-                Seu Calendário está Limpo e Pronto para as Provas Reais!
-              </h3>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                Todas as corridas de teste anteriores foram removidas. Agora você pode subir a foto oficial do cartaz de corridas da região para a IA ler, ou cadastrar uma prova manualmente.
-              </p>
-            </div>
-
-            {/* Ações Diretas */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
-              <button
-                onClick={() => handleOpenAdminWithTab('link_crawler')}
-                className="w-full sm:w-auto px-6 py-3.5 bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-500 hover:to-amber-500 text-white text-sm font-black rounded-2xl shadow-lg shadow-orange-950/20 transition flex items-center justify-center gap-2 cursor-pointer active:scale-95"
-              >
-                <Zap className="w-4 h-4 text-amber-200 fill-amber-200" />
-                <span>Sincronizar Sites dos 4 Chips Agora</span>
-              </button>
-
-              <button
-                onClick={() => handleOpenAdminWithTab('ai_import')}
-                className="w-full sm:w-auto px-5 py-3.5 bg-slate-900 hover:bg-slate-800 text-white text-sm font-bold rounded-2xl transition flex items-center justify-center gap-2 cursor-pointer shadow"
-              >
-                <Sparkles className="w-4 h-4 text-orange-400" />
-                <span>Upar Imagem com IA</span>
-              </button>
-
-              <button
-                onClick={() => handleOpenAdminWithTab('manual_add')}
-                className="w-full sm:w-auto px-5 py-3.5 bg-white hover:bg-slate-50 text-slate-800 border border-slate-200 text-sm font-bold rounded-2xl transition flex items-center justify-center gap-2 cursor-pointer shadow-sm"
-              >
-                <PlusCircle className="w-4 h-4 text-slate-600" />
-                <span>Cadastrar Manual</span>
-              </button>
-            </div>
-
-            {/* Chips Integrados Info */}
-            <div className="pt-6 border-t border-slate-200/80 flex flex-wrap items-center justify-center gap-4 text-xs font-bold text-slate-500">
-              <span className="flex items-center gap-1.5 text-slate-700">
-                <ShieldCheck className="w-4 h-4 text-emerald-600" /> Chip Amazônia
-              </span>
-              <span className="flex items-center gap-1.5 text-slate-700">
-                <ShieldCheck className="w-4 h-4 text-blue-600" /> Chip Breu Branco
-              </span>
-              <span className="flex items-center gap-1.5 text-slate-700">
-                <ShieldCheck className="w-4 h-4 text-purple-600" /> Chip Pará
-              </span>
-              <span className="flex items-center gap-1.5 text-slate-700">
-                <ShieldCheck className="w-4 h-4 text-cyan-600" /> Chip Cronos
-              </span>
-            </div>
-          </div>
-        ) : filteredRaces.length > 0 ? (
-          filters.viewMode === 'table' ? (
-            /* TABELA EXECUTIVA (Ampla no PC) */
-            <RaceTableView
-              races={filteredRaces}
-              favorites={favorites}
-              onToggleFavorite={handleToggleFavorite}
-              onSelectRace={(r) => setSelectedRace(r)}
-              onShareWhatsApp={handleShareWhatsApp}
-              onOpenRegistration={handleOpenRegistration}
-              onToggleFeatured={handleToggleFeatured}
+        {/* 3. Alternância entre Tela Secundária de Resultados e Calendário Principal */}
+        {filters.tab === 'results' ? (
+          <ResultsView
+            races={races}
+            onBackToCalendar={() => setFilters((prev) => ({ ...prev, tab: 'upcoming', status: 'all' }))}
+            onSelectRace={(r) => setSelectedRace(r)}
+          />
+        ) : (
+          <>
+            {/* Filtros e Busca Rápida com Seletor de Modo PC / Cards */}
+            <FilterBar
+              filters={filters}
+              onFilterChange={setFilters}
+              cityCounts={cityCounts}
+              totalFiltered={filteredRaces.length}
             />
-          ) : (
-            /* GRADE DE CARDS (4 colunas no PC / 2 no tablet / 1 no mobile centralizado) */
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mb-8 justify-items-center sm:justify-items-stretch">
-              {filteredRaces.map((race) => (
-                <RaceCard
-                  key={race.id}
-                  race={race}
-                  isFavorite={favorites.includes(race.id)}
+
+            {/* Header da Listagem com Contadores e Acesso Rápido */}
+            <div className="flex items-center justify-between mb-4 px-1">
+              <div className="flex items-center gap-3">
+                <h2 className="text-lg sm:text-xl font-black text-slate-900 tracking-tight">
+                  {filters.city !== 'Todas' 
+                    ? `Corridas em ${filters.city}` 
+                    : filters.region !== 'Todas as Regiões' 
+                    ? `Corridas no Polo ${filters.region}` 
+                    : 'Calendário Breu Run'}
+                </h2>
+                <span className="bg-orange-100 text-orange-900 border border-orange-200 text-xs font-black px-2.5 py-0.5 rounded-full">
+                  {filteredRaces.length} {filteredRaces.length === 1 ? 'evento' : 'eventos'}
+                </span>
+              </div>
+
+              <div className="flex items-center gap-2">
+                {filters.onlyFavorites && (
+                  <span className="text-xs font-bold text-rose-600 flex items-center gap-1 bg-rose-50 px-2.5 py-1 rounded-xl border border-rose-200">
+                    <Heart className="w-3.5 h-3.5 fill-rose-600" /> Minhas Salvas
+                  </span>
+                )}
+                
+                <button
+                  onClick={() => setIsAdminModalOpen(true)}
+                  className="hidden lg:flex items-center gap-1.5 px-3.5 py-1.5 bg-slate-900 hover:bg-slate-800 text-orange-400 rounded-xl text-xs font-bold transition shadow-sm cursor-pointer"
+                >
+                  <Sparkles className="w-3.5 h-3.5 text-orange-400" />
+                  <span>Importar Calendário por Imagem / IA</span>
+                </button>
+              </div>
+            </div>
+
+            {/* 4. Lista de Corridas (Alternância Grade Ampla PC vs Tabela Executiva vs Base Limpa Inicial) */}
+            {races.length === 0 ? (
+              /* BASE LIMPA ZERADA (Pronta para upload real do usuário) */
+              <div className="bg-gradient-to-br from-white via-slate-50 to-orange-50/30 rounded-3xl p-8 sm:p-12 text-center border-2 border-dashed border-orange-200 shadow-sm my-6 space-y-6">
+                <div className="max-w-2xl mx-auto space-y-3">
+                  <div className="w-16 h-16 bg-gradient-to-tr from-orange-600 to-amber-500 text-white rounded-3xl flex items-center justify-center mx-auto shadow-lg shadow-orange-950/20">
+                    <Upload className="w-8 h-8" />
+                  </div>
+                  <h3 className="font-black text-2xl text-slate-900 tracking-tight">
+                    Seu Calendário está Limpo e Pronto para as Provas Reais!
+                  </h3>
+                  <p className="text-sm text-slate-600 leading-relaxed">
+                    Todas as corridas de teste anteriores foram removidas. Agora você pode subir a foto oficial do cartaz de corridas da região para a IA ler, ou cadastrar uma prova manualmente.
+                  </p>
+                </div>
+
+                {/* Ações Diretas */}
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+                  <button
+                    onClick={() => handleOpenAdminWithTab('link_crawler')}
+                    className="w-full sm:w-auto px-6 py-3.5 bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-500 hover:to-amber-500 text-white text-sm font-black rounded-2xl shadow-lg shadow-orange-950/20 transition flex items-center justify-center gap-2 cursor-pointer active:scale-95"
+                  >
+                    <Zap className="w-4 h-4 text-amber-200 fill-amber-200" />
+                    <span>Sincronizar Sites dos 4 Chips Agora</span>
+                  </button>
+
+                  <button
+                    onClick={() => handleOpenAdminWithTab('ai_import')}
+                    className="w-full sm:w-auto px-5 py-3.5 bg-slate-900 hover:bg-slate-800 text-white text-sm font-bold rounded-2xl transition flex items-center justify-center gap-2 cursor-pointer shadow"
+                  >
+                    <Sparkles className="w-4 h-4 text-orange-400" />
+                    <span>Upar Imagem com IA</span>
+                  </button>
+
+                  <button
+                    onClick={() => handleOpenAdminWithTab('manual_add')}
+                    className="w-full sm:w-auto px-5 py-3.5 bg-white hover:bg-slate-50 text-slate-800 border border-slate-200 text-sm font-bold rounded-2xl transition flex items-center justify-center gap-2 cursor-pointer shadow-sm"
+                  >
+                    <PlusCircle className="w-4 h-4 text-slate-600" />
+                    <span>Cadastrar Manual</span>
+                  </button>
+                </div>
+
+                {/* Chips Integrados Info */}
+                <div className="pt-6 border-t border-slate-200/80 flex flex-wrap items-center justify-center gap-4 text-xs font-bold text-slate-500">
+                  <span className="flex items-center gap-1.5 text-slate-700">
+                    <ShieldCheck className="w-4 h-4 text-emerald-600" /> Chip Amazônia
+                  </span>
+                  <span className="flex items-center gap-1.5 text-slate-700">
+                    <ShieldCheck className="w-4 h-4 text-blue-600" /> Chip Breu Branco
+                  </span>
+                  <span className="flex items-center gap-1.5 text-slate-700">
+                    <ShieldCheck className="w-4 h-4 text-purple-600" /> Chip Pará
+                  </span>
+                  <span className="flex items-center gap-1.5 text-slate-700">
+                    <ShieldCheck className="w-4 h-4 text-cyan-600" /> Chip Cronos
+                  </span>
+                </div>
+              </div>
+            ) : filteredRaces.length > 0 ? (
+              filters.viewMode === 'table' ? (
+                /* TABELA EXECUTIVA (Ampla no PC) */
+                <RaceTableView
+                  races={filteredRaces}
+                  favorites={favorites}
                   onToggleFavorite={handleToggleFavorite}
                   onSelectRace={(r) => setSelectedRace(r)}
                   onShareWhatsApp={handleShareWhatsApp}
                   onOpenRegistration={handleOpenRegistration}
                   onToggleFeatured={handleToggleFeatured}
                 />
-              ))}
-            </div>
-          )
-        ) : (
-          /* Empty Search Filter State */
-          <div className="bg-white rounded-3xl p-10 text-center border border-slate-200 shadow-sm my-6 space-y-3">
-            <div className="w-14 h-14 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center mx-auto">
-              <FilterX className="w-7 h-7" />
-            </div>
-            <h3 className="font-black text-lg text-slate-800">
-              {filters.tab === 'results' 
-                ? 'Nenhum resultado registrado para os filtros selecionados'
-                : 'Nenhuma corrida encontrada para os filtros atuais'}
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-500 max-w-md mx-auto">
-              Tente selecionar outro chip, cidade ou limpar a busca.
-            </p>
-            <button
-              onClick={() => setFilters({
-                viewMode: filters.viewMode,
-                tab: filters.tab || 'upcoming',
-                region: 'Todas as Regiões',
-                city: 'Todas',
-                month: 'all',
-                distance: 'Todas',
-                chipCompany: 'Todas',
-                status: 'all',
-                search: '',
-                onlyFavorites: false,
-                sortBy: 'date_asc'
-              })}
-              className="px-5 py-2.5 bg-orange-600 hover:bg-orange-500 text-white rounded-xl text-xs sm:text-sm font-bold transition cursor-pointer shadow-md"
-            >
-              {filters.tab === 'results' ? 'Ver Todos os Resultados' : 'Ver Todas as Provas'}
-            </button>
-          </div>
+              ) : (
+                /* GRADE DE CARDS (4 colunas no PC / 2 no tablet / 1 no mobile centralizado) */
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mb-8 justify-items-center sm:justify-items-stretch">
+                  {filteredRaces.map((race) => (
+                    <RaceCard
+                      key={race.id}
+                      race={race}
+                      isFavorite={favorites.includes(race.id)}
+                      onToggleFavorite={handleToggleFavorite}
+                      onSelectRace={(r) => setSelectedRace(r)}
+                      onShareWhatsApp={handleShareWhatsApp}
+                      onOpenRegistration={handleOpenRegistration}
+                      onToggleFeatured={handleToggleFeatured}
+                    />
+                  ))}
+                </div>
+              )
+            ) : (
+              /* Empty Search Filter State */
+              <div className="bg-white rounded-3xl p-10 text-center border border-slate-200 shadow-sm my-6 space-y-3">
+                <div className="w-14 h-14 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center mx-auto">
+                  <FilterX className="w-7 h-7" />
+                </div>
+                <h3 className="font-black text-lg text-slate-800">
+                  Nenhuma corrida encontrada para os filtros atuais
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-500 max-w-md mx-auto">
+                  Tente selecionar outro chip, cidade ou limpar a busca.
+                </p>
+                <button
+                  onClick={() => setFilters({
+                    viewMode: filters.viewMode,
+                    tab: 'upcoming',
+                    region: 'Todas as Regiões',
+                    city: 'Todas',
+                    month: 'all',
+                    distance: 'Todas',
+                    chipCompany: 'Todas',
+                    status: 'all',
+                    search: '',
+                    onlyFavorites: false,
+                    sortBy: 'date_asc'
+                  })}
+                  className="px-5 py-2.5 bg-orange-600 hover:bg-orange-500 text-white rounded-xl text-xs sm:text-sm font-bold transition cursor-pointer shadow-md"
+                >
+                  Ver Todas as Provas
+                </button>
+              </div>
+            )}
+          </>
         )}
 
         {/* 5. Seção de Monetização & Parcerias */}

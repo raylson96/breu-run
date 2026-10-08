@@ -6,7 +6,6 @@ import {
   MapPin, 
   Clock, 
   Trophy, 
-  CheckCircle, 
   ExternalLink, 
   Share2, 
   FileText,
@@ -88,18 +87,15 @@ export const RaceDetailModal: React.FC<RaceDetailModalProps> = ({
   };
 
   // Itens do Kit Oficial
+  // Itens do Kit Oficial - estritamente extraídos do regulamento oficial (sem inventar itens)
   const kitItemsToDisplay = race.kitItems && race.kitItems.length > 0
     ? race.kitItems.map((item) => ({
         title: item.startsWith('✓') ? item : `✓ ${item}`,
         desc: 'Item oficial garantido no regulamento da prova',
         icon: item.toLowerCase().includes('camis') ? Shirt : item.toLowerCase().includes('chip') || item.toLowerCase().includes('peito') ? ShieldCheck : Award
       }))
-    : [
-        { title: '✓ Número de Peito com Chip de Cronometragem', desc: `Identificação oficial e cronometragem oficial via ${chipBadge.name}`, icon: ShieldCheck },
-        { title: '✓ Camiseta Oficial do Evento', desc: 'Tecido tecnológico dry-fit leve de alta performance', icon: Shirt },
-        { title: '✓ Medalha de Participação Finisher', desc: 'Entregue a todos os atletas concluintes da prova', icon: Award },
-        { title: '✓ Hidratação e Suporte de Percurso', desc: 'Pontos de água durante o trajeto e suporte pós-chegada', icon: CheckCircle }
-      ];
+    : [];
+
 
   // Helper visual para medalhas do pódio geral
   const getPodiumBadgeProps = (index: number) => {
@@ -354,60 +350,101 @@ export const RaceDetailModal: React.FC<RaceDetailModalProps> = ({
           </div>
         </div>
 
-        {/* Bloco 2: QUILOMETRAGENS & VALORES REAIS POR LOTE (Percursos Oficiais) */}
+        {/* Bloco 2: PERCURSOS E DISTÂNCIAS (Escadinha se houver múltiplas distâncias) */}
         <div className="bg-white rounded-3xl p-5 sm:p-7 shadow-sm border border-slate-200/90 space-y-4">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
             <div>
               <h2 className="text-sm sm:text-base font-black uppercase tracking-wider text-slate-900 flex items-center gap-2">
                 <Tag className="w-5 h-5 text-emerald-600 flex-shrink-0" />
-                <span>Quilometragens & Valores Oficiais de Inscrição</span>
+                <span>Percursos, Distâncias & Valores de Inscrição</span>
               </h2>
               <p className="text-xs text-slate-500 mt-0.5">
-                Percursos oficiais e lotes vigentes extraídos diretamente do regulamento da prova
+                {categories.length > 1 
+                  ? 'Exibição em escadinha dos percursos e lotes oficiais extraídos do regulamento'
+                  : 'Distância oficial e lote vigente cadastrado na cronometragem'}
               </p>
             </div>
 
-            {batchCountdown && (
-              <span className="self-start sm:self-auto px-3 py-1 rounded-xl text-xs font-black bg-amber-500 text-slate-950 uppercase tracking-wider shadow-xs">
-                {batchCountdown}
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-slate-500 font-medium">
+                Virada de lote: <strong className="text-slate-800">{race.batchExpirationDate || 'Não há'}</strong>
               </span>
-            )}
+            </div>
           </div>
 
-          <div className="overflow-x-auto rounded-2xl border border-slate-200">
-            <table className="w-full text-left text-xs sm:text-sm">
-              <thead className="bg-slate-900 text-white font-black text-xs uppercase tracking-wider">
-                <tr>
-                  <th className="p-4">Percurso / Distância</th>
-                  <th className="p-4">Lote Vigente / Informações</th>
-                  <th className="p-4 text-right sm:text-left">Valor da Inscrição</th>
-                  {race.priceWithShirt && <th className="p-4 hidden sm:table-cell">Kit c/ Camisa</th>}
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100 bg-white">
-                {categories.map((cat, idx) => (
-                  <tr key={idx} className="hover:bg-orange-50/40 transition">
-                    <td className="p-4 font-black text-slate-900">
-                      <span className="px-3 py-1.5 rounded-xl bg-orange-100 text-orange-950 text-xs sm:text-sm font-black inline-block">
-                        {cat.distance}
-                      </span>
-                    </td>
-                    <td className="p-4 text-slate-700 font-semibold">
-                      {cat.lot_name || race.currentBatch || '1º Lote Oficial'}
-                    </td>
-                    <td className="p-4 font-black text-emerald-800 text-base sm:text-lg text-right sm:text-left">
-                      R$ {cat.price.toFixed(2).replace('.', ',')}
-                    </td>
+          {categories.length > 1 ? (
+            /* Formato Escadinha (Degraus ascendentes de quilometragem) */
+            <div className="space-y-3">
+              {categories.map((cat, idx) => (
+                <div 
+                  key={idx}
+                  className="flex flex-col sm:flex-row sm:items-center justify-between p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-orange-50/50 via-white to-slate-50 border border-orange-100 hover:border-orange-300 transition shadow-2xs gap-3"
+                  style={{ marginLeft: `${Math.min(idx * 8, 24)}px` }}
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="w-8 h-8 rounded-xl bg-orange-600 text-white font-black text-xs flex items-center justify-center shadow-xs flex-shrink-0">
+                      {idx + 1}º
+                    </span>
+                    <div>
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <span className="text-base sm:text-lg font-black text-slate-900">
+                          {cat.distance}
+                        </span>
+                        <span className="px-2.5 py-0.5 rounded-lg text-xs font-bold bg-amber-100 text-amber-950 border border-amber-200">
+                          {cat.lot_name || race.currentBatch || '1º Lote'}
+                        </span>
+                      </div>
+                      <p className="text-[11px] text-slate-500 mt-0.5">
+                        Virada de lote: {race.batchExpirationDate || 'Não há'}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-4 self-end sm:self-auto">
                     {race.priceWithShirt && (
-                      <td className="p-4 font-black text-emerald-950 bg-emerald-50/40 hidden sm:table-cell">
-                        R$ {race.priceWithShirt.toFixed(2).replace('.', ',')}
-                      </td>
+                      <div className="text-right hidden md:block">
+                        <span className="text-[10px] text-slate-400 block uppercase font-bold">c/ Camisa</span>
+                        <span className="text-sm font-black text-slate-700">
+                          R$ {race.priceWithShirt.toFixed(2).replace('.', ',')}
+                        </span>
+                      </div>
                     )}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                    <div className="text-right">
+                      <span className="text-[10px] text-slate-400 block uppercase font-bold">Valor Oficial</span>
+                      <span className="text-lg sm:text-xl font-black text-emerald-700">
+                        R$ {cat.price.toFixed(2).replace('.', ',')}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            /* Distância Única */
+            <div className="p-5 rounded-2xl bg-orange-50/70 border border-orange-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="space-y-1">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-orange-800">Percurso Único</span>
+                <div className="text-xl sm:text-2xl font-black text-slate-900">
+                  {categories[0]?.distance || race.distances[0] || '5 km'}
+                </div>
+                <div className="flex items-center gap-2 pt-1 flex-wrap">
+                  <span className="px-2.5 py-0.5 rounded-lg text-xs font-bold bg-amber-100 text-amber-950 border border-amber-200">
+                    {categories[0]?.lot_name || race.currentBatch || '1º Lote Oficial'}
+                  </span>
+                  <span className="text-xs text-slate-500 font-medium">
+                    Virada de lote: <strong className="text-slate-700">{race.batchExpirationDate || 'Não há'}</strong>
+                  </span>
+                </div>
+              </div>
+
+              <div className="text-left sm:text-right">
+                <span className="text-[10px] text-slate-500 uppercase font-bold block">Valor da Inscrição</span>
+                <span className="text-2xl sm:text-3xl font-black text-emerald-800">
+                  R$ {(categories[0]?.price || basePrice).toFixed(2).replace('.', ',')}
+                </span>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Bloco 3: KIT DO ATLETA OFICIAL VERIFICADO (Conforme Regulamento) */}
@@ -418,30 +455,36 @@ export const RaceDetailModal: React.FC<RaceDetailModalProps> = ({
               <span>Kit do Atleta Oficial (Conforme Regulamento)</span>
             </h2>
             <p className="text-xs text-slate-500 mt-0.5">
-              Itens oficiais que compõem o kit do atleta entregue pela organização
+              Itens oficiais extraídos estritamente do regulamento oficial da prova
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3.5">
-            {kitItemsToDisplay.map((item, idx) => {
-              const Icon = item.icon;
-              return (
-                <div key={idx} className="flex items-start gap-3.5 p-4 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-orange-200 transition">
-                  <div className="w-10 h-10 rounded-xl bg-orange-500/10 text-orange-600 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Icon className="w-5 h-5" />
+          {kitItemsToDisplay.length > 0 ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3.5">
+              {kitItemsToDisplay.map((item, idx) => {
+                const Icon = item.icon;
+                return (
+                  <div key={idx} className="flex items-start gap-3.5 p-4 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-orange-200 transition">
+                    <div className="w-10 h-10 rounded-xl bg-orange-500/10 text-orange-600 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-xs sm:text-sm text-slate-900">
+                        {item.title}
+                      </h4>
+                      <p className="text-[11px] text-slate-500 leading-relaxed mt-0.5">
+                        {item.desc}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="font-bold text-xs sm:text-sm text-slate-900">
-                      {item.title}
-                    </h4>
-                    <p className="text-[11px] text-slate-500 leading-relaxed mt-0.5">
-                      {item.desc}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+                );
+              })}
+            </div>
+          ) : (
+            <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 text-slate-500 text-xs sm:text-sm font-bold">
+              Não há
+            </div>
+          )}
         </div>
 
         {/* Bloco 4: PREMIAÇÃO & PÓDIO OFICIAL (Conforme Regulamento da Prova) */}
@@ -536,17 +579,21 @@ export const RaceDetailModal: React.FC<RaceDetailModalProps> = ({
                 );
               })}
             </div>
-          ) : (
-            /* Fallback com extração do texto */
+          ) : race.awardsInfo ? (
+            /* Fallback com texto do regulamento */
             <div className="p-4 bg-white rounded-2xl border border-amber-200 text-slate-800 text-xs sm:text-sm space-y-2">
               <p className="font-bold text-amber-950">
-                {race.awardsInfo || 'Troféus para os primeiros colocados e medalhas de participação para todos os atletas concluintes conforme regulamento oficial.'}
+                {race.awardsInfo}
               </p>
+            </div>
+          ) : (
+            <div className="p-4 rounded-2xl bg-amber-50/80 border border-amber-200 text-amber-900 font-bold text-xs sm:text-sm">
+              Não há
             </div>
           )}
 
           {/* Texto Oficial das Regras e Regulamento Completo */}
-          {race.awardsInfo && (
+          {race.awardsInfo && race.awardGroups && race.awardGroups.length > 0 && (
             <div className="p-4 sm:p-5 bg-amber-100/60 rounded-2xl border border-amber-200 text-amber-950 text-xs leading-relaxed space-y-1">
               <div className="flex items-center gap-1.5 font-black text-amber-900 uppercase tracking-wider text-[11px]">
                 <FileText className="w-3.5 h-3.5 text-amber-700" />
@@ -559,7 +606,7 @@ export const RaceDetailModal: React.FC<RaceDetailModalProps> = ({
           )}
         </div>
 
-        {/* Bloco 5: DATA, HORÁRIO E LOCAL DE LARGADA */}
+        {/* Bloco 5: DATA, HORÁRIO E LOCAL DE CONCENTRAÇÃO */}
         <div className="bg-white rounded-3xl p-5 sm:p-7 shadow-sm border border-slate-200/90 space-y-4">
           <h2 className="text-xs sm:text-sm font-black uppercase tracking-wider text-slate-400 flex items-center gap-2">
             <Calendar className="w-4 h-4 text-orange-500" />
@@ -572,11 +619,11 @@ export const RaceDetailModal: React.FC<RaceDetailModalProps> = ({
                 Data do Evento
               </span>
               <div className="text-lg sm:text-xl font-black text-slate-900">
-                {formattedFullDate}
+                {race.date ? formattedFullDate : 'Não há'}
               </div>
               <div className="text-xs text-orange-950 font-bold flex items-center gap-1.5 pt-1">
                 <Clock className="w-4 h-4 text-orange-600" />
-                <span>Largada pontual às {race.time}h</span>
+                <span>{race.time ? `Largada pontual às ${race.time}h` : 'Não há'}</span>
               </div>
             </div>
 
@@ -585,20 +632,22 @@ export const RaceDetailModal: React.FC<RaceDetailModalProps> = ({
                 Local de Concentração
               </span>
               <div className="text-base sm:text-lg font-extrabold text-slate-900 leading-snug">
-                {race.location}
+                {race.location || 'Não há'}
               </div>
               <div className="text-xs text-slate-600 font-semibold">
-                {race.city}, Pará
+                {race.city ? `${race.city}, Pará` : 'Não há'}
               </div>
-              <a
-                href={getMapsUrl()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-orange-600 hover:text-orange-700 hover:underline pt-1.5"
-              >
-                <MapPin className="w-3.5 h-3.5 text-rose-500" />
-                <span>Abrir rota no Google Maps ↗</span>
-              </a>
+              {race.location && race.location !== 'Não há' && (
+                <a
+                  href={getMapsUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-orange-600 hover:text-orange-700 hover:underline pt-1.5"
+                >
+                  <MapPin className="w-3.5 h-3.5 text-rose-500" />
+                  <span>Abrir rota no Google Maps ↗</span>
+                </a>
+              )}
             </div>
           </div>
         </div>

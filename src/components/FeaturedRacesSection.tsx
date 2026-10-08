@@ -9,10 +9,9 @@ import {
   Star
 } from 'lucide-react';
 import { 
-  formatDecimalDistance, 
   getTimingChipBadge, 
   calculateDaysLeft, 
-  getBasePrice 
+  getRaceCategories 
 } from '../utils/raceFormatters';
 import { DynamicRaceBanner } from './DynamicRaceBanner';
 
@@ -29,11 +28,11 @@ export const FeaturedRacesSection: React.FC<FeaturedRacesSectionProps> = ({
   onSelectRace,
   onToggleFeatured
 }) => {
-  // Provas marcadas como featured ou fallback para as primeiras com inscrições abertas/confirmadas
-  const manuallyFeatured = races.filter((r) => r.featured);
+  // Provas marcadas como featured ou fallback para todas com inscrições abertas/confirmadas (sem limite fixo)
+  const manuallyFeatured = races.filter((r) => r.featured && r.status !== 'finished');
   const displayRaces = manuallyFeatured.length > 0 
     ? manuallyFeatured 
-    : races.filter((r) => r.status === 'open' || r.status === 'closing_soon' || r.status === 'confirmed').slice(0, 5);
+    : races.filter((r) => r.status === 'open' || r.status === 'closing_soon' || r.status === 'confirmed');
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
@@ -58,7 +57,7 @@ export const FeaturedRacesSection: React.FC<FeaturedRacesSectionProps> = ({
   const currentRace = displayRaces[currentIndex] || displayRaces[0];
   const chipBadge = getTimingChipBadge(currentRace.chipCompany);
   const daysLeft = calculateDaysLeft(currentRace.date);
-  const basePrice = getBasePrice(currentRace);
+  const categories = getRaceCategories(currentRace);
 
   const formatDate = (dateStr: string) => {
     const [, month, day] = (dateStr || '2026-05-15').split('-');
@@ -72,6 +71,15 @@ export const FeaturedRacesSection: React.FC<FeaturedRacesSectionProps> = ({
 
   const handleNext = () => {
     setCurrentIndex((prev) => (prev + 1) % displayRaces.length);
+  };
+
+  // Clique no card principal inteiro funciona como link direto para 'Inscrever-se'
+  const handleCardClick = () => {
+    if (currentRace.registrationUrl) {
+      window.open(currentRace.registrationUrl, '_blank', 'noopener,noreferrer');
+    } else {
+      onSelectRace(currentRace);
+    }
   };
 
   // Suporte a swipe tátil no mobile
@@ -124,7 +132,11 @@ export const FeaturedRacesSection: React.FC<FeaturedRacesSectionProps> = ({
       onMouseUp={handleMouseUp}
     >
       {/* 1. Modo Teatro Panorâmico (w-full 100%, altura controlada sem setas invasivas) */}
-      <div className="relative w-full h-56 sm:h-72 md:h-80 lg:h-96 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl bg-slate-950 border border-slate-800 group cursor-grab active:cursor-grabbing">
+      <div 
+        onClick={handleCardClick}
+        className="relative w-full h-56 sm:h-72 md:h-80 lg:h-96 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl bg-slate-950 border border-slate-800 group cursor-pointer"
+        title="Clique para ir direto à inscrição oficial"
+      >
         
         {/* Renderiza imagem real ou Fallback Dinâmico Esportivo caso não exista arte oficial */}
         {currentRace.bannerUrl || currentRace.imageUrl ? (
@@ -164,10 +176,7 @@ export const FeaturedRacesSection: React.FC<FeaturedRacesSectionProps> = ({
         </div>
 
         {/* Conteúdo Principal do Slide Panorâmico */}
-        <div 
-          onClick={() => onSelectRace(currentRace)}
-          className="relative z-20 h-full flex flex-col justify-between p-4 sm:p-6 md:p-8 max-w-3xl pointer-events-auto cursor-pointer"
-        >
+        <div className="relative z-20 h-full flex flex-col justify-between p-4 sm:p-6 md:p-8 max-w-4xl pointer-events-auto">
           {/* Top Tags: Selo do Chip Oficial + Em Evidência + Contagem Regressiva */}
           <div className="flex flex-wrap items-center gap-2">
             <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl text-[10px] sm:text-[11px] font-black bg-gradient-to-r from-orange-500 to-amber-500 text-slate-950 uppercase tracking-wider shadow-sm">
@@ -184,13 +193,13 @@ export const FeaturedRacesSection: React.FC<FeaturedRacesSectionProps> = ({
             {daysLeft > 0 && (
               <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl text-[10px] sm:text-[11px] font-bold bg-slate-900/90 text-orange-300 border border-slate-700/80 backdrop-blur-md">
                 <Timer className="w-3 h-3 text-amber-400" />
-                <span>{daysLeft} dias para a prova</span>
+                <span>Faltam {daysLeft} dias para a prova</span>
               </span>
             )}
           </div>
 
-          {/* Centro: Título, Data, Local e Distâncias */}
-          <div className="space-y-1.5 sm:space-y-2 my-auto py-1">
+          {/* Centro: Título, Data, Local e Distâncias com Valores Detalhados */}
+          <div className="space-y-2 sm:space-y-2.5 my-auto py-1">
             <h2 
               className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-black text-white leading-tight tracking-tight hover:text-orange-400 transition line-clamp-2 drop-shadow-md"
             >
@@ -212,43 +221,45 @@ export const FeaturedRacesSection: React.FC<FeaturedRacesSectionProps> = ({
               </div>
             </div>
 
-            {/* Percursos Tags com formato decimal exato */}
-            <div className="flex flex-wrap items-center gap-1.5 pt-1">
-              {currentRace.distances.map((dist, idx) => (
+            {/* Quilometragem e valor: detalhar cada percurso com seu respectivo valor */}
+            <div className="flex flex-wrap items-center gap-2 pt-1">
+              {categories.map((cat, idx) => (
                 <span
                   key={idx}
-                  className="bg-slate-900/90 text-orange-300 text-[10px] sm:text-xs font-black px-2.5 py-0.5 rounded-lg border border-slate-700/90 backdrop-blur-sm"
+                  className="bg-slate-900/90 text-white text-[11px] sm:text-xs font-black px-3 py-1 rounded-xl border border-slate-700/90 backdrop-blur-md shadow-xs flex items-center gap-1.5"
                 >
-                  {formatDecimalDistance(dist)}
+                  <span className="text-orange-300">{cat.distance}:</span>
+                  <span className="text-emerald-400">R$ {cat.price.toFixed(2).replace('.', ',')}</span>
                 </span>
               ))}
 
               {currentRace.organizer && (
-                <span className="text-[11px] text-slate-400 hidden md:inline ml-2">
+                <span className="text-[11px] text-slate-400 hidden lg:inline ml-2">
                   Org: <strong className="text-slate-300">{currentRace.organizer}</strong>
                 </span>
               )}
             </div>
           </div>
 
-          {/* Rodapé do Banner: Preço e Bullets de Navegação (Sem botão de inscrição) */}
+          {/* Rodapé do Banner: Chamada para Inscrição e Bullets de Navegação */}
           <div className="flex items-center justify-between gap-3 pt-2 border-t border-slate-800/80">
-            {/* Informações de Preço Base */}
-            <div>
-              <div className="flex items-baseline gap-1.5">
-                <span className="text-[10px] sm:text-xs text-slate-400 uppercase font-semibold">A partir de</span>
-                <span className="text-base sm:text-xl font-black text-white">
-                  R$ {basePrice.toFixed(2).replace('.', ',')}
-                </span>
-                <span className="text-[10px] text-amber-400/90 font-medium ml-1">
-                  • {currentRace.currentBatch || '1º Lote'}
-                </span>
-              </div>
+            {/* Informações de Inscrição Oficial */}
+            <div className="flex items-center gap-2">
+              <span className="text-xs sm:text-sm font-black text-orange-400 flex items-center gap-1">
+                <span>Inscrever-se no site oficial</span>
+                <span>↗</span>
+              </span>
+              <span className="text-[10px] text-slate-400 hidden sm:inline">
+                • {currentRace.currentBatch || '1º Lote'}
+              </span>
             </div>
 
             {/* Paginação por Bullets integrada no rodapé à direita */}
             {displayRaces.length > 1 && (
-              <div className="flex items-center gap-1.5 bg-slate-950/70 px-2.5 py-1.5 rounded-full border border-white/10 backdrop-blur-md">
+              <div 
+                className="flex items-center gap-1.5 bg-slate-950/70 px-2.5 py-1.5 rounded-full border border-white/10 backdrop-blur-md"
+                onClick={(e) => e.stopPropagation()}
+              >
                 {displayRaces.map((_, idx) => (
                   <button
                     key={idx}
@@ -272,3 +283,4 @@ export const FeaturedRacesSection: React.FC<FeaturedRacesSectionProps> = ({
     </div>
   );
 };
+

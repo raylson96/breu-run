@@ -12,8 +12,8 @@ import {
 } from 'lucide-react';
 import { 
   getTimingChipBadge, 
-  getBatchCountdownTag, 
-  getRaceCategories
+  getRaceCategories,
+  calculateDaysLeft
 } from '../utils/raceFormatters';
 import { DynamicRaceBanner } from './DynamicRaceBanner';
 
@@ -41,11 +41,12 @@ export const RaceCard: React.FC<RaceCardProps> = ({
   const formattedDate = `${dayStr} de ${months[parseInt(monthStr, 10) - 1]}`;
 
   const chipBadge = getTimingChipBadge(race.chipCompany);
-  const batchCountdown = getBatchCountdownTag(race);
+  const daysLeft = calculateDaysLeft(race.date);
   const categories = getRaceCategories(race);
 
   return (
     <div 
+
       onClick={() => onSelectRace(race)}
       className={`flex flex-col h-full w-full max-w-sm sm:max-w-none mx-auto bg-white rounded-2xl border transition-all duration-200 shadow-sm hover:shadow-md overflow-hidden group cursor-pointer relative ${
         race.featured ? 'border-orange-300 ring-2 ring-orange-200/70' : 'border-slate-100'
@@ -111,18 +112,19 @@ export const RaceCard: React.FC<RaceCardProps> = ({
           </button>
         </div>
 
-        {/* Data da Prova no Canto Inferior Esquerdo da Imagem */}
-        <div className="absolute bottom-2.5 left-3 z-10 flex items-center gap-1.5 text-white font-bold text-xs drop-shadow-md">
-          <Calendar className="w-3.5 h-3.5 text-orange-400" />
-          <span>{formattedDate} • {race.time}h</span>
-        </div>
+        {/* Parte Inferior do Banner: Data e Contagem Regressiva à frente */}
+        <div className="absolute bottom-2.5 left-3 right-3 z-10 flex items-center justify-between gap-1 text-white font-bold text-xs drop-shadow-md">
+          <div className="flex items-center gap-1.5">
+            <Calendar className="w-3.5 h-3.5 text-orange-400 flex-shrink-0" />
+            <span>{formattedDate}</span>
+          </div>
 
-        {/* Tag de Virada de Lote no Canto Inferior Direito da Imagem */}
-        {batchCountdown && (
-          <span className="absolute bottom-2.5 right-3 z-10 font-black text-[10px] bg-amber-500 text-slate-950 px-2.5 py-0.5 rounded-lg shadow-md uppercase tracking-wider">
-            {batchCountdown}
-          </span>
-        )}
+          {daysLeft > 0 && (
+            <span className="text-[10px] sm:text-[11px] font-bold bg-slate-950/80 text-orange-300 px-2 py-0.5 rounded-lg border border-slate-700/80 backdrop-blur-md">
+              Faltando {daysLeft} dias para a corrida
+            </span>
+          )}
+        </div>
       </div>
 
       {/* 2. Corpo do Card */}
@@ -157,20 +159,19 @@ export const RaceCard: React.FC<RaceCardProps> = ({
 
         {/* 3. Rodapé do Card: Lote Vigente e Botão Único */}
         <div className="border-t border-slate-100 pt-3 mt-auto space-y-3">
-          {/* Lote Atual */}
+          {/* Lote Atual: se houver data informada para virada exibe, se não houver não coloca nada */}
           <div className="flex items-center justify-between text-xs">
-            <div className="flex items-center gap-1.5">
+            <div className="flex items-center gap-1.5 flex-wrap">
               <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Lote:</span>
               <span className="text-xs font-black text-amber-900 bg-amber-50 px-2 py-0.5 rounded-md border border-amber-200/80">
                 {categories[0]?.lot_name || race.currentBatch || '1º Lote'}
               </span>
+              {race.batchExpirationDate ? (
+                <span className="text-[10px] sm:text-xs text-slate-600 font-medium">
+                  • até {race.batchExpirationDate}
+                </span>
+              ) : null}
             </div>
-
-            {batchCountdown && (
-              <span className="text-[10px] font-black uppercase tracking-wider text-orange-700 bg-orange-50 px-2 py-0.5 rounded-md border border-orange-200/80">
-                {batchCountdown}
-              </span>
-            )}
           </div>
 
           {/* Botão de Ação ÚNICO (Abre a tela cheia oficial de inscrição) */}

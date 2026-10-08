@@ -44,8 +44,8 @@ export const Header: React.FC<HeaderProps> = ({
                 BREU RUN
               </span>
             </div>
-            <p className="text-slate-400 text-[11px] hidden md:block">
-              Central oficial de chips de corrida • {totalRaces} provas ({openRegistrationsCount} abertas)
+            <p className="text-slate-400 text-[10px] sm:text-xs leading-tight">
+              Central oficial de chips • <span className="text-orange-400 font-bold">{totalRaces}</span> corridas sincronizadas ({openRegistrationsCount} abertas)
             </p>
           </div>
         </div>
